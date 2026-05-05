@@ -824,4 +824,4 @@ if __name__ == '__main__':
     print(f'  Mailgun: {MAILGUN_DOMAIN}  ({MAILGUN_REGION.upper()})')
     print(f'  Tillater CORS fra: {", ".join(ALLOWED_ORIGINS)}')
     print('  Trykk Ctrl+C for å stoppe.\n')
-    HTTPServer(('127.0.0.1', PORT), Handler).serve_forever()
+    HTTPServer(('0.0.0.0', PORT), Handler).serve_forever()
