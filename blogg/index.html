@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Praktiske guider om e-post sikkerhet på norsk: DMARC, SPF, DKIM, MTA-STS, BIMI og mer.">
+<meta name="keywords" content="e-post sikkerhet blogg, dmarc guide, spf guide, dkim guide, e-post sikkerhet norge">
+<meta name="author" content="Micronet">
+<meta name="theme-color" content="#1a202c">
+<link rel="canonical" href="https://data1.no/blogg/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="data1.no">
+<meta property="og:locale" content="nb_NO">
+<meta property="og:url" content="https://data1.no/blogg/">
+<meta property="og:title" content="Blogg om e-post sikkerhet | data1.no">
+<meta property="og:description" content="Praktiske guider om e-post sikkerhet på norsk — DMARC, SPF, DKIM og mer.">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<title>Blogg om e-post sikkerhet | data1.no</title>
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Inter";font-weight:400 900;font-display:optional;src:url(/fonts/inter-latin.woff2)format("woff2");unicode-range:U+0000-00FF}
+@font-face{font-family:"Inter Fallback";src:local("Arial");size-adjust:107.4%;ascent-override:90%;descent-override:22.48%;line-gap-override:0%}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Inter","Inter Fallback",-apple-system,BlinkMacSystemFont,sans-serif;background:#f1f5f9;color:#1e293b;-webkit-font-smoothing:antialiased;line-height:1.6}
+.header{background:#1a202c;padding:14px 28px;display:flex;align-items:center;gap:18px;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.logo{color:#fff;font-size:19px;font-weight:800;text-decoration:none}.logo span{color:#4fd1c5}
+.spacer{flex:1}.nav-link{color:#cbd5e0;text-decoration:none;font-size:14px}.nav-link:hover{color:#fff}
+main{max-width:880px;margin:0 auto;padding:36px 22px 80px}
+.crumbs{font-size:13px;color:#94a3b8;margin-bottom:16px}.crumbs a{color:#0f766e;text-decoration:none}
+h1{font-size:38px;font-weight:900;color:#0f172a;letter-spacing:-.025em;line-height:1.15;margin-bottom:14px}
+.intro{font-size:17px;color:#475569;margin-bottom:36px;max-width:640px}
+.posts{display:grid;gap:18px}
+.post{background:#fff;border-radius:14px;padding:26px 28px;box-shadow:0 1px 3px rgba(0,0,0,.06);transition:transform .15s ease, box-shadow .15s ease;display:block;text-decoration:none;color:inherit}
+.post:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.08)}
+.post-tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#0f766e;background:#ccfbf1;padding:4px 10px;border-radius:999px;margin-bottom:10px}
+.post h2{font-size:22px;font-weight:800;color:#0f172a;letter-spacing:-.015em;margin-bottom:8px}
+.post p{color:#475569;margin-bottom:10px}
+.post-meta{font-size:13px;color:#94a3b8}
+.featured{background:linear-gradient(135deg,#0f172a,#1a2540);color:#fff;border-radius:16px;padding:30px 32px;margin-bottom:30px;display:block;text-decoration:none}
+.featured:hover{transform:translateY(-2px)}
+.featured .post-tag{background:#14b8a6;color:#fff}
+.featured h2{color:#fff;font-size:26px;margin-bottom:8px}
+.featured p{color:#cbd5e0;margin-bottom:10px}
+.featured .post-meta{color:#94a3b8}
+@media(max-width:640px){h1{font-size:28px}main{padding:24px 16px 60px}.post{padding:20px 22px}.featured{padding:24px}}
+</style>
+</head>
+<body>
+<header class="header">
+  <a href="/" class="logo">data1<span>.no</span></a>
+  <div class="spacer"></div>
+  <a href="/" class="nav-link">Sjekk eget domene →</a>
+</header>
+<main>
+  <nav class="crumbs"><a href="/">Hjem</a> › Blogg</nav>
+  <h1>Blogg om e-post sikkerhet</h1>
+  <p class="intro">Praktiske guider på norsk om hvordan du beskytter e-post-domenet ditt mot phishing, spoofing og misbruk. Fra grunnleggende oppsett til avansert konfigurasjon.</p>
+
+  <a href="/rapport-2026/" class="featured">
+    <span class="post-tag">Live rapport</span>
+    <h2>Norges 100 største nettsteder — e-post sikkerhetsrapport 2026</h2>
+    <p>Hvor mange av Norges største nettsteder har riktig DMARC, SPF og DKIM? Live oppdatert analyse i nettleseren din.</p>
+    <div class="post-meta">Oppdatert 7. mai 2026</div>
+  </a>
+
+  <div class="posts">
+    <a href="/blogg/dmarc/" class="post">
+      <span class="post-tag">DMARC</span>
+      <h2>DMARC forklart: Slik beskytter du domenet mot phishing</h2>
+      <p>DMARC er paraplyen som binder SPF og DKIM sammen. Lær hvordan du går fra p=none til p=reject uten å miste viktig e-post.</p>
+      <div class="post-meta">7. mai 2026 · 7 min lesetid</div>
+    </a>
+    <a href="/blogg/spf/" class="post">
+      <span class="post-tag">SPF</span>
+      <h2>SPF: Slik beskytter du domenet mot e-post-spoofing</h2>
+      <p>SPF er ditt første forsvar. Lær oppsett, mekanismer og de 7 vanligste feilene som ødelegger leveringsdyktigheten.</p>
+      <div class="post-meta">7. mai 2026 · 6 min lesetid</div>
+    </a>
+    <a href="/blogg/dkim/" class="post">
+      <span class="post-tag">DKIM</span>
+      <h2>DKIM forklart: Digital signatur for e-post</h2>
+      <p>DKIM beviser at e-posten din faktisk kommer fra deg og at innholdet ikke er endret. Slik fungerer det og slik tester du oppsettet.</p>
+      <div class="post-meta">7. mai 2026 · 6 min lesetid</div>
+    </a>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SPF (Sender Policy Framework) er ditt første forsvar mot e-post-spoofing. Lær hvordan det fungerer, hvordan du setter det opp, og 7 vanlige feil som ødelegger leveringsdyktigheten.">
+<meta name="keywords" content="spf, spf record, sender policy framework, spf oppsett, spf test, e-post spoofing, spf norge">
+<meta name="author" content="Micronet">
+<meta name="theme-color" content="#1a202c">
+<link rel="canonical" href="https://data1.no/blogg/spf/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="data1.no">
+<meta property="og:locale" content="nb_NO">
+<meta property="og:url" content="https://data1.no/blogg/spf/">
+<meta property="og:title" content="SPF: Slik beskytter du domenet mot e-post-spoofing">
+<meta property="og:description" content="SPF er ditt første forsvar mot at noen sender e-post i ditt navn. Lær hvordan du setter det opp riktig — uten å ødelegge leveringsdyktigheten.">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SPF: Slik beskytter du domenet mot e-post-spoofing">
+<meta name="twitter:image" content="https://data1.no/og-image.png">
+<title>SPF: Slik beskytter du domenet mot e-post-spoofing | data1.no</title>
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Inter";font-weight:400 900;font-display:optional;src:url(/fonts/inter-latin.woff2)format("woff2");unicode-range:U+0000-00FF}
+@font-face{font-family:"Inter Fallback";src:local("Arial");size-adjust:107.4%;ascent-override:90%;descent-override:22.48%;line-gap-override:0%}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Inter","Inter Fallback",-apple-system,BlinkMacSystemFont,sans-serif;background:#f1f5f9;color:#1e293b;-webkit-font-smoothing:antialiased;line-height:1.65}
+.header{background:#1a202c;padding:14px 28px;display:flex;align-items:center;gap:18px;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.logo{color:#fff;font-size:19px;font-weight:800;text-decoration:none}.logo span{color:#4fd1c5}
+.spacer{flex:1}.nav-link{color:#cbd5e0;text-decoration:none;font-size:14px}.nav-link:hover{color:#fff}
+main{max-width:760px;margin:0 auto;padding:36px 22px 80px}
+.crumbs{font-size:13px;color:#94a3b8;margin-bottom:16px}.crumbs a{color:#0f766e;text-decoration:none}
+.meta{font-size:13px;color:#64748b;margin-bottom:22px}
+h1{font-size:38px;font-weight:900;color:#0f172a;letter-spacing:-.025em;line-height:1.15;margin-bottom:16px}
+h2{font-size:24px;font-weight:800;color:#0f172a;letter-spacing:-.015em;margin:36px 0 12px}
+h3{font-size:18px;font-weight:700;color:#0f172a;margin:24px 0 8px}
+p{margin-bottom:16px;color:#334155}
+ul,ol{margin:0 0 16px 22px;color:#334155}
+li{margin-bottom:6px}
+strong{color:#0f172a}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;background:#f1f5f9;padding:2px 6px;border-radius:4px;color:#0f172a}
+pre{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13.5px;background:#0f172a;color:#e2e8f0;padding:16px 18px;border-radius:10px;overflow-x:auto;line-height:1.6;margin:16px 0}
+pre code{background:none;color:inherit;padding:0}
+.lead{font-size:18px;color:#475569;margin-bottom:28px}
+.callout{background:#fff;border-left:4px solid #14b8a6;border-radius:8px;padding:18px 22px;margin:22px 0;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.callout strong{color:#0f766e}
+.warn{background:#fff7ed;border-left-color:#ea580c}.warn strong{color:#c2410c}
+.cta-box{background:linear-gradient(135deg,#0f172a 0%,#1a2540 100%);color:#fff;border-radius:14px;padding:26px 28px;margin:30px 0;text-align:center}
+.cta-box h3{color:#fff;margin:0 0 8px}.cta-box p{color:#94a3b8;margin-bottom:14px}
+.cta-box a{display:inline-block;padding:11px 22px;background:#14b8a6;color:#fff;border-radius:999px;text-decoration:none;font-weight:700}
+.cta-box a:hover{background:#0d9488}
+.toc{background:#fff;border-radius:10px;padding:20px 24px;margin:28px 0;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.toc h2{font-size:14px;text-transform:uppercase;letter-spacing:.05em;color:#475569;margin:0 0 10px;font-weight:700}
+.toc ol{margin:0 0 0 18px}
+.toc a{color:#0f766e;text-decoration:none}.toc a:hover{text-decoration:underline}
+.author-card{background:#fff;border-radius:12px;padding:22px 24px;margin-top:40px;display:flex;align-items:center;gap:16px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.author-name{font-weight:700;color:#0f172a}.author-meta{font-size:13px;color:#64748b}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}
+th{background:#f1f5f9;padding:10px 12px;text-align:left;font-weight:700;border-bottom:1px solid #e2e8f0}
+td{padding:10px 12px;border-bottom:1px solid #f1f5f9}
+@media(max-width:640px){h1{font-size:28px}h2{font-size:20px}main{padding:24px 16px 60px}}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"SPF: Slik beskytter du domenet mot e-post-spoofing","datePublished":"2026-05-07","dateModified":"2026-05-07","author":{"@type":"Organization","name":"Micronet","url":"https://micronet.no/"},"publisher":{"@type":"Organization","name":"data1.no","logo":{"@type":"ImageObject","url":"https://data1.no/og-image.png"}},"description":"SPF (Sender Policy Framework) er ditt første forsvar mot e-post-spoofing.","image":"https://data1.no/og-image.png","mainEntityOfPage":"https://data1.no/blogg/spf/","inLanguage":"nb-NO"}</script>
+</head>
+<body>
+<header class="header">
+  <a href="/" class="logo">data1<span>.no</span></a>
+  <div class="spacer"></div>
+  <a href="/" class="nav-link">Sjekk eget domene →</a>
+</header>
+<main>
+  <nav class="crumbs"><a href="/">Hjem</a> › <a href="/blogg/">Blogg</a> › SPF</nav>
+  <h1>SPF: Slik beskytter du domenet mot e-post-spoofing</h1>
+  <p class="meta">Publisert 7. mai 2026 · Av Micronet · 6 min lesetid</p>
+  <p class="lead">SPF (Sender Policy Framework) er den eldste og enkleste byggesteinen i moderne e-postsikkerhet. Hvis SPF-recorden din er feil eller mangler, kan hvem som helst sende e-post i ditt navn — og dine egne legitime e-poster havner i spam-mappa.</p>
+
+  <div class="toc">
+    <h2>Innhold</h2>
+    <ol>
+      <li><a href="#hva">Hva er SPF?</a></li>
+      <li><a href="#hvordan">Slik fungerer SPF</a></li>
+      <li><a href="#oppsett">Oppsett — eksempler for vanlige leverandører</a></li>
+      <li><a href="#mekanismer">Forklaring av SPF-mekanismer</a></li>
+      <li><a href="#all">-all, ~all eller +all?</a></li>
+      <li><a href="#feil">7 vanlige SPF-feil</a></li>
+      <li><a href="#sjekk">Hvordan teste SPF</a></li>
+    </ol>
+  </div>
+
+  <h2 id="hva">1. Hva er SPF?</h2>
+  <p>SPF står for <strong>Sender Policy Framework</strong> og ble standardisert i 2006 (RFC 4408, oppdatert i 2014 i RFC 7208). Det er en TXT-record i DNS-en din som lister opp alle servere som har tillatelse til å sende e-post på vegne av domenet ditt.</p>
+  <p>Eksempel på en SPF-record:</p>
+  <pre><code>v=spf1 include:spf.protection.outlook.com -all</code></pre>
+  <p>Dette betyr: «Bare Outlook/Microsoft 365-servere får sende e-post fra dittfirma.no — alt annet skal avvises.»</p>
+
+  <h2 id="hvordan">2. Slik fungerer SPF</h2>
+  <p>Når en e-postserver mottar en e-post med <code>fra@dittfirma.no</code>, gjør den følgende:</p>
+  <ol>
+    <li>Henter SPF-recorden fra DNS for <code>dittfirma.no</code>.</li>
+    <li>Sjekker om avsenderens IP-adresse matcher noen av mekanismene i SPF.</li>
+    <li>Hvis ja → SPF pass. Hvis nei → SPF fail/softfail.</li>
+  </ol>
+
+  <p>Resultatet brukes deretter av <a href="/blogg/dmarc/">DMARC</a> til å avgjøre hva som skal skje med meldingen — leveres, settes i karantene eller avvises.</p>
+
+  <h2 id="oppsett">3. Oppsett — eksempler for vanlige leverandører</h2>
+  <p>Her er de vanligste oppsettene for norske bedrifter. Legg til som <strong>TXT-record</strong> på rotnivå (<code>@</code> eller blank navn):</p>
+
+  <h3>Microsoft 365 / Outlook</h3>
+  <pre><code>v=spf1 include:spf.protection.outlook.com -all</code></pre>
+
+  <h3>Google Workspace / Gmail</h3>
+  <pre><code>v=spf1 include:_spf.google.com -all</code></pre>
+
+  <h3>Microsoft 365 + Mailchimp</h3>
+  <pre><code>v=spf1 include:spf.protection.outlook.com include:servers.mcsv.net -all</code></pre>
+
+  <h3>Domeneshop e-post</h3>
+  <pre><code>v=spf1 include:_spf.domeneshop.no -all</code></pre>
+
+  <h3>Egen server (med fast IP)</h3>
+  <pre><code>v=spf1 ip4:185.183.30.17 -all</code></pre>
+
+  <div class="callout warn">
+    <p><strong>Du kan kun ha ÉN SPF-record per domene.</strong> Dette er en av de vanligste feilene. Hvis du legger til en ekstra SPF-record (f.eks. fordi du fikk ny e-postleverandør), vil <em>begge</em> bli ugyldige. Slå sammen alle <code>include:</code>-direktiver i én record.</p>
+  </div>
+
+  <h2 id="mekanismer">4. Forklaring av SPF-mekanismer</h2>
+  <table>
+    <thead><tr><th>Mekanisme</th><th>Betydning</th></tr></thead>
+    <tbody>
+      <tr><td><code>v=spf1</code></td><td>Versjonsdeklarasjon. Må være først.</td></tr>
+      <tr><td><code>include:domene</code></td><td>Inkluder en annen SPF-record (f.eks. fra leverandør).</td></tr>
+      <tr><td><code>ip4:x.x.x.x</code></td><td>Tillat denne IPv4-adressen.</td></tr>
+      <tr><td><code>ip6:::1</code></td><td>Tillat denne IPv6-adressen.</td></tr>
+      <tr><td><code>a</code></td><td>Tillat domenets egen A-record (IP).</td></tr>
+      <tr><td><code>mx</code></td><td>Tillat domenets MX-servere.</td></tr>
+      <tr><td><code>-all</code></td><td>Hard fail — alt annet avvises.</td></tr>
+      <tr><td><code>~all</code></td><td>Soft fail — alt annet markeres som mistenkelig.</td></tr>
+      <tr><td><code>?all</code></td><td>Nøytral — ingen håndhevelse.</td></tr>
+      <tr><td><code>+all</code></td><td><strong>FARLIG</strong> — godta alle. Aldri bruk dette.</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="all">5. -all, ~all eller +all?</h2>
+  <p>Slutten på SPF-recorden bestemmer håndhevelsen:</p>
+  <ul>
+    <li><strong>-all</strong> (hard fail): «Alle andre er ulovlige avsendere.» Anbefales — men krever at du har alle legitime avsendere i SPF.</li>
+    <li><strong>~all</strong> (soft fail): «Alle andre er mistenkelige.» Brukes ofte i overgangsfasen mens man tester.</li>
+    <li><strong>?all</strong> (neutral): Ingen tydelig policy. <em>Ikke anbefalt</em> — gir ingen reell beskyttelse.</li>
+    <li><strong>+all</strong>: «Alle får sende.» <strong>Aldri bruk dette</strong> — det åpner for full e-post-spoofing av domenet ditt.</li>
+  </ul>
+
+  <p>Vi ser dessverre at flere norske bedrifter har <code>+all</code> ved en feil — sjekk din SPF nå med <a href="/?utm_source=blog&utm_medium=spf">data1.no</a>.</p>
+
+  <h2 id="feil">6. 7 vanlige SPF-feil</h2>
+  <ol>
+    <li><strong>Mer enn 10 DNS-oppslag.</strong> SPF har en hard grense på 10 lookups. Hver <code>include:</code> teller. Når du går over, blir hele SPF-recorden ugyldig (PermError). Bruk SPF-flattening (f.eks. fra Mailgun eller en tjeneste som Easymail) for å løse dette.</li>
+    <li><strong>To SPF-records på samme domene.</strong> Begge blir ugyldige. Slå dem sammen til én.</li>
+    <li><strong>Manglende -all/~all.</strong> Uten dette er SPF i praksis tom — alle får sende.</li>
+    <li><strong>Glemte include for en sub-leverandør.</strong> Hvis du bruker Mailchimp i tillegg til Outlook, må begge være med i SPF.</li>
+    <li><strong>Subdomener uten egen SPF.</strong> <code>nyhetsbrev.dittfirma.no</code> arver ikke SPF fra <code>dittfirma.no</code>.</li>
+    <li><strong>Bruker domenet i Reply-To og glemmer SPF.</strong> Hvis avsender bruker <code>noreply@gmail.com</code> men <code>From:</code> er <code>info@dittfirma.no</code>, må SPF-recorden være på dittfirma.no.</li>
+    <li><strong>Cache-problemer etter endring.</strong> SPF caches lokalt hos mottakere i opptil 4 timer. Vent før du tester.</li>
+  </ol>
+
+  <h2 id="sjekk">7. Hvordan teste SPF</h2>
+  <p>Det enkleste er å bruke <a href="/?utm_source=blog&utm_medium=spf">data1.no</a> som validerer SPF-recorden, teller DNS-oppslag, og forteller deg om <code>-all</code> er satt riktig. Du får svar på 10 sekunder.</p>
+
+  <p>Alternativt kan du bruke <code>dig</code> i terminalen:</p>
+  <pre><code>dig +short TXT dittfirma.no | grep spf1</code></pre>
+
+  <p>Eller på Windows:</p>
+  <pre><code>nslookup -type=TXT dittfirma.no</code></pre>
+
+  <div class="cta-box">
+    <h3>Sjekk SPF-recorden din nå</h3>
+    <p>Få full validering: DNS-oppslag, syntakssjekk og leveringsanbefalinger på 10 sekunder.</p>
+    <a href="/?utm_source=blog&utm_medium=spf">Sjekk eget domene →</a>
+  </div>
+
+  <h2>Lese mer</h2>
+  <ul>
+    <li><a href="/blogg/dmarc/">DMARC forklart: Slik beskytter du domenet mot phishing</a></li>
+    <li><a href="/blogg/dkim/">DKIM: Digital signatur for e-post</a></li>
+    <li><a href="/rapport-2026/">Norges 100 største nettsteder — e-post sikkerhetsrapport 2026</a></li>
+  </ul>
+
+  <div class="author-card">
+    <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(140deg,#14b8a6,#0f766e);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:18px">M</div>
+    <div>
+      <div class="author-name">Micronet</div>
+      <div class="author-meta">Norsk IT-konsulenttjeneste — DMARC, e-post sikkerhet og infrastruktur. <a href="https://micronet.no/" style="color:#0f766e;text-decoration:none">micronet.no</a></div>
+    </div>
+  </div>
+</main>
+</body>
+</html>

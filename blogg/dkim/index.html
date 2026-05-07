@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="DKIM (DomainKeys Identified Mail) er den digitale signaturen som beviser at en e-post faktisk kommer fra deg. Lær hvordan det fungerer og hvordan du verifiserer oppsettet.">
+<meta name="keywords" content="dkim, dkim signatur, dkim oppsett, domainkeys, dkim selector, dkim norge, e-post sikkerhet">
+<meta name="author" content="Micronet">
+<meta name="theme-color" content="#1a202c">
+<link rel="canonical" href="https://data1.no/blogg/dkim/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="data1.no">
+<meta property="og:locale" content="nb_NO">
+<meta property="og:url" content="https://data1.no/blogg/dkim/">
+<meta property="og:title" content="DKIM forklart: Digital signatur for e-post">
+<meta property="og:description" content="DKIM beviser at e-posten din faktisk kommer fra deg. Slik fungerer det og slik tester du om det er satt opp riktig.">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DKIM forklart: Digital signatur for e-post">
+<meta name="twitter:image" content="https://data1.no/og-image.png">
+<title>DKIM forklart: Digital signatur for e-post | data1.no</title>
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Inter";font-weight:400 900;font-display:optional;src:url(/fonts/inter-latin.woff2)format("woff2");unicode-range:U+0000-00FF}
+@font-face{font-family:"Inter Fallback";src:local("Arial");size-adjust:107.4%;ascent-override:90%;descent-override:22.48%;line-gap-override:0%}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Inter","Inter Fallback",-apple-system,BlinkMacSystemFont,sans-serif;background:#f1f5f9;color:#1e293b;-webkit-font-smoothing:antialiased;line-height:1.65}
+.header{background:#1a202c;padding:14px 28px;display:flex;align-items:center;gap:18px;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.logo{color:#fff;font-size:19px;font-weight:800;text-decoration:none}.logo span{color:#4fd1c5}
+.spacer{flex:1}.nav-link{color:#cbd5e0;text-decoration:none;font-size:14px}.nav-link:hover{color:#fff}
+main{max-width:760px;margin:0 auto;padding:36px 22px 80px}
+.crumbs{font-size:13px;color:#94a3b8;margin-bottom:16px}.crumbs a{color:#0f766e;text-decoration:none}
+.meta{font-size:13px;color:#64748b;margin-bottom:22px}
+h1{font-size:38px;font-weight:900;color:#0f172a;letter-spacing:-.025em;line-height:1.15;margin-bottom:16px}
+h2{font-size:24px;font-weight:800;color:#0f172a;letter-spacing:-.015em;margin:36px 0 12px}
+h3{font-size:18px;font-weight:700;color:#0f172a;margin:24px 0 8px}
+p{margin-bottom:16px;color:#334155}
+ul,ol{margin:0 0 16px 22px;color:#334155}
+li{margin-bottom:6px}
+strong{color:#0f172a}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;background:#f1f5f9;padding:2px 6px;border-radius:4px;color:#0f172a}
+pre{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13.5px;background:#0f172a;color:#e2e8f0;padding:16px 18px;border-radius:10px;overflow-x:auto;line-height:1.6;margin:16px 0}
+pre code{background:none;color:inherit;padding:0}
+.lead{font-size:18px;color:#475569;margin-bottom:28px}
+.callout{background:#fff;border-left:4px solid #14b8a6;border-radius:8px;padding:18px 22px;margin:22px 0;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.callout strong{color:#0f766e}
+.warn{background:#fff7ed;border-left-color:#ea580c}.warn strong{color:#c2410c}
+.cta-box{background:linear-gradient(135deg,#0f172a 0%,#1a2540 100%);color:#fff;border-radius:14px;padding:26px 28px;margin:30px 0;text-align:center}
+.cta-box h3{color:#fff;margin:0 0 8px}.cta-box p{color:#94a3b8;margin-bottom:14px}
+.cta-box a{display:inline-block;padding:11px 22px;background:#14b8a6;color:#fff;border-radius:999px;text-decoration:none;font-weight:700}
+.cta-box a:hover{background:#0d9488}
+.toc{background:#fff;border-radius:10px;padding:20px 24px;margin:28px 0;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.toc h2{font-size:14px;text-transform:uppercase;letter-spacing:.05em;color:#475569;margin:0 0 10px;font-weight:700}
+.toc ol{margin:0 0 0 18px}
+.toc a{color:#0f766e;text-decoration:none}.toc a:hover{text-decoration:underline}
+.author-card{background:#fff;border-radius:12px;padding:22px 24px;margin-top:40px;display:flex;align-items:center;gap:16px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.author-name{font-weight:700;color:#0f172a}.author-meta{font-size:13px;color:#64748b}
+@media(max-width:640px){h1{font-size:28px}h2{font-size:20px}main{padding:24px 16px 60px}}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"DKIM forklart: Digital signatur for e-post","datePublished":"2026-05-07","dateModified":"2026-05-07","author":{"@type":"Organization","name":"Micronet","url":"https://micronet.no/"},"publisher":{"@type":"Organization","name":"data1.no","logo":{"@type":"ImageObject","url":"https://data1.no/og-image.png"}},"description":"DKIM (DomainKeys Identified Mail) er den digitale signaturen som beviser at en e-post faktisk kommer fra deg.","image":"https://data1.no/og-image.png","mainEntityOfPage":"https://data1.no/blogg/dkim/","inLanguage":"nb-NO"}</script>
+</head>
+<body>
+<header class="header">
+  <a href="/" class="logo">data1<span>.no</span></a>
+  <div class="spacer"></div>
+  <a href="/" class="nav-link">Sjekk eget domene →</a>
+</header>
+<main>
+  <nav class="crumbs"><a href="/">Hjem</a> › <a href="/blogg/">Blogg</a> › DKIM</nav>
+  <h1>DKIM forklart: Digital signatur for e-post</h1>
+  <p class="meta">Publisert 7. mai 2026 · Av Micronet · 6 min lesetid</p>
+  <p class="lead">DKIM er det tredje benet i e-posttreenigheten — sammen med SPF og DMARC. Mens SPF sjekker hvor e-posten kom fra, beviser DKIM at innholdet ikke er endret og at avsenderen virkelig er den de utgir seg for.</p>
+
+  <div class="toc">
+    <h2>Innhold</h2>
+    <ol>
+      <li><a href="#hva">Hva er DKIM?</a></li>
+      <li><a href="#hvordan">Slik fungerer DKIM teknisk</a></li>
+      <li><a href="#oppsett">Oppsett — steg for steg</a></li>
+      <li><a href="#selectors">Hva er en DKIM-selektor?</a></li>
+      <li><a href="#nokler">2048-bit eller 1024-bit nøkkel?</a></li>
+      <li><a href="#feil">5 vanlige DKIM-feil</a></li>
+      <li><a href="#sjekk">Hvordan teste DKIM</a></li>
+    </ol>
+  </div>
+
+  <h2 id="hva">1. Hva er DKIM?</h2>
+  <p>DKIM står for <strong>DomainKeys Identified Mail</strong> og er definert i RFC 6376. Det fungerer som en digital signatur som legges til hver e-post du sender. Mottakerserveren kan verifisere signaturen mot en offentlig nøkkel som ligger i DNS-en din — og dermed bevise at:</p>
+  <ol>
+    <li>E-posten faktisk kom fra deg (autentisering)</li>
+    <li>Innholdet ikke er endret underveis (integritet)</li>
+  </ol>
+  <p>Tenk på det som et signert og forseglet brev. SPF sjekker postnummeret avsenderen kommer fra, men DKIM sjekker selve underskriften.</p>
+
+  <h2 id="hvordan">2. Slik fungerer DKIM teknisk</h2>
+  <p>DKIM bruker asymmetrisk kryptografi (RSA eller Ed25519):</p>
+  <ol>
+    <li>Du har et nøkkelpar — én privat (hemmelig) og én offentlig.</li>
+    <li>Den private nøkkelen ligger på e-postserveren din. Den offentlige ligger som en TXT-record i DNS-en på <code>selektor._domainkey.dittfirma.no</code>.</li>
+    <li>Når du sender en e-post, tar serveren bestemte deler av meldingen (header + body) og signerer dem med privat nøkkel.</li>
+    <li>Signaturen legges til som <code>DKIM-Signature:</code> i e-postens header.</li>
+    <li>Mottakerserveren henter offentlig nøkkel fra DNS, og verifiserer signaturen.</li>
+    <li>Hvis signaturen er gyldig → DKIM pass. Hvis ikke → DKIM fail.</li>
+  </ol>
+
+  <p>En typisk DKIM-DNS-record ser slik ut:</p>
+  <pre><code>selector1._domainkey.dittfirma.no  TXT
+"v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAo..."</code></pre>
+
+  <h2 id="oppsett">3. Oppsett — steg for steg</h2>
+  <p>De fleste e-postleverandører genererer DKIM-nøkler automatisk. Du må bare aktivere det.</p>
+
+  <h3>Microsoft 365 / Outlook</h3>
+  <ol>
+    <li>Gå til <em>Microsoft Defender for Office 365 → E-post & samarbeid → Policyer & regler → Trusler → DKIM</em>.</li>
+    <li>Velg domenet ditt og klikk <strong>Enable</strong>.</li>
+    <li>Microsoft gir deg to CNAME-records (selector1 og selector2). Legg dem inn i DNS-en din.</li>
+    <li>Vent 30 min og slå på DKIM i Microsoft-portalen.</li>
+  </ol>
+
+  <h3>Google Workspace / Gmail</h3>
+  <ol>
+    <li>I Google Admin: <em>Apper → Google Workspace → Gmail → Autentisering</em>.</li>
+    <li>Velg domenet ditt og klikk <strong>Generate new record</strong>.</li>
+    <li>Google gir deg en TXT-record. Legg den inn i DNS.</li>
+    <li>Vent på DNS-propagering, og klikk <strong>Start authentication</strong> i admin-panelet.</li>
+  </ol>
+
+  <h3>Mailchimp / Sendgrid / Mailgun</h3>
+  <p>Disse genererer egne DKIM-nøkler. Du legger inn de TXT- eller CNAME-records de gir deg, og de signerer alle e-poster du sender via tjenesten.</p>
+
+  <div class="callout">
+    <p><strong>Tips:</strong> Hvis du bruker flere leverandører (f.eks. Microsoft 365 til ansatte og Mailchimp til markedsføring), trenger du DKIM-konfigurasjon for <em>begge</em>. Hver leverandør får sin egen selektor.</p>
+  </div>
+
+  <h2 id="selectors">4. Hva er en DKIM-selektor?</h2>
+  <p>Siden du kan ha flere DKIM-nøkler samtidig (én per leverandør), bruker DKIM en <strong>selektor</strong> som peker til riktig nøkkel. Selektoren står i <code>DKIM-Signature</code>-headeren som <code>s=</code>.</p>
+
+  <p>Eksempel:</p>
+  <pre><code>DKIM-Signature: v=1; a=rsa-sha256;
+  d=dittfirma.no; s=selector1;
+  c=relaxed/relaxed; h=From:Subject:Date;
+  bh=...; b=...</code></pre>
+
+  <p>Mottakerserveren leser <code>s=selector1</code> og slår opp <code>selector1._domainkey.dittfirma.no</code> i DNS for å hente den offentlige nøkkelen.</p>
+
+  <p>Vanlige selektor-navn vi ser hos norske bedrifter:</p>
+  <ul>
+    <li><code>selector1</code>, <code>selector2</code> — Microsoft 365</li>
+    <li><code>google</code> — Google Workspace</li>
+    <li><code>k1</code>, <code>k2</code> — Mailchimp</li>
+    <li><code>mxvault</code> — MXroute</li>
+    <li><code>mail</code>, <code>default</code> — generiske/egendefinerte</li>
+  </ul>
+
+  <h2 id="nokler">5. 2048-bit eller 1024-bit nøkkel?</h2>
+  <p>Når du genererer en DKIM-nøkkel kan du velge nøkkellengde. Korte nøkler er raskere men mindre sikre:</p>
+  <ul>
+    <li><strong>1024-bit</strong>: Anses som usikkert i dag. Tunge angripere kan knekke den med tilstrekkelig regnetid.</li>
+    <li><strong>2048-bit</strong>: <em>Anbefalt</em>. Nåværende standard, sikker mot rimelig fremtidig regnekraft.</li>
+    <li><strong>4096-bit</strong>: Maks sikkerhet, men noen DNS-løsninger har problem med så lange TXT-recordene (over 255 byte krever splitting).</li>
+  </ul>
+
+  <p>Hvis du har en gammel nøkkel, generér en ny på 2048-bit og rotér den. Begge kan eksistere samtidig under forskjellige selektorer i en overgangsperiode.</p>
+
+  <h2 id="feil">6. 5 vanlige DKIM-feil</h2>
+  <ol>
+    <li><strong>Brukket linjeskift i DNS-recorden.</strong> DKIM-recordene er lange. Hvis DNS-leverandøren bryter linjen feil eller mangler anførselstegn, blir signaturen ugyldig. Bruk en DKIM-validator (eller <a href="/?utm_source=blog&utm_medium=dkim">data1.no</a>) for å sjekke.</li>
+    <li><strong>Glemt å rotere nøklene.</strong> Best practice er å rotere DKIM-nøkler én gang i året. Mange e-postleverandører gjør dette automatisk — hvis du har kopiert nøkkelen manuelt og glemt rotasjon, blir e-postene plutselig ikke signert.</li>
+    <li><strong>1024-bit gammel nøkkel.</strong> Mange .no-domener har gammel 1024-bit nøkkel som de glemte å oppgradere. Dette flagges som svakt i sikkerhetsverktøy.</li>
+    <li><strong>DKIM-signatur som er for streng.</strong> Hvis du signerer for mange headers og en mellom-server endrer noe, feiler signaturen. Standard-oppsett (<code>h=From:Subject:Date</code>) holder.</li>
+    <li><strong>Mismatch mellom From-domene og DKIM-signatur-domene.</strong> DMARC krever at <code>d=</code> i DKIM-signaturen matcher From-headerens domene (alignment).</li>
+  </ol>
+
+  <h2 id="sjekk">7. Hvordan teste DKIM</h2>
+  <p>Den enkleste måten er å bruke <a href="/?utm_source=blog&utm_medium=dkim">data1.no</a> — vi prøver 30+ vanlige selektor-navn automatisk og forteller deg hvilke som er satt opp, hvor lange nøklene er, og om det er feil.</p>
+
+  <p>Alternativt kan du sjekke manuelt hvis du vet selektor-navnet:</p>
+  <pre><code>dig +short TXT selector1._domainkey.dittfirma.no</code></pre>
+
+  <p>Eller send en test-e-post til <code>check-auth@verifier.port25.com</code> — du får et svar med komplett SPF/DKIM/DMARC-rapport innen sekunder.</p>
+
+  <div class="callout warn">
+    <p><strong>Viktig:</strong> Hvis DKIM ikke vises i data1.no-resultatet, betyr det <em>ikke</em> nødvendigvis at DKIM mangler — bare at du bruker en sjelden selektor. Se i header på en faktisk e-post fra domenet ditt for å finne selektor-navnet.</p>
+  </div>
+
+  <div class="cta-box">
+    <h3>Sjekk DKIM-oppsettet ditt</h3>
+    <p>Vi prøver 30+ selektorer og forteller deg om alt er konfigurert riktig.</p>
+    <a href="/?utm_source=blog&utm_medium=dkim">Sjekk eget domene →</a>
+  </div>
+
+  <h2>Lese mer</h2>
+  <ul>
+    <li><a href="/blogg/dmarc/">DMARC forklart: Slik beskytter du domenet mot phishing</a></li>
+    <li><a href="/blogg/spf/">SPF: Slik beskytter du domenet mot e-post-spoofing</a></li>
+    <li><a href="/rapport-2026/">Norges 100 største nettsteder — e-post sikkerhetsrapport 2026</a></li>
+  </ul>
+
+  <div class="author-card">
+    <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(140deg,#14b8a6,#0f766e);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:18px">M</div>
+    <div>
+      <div class="author-name">Micronet</div>
+      <div class="author-meta">Norsk IT-konsulenttjeneste — DMARC, e-post sikkerhet og infrastruktur. <a href="https://micronet.no/" style="color:#0f766e;text-decoration:none">micronet.no</a></div>
+    </div>
+  </div>
+</main>
+</body>
+</html>
