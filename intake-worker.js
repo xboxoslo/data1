@@ -57,6 +57,12 @@ export default {
         if (!name || !email || !domain) return json({ error: 'Mangler navn/email/domain' }, 400, cors);
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return json({ error: 'Ugyldig e-post' }, 400, cors);
 
+        const clientIp = request.headers.get('CF-Connecting-IP')
+            || (request.headers.get('X-Forwarded-For') || '').split(',')[0].trim()
+            || '';
+        const ts = await verifyTurnstile(body.turnstileToken, clientIp, env);
+        if (!ts.ok) return json({ error: 'Bot-beskyttelse feilet. Last siden på nytt og prøv igjen.' }, 403, cors);
+
         try {
             const [haloResult, mailResult] = await Promise.allSettled([
                 createHaloTicket(body, env),
@@ -73,6 +79,27 @@ export default {
         }
     },
 };
+
+/* ─────── Cloudflare Turnstile ─────── */
+async function verifyTurnstile(token, remoteIp, env) {
+    if (!env.TURNSTILE_SECRET) return { ok: true, reason: 'turnstile-disabled' };
+    if (!token) return { ok: false, reason: 'missing-token' };
+    const form = new URLSearchParams({ secret: env.TURNSTILE_SECRET, response: token });
+    if (remoteIp) form.set('remoteip', remoteIp);
+    try {
+        const r = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: form,
+        });
+        if (!r.ok) return { ok: false, reason: `siteverify-http-${r.status}` };
+        const data = await r.json();
+        if (data.success) return { ok: true, reason: 'ok' };
+        return { ok: false, reason: (data['error-codes'] || ['unknown']).join(',') };
+    } catch (e) {
+        return { ok: false, reason: `siteverify-error-${e.message}` };
+    }
+}
 
 /* ─────── Halo PSA ─────── */
 async function getHaloToken(env) {

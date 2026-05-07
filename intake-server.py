@@ -59,10 +59,14 @@ load_env()
 HALO_CLIENT_ID     = os.environ.get('HALO_CLIENT_ID', '')
 HALO_CLIENT_SECRET = os.environ.get('HALO_CLIENT_SECRET', '')
 MAILGUN_API_KEY    = os.environ.get('MAILGUN_API_KEY', '')
+TURNSTILE_SECRET   = os.environ.get('TURNSTILE_SECRET', '')
 
 for key in ('HALO_CLIENT_ID', 'HALO_CLIENT_SECRET', 'MAILGUN_API_KEY'):
     if not os.environ.get(key):
         print(f'  [WARN] {key} mangler i intake-secrets.env')
+
+if not TURNSTILE_SECRET:
+    print('  [WARN] TURNSTILE_SECRET mangler — Turnstile-verifisering er deaktivert')
 
 _ticket_type_id = None
 
@@ -91,6 +95,30 @@ def http_get(url, headers=None):
             return r.status, r.read().decode('utf-8', errors='replace')
     except urllib.error.HTTPError as e:
         return e.code, e.read().decode('utf-8', errors='replace')
+
+
+def verify_turnstile(token: str, remote_ip: str = '') -> tuple[bool, str]:
+    """Verify a Cloudflare Turnstile token. Returns (ok, reason)."""
+    if not TURNSTILE_SECRET:
+        return True, 'turnstile-disabled'
+    if not token:
+        return False, 'missing-token'
+    payload = {'secret': TURNSTILE_SECRET, 'response': token}
+    if remote_ip:
+        payload['remoteip'] = remote_ip
+    status, text = http_post(
+        'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+        data=payload,
+    )
+    if status != 200:
+        return False, f'siteverify-http-{status}'
+    try:
+        data = json.loads(text)
+    except Exception:
+        return False, 'invalid-response'
+    if data.get('success'):
+        return True, 'ok'
+    return False, ','.join(data.get('error-codes') or ['unknown'])
 
 def multipart_form(fields):
     """Lag multipart/form-data body for Mailgun.
@@ -786,6 +814,14 @@ class Handler(BaseHTTPRequestHandler):
         for f in ('name', 'email', 'domain'):
             if not body.get(f):
                 self._send_json({'error': f'Mangler felt: {f}'}, 400); return
+
+        client_ip = (self.headers.get('CF-Connecting-IP')
+                     or self.headers.get('X-Forwarded-For', '').split(',')[0].strip()
+                     or self.client_address[0])
+        ts_ok, ts_reason = verify_turnstile(body.get('turnstileToken', ''), client_ip)
+        if not ts_ok:
+            print(f'  [BLOCKED] Turnstile failed for {client_ip}: {ts_reason}')
+            self._send_json({'error': 'Bot-beskyttelse feilet. Last siden på nytt og prøv igjen.'}, 403); return
 
         result = {'ok': True}
         try:
