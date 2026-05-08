@@ -25,6 +25,10 @@ Rapportene kan deles offentlig, og brukere kan få en signert sertifikat-badge t
 
 - [Ordbok over e-postsikkerhets-termer](https://data1.no/ordbok/): 25 korte autoritative definisjoner av DMARC, SPF, DKIM, BIMI, MTA-STS, TLS-RPT, alignment, p=reject m.fl. Strukturert som DefinedTermSet schema for AI-sitering.
 
+## Sammenligning med konkurrenter
+
+- [data1.no vs MXToolbox, EasyDMARC, dmarcian, PowerDMARC](https://data1.no/sammenligning/): Ærlig sammenligning av de fem mest brukte DMARC-verktøyene. Inkluderer "når andre er bedre"-seksjon for credibility.
+
 ## Kunnskapsbase (blogg)
 
 - [DMARC forklart fra grunnen](https://data1.no/blogg/dmarc/)

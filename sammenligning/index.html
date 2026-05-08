@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ærlig sammenligning av data1.no, MXToolbox, EasyDMARC, dmarcian og PowerDMARC. Pris, funksjoner, språk og når hvert verktøy passer best.">
+<meta name="keywords" content="data1.no vs mxtoolbox, dmarc verktøy sammenligning, beste dmarc sjekker, easydmarc vs dmarcian, gratis dmarc verktøy">
+<meta name="author" content="Micronet">
+<meta name="theme-color" content="#1a202c">
+<link rel="canonical" href="https://data1.no/sammenligning/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="data1.no">
+<meta property="og:locale" content="nb_NO">
+<meta property="og:url" content="https://data1.no/sammenligning/">
+<meta property="og:title" content="data1.no vs MXToolbox, EasyDMARC, dmarcian — sammenligning">
+<meta property="og:description" content="Ærlig sammenligning av de fem mest brukte DMARC-verktøyene — pris, språk, funksjoner og når hvert er det rette valget.">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>data1.no vs MXToolbox, EasyDMARC, dmarcian | Sammenligning</title>
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/blogg/_assets/post.css">
+<style>
+.cmp-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:18px 0;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.cmp-table th{background:#0f172a;color:#fff;font-weight:700;text-align:left;padding:12px 10px;font-size:12px;letter-spacing:.02em}
+.cmp-table th:first-child{background:#1a2540}
+.cmp-table td{padding:11px 10px;border-bottom:1px solid #f1f5f9;vertical-align:middle}
+.cmp-table tr:last-child td{border-bottom:none}
+.cmp-table tr.us td{background:#f0fdfa;font-weight:600}
+.cmp-table td:first-child{font-weight:600;color:#0f172a;background:#f8fafc}
+.cmp-table tr.us td:first-child{background:#ccfbf1;color:#0f766e}
+.yes{color:#0f766e;font-weight:700}
+.no{color:#dc2626;font-weight:700}
+.partial{color:#c2410c;font-weight:700}
+.cmp-wrap{overflow-x:auto;margin:18px -22px;padding:0 22px}
+.choice-grid{display:grid;grid-template-columns:1fr;gap:14px;margin:20px 0}
+.choice-card{background:#fff;border-radius:12px;padding:18px 22px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.choice-card h3{font-size:17px;color:#0f172a;margin:0 0 6px}
+.choice-card .when{font-size:13px;color:#0f766e;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+.choice-card p{font-size:14px;margin:0}
+.honest{background:#fff7ed;border-left:4px solid #ea580c;border-radius:8px;padding:18px 22px;margin:22px 0}
+.honest strong{color:#c2410c}
+@media(min-width:780px){.choice-grid{grid-template-columns:1fr 1fr}}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"data1.no vs MXToolbox, EasyDMARC, dmarcian — sammenligning","datePublished":"2026-05-08","author":{"@type":"Organization","name":"Micronet","url":"https://micronet.no/"},"publisher":{"@type":"Organization","name":"data1.no","logo":{"@type":"ImageObject","url":"https://data1.no/og-image.png"}},"mainEntityOfPage":"https://data1.no/sammenligning/","inLanguage":"nb-NO","about":[{"@type":"SoftwareApplication","name":"data1.no","url":"https://data1.no/"},{"@type":"SoftwareApplication","name":"MXToolbox","url":"https://mxtoolbox.com/"},{"@type":"SoftwareApplication","name":"EasyDMARC","url":"https://easydmarc.com/"},{"@type":"SoftwareApplication","name":"dmarcian","url":"https://dmarcian.com/"},{"@type":"SoftwareApplication","name":"PowerDMARC","url":"https://powerdmarc.com/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Hvilket DMARC-verktøy er best?","acceptedAnswer":{"@type":"Answer","text":"Det avhenger av hva du trenger. For en rask gratis sjekk uten registrering er data1.no, MXToolbox eller EasyDMARC sin gratis-checker fine valg. For løpende DMARC-overvåking med rapportanalyse er EasyDMARC, dmarcian eller PowerDMARC etablerte tjenester. Norske brukere får mest verdi av data1.no fordi det er bygget for norsk språk og kontekst."}},{"@type":"Question","name":"Trenger jeg å betale for DMARC?","acceptedAnswer":{"@type":"Answer","text":"DMARC-recorden i seg selv er gratis (kun en DNS-record). Det du eventuelt betaler for er aggregering og analyse av XML-rapportene som mottakerne sender deg. EasyDMARC, dmarcian og Postmark har alle gratis tier for små volumer."}},{"@type":"Question","name":"Hvorfor finnes data1.no når MXToolbox og EasyDMARC allerede gjør det samme?","acceptedAnswer":{"@type":"Answer","text":"data1.no er bygget for norske brukere — på norsk, med norsk kontekst (Microsoft 365 / Google Workspace-veiledere som er vanlige i Norge), og uten registrering. Konkurrentene er internasjonale og engelskspråklige; for norske bedrifter som vil ha en rask sjekk uten å lage konto er data1.no et naturlig valg."}}]}</script>
+<script src="/_assets/tracker.js" defer></script>
+</head>
+<body>
+<header class="header">
+  <a href="/" class="logo">data1<span>.no</span></a>
+  <div class="spacer"></div>
+  <a href="/" class="nav-link">Sjekk eget domene →</a>
+</header>
+<main>
+  <nav class="crumbs"><a href="/">Hjem</a> › Sammenligning</nav>
+  <h1>data1.no vs MXToolbox, EasyDMARC, dmarcian</h1>
+  <p class="meta">Sist oppdatert 8. mai 2026 · Av Micronet</p>
+  <p class="lead">Det finnes mange DMARC-verktøy. De er ikke konkurrenter på samme måte — de løser forskjellige problemer. Her er en ærlig sammenligning av når hvert er det rette valget.</p>
+
+  <div class="toc">
+    <h2>Innhold</h2>
+    <ol>
+      <li><a href="#tabell">Funksjons-sammenligning</a></li>
+      <li><a href="#valg">Hvilket verktøy bør du velge?</a></li>
+      <li><a href="#aerlig">Ærlig om data1.no — når andre er bedre</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </div>
+
+  <h2 id="tabell">Funksjons-sammenligning</h2>
+  <p>Tabellen dekker en <em>rask</em> domeneanalyse — ikke løpende DMARC-rapport-overvåking (det er en egen kategori, se under).</p>
+
+  <div class="cmp-wrap">
+  <table class="cmp-table">
+    <thead>
+      <tr>
+        <th>Egenskap</th>
+        <th>data1.no</th>
+        <th>MXToolbox</th>
+        <th>EasyDMARC</th>
+        <th>dmarcian</th>
+        <th>PowerDMARC</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="us"><td>Gratis sjekk</td><td class="yes">Ja</td><td class="yes">Ja</td><td class="yes">Ja</td><td class="partial">Begrenset</td><td class="yes">Ja</td></tr>
+      <tr class="us"><td>Uten registrering</td><td class="yes">Ja</td><td class="no">Nei (lookup-kvote)</td><td class="no">Nei</td><td class="no">Nei</td><td class="no">Nei</td></tr>
+      <tr class="us"><td>Norsk språk</td><td class="yes">Ja</td><td class="no">Nei</td><td class="no">Nei</td><td class="no">Nei</td><td class="no">Nei</td></tr>
+      <tr><td>SPF-sjekk</td><td class="yes">Ja</td><td class="yes">Ja</td><td class="yes">Ja</td><td class="yes">Ja</td><td class="yes">Ja</td></tr>
+      <tr><td>DMARC-sjekk</td><td class="yes">Ja</td><td class="yes">Ja</td><td class="yes">Ja</td><td class="yes">Ja</td><td class="yes">Ja</td></tr>
+      <tr><td>DKIM-sjekk (alle selektorer)</td><td class="yes">Ja</td><td class="partial">Én om gangen</td><td class="yes">Ja</td><td class="yes">Ja</td><td class="yes">Ja</td></tr>
+      <tr><td>MTA-STS</td><td class="yes">Ja</td><td class="yes">Ja</td><td class="partial">Begrenset</td><td class="yes">Ja</td><td class="yes">Ja</td></tr>
+      <tr><td>TLS-RPT</td><td class="yes">Ja</td><td class="partial">Begrenset</td><td class="partial">Begrenset</td><td class="yes">Ja</td><td class="yes">Ja</td></tr>
+      <tr><td>BIMI</td><td class="yes">Ja</td><td class="partial">Begrenset</td><td class="yes">Ja</td><td class="yes">Ja</td><td class="yes">Ja</td></tr>
+      <tr><td>Karakter / score</td><td class="yes">A+ til F</td><td class="no">Nei</td><td class="yes">Ja</td><td class="yes">Ja</td><td class="yes">Ja</td></tr>
+      <tr class="us"><td>Embed-badge</td><td class="yes">Ja</td><td class="no">Nei</td><td class="no">Nei</td><td class="no">Nei</td><td class="no">Nei</td></tr>
+      <tr class="us"><td>Åpen rapport (delbar URL)</td><td class="yes">Ja</td><td class="no">Nei</td><td class="no">Nei</td><td class="no">Nei</td><td class="no">Nei</td></tr>
+      <tr><td>Løpende DMARC-rapporter</td><td class="no">Nei</td><td class="partial">Tillegg</td><td class="yes">Ja</td><td class="yes">Ja</td><td class="yes">Ja</td></tr>
+      <tr><td>Pris (full versjon)</td><td>Gratis</td><td>$129+/mnd</td><td>$30+/mnd</td><td>$200+/mnd</td><td>$10+/mnd</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2 id="valg">Hvilket verktøy bør du velge?</h2>
+
+  <div class="choice-grid">
+    <div class="choice-card">
+      <div class="when">Velg data1.no når</div>
+      <h3>du vil ha en rask norsk sjekk</h3>
+      <p>Du er i Norge, vil ha resultatet på norsk, og trenger en gratis sjekk uten å registrere deg. Spesielt nyttig for IT-konsulenter som skal vise klienten resultatet kjapt, eller for bedrifter som vil dele et åpent resultat (URL eller embed-badge).</p>
+    </div>
+    <div class="choice-card">
+      <div class="when">Velg MXToolbox når</div>
+      <h3>du trenger nettverks-diagnostikk</h3>
+      <p>Etablert verktøy med utvidelser utover DMARC — blacklist-sjekk, MX-oppslag, traceroute, port-scan. Stort merke. Krever konto for full bruk og har lookup-kvote på gratis-versjonen.</p>
+    </div>
+    <div class="choice-card">
+      <div class="when">Velg EasyDMARC når</div>
+      <h3>du vil ha løpende DMARC-monitor</h3>
+      <p>Brukervennlig SaaS for å samle og analysere DMARC-rapporter (rua-XML) over tid. Gratis-tier for små volumer, betalt for større. Bra dashboard.</p>
+    </div>
+    <div class="choice-card">
+      <div class="when">Velg dmarcian når</div>
+      <h3>du har mange domener / enterprise</h3>
+      <p>Premium DMARC-overvåking med best-i-klassen forensikk og rapportering. Dyrere, men brukt av store organisasjoner og myndighets-organer. Eieren av domenet (Tim Draegen) er medforfatter av DMARC-spec.</p>
+    </div>
+    <div class="choice-card">
+      <div class="when">Velg PowerDMARC når</div>
+      <h3>du vil ha billigere monitor</h3>
+      <p>Tilbyr DMARC-rapportering, BIMI-tjenester og MTA-STS-hosting til lavere pris enn EasyDMARC og dmarcian. Mindre etablert, men funksjonsmessig konkurransedyktig.</p>
+    </div>
+    <div class="choice-card">
+      <div class="when">Velg Postmark DMARC når</div>
+      <h3>du bare vil ha rapportene</h3>
+      <p>Postmark har en gratis DMARC-rapport-aggregator (Postmark DMARC) som er minimal men funksjonell. Bra startpunkt før du velger en betalt løsning.</p>
+    </div>
+  </div>
+
+  <h2 id="aerlig">Ærlig om data1.no — når andre er bedre</h2>
+
+  <div class="honest">
+    <p><strong>data1.no er ikke det rette valget hvis:</strong></p>
+    <ul>
+      <li><strong>Du trenger løpende DMARC-rapport-overvåking.</strong> Vi gjør én sjekk per gang. For å samle inn og analysere XML-rapporter over tid trenger du EasyDMARC, dmarcian, PowerDMARC eller Postmark DMARC.</li>
+      <li><strong>Hovedspråket ditt ikke er norsk.</strong> Vi har norsk tekst og norsk kontekst. Engelske brukere får bedre opplevelse hos MXToolbox eller EasyDMARC.</li>
+      <li><strong>Du trenger blacklist-sjekk eller bredere e-post-diagnostikk.</strong> MXToolbox har et bredere verktøykasse for nettverks- og e-post-troubleshooting.</li>
+      <li><strong>Du har mange domener (10+) som skal følges opp.</strong> Vi støtter ikke multi-domain dashboards. Bruk dmarcian eller EasyDMARC.</li>
+    </ul>
+  </div>
+
+  <p>data1.no har én tydelig styrke: <strong>én rask sjekk, gratis, uten registrering, på norsk</strong>. Resten av kategoriene har bedre alternativer.</p>
+
+  <h2 id="faq">FAQ</h2>
+
+  <details class="faq"><summary>Hvilket verktøy er best for små bedrifter i Norge?</summary><p>For en rask sjekk: data1.no. For løpende DMARC-rapportering: EasyDMARC eller PowerDMARC har gratis-tier som dekker små volumer fint. Hvis du har en konsulent (f.eks. Micronet) som setter opp og overvåker, brukes ofte dmarcian eller en kombinasjon.</p></details>
+  <details class="faq"><summary>Kan jeg bruke flere verktøy parallelt?</summary><p>Ja, og det er vanlig. Bruk data1.no for engangs-sjekk og dele-rapport, og en betalt monitor for løpende rapportanalyse. De konflikterer ikke — DMARC-rua-adressen kan inneholde flere mottakere.</p></details>
+  <details class="faq"><summary>Er gratis-versjonene faktisk nok?</summary><p>For en sjekk: ja, alle gratis-verktøyene gir samme rådata. For overvåking over tid: gratis-tier dekker domener under ~50 000 utgående e-poster/mnd hos EasyDMARC og PowerDMARC. Over det blir det betalt.</p></details>
+  <details class="faq"><summary>Hvorfor er MXToolbox så dyrt sammenlignet?</summary><p>MXToolbox sin betalte versjon dekker mer enn DMARC — overvåking av blacklist-status, MX-records, port-tilgjengelighet, og e-post-leveringsdiagnostikk. For ren DMARC er det ofte overkill, men for IT-team som ønsker ett dashboard for all e-post-helse er det fortsatt populært.</p></details>
+
+  <div class="cta-box">
+    <h3>Sjekk ditt eget domene nå</h3>
+    <p>Gratis. Ingen registrering. Karakter A+ til F på 10 sekunder.</p>
+    <a href="/?utm_source=sammenligning">Sjekk eget domene →</a>
+  </div>
+
+  <h2>Lese mer</h2>
+  <ul>
+    <li><a href="/blogg/dmarc/">DMARC forklart fra grunnen</a></li>
+    <li><a href="/blogg/dmarc-microsoft-365/">DMARC i Microsoft 365</a></li>
+    <li><a href="/blogg/dmarc-google-workspace/">DMARC i Google Workspace</a></li>
+    <li><a href="/ordbok/">Ordbok: e-postsikkerhet fra A til Å</a></li>
+    <li><a href="/rapport-2026/">Topp 100 norske domener — sikkerhetsrapport</a></li>
+  </ul>
+
+  <div class="author-card">
+    <div class="author-avatar">M</div>
+    <div>
+      <div class="author-name">Micronet</div>
+      <div class="author-meta">Norsk IT-konsulenttjeneste — DMARC, e-postsikkerhet og infrastruktur. <a href="https://micronet.no/" style="color:#0f766e;text-decoration:none">micronet.no</a></div>
+    </div>
+  </div>
+</main>
+</body>
+</html>
