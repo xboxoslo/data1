@@ -132,7 +132,7 @@ td a:hover{text-decoration:underline}
   <section class="method">
     <h2>Slik er rapporten laget</h2>
     <p><strong>Live data:</strong> Når du laster denne siden, gjør nettleseren din direkte DNS-oppslag mot Cloudflare DoH. Resultatene caches lokalt i 6 timer for å spare båndbredde.</p>
-    <p><strong>Sjekker per domene:</strong> SPF (TXT), DMARC (_dmarc TXT), DKIM (22 vanlige selektorer), MTA-STS (_mta-sts TXT), TLS-RPT (_smtp._tls TXT), BIMI (default._bimi TXT).</p>
+    <p><strong>Sjekker per domene:</strong> SPF (TXT), DMARC (_dmarc TXT), DKIM (14 vanlige selektorer), MTA-STS (_mta-sts TXT), TLS-RPT (_smtp._tls TXT), BIMI (default._bimi TXT).</p>
     <p><strong>Score:</strong> Samme algoritme som hovedverktøyet på data1.no. DMARC p=reject gir 35 poeng, p=quarantine 22, p=none 8. SPF gir 10-25 poeng. DKIM 20, MTA-STS 12, TLS-RPT 5, BIMI 3.</p>
     <p><strong>Disclaimer:</strong> En lav score betyr ikke at e-post fra domenet faktisk er kompromittert — kun at det tekniske sikkerhetslaget ikke er optimalt. DKIM-sjekken bruker 22 vanlige selektor-navn og kan gi falske negativer for selskaper med egendefinerte selektorer.</p>
   </section>
@@ -144,22 +144,22 @@ td a:hover{text-decoration:underline}
 'use strict';
 const DOMAINS = [
   "nrk.no","vg.no","tv2.no","aftenposten.no","dagbladet.no","dn.no","nettavisen.no",
-  "ba.no","bt.no","fvn.no","adressa.no","vl.no","klassekampen.no","nationen.no","morgenbladet.no",
+  "ba.no","bt.no","fvn.no","adressa.no","vl.no","klassekampen.no","nationen.no",
   "dnb.no","nordea.no","sbanken.no","sparebank1.no","handelsbanken.no","danskebank.no","storebrand.no","obos.no",
   "telenor.no","telia.no","ice.no","altibox.no","get.no","onecall.no",
   "elkjop.no","komplett.no","power.no","kiwi.no","meny.no","obs.no","europris.no","biltema.no","jysk.no","ikea.no","clas-ohlson.no","jernia.no","vinmonopolet.no","posten.no","zalando.no","finn.no","prisjakt.no",
   "nav.no","skatteetaten.no","altinn.no","regjeringen.no","politiet.no","ssb.no","helsenorge.no","brreg.no","domstol.no","udi.no","helsedirektoratet.no","oslo.kommune.no","bergen.kommune.no","trondheim.kommune.no","stavanger.kommune.no",
   "uio.no","uib.no","ntnu.no","uia.no","nmbu.no","oslomet.no","bi.no",
-  "equinor.no","statkraft.no","hafslund.no","aker.no","yara.no","norskhydro.no","elvia.no","fjordkraft.no",
+  "equinor.no","statkraft.no","hafslund.no","aker.no","yara.no","norskhydro.no","elvia.no",
   "tryg.no","gjensidige.no","if.no","fremtind.no",
-  "schibsted.no","visma.no","opera.no","kongsberg.no","tomra.no","cognite.no",
+  "schibsted.no","visma.no","opera.no","kongsberg.no","tomra.no",
   "sas.no","norwegian.no","ruter.no","vy.no","color-line.no","hurtigruten.no",
   "abelia.no","virke.no","nho.no","lo.no",
-  "domeneshop.no","proisp.no","loopia.no","webhuset.no",
-  "ks.no","tine.no","nortura.no","gilde.no","prior.no","rema1000.no","coop.no"
-].slice(0, 100);
+  "domeneshop.no","proisp.no",
+  "ks.no","tine.no","nortura.no","rema1000.no","coop.no"
+];
 
-const DKIM_SELECTORS = ["selector1","selector2","google","k1","k2","mail","default","dkim","s1","s2","mailjet","sendgrid","mxvault","smtp","email","postmark","ses","mimecast","fm1","fm2","fm3","mailo"];
+const DKIM_SELECTORS = ["selector1","selector2","google","k1","k2","mail","default","dkim","s1","s2","mxvault","fm1","fm2","fm3"];
 const DOH = 'https://cloudflare-dns.com/dns-query';
 const CACHE_KEY = 'data1-rapport2026-v1';
 const CACHE_HOURS = 6;
