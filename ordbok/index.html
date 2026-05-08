@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ordbok over alle e-postsikkerhets-termer på norsk: SPF, DMARC, DKIM, BIMI, MTA-STS, TLS-RPT, alignment, p=reject og mer. Korte autoritative definisjoner.">
+<meta name="keywords" content="dmarc forklart, spf forklart, dkim forklart, e-post sikkerhet ordbok, dmarc termer, mta-sts forklart, bimi forklart, tls-rpt forklart">
+<meta name="author" content="Micronet">
+<meta name="theme-color" content="#1a202c">
+<link rel="canonical" href="https://data1.no/ordbok/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="data1.no">
+<meta property="og:locale" content="nb_NO">
+<meta property="og:url" content="https://data1.no/ordbok/">
+<meta property="og:title" content="Ordbok: e-postsikkerhet fra A til Å | data1.no">
+<meta property="og:description" content="Korte, autoritative definisjoner av alle termer du møter i SPF, DMARC, DKIM og e-postsikkerhet.">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>Ordbok: e-postsikkerhet fra A til Å | data1.no</title>
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/blogg/_assets/post.css">
+<style>
+.term{background:#fff;border-radius:10px;padding:16px 20px;margin:10px 0;box-shadow:0 1px 3px rgba(0,0,0,.05);scroll-margin-top:20px}
+.term dt{font-size:17px;font-weight:800;color:#0f172a;margin-bottom:6px;letter-spacing:-.01em}
+.term dt .alt{font-size:13px;font-weight:500;color:#64748b;margin-left:8px}
+.term dd{font-size:14.5px;color:#334155;line-height:1.6}
+.term dd a{color:#0f766e;text-decoration:none;font-weight:600}
+.term dd a:hover{text-decoration:underline}
+.az-nav{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0 24px;padding:14px;background:#fff;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.az-nav a{display:inline-block;width:32px;height:32px;line-height:32px;text-align:center;border-radius:6px;background:#f1f5f9;color:#0f172a;text-decoration:none;font-weight:700;font-size:13px}
+.az-nav a:hover{background:#14b8a6;color:#fff}
+.section-letter{font-size:28px;font-weight:900;color:#14b8a6;letter-spacing:-.02em;margin:28px 0 8px;padding-bottom:6px;border-bottom:2px solid #ccfbf1}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTermSet","@id":"https://data1.no/ordbok/#termset","name":"E-postsikkerhets-ordbok","description":"Norsk ordbok over termer i SPF, DMARC, DKIM, BIMI, MTA-STS og TLS-RPT.","inLanguage":"nb-NO","hasDefinedTerm":[{"@type":"DefinedTerm","name":"DMARC","description":"Domain-based Message Authentication, Reporting and Conformance — policy som binder SPF og DKIM sammen og forteller mottakere hva som skal gjøres med uautentisert e-post.","inDefinedTermSet":"https://data1.no/ordbok/#termset"},{"@type":"DefinedTerm","name":"SPF","description":"Sender Policy Framework — DNS-record som lister opp hvilke servere som har lov å sende e-post fra et domene.","inDefinedTermSet":"https://data1.no/ordbok/#termset"},{"@type":"DefinedTerm","name":"DKIM","description":"DomainKeys Identified Mail — kryptografisk signering av utgående e-post slik at mottakeren kan verifisere at innholdet ikke er endret.","inDefinedTermSet":"https://data1.no/ordbok/#termset"},{"@type":"DefinedTerm","name":"BIMI","description":"Brand Indicators for Message Identification — viser firmalogo i mottakerens innboks når DMARC er på p=quarantine eller p=reject.","inDefinedTermSet":"https://data1.no/ordbok/#termset"},{"@type":"DefinedTerm","name":"MTA-STS","description":"Mail Transfer Agent Strict Transport Security — policy som tvinger TLS-kryptering ved innlevering av e-post til ditt domene.","inDefinedTermSet":"https://data1.no/ordbok/#termset"},{"@type":"DefinedTerm","name":"TLS-RPT","description":"TLS Reporting — gir avsendere et sted å rapportere når TLS-innlevering feiler mot ditt domene.","inDefinedTermSet":"https://data1.no/ordbok/#termset"}]}</script>
+<script src="/_assets/tracker.js" defer></script>
+</head>
+<body>
+<header class="header">
+  <a href="/" class="logo">data1<span>.no</span></a>
+  <div class="spacer"></div>
+  <a href="/" class="nav-link">Sjekk eget domene →</a>
+</header>
+<main>
+  <nav class="crumbs"><a href="/">Hjem</a> › Ordbok</nav>
+  <h1>Ordbok: e-postsikkerhet fra A til Å</h1>
+  <p class="meta">Sist oppdatert 8. mai 2026 · Av Micronet · 25 termer</p>
+  <p class="lead">Korte, autoritative definisjoner av termer du møter i SPF-, DMARC-, DKIM- og e-postsikkerhetsarbeid. Lenker til dypere artikler der du trenger mer.</p>
+
+  <nav class="az-nav" aria-label="Hopp til bokstav">
+    <a href="#a">A</a><a href="#b">B</a><a href="#d">D</a><a href="#e">E</a>
+    <a href="#f">F</a><a href="#h">H</a><a href="#m">M</a><a href="#p">P</a>
+    <a href="#r">R</a><a href="#s">S</a><a href="#t">T</a>
+  </nav>
+
+  <h2 id="a" class="section-letter">A</h2>
+
+  <dl class="term" id="adkim-aspf">
+    <dt>adkim / aspf <span class="alt">(DMARC alignment)</span></dt>
+    <dd><strong>adkim</strong> styrer DKIM-alignment (om DKIM-domenet må matche From-domenet) og <strong>aspf</strong> styrer SPF-alignment. Verdier: <code>r</code> (relaxed, default — subdomener tillates) eller <code>s</code> (strict — eksakt match). Bruk <code>r</code> i de fleste tilfeller.</dd>
+  </dl>
+
+  <dl class="term" id="alignment">
+    <dt>Alignment</dt>
+    <dd>Krav i DMARC om at domenet i SPF eller DKIM må samsvare med From-headeren. Uten alignment kan SPF/DKIM passere uten at DMARC gjør det. Slik sikres at en e-post faktisk kommer fra det domenet den hevder.</dd>
+  </dl>
+
+  <dl class="term" id="arc">
+    <dt>ARC <span class="alt">(Authenticated Received Chain)</span></dt>
+    <dd>Mekanisme som bevarer autentiseringsresultater når e-post videresendes (f.eks. via mailing-lister). Forhindrer at legitim videresendt e-post avvises av DMARC.</dd>
+  </dl>
+
+  <h2 id="b" class="section-letter">B</h2>
+
+  <dl class="term" id="bimi">
+    <dt>BIMI <span class="alt">(Brand Indicators for Message Identification)</span></dt>
+    <dd>Standard som lar firmalogoen din vises i mottakerens innboks. Krever DMARC på <code>p=quarantine</code> eller <code>p=reject</code> og en SVG-logo + ofte VMC-sertifikat. Se <a href="/blogg/dmarc/">DMARC forklart</a>.</dd>
+  </dl>
+
+  <dl class="term" id="bulk-sender">
+    <dt>Bulk sender</dt>
+    <dd>Avsender som sender mer enn 5 000 e-poster per dag til Gmail- eller Yahoo-mottakere. Fra februar 2024 krever Google og Yahoo at bulk-avsendere har SPF, DKIM og DMARC. Se <a href="/blogg/dmarc-google-workspace/">DMARC i Google Workspace</a>.</dd>
+  </dl>
+
+  <h2 id="d" class="section-letter">D</h2>
+
+  <dl class="term" id="dkim">
+    <dt>DKIM <span class="alt">(DomainKeys Identified Mail)</span></dt>
+    <dd>Kryptografisk signering av utgående e-post med privat nøkkel; mottakeren henter den offentlige nøkkelen fra DNS og verifiserer signaturen. Beviser at innholdet ikke er endret underveis. Se <a href="/blogg/dkim/">DKIM forklart</a>.</dd>
+  </dl>
+
+  <dl class="term" id="dmarc">
+    <dt>DMARC <span class="alt">(Domain-based Message Authentication, Reporting and Conformance)</span></dt>
+    <dd>E-postsikkerhetsstandard som binder SPF og DKIM sammen, krever alignment med From-headeren, og gir avsenderen kontroll over hva som skjer med uautentisert post (none/quarantine/reject) — pluss XML-rapporter (rua/ruf). Se <a href="/blogg/dmarc/">DMARC forklart</a>.</dd>
+  </dl>
+
+  <dl class="term" id="dnssec">
+    <dt>DNSSEC <span class="alt">(DNS Security Extensions)</span></dt>
+    <dd>Kryptografisk signering av DNS-svar slik at mottakeren kan verifisere at oppslagene ikke er manipulert. Anbefalt å aktivere på domener som bruker MTA-STS, da det forsterker beskyttelsen mot DNS-spoofing.</dd>
+  </dl>
+
+  <h2 id="e" class="section-letter">E</h2>
+
+  <dl class="term" id="e-post-spoofing">
+    <dt>E-post spoofing</dt>
+    <dd>Forsøk på å sende e-post som ser ut til å komme fra et annet domene. SPF, DKIM og DMARC er motgiften — uten dem er enhver kunde av domenet ditt sårbar for fakturasvindel og phishing.</dd>
+  </dl>
+
+  <h2 id="f" class="section-letter">F</h2>
+
+  <dl class="term" id="from-domain">
+    <dt>From-domain <span class="alt">(synlig avsender)</span></dt>
+    <dd>Domenet som vises etter @-tegnet i mottakerens "fra"-felt. Det er <strong>dette</strong> domenet DMARC sjekker, ikke Return-Path eller HELO. Et angrep der From-domenet er forfalsket kalles ofte "direct domain spoofing".</dd>
+  </dl>
+
+  <h2 id="h" class="section-letter">H</h2>
+
+  <dl class="term" id="header-from">
+    <dt>Header From</dt>
+    <dd>Synonym for From-domain — RFC 5322-headeren som inneholder avsenders synlige adresse. Skal ikke forveksles med RFC 5321 "MAIL FROM" (Return-Path) som SPF sjekker.</dd>
+  </dl>
+
+  <h2 id="m" class="section-letter">M</h2>
+
+  <dl class="term" id="mta-sts">
+    <dt>MTA-STS <span class="alt">(Mail Transfer Agent Strict Transport Security)</span></dt>
+    <dd>Policy som tvinger TLS-kryptering når andre servere leverer e-post til ditt domene. Beskytter mot nedgraderingsangrep der angripere prøver å fjerne kryptering.</dd>
+  </dl>
+
+  <h2 id="p" class="section-letter">P</h2>
+
+  <dl class="term" id="p-none">
+    <dt>p=none</dt>
+    <dd>DMARC-policy som <em>kun overvåker</em> uten å påvirke leveringen. Brukes alltid de første 2-4 ukene for å verifisere at all legitim post består SPF og DKIM før strengere policy aktiveres.</dd>
+  </dl>
+
+  <dl class="term" id="p-quarantine">
+    <dt>p=quarantine</dt>
+    <dd>DMARC-policy som ber mottakere markere uautentisert e-post som spam. Mellomsteg mellom none og reject. Ofte brukes <code>pct=25</code> → <code>50</code> → <code>100</code> for gradvis utrulling.</dd>
+  </dl>
+
+  <dl class="term" id="p-reject">
+    <dt>p=reject</dt>
+    <dd>DMARC-policy som ber mottakere <em>avvise</em> all uautentisert e-post — full beskyttelse mot spoofing. Settes etter at quarantine har gått problemfritt i 2-4 uker. Gir karakter A+ på data1.no.</dd>
+  </dl>
+
+  <dl class="term" id="pct">
+    <dt>pct <span class="alt">(percent)</span></dt>
+    <dd>DMARC-tag som angir hvor stor andel av e-post (0-100 %) policyen gjelder for. <code>pct=25</code> betyr at 25 % av uautentisert post håndteres av policyen, resten faller tilbake til neste mildere policy. Brukes til gradvis utrulling.</dd>
+  </dl>
+
+  <dl class="term" id="phishing">
+    <dt>Phishing</dt>
+    <dd>Sosial-manipulasjons-angrep der offeret lures til å gi fra seg passord, betalingsinfo eller utføre handlinger. E-postspoofing er den vanligste leveringskanalen — derfor er DMARC en av de mest effektive forsvarsmekanismene.</dd>
+  </dl>
+
+  <h2 id="r" class="section-letter">R</h2>
+
+  <dl class="term" id="return-path">
+    <dt>Return-Path <span class="alt">(envelope sender, MAIL FROM)</span></dt>
+    <dd>SMTP-konvolutt-feltet som mottar bounces og som SPF sjekker. Skiller seg fra synlig From-domain. Når Return-Path og From-domain ikke matcher, må DKIM passe på alignment for at DMARC skal bestå.</dd>
+  </dl>
+
+  <dl class="term" id="rua-ruf">
+    <dt>rua / ruf</dt>
+    <dd>DMARC-tags som spesifiserer hvor rapporter sendes. <strong>rua</strong> = aggregerte XML-rapporter (daglig), <strong>ruf</strong> = forensiske rapporter per feilet melding. Bruk en dedikert e-post som <code>dmarc@dittfirma.no</code>.</dd>
+  </dl>
+
+  <h2 id="s" class="section-letter">S</h2>
+
+  <dl class="term" id="spf">
+    <dt>SPF <span class="alt">(Sender Policy Framework)</span></dt>
+    <dd>DNS TXT-record som lister opp hvilke IP-adresser og servere som har lov å sende e-post fra domenet. Har en hard grense på 10 DNS-oppslag totalt. Se <a href="/blogg/spf/">SPF forklart</a>.</dd>
+  </dl>
+
+  <dl class="term" id="spf-flattening">
+    <dt>SPF flattening</dt>
+    <dd>Strategi for å unngå 10-lookup-grensen ved å erstatte <code>include:</code> med direkte <code>ip4:</code>-rangen. Krever vedlikehold når leverandører endrer IP. Se <a href="/blogg/spf-microsoft-365/">SPF i M365</a>.</dd>
+  </dl>
+
+  <dl class="term" id="sp">
+    <dt>sp= <span class="alt">(subdomain policy)</span></dt>
+    <dd>DMARC-tag som setter policy for subdomener. Hvis ikke satt, arves <code>p=</code>. Eksempel: <code>p=none; sp=reject</code> overvåker hovedrokken men avviser fra alle subdomener.</dd>
+  </dl>
+
+  <h2 id="t" class="section-letter">T</h2>
+
+  <dl class="term" id="tls-rpt">
+    <dt>TLS-RPT <span class="alt">(SMTP TLS Reporting)</span></dt>
+    <dd>RFC 8460-standard som gir avsendere et sted å rapportere når TLS-innlevering til ditt domene feiler. Komplementerer MTA-STS — du får varsler hvis noen forsøker nedgraderingsangrep.</dd>
+  </dl>
+
+  <dl class="term" id="all-mechanisms">
+    <dt>~all / -all / +all <span class="alt">(SPF qualifier)</span></dt>
+    <dd>Slutten av en SPF-record som forteller hva som skjer med servere som ikke matcher: <code>-all</code> = avvis (anbefalt), <code>~all</code> = soft-fail (markert), <code>+all</code> = pass alle (aldri bruk!), <code>?all</code> = nøytral.</dd>
+  </dl>
+
+  <div class="cta-box">
+    <h3>Klar til å sjekke ditt eget domene?</h3>
+    <p>Få karakter A+ til F på sekunder — gratis, ingen registrering.</p>
+    <a href="/?utm_source=ordbok">Sjekk eget domene →</a>
+  </div>
+
+  <h2>Lese mer</h2>
+  <ul>
+    <li><a href="/blogg/dmarc/">DMARC forklart fra grunnen</a></li>
+    <li><a href="/blogg/spf/">SPF forklart fra grunnen</a></li>
+    <li><a href="/blogg/dkim/">DKIM forklart fra grunnen</a></li>
+    <li><a href="/blogg/dmarc-microsoft-365/">DMARC i Microsoft 365</a></li>
+    <li><a href="/blogg/dmarc-google-workspace/">DMARC i Google Workspace</a></li>
+  </ul>
+
+  <div class="author-card">
+    <div class="author-avatar">M</div>
+    <div>
+      <div class="author-name">Micronet</div>
+      <div class="author-meta">Norsk IT-konsulenttjeneste — DMARC, e-postsikkerhet og infrastruktur. <a href="https://micronet.no/" style="color:#0f766e;text-decoration:none">micronet.no</a></div>
+    </div>
+  </div>
+</main>
+</body>
+</html>

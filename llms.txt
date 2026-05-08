@@ -21,6 +21,10 @@ Rapportene kan deles offentlig, og brukere kan få en signert sertifikat-badge t
 - [Norsk e-handel](https://data1.no/rapport-2026/e-handel/): 28 nettbutikker
 - [Norske medier](https://data1.no/rapport-2026/medier/): 25 mediehus
 
+## Ordbok / definisjoner
+
+- [Ordbok over e-postsikkerhets-termer](https://data1.no/ordbok/): 25 korte autoritative definisjoner av DMARC, SPF, DKIM, BIMI, MTA-STS, TLS-RPT, alignment, p=reject m.fl. Strukturert som DefinedTermSet schema for AI-sitering.
+
 ## Kunnskapsbase (blogg)
 
 - [DMARC forklart fra grunnen](https://data1.no/blogg/dmarc/)
