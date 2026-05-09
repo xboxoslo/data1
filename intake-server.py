@@ -202,20 +202,67 @@ def create_halo_ticket(b):
     quote_link = f"{HALO_BASE}/quote/{quote_id}" if quote_id else None
 
     summary = f"Domeneanalyse: {b.get('domain')} ({b.get('grade') or '?'} / {b.get('score') or '?'}%)"
-    details_lines = [
-        f"Kontakt:  {b.get('name','')}",
-        f"Firma:    {b.get('company') or '(ikke oppgitt)'}",
-        f"Org.nr:   {b.get('orgnr') or '(ikke oppgitt)'}",
-        f"E-post:   {b.get('email','')}",
-        f"Telefon:  {b.get('phone') or '(ikke oppgitt)'}",
-        f"Domene:   {b.get('domain','')}",
-        f"Score:    {b.get('score') or '?'}% ({b.get('grade') or '?'})",
-        f"Rapport:  {b.get('reportUrl','')}",
-    ]
+
+    # Halo bruker HTML for ticket-details (ren tekst kollapser til én linje)
+    name = b.get('name', '') or '(ikke oppgitt)'
+    company = b.get('company') or '(ikke oppgitt)'
+    orgnr = b.get('orgnr') or '(ikke oppgitt)'
+    email = b.get('email', '') or '(ikke oppgitt)'
+    phone = b.get('phone') or '(ikke oppgitt)'
+    domain = b.get('domain', '')
+    score = b.get('score') or '?'
+    grade = b.get('grade') or '?'
+    report_url = b.get('reportUrl', '')
+    message = (b.get('message') or '').strip() or '<em>(ingen melding)</em>'
+
+    # Karakter-fargekode
+    grade_color = {'A+': '#16a34a', 'A': '#22c55e', 'B': '#84cc16',
+                   'C': '#eab308', 'D': '#f97316', 'F': '#dc2626'}.get(grade, '#64748b')
+
+    quote_block = ''
     if quote_id:
-        details_lines += ['', f"Tilbud:   #{quote_id}", f"Quote-URL: {quote_link}"]
-    details_lines += ['', '— Melding fra kunde —', b.get('message') or '(ingen)']
-    details = '\n'.join(details_lines)
+        quote_block = (
+            f'<h3 style="font-size:14px;color:#0f172a;margin:18px 0 8px;'
+            f'border-top:1px solid #e2e8f0;padding-top:14px">Tilbud</h3>'
+            f'<p style="margin:0 0 4px"><strong>Tilbuds-ID:</strong> #{quote_id}</p>'
+            f'<p style="margin:0"><strong>Lenke:</strong> <a href="{quote_link}">{quote_link}</a></p>'
+        )
+
+    details = (
+        '<div style="font-family:-apple-system,Segoe UI,sans-serif;font-size:14px;line-height:1.6;color:#0f172a">'
+
+        f'<h3 style="font-size:14px;color:#0f172a;margin:0 0 8px">Kontaktinformasjon</h3>'
+        f'<table cellpadding="3" cellspacing="0" style="border-collapse:collapse;font-size:13px">'
+        f'<tr><td style="color:#64748b;padding-right:12px">Navn:</td><td><strong>{name}</strong></td></tr>'
+        f'<tr><td style="color:#64748b;padding-right:12px">Firma:</td><td><strong>{company}</strong></td></tr>'
+        f'<tr><td style="color:#64748b;padding-right:12px">Org.nr:</td><td>{orgnr}</td></tr>'
+        f'<tr><td style="color:#64748b;padding-right:12px">E-post:</td>'
+        f'<td><a href="mailto:{email}">{email}</a></td></tr>'
+        f'<tr><td style="color:#64748b;padding-right:12px">Telefon:</td>'
+        f'<td><a href="tel:{phone}">{phone}</a></td></tr>'
+        f'</table>'
+
+        f'<h3 style="font-size:14px;color:#0f172a;margin:18px 0 8px;'
+        f'border-top:1px solid #e2e8f0;padding-top:14px">Analyseresultat</h3>'
+        f'<table cellpadding="3" cellspacing="0" style="border-collapse:collapse;font-size:13px">'
+        f'<tr><td style="color:#64748b;padding-right:12px">Domene:</td>'
+        f'<td><strong>{domain}</strong></td></tr>'
+        f'<tr><td style="color:#64748b;padding-right:12px">Karakter:</td>'
+        f'<td><span style="display:inline-block;background:{grade_color};color:#fff;'
+        f'padding:2px 10px;border-radius:6px;font-weight:700">{grade}</span> &nbsp; ({score}%)</td></tr>'
+        f'<tr><td style="color:#64748b;padding-right:12px">Rapport:</td>'
+        f'<td><a href="{report_url}">{report_url}</a></td></tr>'
+        f'</table>'
+
+        f'{quote_block}'
+
+        f'<h3 style="font-size:14px;color:#0f172a;margin:18px 0 8px;'
+        f'border-top:1px solid #e2e8f0;padding-top:14px">Melding fra kunde</h3>'
+        f'<div style="background:#f8fafc;border-left:3px solid #cbd5e0;'
+        f'padding:10px 14px;border-radius:4px;color:#334155">{message}</div>'
+
+        '</div>'
+    )
 
     tags = [
         {'text': 'domeneanalyse'},
