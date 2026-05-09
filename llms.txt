@@ -38,6 +38,10 @@ Rapportene kan deles offentlig, og brukere kan få en signert sertifikat-badge t
 - [DMARC i Google Workspace](https://data1.no/blogg/dmarc-google-workspace/): Inkludert Googles 2024-bulkavsenderkrav
 - [SPF i Microsoft 365](https://data1.no/blogg/spf-microsoft-365/): Inkludert 10-lookup-grensen og flattening
 
+## Om selskapet bak
+
+- [Om data1.no og Micronet AS](https://data1.no/om/): Bakgrunn, formål, personvern og kontaktinfo. Inkluderer Organization og SoftwareApplication schema.
+
 ## Nøkkelfakta
 
 - Språk: norsk bokmål (nb-NO)
