@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Equinor, Hydro og Yara: Tre industrigiganter uten e-postsikkerhet — ukentlig DMARC-analyse fra data1.no.">
+<meta name="author" content="Micronet">
+<meta name="theme-color" content="#1a202c">
+<link rel="canonical" href="https://data1.no/blogg/equinor-hydro-og-yara-tre-industrigiganter-uten-e-postsikker/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Equinor, Hydro og Yara: Tre industrigiganter uten e-postsikkerhet">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<title>Equinor, Hydro og Yara: Tre industrigiganter uten e-postsikkerhet | data1.no</title>
+<link rel="stylesheet" href="/blogg/_assets/post.css">
+<style>
+.data-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.data-table th{background:#0f172a;color:#fff;text-align:left;padding:10px 12px;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.data-table td{padding:10px 12px;border-bottom:1px solid #f1f5f9}
+.callout{background:#f0fdfa;border-left:4px solid #14b8a6;padding:14px 18px;border-radius:0 10px 10px 0;margin:18px 0}
+.callout.warn{background:#fff7ed;border-left-color:#f97316;color:#7c2d12}
+.meta{font-size:13px;color:#64748b;margin-bottom:22px}
+.lead{font-size:18px;color:#475569;margin-bottom:24px;line-height:1.7}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Equinor, Hydro og Yara: Tre industrigiganter uten e-postsikkerhet","datePublished":"2026-05-09","dateModified":"2026-05-09","author":{"@type":"Organization","name":"Micronet","url":"https://micronet.no/"},"publisher":{"@type":"Organization","name":"data1.no","logo":{"@type":"ImageObject","url":"https://data1.no/og-image.png"}},"description":"Equinor, Hydro og Yara: Tre industrigiganter uten e-postsikkerhet","image":"https://data1.no/og-image.png","mainEntityOfPage":"https://data1.no/blogg/equinor-hydro-og-yara-tre-industrigiganter-uten-e-postsikker/","inLanguage":"nb-NO"}</script>
+</head>
+<body>
+<header class="header">
+<a href="/" class="logo">data1<span>.no</span></a>
+<div class="spacer"></div>
+<a href="/" class="nav-link">Sjekk eget domene →</a>
+</header>
+<main>
+<nav class="crumbs"><a href="/">Hjem</a> › <a href="/blogg/">Blogg</a> › Ukerapport 19</nav>
+<h1>Equinor, Hydro og Yara: Tre industrigiganter uten e-postsikkerhet</h1>
+
+<p class="lead">Norges største industriselskaper scorer bunnplassering i ukens DMARC-analyse — mens offentlige etater og tech-selskaper leder an.</p>
+
+<p class="meta">Publisert 9. mai 2026 · Av Micronet · 5 min lesetid</p>
+
+<p>Ukens analyse av 79 norske domener avslører et skarpt skille: Mens offentlig sektor og digitale selskaper har implementert solid e-postsikkerhet, mangler tre av Norges absolutt største industriselskaper grunnleggende beskyttelse.</p>
+
+<h2 id="industriens-sikkerhetshull">Industriens sikkerhetshull</h2>
+
+<p>I bunnen av denne ukens rangering finner vi <a href="/?d=equinor.no">equinor.no</a>, <a href="/?d=hydro.no">hydro.no</a> og <a href="/?d=yara.no">yara.no</a> — alle med 0 poeng. Dette betyr at de verken har DMARC, SPF eller DKIM konfigurert på en måte som gir reell beskyttelse.</p>
+
+<div class="callout warn">
+<strong>Hva betyr 0 poeng?</strong> At hvem som helst kan sende e-post som ser ut til å komme fra disse selskapene, uten at mottakerne har noen måte å verifisere at avsender er ekte. For selskaper av denne størrelsen — med tusenvis av ansatte, leverandører og partnere — er dette en betydelig sikkerhetsrisiko.
+</div>
+
+<p>Det er ikke bare disse tre. <a href="/?d=statkraft.no">statkraft.no</a> (33p), <a href="/?d=ntnu.no">ntnu.no</a> (18p) og <a href="/?d=uio.no">uio.no</a> (33p) scorer også F. At to av landets største universiteter ligger i bunnen er spesielt bekymringsfullt, gitt mengden sensitiv kommunikasjon som går via e-post i akademia.</p>
+
+<h2 id="offentlig-sektor-viser-vei">Offentlig sektor viser vei</h2>
+
+<p>Samtidig dominerer offentlige etater og store tech-aktører toppen av listen. <a href="/?d=nav.no">nav.no</a>, <a href="/?d=nbim.no">nbim.no</a> (Oljefondet) og <a href="/?d=udi.no">udi.no</a> scorer alle A+ med 97-100 poeng.</p>
+
+<table class="data-table">
+<thead>
+<tr>
+<th>Domene</th>
+<th>Karakter</th>
+<th>Poeng</th>
+<th>DMARC-policy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/?d=nav.no">nav.no</a></td>
+<td>A+</td>
+<td>100</td>
+<td>p=reject</td>
+</tr>
+<tr>
+<td><a href="/?d=nbim.no">nbim.no</a></td>
+<td>A+</td>
+<td>100</td>
+<td>p=reject</td>
+</tr>
+<tr>
+<td><a href="/?d=stortinget.no">stortinget.no</a></td>
+<td>A+</td>
+<td>97</td>
+<td>p=reject</td>
+</tr>
+<tr>
+<td><a href="/?d=udi.no">udi.no</a></td>
+<td>A+</td>
+<td>97</td>
+<td>p=reject</td>
+</tr>
+</tbody>
+</table>
+
+<p>Disse etatene har implementert full DMARC-beskyttelse med <code>p=reject</code>, noe som betyr at e-post som ikke passerer autentiseringssjekker blir avvist før den når mottakeren. Dette er gullstandarden for e-postsikkerhet.</p>
+
+<h2 id="naeringsliv-delt">Næringslivet er delt</h2>
+
+<p>I privat sektor er bildet mer blandet. <a href="/?d=telenor.no">telenor.no</a> (97p), <a href="/?d=dnb.no">dnb.no</a> (95p) og <a href="/?d=schibsted.com">schibsted.com</a> (95p) scorer høyt, mens andre store aktører halter etter.</p>
+
+<p>Spesielt interessant er at tech-orienterte selskaper generelt scorer bedre. <a href="/?d=ikea.com">ikea.com</a> og <a href="/?d=strawberry.no">strawberry.no</a> (hotellkjeden) har begge A+ med 95-100 poeng, mens tradisjonell industri ligger langt bak.</p>
+
+<h2 id="hva-tallene-viser">Hva tallene viser</h2>
+
+<p>Av ukens 79 analyserte domener har:</p>
+
+<ul>
+<li><strong>43 domener (54%)</strong> implementert <code>p=reject</code> — full beskyttelse</li>
+<li><strong>5 domener (6%)</strong> mangler DMARC helt</li>
+<li><strong>31 domener (39%)</strong> har fått A eller A+ karakter</li>
+<li><strong>11 domener (14%)</strong> scorer F</li>
+</ul>
+
+<p>Gjennomsnittscoren på 65,8 poeng er ganske høy, men dette skyldes i stor grad at offentlig sektor og tech-selskaper drar snittet opp. Se <a href="/trender/">hele trenden over tid her</a>.</p>
+
+<h2 id="hvorfor-dette-er-viktig">Hvorfor dette er viktig nå</h2>
+
+<p>Phishing-angrep blir stadig mer sofistikerte, og domene-spoofing — hvor angripere utgir seg for å være legitime avsendere — er en av de mest effektive metodene. Uten DMARC kan en angriper enkelt sende e-post som tilsynelatende kommer fra <code>@equinor.no</code> eller <code>@hydro.no</code>.</p>
+
+<p>For selskaper med omfattende leverandørkjeder og store verdier i omløp, kan én vellykket phishing-kampanje koste millioner. DMARC er ikke en silverkule, men det er grunnmuren i moderne e-postsikkerhet.</p>
+
+<h2 id="hva-kan-gjores">Hva kan gjøres?</h2>
+
+<p>For domener som scorer dårlig er veien framover klar:</p>
+
+<ol>
+<li><strong>Implementer SPF og DKIM</strong> — dette er forutsetningen for DMARC</li>
+<li><strong>Legg til en DMARC-policy</strong> — start med <code>p=none</code> for å samle data</li>
+<li><strong>Analyser rapportene</strong> — identifiser legitime avsendere som må godkjennes</li>
+<li><strong>Skru til <code>p=quarantine</code></strong> — send mistenkelig e-post til spam</li>
+<li><strong>Gå til <code>p=reject</code></strong> — blokker uautorisert e-post fullstendig</li>
+</ol>
+
+<p>Det finnes ingen god grunn til å vente. Verktøy som data1.no gjør det enkelt å sjekke status, og implementering tar vanligvis timer — ikke måneder.</p>
+
+<p>Vil du se hvordan ditt domene står seg? <a href="/">Test det gratis på data1.no</a>, eller sammenlign deg med andre i <a href="/sammenligning/">bransjesammenligningen</a>.</p>
+
+<div style="margin-top:40px;padding:20px;background:#f0fdfa;border-radius:12px;border:1px solid #99f6e4">
+<h3 style="margin-bottom:8px">Sjekk ditt eget domene</h3>
+<p style="margin-bottom:14px">Få samme analyse for ditt domene på 10 sekunder, helt gratis.</p>
+<a href="/" style="display:inline-block;background:#14b8a6;color:#fff;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:700">Kjør analyse →</a>
+</div>
+</main>
+</body>
+</html>
