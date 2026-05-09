@@ -9,6 +9,10 @@ on:
 permissions:
   contents: write
 
+env:
+  # Bruk Node.js 24 for actions som checkout/setup-python (Node 20 deprecated juni 2026)
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
 jobs:
   generate-post:
     runs-on: ubuntu-latest
