@@ -4,5 +4,22 @@
 /*.woff2
   Cache-Control: public, max-age=31536000, immutable
 
+# Sider som oppdateres automatisk hver dag/uke — kortere cache så nye AI-poster
+# og trender vises raskt for besøkende.
+/blogg/
+  Cache-Control: public, max-age=60, must-revalidate
+
+/blogg/index.html
+  Cache-Control: public, max-age=60, must-revalidate
+
+/trender/
+  Cache-Control: public, max-age=60, must-revalidate
+
+/trender/index.html
+  Cache-Control: public, max-age=60, must-revalidate
+
+/sitemap.xml
+  Cache-Control: public, max-age=60, must-revalidate
+
 /*
   Cache-Control: public, max-age=300, must-revalidate
