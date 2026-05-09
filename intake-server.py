@@ -197,8 +197,12 @@ def halo_ticket_type_id(token):
 def create_halo_ticket(b):
     token = halo_token()
     tt_id = halo_ticket_type_id(token)
+    quote_id = b.get('_quoteId')
+    client_id = b.get('_clientId')
+    quote_link = f"{HALO_BASE}/quote/{quote_id}" if quote_id else None
+
     summary = f"Domeneanalyse: {b.get('domain')} ({b.get('grade') or '?'} / {b.get('score') or '?'}%)"
-    details = '\n'.join([
+    details_lines = [
         f"Kontakt:  {b.get('name','')}",
         f"Firma:    {b.get('company') or '(ikke oppgitt)'}",
         f"Org.nr:   {b.get('orgnr') or '(ikke oppgitt)'}",
@@ -207,10 +211,12 @@ def create_halo_ticket(b):
         f"Domene:   {b.get('domain','')}",
         f"Score:    {b.get('score') or '?'}% ({b.get('grade') or '?'})",
         f"Rapport:  {b.get('reportUrl','')}",
-        '',
-        '— Melding fra kunde —',
-        b.get('message') or '(ingen)',
-    ])
+    ]
+    if quote_id:
+        details_lines += ['', f"Tilbud:   #{quote_id}", f"Quote-URL: {quote_link}"]
+    details_lines += ['', '— Melding fra kunde —', b.get('message') or '(ingen)']
+    details = '\n'.join(details_lines)
+
     tags = [
         {'text': 'domeneanalyse'},
         {'text': f"domene:{b.get('domain','')}"},
@@ -220,8 +226,10 @@ def create_halo_ticket(b):
     ]
     if b.get('orgnr'):
         tags.append({'text': f"orgnr:{b['orgnr']}"})
+    if quote_id:
+        tags.append({'text': f"quote:{quote_id}"})
 
-    payload = [{
+    payload_item = {
         'summary': summary,
         'details': details,
         'tickettype_id': tt_id,
@@ -232,7 +240,14 @@ def create_halo_ticket(b):
             'name':  b.get('name',''),
             'phone': b.get('phone',''),
         },
-    }]
+    }
+    # Lenk ticketen direkte til client og quote hvis vi har dem
+    if client_id:
+        payload_item['client_id'] = client_id
+    if quote_id:
+        payload_item['quote_id'] = quote_id
+
+    payload = [payload_item]
     status, text = http_post(f'{HALO_API_URL}/Tickets',
                              json_body=payload,
                              headers={'Authorization': f'Bearer {token}'})
@@ -906,9 +921,20 @@ class Handler(BaseHTTPRequestHandler):
             result['halo'] = create_halo_quote(body)
             print(f'    [OK] Halo OK (quote {result["halo"].get("quoteId")}, '
                   f'client {result["halo"].get("clientId")}, user {result["halo"].get("userId")})')
+            # Beriker body med quote-info så ticketen kan referere til den
+            body['_quoteId'] = result['halo'].get('quoteId')
+            body['_clientId'] = result['halo'].get('clientId')
         except Exception as e:
             print(f'    [FAIL] Halo: {e}')
             result['halo'] = {'error': str(e)}
+
+        try:
+            print(f'  --> Oppretter Halo-ticket for {body.get("domain")}')
+            result['ticket'] = create_halo_ticket(body)
+            print(f'    [OK] Ticket OK (id {result["ticket"].get("ticketId")})')
+        except Exception as e:
+            print(f'    [FAIL] Ticket: {e}')
+            result['ticket'] = {'error': str(e)}
 
         log_event('conversion',
                   domain=(body.get('domain') or '').lower()[:80],
