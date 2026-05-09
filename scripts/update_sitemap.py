@@ -48,10 +48,28 @@ def lastmod_for(path: str) -> str:
     return today
 
 
+def discover_blog_posts() -> dict[str, float]:
+    """Finn alle blogposter under /blogg/ som har en index.html."""
+    out = {}
+    blog_dir = ROOT / 'blogg'
+    if not blog_dir.exists():
+        return out
+    for sub in blog_dir.iterdir():
+        if sub.is_dir() and (sub / 'index.html').exists():
+            out[f'/blogg/{sub.name}/'] = 0.8
+    return out
+
+
 def main():
+    # Slå sammen statiske + auto-oppdagete sider
+    all_pages = dict(PAGES)
+    for path, prio in discover_blog_posts().items():
+        if path not in all_pages:
+            all_pages[path] = prio
+
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for path, prio in PAGES.items():
+    for path, prio in all_pages.items():
         url = f'https://data1.no{path}'
         lm = lastmod_for(path)
         # Trender-siden oppdateres daglig
@@ -73,7 +91,7 @@ def main():
     lines.append('</urlset>')
 
     SITEMAP.write_text('\n'.join(lines) + '\n', encoding='utf-8')
-    print(f'Sitemap oppdatert: {len(PAGES)} URL-er, lastmod for /trender/ = {today}')
+    print(f'Sitemap oppdatert: {len(all_pages)} URL-er, lastmod for /trender/ = {today}')
 
 
 if __name__ == '__main__':

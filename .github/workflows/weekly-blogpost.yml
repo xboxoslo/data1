@@ -1,0 +1,53 @@
+name: Weekly AI blog post
+
+on:
+  schedule:
+    # Hver mandag kl 07:00 UTC = ca 08:00/09:00 norsk tid
+    - cron: '0 7 * * 1'
+  workflow_dispatch:  # Manuell trigging
+
+permissions:
+  contents: write
+
+jobs:
+  generate-post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generate blog post via Claude API
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/weekly_blogpost.py
+
+      - name: Update sitemap with new post
+        run: python scripts/update_sitemap.py
+
+      - name: Commit and push if generated
+        run: |
+          git config user.name "data1.no bot"
+          git config user.email "bot@data1.no"
+
+          if [[ -n $(git status --porcelain) ]]; then
+            git add blogg/ _drafts/ sitemap.xml
+            git commit -m "Weekly AI blog post: $(date -u +%Y-W%V) [skip ci]"
+            git push
+            echo "Ny bloggpost pushet."
+          else
+            echo "Ingen ny bloggpost generert."
+          fi
+
+      - name: Ping search engines
+        run: |
+          curl -s "https://www.google.com/ping?sitemap=https://data1.no/sitemap.xml" || true
+          curl -s "https://www.bing.com/ping?sitemap=https://data1.no/sitemap.xml" || true
