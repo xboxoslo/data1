@@ -39,7 +39,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"DMARC-oppsett og løpende overvåking","provider":{"@id":"https://data1.no/#organization"},"areaServed":{"@type":"Country","name":"Norge"},"serviceType":"E-postsikkerhets-konsulent","description":"Komplett pakke: oppsett av SPF, DKIM og DMARC for Microsoft 365 eller Google Workspace, pluss løpende DMARC-rapport-overvåking. 1 990 kr engangs etablering + 295 kr/mnd per domene.","offers":{"@type":"Offer","name":"DMARC-pakke (etablering + overvåking)","priceCurrency":"NOK","description":"1 990 kr engangs for oppsett, deretter 295 kr/mnd for løpende overvåking, rapport-analyse og varsling. Eks. mva. Ingen bindingstid.","priceSpecification":[{"@type":"PriceSpecification","price":"1990","priceCurrency":"NOK","description":"Engangs etablering"},{"@type":"UnitPriceSpecification","price":"295","priceCurrency":"NOK","unitText":"per måned per domene","billingDuration":"P1M","description":"Løpende overvåking"}]}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Hjem","item":"https://data1.no/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Hva er DMARC?","acceptedAnswer":{"@type":"Answer","text":"DMARC (Domain-based Message Authentication, Reporting and Conformance) er en e-postsikkerhetsstandard som hindrer at andre kan sende falske e-poster fra ditt domene. DMARC bygger på SPF og DKIM og forteller mottakere hva de skal gjøre med e-poster som ikke består autentisering — typisk avvis (p=reject) eller karantene (p=quarantine)."}},{"@type":"Question","name":"Er data1.no gratis?","acceptedAnswer":{"@type":"Answer","text":"Ja, data1.no er helt gratis å bruke. Du trenger ikke registrere deg eller oppgi e-post for å få full rapport. Tjenesten drives av Micronet AS som et åpent verktøy for norsk e-postsikkerhet."}},{"@type":"Question","name":"Hvordan sjekker jeg om mitt domene er beskyttet mot e-postspoofing?","acceptedAnswer":{"@type":"Answer","text":"Skriv inn domenenavnet (f.eks. eksempel.no) på data1.no. På cirka 10 sekunder får du en analyse av SPF, DMARC, DKIM, MTA-STS, TLS-RPT og BIMI med karakter fra A+ til F og konkrete forbedringstiltak. For full beskyttelse bør du ha gyldig SPF, aktiv DKIM-signering, og DMARC med p=reject."}},{"@type":"Question","name":"Hva er forskjellen på SPF, DKIM og DMARC?","acceptedAnswer":{"@type":"Answer","text":"SPF (Sender Policy Framework) lister opp hvilke servere som har lov å sende e-post fra ditt domene. DKIM (DomainKeys Identified Mail) signerer hver e-post kryptografisk så mottakeren kan verifisere at innholdet ikke er endret. DMARC binder SPF og DKIM sammen, krever at From-adressen samsvarer (alignment), og forteller mottakeren hva som skal skje hvis autentiseringen feiler."}},{"@type":"Question","name":"Hvilken DMARC-policy bør jeg starte med?","acceptedAnswer":{"@type":"Answer","text":"Start alltid med p=none for å overvåke i 2-4 uker uten å påvirke leveringen. Les rapportene (rua-adresse), identifiser alle legitime avsendere, og sørg for at de består SPF og DKIM. Skjerp deretter til p=quarantine med pct=25, opp til pct=100, og til slutt p=reject for full beskyttelse. Hele overgangen tar typisk 4-8 uker."}},{"@type":"Question","name":"Hva betyr karakter A+ til F på data1.no?","acceptedAnswer":{"@type":"Answer","text":"Karakteren reflekterer en sammenlagt score (0-100) basert på DMARC (35p), SPF (25p), DKIM (20p), MTA-STS (12p), TLS-RPT (5p) og BIMI (3p). A+ (90-100) betyr full beskyttelse med p=reject. A (80-89) er sterk. B (70-79) god men ikke optimal. C (55-69) middels. D (35-54) svak. F (0-34) er praktisk talt ubeskyttet — domenet er åpent for spoofing."}},{"@type":"Question","name":"Lagrer data1.no mine data?","acceptedAnswer":{"@type":"Answer","text":"Nei. Vi setter ingen cookies, sporer ikke individuelle brukere, og lagrer ikke domenehistorikk knyttet til deg. Vi loggfører kun anonymiserte aggregerte besøkstall (sidesti, hashet IP, UTM-parametere) for å se generell trafikkutvikling — i tråd med GDPR uten samtykkekrav."}},{"@type":"Question","name":"Hvor lang tid tar det å implementere DMARC?","acceptedAnswer":{"@type":"Answer","text":"Selve oppsettet av SPF, DKIM og initial DMARC-record tar 30-60 minutter. Trygg overgang fra p=none til p=reject tar 4-8 uker, fordi du må verifisere at all legitim e-post består autentiseringen før du strammer policyen."}}]}</script>
-<script src="/_assets/tracker.js" defer></script>
+<script src="/_assets/tracker.js?v=20260510" defer></script>
 <style>.faq-section{max-width:760px;margin:48px auto 64px;padding:0 20px}.has-results .faq-section{display:none}.faq-heading{font-size:22px;font-weight:800;color:#0f172a;margin-bottom:24px;text-align:center}.faq-list{display:flex;flex-direction:column;gap:10px}.faq-item{background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden}.faq-item[open]{box-shadow:0 4px 16px rgba(0,0,0,.07)}.faq-q{padding:16px 20px;font-size:15px;font-weight:600;color:#0f172a;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}.faq-q::-webkit-details-marker{display:none}.faq-q::after{content:'+';font-size:20px;color:#14b8a6;font-weight:400;flex-shrink:0;margin-left:12px}.faq-item[open] .faq-q::after{content:'−'}.faq-a{padding:0 20px 16px;font-size:14px;color:#475569;line-height:1.65}.faq-a code{background:#f1f5f9;padding:1px 6px;border-radius:4px;font-family:monospace;font-size:13px;color:#0f766e}</style>
 <style>
 /* ── DRAMATIC AI HERO — dark navy with glowing AI cube ── */
@@ -50,82 +50,28 @@ body:not(.has-results) main.container::after{content:'';position:absolute;top:-1
 @keyframes bg-glow-shift{0%,100%{opacity:.8;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.1)}}
 body:not(.has-results) .welcome{position:relative;z-index:2;padding:60px 24px 80px}
 
-/* AI Badge */
-.ai-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(15,23,42,.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#fff;padding:8px 18px 8px 12px;border-radius:999px;font-size:13px;font-weight:600;margin-bottom:36px;border:1px solid rgba(56,189,248,.3);box-shadow:0 0 40px rgba(56,189,248,.2),inset 0 1px 0 rgba(255,255,255,.1);position:relative;overflow:hidden}
-.ai-badge-dot{width:8px;height:8px;border-radius:50%;background:#10b981;box-shadow:0 0 12px #10b981,0 0 24px #10b981;animation:ai-pulse 1.8s infinite}
-@keyframes ai-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.2)}}
-.ai-badge-text{color:#e0f2fe}
-.ai-badge-tag{background:linear-gradient(135deg,#06b6d4,#3b82f6);color:#fff;padding:3px 10px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+/* CLEAN COMMERCIAL HERO — no more matrix code, no envelope, no terminal vibe */
+.hero-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(15,23,42,.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#cbd5e0;padding:8px 18px;border-radius:999px;font-size:13px;font-weight:600;margin-bottom:32px;border:1px solid rgba(56,189,248,.25)}
+.hero-pill-dot{width:8px;height:8px;border-radius:50%;background:#10b981;box-shadow:0 0 10px #10b981;animation:hero-pulse 2s infinite}
+@keyframes hero-pulse{0%,100%{opacity:1}50%{opacity:.5}}
 
-/* AI EMAIL ENVELOPE — clean, polished, no overlap */
-.welcome-shield{background:transparent !important;width:300px !important;height:210px !important;box-shadow:none !important;border-radius:0 !important;margin:32px auto 56px !important;position:relative}
-.welcome-shield svg.welcome-shield-svg{display:none !important}
+.hero-shield-clean{width:96px;height:108px;margin:0 auto 32px;display:flex;align-items:center;justify-content:center;filter:drop-shadow(0 12px 32px rgba(20,184,166,.45))}
+.hero-shield-clean svg{width:100%;height:100%}
 
-/* Light beams shooting out behind the envelope (constrained by mask) */
-.welcome-shield::before{content:'';position:absolute;inset:-80px;background:conic-gradient(from 0deg at 50% 50%,transparent 0deg,rgba(168,85,247,.35) 30deg,transparent 60deg,transparent 90deg,rgba(56,189,248,.45) 120deg,transparent 150deg,transparent 180deg,rgba(168,85,247,.35) 210deg,transparent 240deg,transparent 270deg,rgba(56,189,248,.45) 300deg,transparent 330deg);filter:blur(18px);animation:ai-beams-rotate 20s linear infinite;z-index:0;mask:radial-gradient(circle,transparent 30%,#000 50%,transparent 80%);-webkit-mask:radial-gradient(circle,transparent 30%,#000 50%,transparent 80%);pointer-events:none}
-@keyframes ai-beams-rotate{to{transform:rotate(360deg)}}
+.hero-cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 32px}
+.hero-cta-primary{padding:14px 28px;background:linear-gradient(135deg,#14b8a6,#0d9488);color:#fff;border:0;border-radius:999px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;box-shadow:0 8px 24px rgba(20,184,166,.4);transition:all .15s}
+.hero-cta-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(20,184,166,.55)}
+.hero-cta-secondary{padding:14px 28px;background:rgba(15,23,42,.5);color:#fff;border:1px solid rgba(56,189,248,.3);border-radius:999px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:all .15s}
+.hero-cta-secondary:hover{background:rgba(56,189,248,.15);border-color:#38bdf8}
 
-/* Massive radial glow halo */
-.welcome-shield::after{content:'';position:absolute;inset:-60px;background:radial-gradient(ellipse,rgba(168,85,247,.45) 0%,rgba(56,189,248,.35) 30%,transparent 70%);filter:blur(50px);animation:ai-mega-pulse 4s ease-in-out infinite;z-index:0;pointer-events:none}
-@keyframes ai-mega-pulse{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.15)}}
-
-/* The envelope container — NO 3D rotation that causes flap overlap */
-.ai-envelope{position:relative;width:300px;height:210px;z-index:2;animation:ai-envelope-float 6s ease-in-out infinite}
-@keyframes ai-envelope-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-
-/* Envelope body — back layer */
-.ai-envelope-body{position:absolute;inset:0;background:linear-gradient(135deg,#0a0524 0%,#1e1b4b 50%,#0a1428 100%);border:2px solid rgba(168,85,247,.7);border-radius:16px;box-shadow:0 0 60px rgba(168,85,247,.55),0 0 120px rgba(56,189,248,.35),inset 0 0 40px rgba(168,85,247,.2),inset 0 1px 0 rgba(255,255,255,.15);overflow:hidden}
-.ai-envelope-body::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 30%,rgba(255,255,255,.08) 50%,transparent 70%);pointer-events:none;z-index:5}
-
-/* DNS-record snippet — positioned in the V-fold opening */
-.ai-envelope-dns{position:absolute;left:50%;top:18%;transform:translateX(-50%);width:78%;font-family:'Courier New',monospace;font-size:9.5px;color:#fff;background:rgba(15,23,42,.85);padding:6px 10px;border-radius:6px;border:1px solid rgba(56,189,248,.4);z-index:7;overflow:hidden;text-shadow:0 0 4px rgba(56,189,248,.6);box-shadow:0 0 16px rgba(56,189,248,.3),0 2px 8px rgba(0,0,0,.4)}
-.ai-envelope-dns-line{display:block;white-space:nowrap;animation:ai-dns-type 9s steps(40) infinite;overflow:hidden;height:13px}
-.ai-envelope-dns-line:nth-child(1){animation-delay:0s;color:#5eead4}
-.ai-envelope-dns-line:nth-child(2){animation-delay:3s;color:#c084fc}
-.ai-envelope-dns-line:nth-child(3){animation-delay:6s;color:#7dd3fc}
-@keyframes ai-dns-type{0%{width:0}30%,55%{width:100%}85%,100%{width:0}}
-
-/* @ icon — bottom right corner */
-.ai-envelope-at{position:absolute;top:auto;bottom:14px;right:14px;width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,rgba(168,85,247,.5),rgba(56,189,248,.5));border:2px solid rgba(168,85,247,.8);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;color:#fff;box-shadow:0 0 20px rgba(168,85,247,.7),inset 0 0 12px rgba(168,85,247,.3);text-shadow:0 0 8px #c084fc,0 0 16px #a855f7;z-index:7;backdrop-filter:blur(4px)}
-
-/* Envelope flap — static V-fold inside envelope (no rotation, no overlap) */
-.ai-envelope-flap{position:absolute;top:0;left:0;right:0;height:55%;background:linear-gradient(180deg,#1e1b4b 0%,#150f3d 100%);clip-path:polygon(0 0,100% 0,50% 100%);border-bottom:2px solid rgba(168,85,247,.4);box-shadow:inset 0 -8px 24px rgba(168,85,247,.25),inset 0 2px 0 rgba(255,255,255,.05);z-index:6;pointer-events:none}
-.ai-envelope-flap::after{content:'';position:absolute;left:50%;top:50%;width:120%;height:2px;background:linear-gradient(90deg,transparent,rgba(168,85,247,.5),transparent);transform:translate(-50%,-50%) rotate(28deg);transform-origin:center;box-shadow:0 0 8px rgba(168,85,247,.4)}
-
-/* Animated scan beam with cyan glow + horizontal lines */
-.ai-envelope-scan{position:absolute;top:0;bottom:0;width:60px;background:linear-gradient(90deg,transparent 0%,rgba(56,189,248,.5) 35%,rgba(168,85,247,.9) 50%,rgba(56,189,248,.5) 65%,transparent 100%);box-shadow:0 0 60px rgba(56,189,248,1),0 0 120px rgba(168,85,247,.7);animation:ai-scan-sweep 2.5s ease-in-out infinite;z-index:7;mix-blend-mode:screen}
-@keyframes ai-scan-sweep{0%{left:-60px}50%{left:calc(100% + 0px)}100%{left:-60px}}
-
-/* Horizontal scan lines (CRT effect) */
-.ai-envelope-body::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0px,transparent 2px,rgba(56,189,248,.04) 2px,rgba(56,189,248,.04) 3px);pointer-events:none;z-index:5;animation:ai-crt-flicker 8s ease-in-out infinite}
-@keyframes ai-crt-flicker{0%,100%{opacity:.5}50%{opacity:.8}}
-
-/* AI badge/seal — sits ON the envelope at center-bottom for visibility */
-.ai-envelope-seal{position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);width:64px;height:64px;background:radial-gradient(circle,#a855f7 0%,#7c3aed 70%);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;font-weight:900;letter-spacing:.04em;box-shadow:0 0 30px rgba(168,85,247,.9),0 0 60px rgba(168,85,247,.5),inset 0 2px 0 rgba(255,255,255,.3);border:2px solid rgba(255,255,255,.25);text-shadow:0 0 8px rgba(255,255,255,.6);z-index:8;animation:ai-seal-pulse 2.5s ease-in-out infinite}
-@keyframes ai-seal-pulse{0%,100%{transform:translateX(-50%) scale(1);box-shadow:0 0 30px rgba(168,85,247,.9),0 0 60px rgba(168,85,247,.5),inset 0 2px 0 rgba(255,255,255,.3)}50%{transform:translateX(-50%) scale(1.08);box-shadow:0 0 40px rgba(168,85,247,1),0 0 80px rgba(168,85,247,.7),inset 0 2px 0 rgba(255,255,255,.4)}}
-
-/* Floating particles around the envelope */
-.welcome-shield .particle{position:absolute;width:5px;height:5px;border-radius:50%;background:#a855f7;box-shadow:0 0 12px #a855f7,0 0 24px #a855f7;pointer-events:none;animation:ai-float 6s ease-in-out infinite;z-index:5}
-.welcome-shield .particle:nth-child(1){background:#38bdf8;box-shadow:0 0 12px #38bdf8,0 0 24px #38bdf8;top:10%;left:5%;animation-delay:0s}
-.welcome-shield .particle:nth-child(2){background:#c084fc;box-shadow:0 0 12px #c084fc,0 0 24px #c084fc;top:15%;right:0%;animation-delay:1s}
-.welcome-shield .particle:nth-child(3){background:#7dd3fc;box-shadow:0 0 12px #7dd3fc,0 0 24px #7dd3fc;bottom:5%;left:8%;animation-delay:2s}
-.welcome-shield .particle:nth-child(4){background:#e9d5ff;box-shadow:0 0 12px #e9d5ff,0 0 24px #e9d5ff;bottom:15%;right:5%;animation-delay:3s}
-.welcome-shield .particle:nth-child(5){background:#a855f7;box-shadow:0 0 12px #a855f7,0 0 24px #a855f7;top:50%;left:-5%;animation-delay:1.5s}
-.welcome-shield .particle:nth-child(6){background:#38bdf8;box-shadow:0 0 12px #38bdf8,0 0 24px #38bdf8;top:50%;right:-5%;animation-delay:2.5s}
-.welcome-shield .particle:nth-child(7){background:#c084fc;box-shadow:0 0 12px #c084fc,0 0 24px #c084fc;top:0;left:50%;animation-delay:3.5s}
-@keyframes ai-float{0%,100%{transform:translateY(0) translateX(0);opacity:.4}25%{transform:translateY(-20px) translateX(10px);opacity:1}50%{transform:translateY(0) translateX(20px);opacity:.6}75%{transform:translateY(20px) translateX(-10px);opacity:1}}
+.hero-trust-row{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:36px;font-size:13px;color:#94a3b8}
+.hero-trust strong{color:#fff;font-weight:700}
 
 /* HERO TYPOGRAPHY — large dramatic white text with INTENSE GLOW */
 .welcome h1{font-size:80px !important;font-weight:900 !important;color:#fff !important;letter-spacing:-.04em !important;line-height:1.02 !important;margin-bottom:24px !important;text-shadow:0 0 60px rgba(168,85,247,.4),0 0 120px rgba(56,189,248,.3)}
 .welcome h1 .accent{background:linear-gradient(120deg,#a855f7 0%,#c084fc 25%,#38bdf8 60%,#06b6d4 100%) !important;-webkit-background-clip:text !important;background-clip:text !important;color:transparent !important;-webkit-text-fill-color:transparent !important;filter:drop-shadow(0 0 20px rgba(168,85,247,.6)) drop-shadow(0 0 40px rgba(56,189,248,.4));animation:ai-title-glow 4s ease-in-out infinite;display:inline-block;background-size:200% 200%}
 @keyframes ai-title-glow{0%,100%{background-position:0% 50%;filter:drop-shadow(0 0 20px rgba(168,85,247,.6)) drop-shadow(0 0 40px rgba(56,189,248,.4))}50%{background-position:100% 50%;filter:drop-shadow(0 0 30px rgba(168,85,247,.8)) drop-shadow(0 0 60px rgba(56,189,248,.6))}}
 .welcome-sub{color:#94a3b8 !important;font-size:19px !important;max-width:620px !important;line-height:1.6 !important;margin-bottom:40px !important}
-
-/* Hero stats — light text on dark bg */
-.hero-stats{display:flex;gap:32px;justify-content:center;margin:0 0 40px;flex-wrap:wrap}
-.hero-stat{display:flex;align-items:center;gap:10px;font-size:14px;color:#94a3b8}
-.hero-stat-icon{width:20px;height:20px;color:#38bdf8;flex-shrink:0;filter:drop-shadow(0 0 6px rgba(56,189,248,.6))}
-.hero-stat strong{color:#fff;font-weight:700}
 
 /* SEARCH BOX — glowing dark glass */
 .hero-search-form{background:rgba(15,23,42,.7) !important;backdrop-filter:blur(20px) !important;-webkit-backdrop-filter:blur(20px) !important;border:1px solid rgba(56,189,248,.3) !important;box-shadow:0 0 80px rgba(56,189,248,.15),0 8px 32px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.05) !important}
@@ -321,49 +267,34 @@ body:not(.has-results) .faq-a code{background:rgba(56,189,248,.1) !important;col
 
 <main class="container">
     <div id="welcome" class="welcome">
-        <div class="ai-badge">
-            <span class="ai-badge-dot"></span>
-            <span class="ai-badge-text">AI-drevet · Live data</span>
-            <span class="ai-badge-tag">100% gratis</span>
+        <div class="hero-pill">
+            <span class="hero-pill-dot"></span>
+            <span>Norsk · Gratis · Ingen registrering</span>
         </div>
-        <div class="welcome-shield">
-            <span class="particle"></span>
-            <span class="particle"></span>
-            <span class="particle"></span>
-            <span class="particle"></span>
-            <span class="particle"></span>
-            <span class="particle"></span>
-            <span class="particle"></span>
-            <div class="ai-envelope">
-                <div class="ai-envelope-body">
-                    <div class="ai-envelope-dns">
-                        <span class="ai-envelope-dns-line">v=DMARC1; p=reject</span>
-                        <span class="ai-envelope-dns-line">SPF: include:_spf.google.com -all</span>
-                        <span class="ai-envelope-dns-line">DKIM: 2048-bit RSA · valid signature</span>
-                    </div>
-                    <div class="ai-envelope-at">@</div>
-                    <div class="ai-envelope-scan"></div>
-                </div>
-                <div class="ai-envelope-flap"></div>
-                <div class="ai-envelope-seal">AI</div>
-            </div>
+        <div class="hero-shield-clean">
+            <svg viewBox="0 0 64 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M32 4L8 12v22c0 14.5 10.4 28 24 34 13.6-6 24-19.5 24-34V12L32 4z" fill="url(#sh1)" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+                <path d="M22 32l8 8 14-14" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs>
+                    <linearGradient id="sh1" x1="8" y1="4" x2="56" y2="68" gradientUnits="userSpaceOnUse">
+                        <stop offset="0" stop-color="#14b8a6"/>
+                        <stop offset="1" stop-color="#0d9488"/>
+                    </linearGradient>
+                </defs>
+            </svg>
         </div>
-        <h1><span class="accent">AI-drevet</span><br>e-post sikkerhet</h1>
-        <h2 class="welcome-sub">Gratis sjekk av SPF, DMARC, DKIM, MTA-STS, TLS-RPT og BIMI for ethvert domene. Karakter A+ til F og konkrete tiltak — analysert av AI på sekunder.</h2>
+        <h1>Beskytt bedriftens<br>e-post mot <span class="accent">spoofing og svindel</span></h1>
+        <h2 class="welcome-sub">Test gratis hvordan domenet ditt er beskyttet — eller la oss gjøre oppsettet for deg fra <strong>1 990 kr engangs + 295 kr/mnd</strong>.</h2>
 
-        <div class="hero-stats">
-            <div class="hero-stat">
-                <svg class="hero-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-                <span><strong>Daglig</strong> AI-skanning av norske domener</span>
-            </div>
-            <div class="hero-stat">
-                <svg class="hero-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
-                <span><strong>Ukentlig</strong> nye AI-genererte rapporter</span>
-            </div>
-            <div class="hero-stat">
-                <svg class="hero-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                <span><strong>Live trender</strong> oppdatert kontinuerlig</span>
-            </div>
+        <div class="hero-cta-row">
+            <button type="button" onclick="document.getElementById('domainInputHero').focus()" class="hero-cta-secondary">Test gratis →</button>
+            <button type="button" onclick="openServiceOrder()" class="hero-cta-primary">Bestill DMARC-pakke →</button>
+        </div>
+
+        <div class="hero-trust-row">
+            <div class="hero-trust"><strong>158</strong> norske domener overvåkes daglig</div>
+            <div class="hero-trust"><strong>Levering</strong> 1-3 virkedager</div>
+            <div class="hero-trust"><strong>Ingen</strong> bindingstid</div>
         </div>
 
         <div class="hero-search-wrap">
