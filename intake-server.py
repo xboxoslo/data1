@@ -390,7 +390,10 @@ def halo_item_line(item_id, quantity, token):
 
 
 def create_halo_quote(b):
-    """Opprett draft quote i Halo med item 516 (Mail SPF-DKIM-DMARC), template 29 (Tilbud Micronet)."""
+    """Opprett draft quote i Halo med item 516 (Mail SPF-DKIM-DMARC), template 29 (Tilbud Micronet).
+
+    Hvis b['orderType'] == 'dmarc-service-package' tilpasses tittel og notat for direkte
+    DMARC-tjenestebestillinger (uten domeneanalyse-score)."""
     token = halo_token()
     client_id, user_id = halo_find_or_create_customer(b, token)
     # Bygg adresse-linje fra BRREG-data hvis tilgjengelig
@@ -404,10 +407,24 @@ def create_halo_quote(b):
     ehf_status = '✓ Ja (PEPPOL/EHF-mottak)' if b.get('ehf') else '✗ Nei (manuell faktura)' if 'ehf' in b else '(ikke sjekket)'
     nace_line = f"{b.get('nace_code','')} {b.get('nace_text','')}".strip() or '(ikke oppgitt)'
 
-    note = '\n'.join([
-        f"=== Domeneanalyse for {b.get('domain','')} ===",
-        f"  Score: {b.get('score') or '?'}% ({b.get('grade') or '?'})",
-        f"  Rapport: {b.get('reportUrl','')}",
+    is_service_order = (b.get('orderType') or '').strip() == 'dmarc-service-package'
+    if is_service_order:
+        title = f"DMARC-pakke — {b.get('domain','')}"
+        header_block = [
+            f"=== Direkte bestilling: DMARC-pakke ===",
+            f"  Domene:         {b.get('domain','')}",
+            f"  Pakke:          1 990 kr engangs + 295 kr/mnd",
+            f"  Kilde:          data1.no — \"Bestill nå\"-knapp",
+        ]
+    else:
+        title = f"Domenesikkerhet — {b.get('domain','')}"
+        header_block = [
+            f"=== Domeneanalyse for {b.get('domain','')} ===",
+            f"  Score: {b.get('score') or '?'}% ({b.get('grade') or '?'})",
+            f"  Rapport: {b.get('reportUrl','')}",
+        ]
+
+    note = '\n'.join(header_block + [
         '',
         '=== Firma (auto-hentet fra BRREG) ===',
         f"  Navn:           {b.get('company') or '(ikke oppgitt)'}",
@@ -427,7 +444,7 @@ def create_halo_quote(b):
         b.get('message') or '(ingen)',
     ])
     payload = [{
-        'title':          f"Domenesikkerhet — {b.get('domain','')}",
+        'title':          title,
         'client_id':      client_id,
         'user_id':        user_id,
         'agent_id':       23,    # API-bruker (eier)
@@ -955,13 +972,19 @@ class Handler(BaseHTTPRequestHandler):
             self._send_json({'error': 'Bot-beskyttelse feilet. Last siden på nytt og prøv igjen.'}, 403); return
 
         result = {'ok': True}
-        try:
-            print(f'  --> Sender mail til {body.get("email")} for {body.get("domain")}')
-            result['mail'] = send_mailgun(body)
-            print(f'    [OK] Mailgun OK')
-        except Exception as e:
-            print(f'    [FAIL] Mailgun: {e}')
-            result['mail'] = {'error': str(e)}
+        is_service_order = (body.get('orderType') or '').strip() == 'dmarc-service-package'
+
+        if is_service_order:
+            print(f'  --> Service-bestilling (DMARC-pakke) for {body.get("domain")} — hopper over rapport-mail')
+            result['mail'] = {'skipped': 'service-order'}
+        else:
+            try:
+                print(f'  --> Sender mail til {body.get("email")} for {body.get("domain")}')
+                result['mail'] = send_mailgun(body)
+                print(f'    [OK] Mailgun OK')
+            except Exception as e:
+                print(f'    [FAIL] Mailgun: {e}')
+                result['mail'] = {'error': str(e)}
 
         try:
             print(f'  --> Oppretter Halo-quote for {body.get("domain")}')
