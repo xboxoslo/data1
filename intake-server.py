@@ -612,7 +612,7 @@ def render_shield_png(grade, gc, gc_light):
     draw = ImageDraw.Draw(img)
 
     # 6. Hvit sirkel med myk drop-shadow (gir letter-badge løftet 3D-følelse)
-    cx, cy, r = 60*SCALE, 58*SCALE, 24*SCALE
+    cx, cy, r = 60*SCALE, 58*SCALE, 30*SCALE
     circle_shadow = Image.new('RGBA', (iw, ih), (0, 0, 0, 0))
     csd = ImageDraw.Draw(circle_shadow)
     csd.ellipse((cx-r, cy-r+2*SCALE, cx+r, cy+r+2*SCALE), fill=(0, 0, 0, 60))
