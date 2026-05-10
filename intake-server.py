@@ -199,7 +199,8 @@ def create_halo_ticket(b):
     tt_id = halo_ticket_type_id(token)
     quote_id = b.get('_quoteId')
     client_id = b.get('_clientId')
-    quote_link = f"{HALO_BASE}/quote/{quote_id}" if quote_id else None
+    quote_link = (f"{HALO_BASE}/orders?mainview=quotes&selid=-1&sellevel=1&selparentid=0&quoteid={quote_id}"
+                  if quote_id else None)
 
     summary = f"Domeneanalyse: {b.get('domain')} ({b.get('grade') or '?'} / {b.get('score') or '?'}%)"
 
