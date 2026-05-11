@@ -1,0 +1,139 @@
+name: Cloudflare bot allowlist (Bing/Google/AI)
+
+# Manuell trigger fra Actions-fanen: lar søk- og AI-boter forbi Cloudflares
+# bot-beskyttelse for data1.no, så GSC/Bing Webmaster/Perplexity osv kan
+# crawle uten å bli blokkert eller utfordret med challenge.
+#
+# Krever to repository secrets:
+#   - CLOUDFLARE_API_TOKEN  (Zone:Read + Zone WAF:Edit på data1.no)
+#   - CLOUDFLARE_ZONE_ID    (data1.no zone-id fra Cloudflare overview)
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'apply = opprett/oppdater allowlist; remove = slett den; check = bare list eksisterende ruleset'
+        required: true
+        default: 'apply'
+        type: choice
+        options:
+          - apply
+          - remove
+          - check
+
+permissions:
+  contents: read
+
+jobs:
+  manage-bot-allowlist:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    env:
+      CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CF_ZONE: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+      RULE_DESCRIPTION: 'data1.no search & AI bot allowlist'
+
+    steps:
+      - name: Validate secrets present
+        run: |
+          if [ -z "$CF_TOKEN" ] || [ -z "$CF_ZONE" ]; then
+            echo "::error::CLOUDFLARE_API_TOKEN eller CLOUDFLARE_ZONE_ID mangler i repo secrets"
+            exit 1
+          fi
+          echo "Secrets OK, zone $CF_ZONE"
+
+      - name: Verify token has needed scope
+        run: |
+          curl -sS -X GET "https://api.cloudflare.com/client/v4/user/tokens/verify" \
+            -H "Authorization: Bearer $CF_TOKEN" \
+            -H "Content-Type: application/json" | tee /tmp/verify.json
+          if ! grep -q '"status":"active"' /tmp/verify.json; then
+            echo "::error::Token er ikke aktivt eller mangler scope"
+            exit 1
+          fi
+
+      - name: Find http_request_firewall_custom entrypoint ruleset
+        id: ruleset
+        run: |
+          curl -sS -X GET \
+            "https://api.cloudflare.com/client/v4/zones/$CF_ZONE/rulesets/phases/http_request_firewall_custom/entrypoint" \
+            -H "Authorization: Bearer $CF_TOKEN" \
+            -H "Content-Type: application/json" > /tmp/ruleset.json
+          if grep -q '"success":false' /tmp/ruleset.json; then
+            # Entrypoint finnes ikke ennå — det er greit, vi oppretter det implisitt via PUT
+            echo "id=" >> "$GITHUB_OUTPUT"
+            echo "Ingen eksisterende custom-ruleset på zone, oppretter ny ved apply"
+          else
+            RULESET_ID=$(grep -o '"id":"[a-f0-9]\{32\}"' /tmp/ruleset.json | head -1 | cut -d'"' -f4)
+            echo "id=$RULESET_ID" >> "$GITHUB_OUTPUT"
+            echo "Eksisterende ruleset: $RULESET_ID"
+          fi
+
+      - name: Check (list existing rules)
+        if: ${{ inputs.action == 'check' }}
+        run: |
+          cat /tmp/ruleset.json | python3 -m json.tool || cat /tmp/ruleset.json
+
+      - name: Apply (create or update allowlist rule)
+        if: ${{ inputs.action == 'apply' }}
+        run: |
+          # Cloudflare expression: skip alle managed-features for known good bots + våre eksplisitte UA-er.
+          # cf.client.bot = true for verifiserte søkemotor-bots (Google, Bing, Yandex, DuckDuckBot, m.fl.)
+          EXPR='(cf.client.bot) or (http.user_agent contains "GPTBot") or (http.user_agent contains "ChatGPT-User") or (http.user_agent contains "PerplexityBot") or (http.user_agent contains "Perplexity-User") or (http.user_agent contains "ClaudeBot") or (http.user_agent contains "Claude-User") or (http.user_agent contains "anthropic-ai") or (http.user_agent contains "Google-Extended") or (http.user_agent contains "Applebot") or (http.user_agent contains "Bytespider") or (http.user_agent contains "CCBot") or (http.user_agent contains "Diffbot") or (http.user_agent contains "FacebookBot") or (http.user_agent contains "YouBot")'
+
+          cat > /tmp/rule.json <<EOF
+          {
+            "rules": [
+              {
+                "action": "skip",
+                "action_parameters": {
+                  "ruleset": "current",
+                  "phases": [
+                    "http_ratelimit",
+                    "http_request_firewall_managed",
+                    "http_request_sbfm"
+                  ],
+                  "products": [
+                    "bic",
+                    "hot",
+                    "rateLimit",
+                    "securityLevel",
+                    "uaBlock",
+                    "waf",
+                    "zoneLockdown"
+                  ]
+                },
+                "expression": "$EXPR",
+                "description": "$RULE_DESCRIPTION",
+                "enabled": true
+              }
+            ]
+          }
+          EOF
+
+          curl -sS -X PUT \
+            "https://api.cloudflare.com/client/v4/zones/$CF_ZONE/rulesets/phases/http_request_firewall_custom/entrypoint" \
+            -H "Authorization: Bearer $CF_TOKEN" \
+            -H "Content-Type: application/json" \
+            --data @/tmp/rule.json | tee /tmp/result.json
+          if grep -q '"success":false' /tmp/result.json; then
+            echo "::error::Apply feilet — se respons over"
+            exit 1
+          fi
+          echo "Allowlist regel aktiv. Bing/Google/AI-boter skal nå slippe forbi bot-beskyttelse."
+
+      - name: Remove (clear custom ruleset)
+        if: ${{ inputs.action == 'remove' }}
+        run: |
+          # Tøm alle regler i custom-phase entrypoint
+          curl -sS -X PUT \
+            "https://api.cloudflare.com/client/v4/zones/$CF_ZONE/rulesets/phases/http_request_firewall_custom/entrypoint" \
+            -H "Authorization: Bearer $CF_TOKEN" \
+            -H "Content-Type: application/json" \
+            --data '{"rules": []}' | tee /tmp/result.json
+          if grep -q '"success":false' /tmp/result.json; then
+            echo "::error::Remove feilet"
+            exit 1
+          fi
+          echo "Allowlist fjernet"
