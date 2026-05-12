@@ -74,6 +74,20 @@ def discover_error_pages() -> dict[str, float]:
     return out
 
 
+def discover_domain_check_pages() -> dict[str, float]:
+    """Finn alle /sjekk/{domain}/-sider generert av generate_domain_pages.py."""
+    out = {}
+    sjekk_dir = ROOT / 'sjekk'
+    if not sjekk_dir.exists():
+        return out
+    if (sjekk_dir / 'index.html').exists():
+        out['/sjekk/'] = 0.85
+    for sub in sjekk_dir.iterdir():
+        if sub.is_dir() and (sub / 'index.html').exists():
+            out[f'/sjekk/{sub.name}/'] = 0.7
+    return out
+
+
 def main():
     # Slå sammen statiske + auto-oppdagete sider
     all_pages = dict(PAGES)
@@ -81,6 +95,9 @@ def main():
         if path not in all_pages:
             all_pages[path] = prio
     for path, prio in discover_error_pages().items():
+        if path not in all_pages:
+            all_pages[path] = prio
+    for path, prio in discover_domain_check_pages().items():
         if path not in all_pages:
             all_pages[path] = prio
 
