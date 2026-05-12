@@ -40,6 +40,9 @@ jobs:
       - name: Generate trends page
         run: python scripts/generate_trends.py
 
+      - name: Generate per-domain check pages (programmatic SEO)
+        run: python scripts/generate_domain_pages.py
+
       - name: Update sitemap
         run: python scripts/update_sitemap.py
 
@@ -50,7 +53,7 @@ jobs:
 
           # Bare commit hvis det faktisk er endringer
           if [[ -n $(git status --porcelain) ]]; then
-            git add _data/snapshots/ trender/ sitemap.xml
+            git add _data/snapshots/ trender/ sjekk/ sitemap.xml
             git commit -m "Daily scan: $(date -u +%Y-%m-%d) [skip ci]"
             git push
             echo "Endringer pushet."
