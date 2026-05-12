@@ -1,0 +1,60 @@
+name: Verify press claims
+
+# Manuell trigger. Verifiserer at F/D-grade domener i siste daily-scan-snapshot
+# faktisk er trygge å bruke i pressemelding eller LinkedIn-post:
+#  - Har MX-records (sender/mottar e-post fra domenet)?
+#  - DMARC-mangel bekreftet live (ikke bare i snapshot)?
+#  - Alternativt hoved-domene som faktisk brukes til e-post?
+#
+# Output: _data/press-verification-YYYY-MM-DD.md med VERIFIED/RECHECK/SKIP-status
+# per domene. Committes tilbake til repo så vi har audit trail.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run verification
+        run: python scripts/verify_press_claims.py
+
+      - name: Upload report as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: press-verification-${{ github.run_id }}
+          path: _data/press-verification-*.md
+
+      - name: Commit report back to repo
+        run: |
+          git config user.name "data1.no bot"
+          git config user.email "bot@data1.no"
+          if [[ -n $(git status --porcelain _data/) ]]; then
+            git add _data/press-verification-*.md
+            git commit -m "Press verification: $(date -u +%Y-%m-%d)"
+            git push
+            echo "Rapport pushet."
+          else
+            echo "Ingen ny rapport."
+          fi
+
+      - name: Print report summary
+        run: |
+          echo "::group::Press verification report"
+          cat _data/press-verification-*.md | head -60
+          echo "::endgroup::"
