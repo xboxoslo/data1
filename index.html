@@ -163,6 +163,15 @@ body:not(.has-results) .faq-a code{background:rgba(56,189,248,.1) !important;col
   .ai-cube-text{font-size:32px}
   .welcome-shield{width:130px !important;height:130px !important}
 }
+a.logo{text-decoration:none}
+a.logo:hover{opacity:.85}
+@media(max-width:640px){
+  .header{padding:10px 12px !important;gap:8px !important}
+  .logo{font-size:16px !important}
+  .search-form{max-width:none !important;width:auto !important;flex:1;gap:6px !important}
+  .search-input{padding:8px 12px !important;font-size:14px !important;min-width:0}
+  .search-btn{padding:8px 12px !important;font-size:14px !important;flex-shrink:0}
+}
 </style>
 </head>
 <body>
@@ -251,7 +260,7 @@ body:not(.has-results) .faq-a code{background:rgba(56,189,248,.1) !important;col
 </div>
 
 <div class="header">
-    <div class="logo">data1<span>.no</span></div>
+    <a href="/" class="logo">data1<span>.no</span></a>
     <form class="search-form" onsubmit="handleSearch(event, document.getElementById('domainInput').value)">
         <input type="text" class="search-input" id="domainInput"
                placeholder="Skriv inn domenenavn (f.eks. micronet.no)" autocomplete="off" spellcheck="false">
