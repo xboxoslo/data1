@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="bi.no har karakter D (48/100) på e-postsikkerhet. Se DMARC, SPF, DKIM, MTA-STS, TLS-RPT og BIMI-status, oppdatert 2026-05-12.">
+<meta name="description" content="bi.no har karakter C (60/100) på e-postsikkerhet. Se DMARC, SPF, DKIM, MTA-STS, TLS-RPT og BIMI-status, oppdatert 2026-05-13.">
 <meta name="author" content="Micronet">
 <meta name="theme-color" content="#1a202c">
 <link rel="canonical" href="https://data1.no/sjekk/bi.no/">
@@ -11,11 +11,11 @@
 <meta property="og:site_name" content="data1.no">
 <meta property="og:locale" content="nb_NO">
 <meta property="og:url" content="https://data1.no/sjekk/bi.no/">
-<meta property="og:title" content="E-postsikkerhet for bi.no — karakter D | data1.no">
-<meta property="og:description" content="bi.no har karakter D (48/100) på e-postsikkerhet. Se DMARC, SPF, DKIM, MTA-STS, TLS-RPT og BIMI-status, oppdatert 2026-05-12.">
+<meta property="og:title" content="E-postsikkerhet for bi.no — karakter C | data1.no">
+<meta property="og:description" content="bi.no har karakter C (60/100) på e-postsikkerhet. Se DMARC, SPF, DKIM, MTA-STS, TLS-RPT og BIMI-status, oppdatert 2026-05-13.">
 <meta property="og:image" content="https://data1.no/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<title>E-postsikkerhet for bi.no — karakter D | data1.no</title>
+<title>E-postsikkerhet for bi.no — karakter C | data1.no</title>
 <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/rapport-2026/_assets/report.css">
 <style>
@@ -36,7 +36,7 @@
 .cta a:hover{background:#0d9488}
 .updated{font-size:13px;color:#64748b;margin-top:24px;text-align:center}
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://data1.no/sjekk/bi.no/", "url": "https://data1.no/sjekk/bi.no/", "name": "E-postsikkerhet for bi.no — karakter D | data1.no", "description": "bi.no har karakter D (48/100) på e-postsikkerhet. Se DMARC, SPF, DKIM, MTA-STS, TLS-RPT og BIMI-status, oppdatert 2026-05-12.", "inLanguage": "nb-NO", "isPartOf": {"@id": "https://data1.no/#website"}, "about": {"@type": "Thing", "name": "E-postsikkerhet for bi.no"}, "dateModified": "2026-05-12", "breadcrumb": {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Hjem", "item": "https://data1.no/"}, {"@type": "ListItem", "position": 2, "name": "Sjekk domene", "item": "https://data1.no/sjekk/"}, {"@type": "ListItem", "position": 3, "name": "bi.no", "item": "https://data1.no/sjekk/bi.no/"}]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://data1.no/sjekk/bi.no/", "url": "https://data1.no/sjekk/bi.no/", "name": "E-postsikkerhet for bi.no — karakter C | data1.no", "description": "bi.no har karakter C (60/100) på e-postsikkerhet. Se DMARC, SPF, DKIM, MTA-STS, TLS-RPT og BIMI-status, oppdatert 2026-05-13.", "inLanguage": "nb-NO", "isPartOf": {"@id": "https://data1.no/#website"}, "about": {"@type": "Thing", "name": "E-postsikkerhet for bi.no"}, "dateModified": "2026-05-13", "breadcrumb": {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Hjem", "item": "https://data1.no/"}, {"@type": "ListItem", "position": 2, "name": "Sjekk domene", "item": "https://data1.no/sjekk/"}, {"@type": "ListItem", "position": 3, "name": "bi.no", "item": "https://data1.no/sjekk/bi.no/"}]}}</script>
 </head>
 <body>
 <header class="header">
@@ -51,10 +51,10 @@
   <h1>E-postsikkerhet for bi.no</h1>
 
   <div class="grade-hero">
-    <div class="grade-badge" style="background:#ef4444">D</div>
+    <div class="grade-badge" style="background:#f97316">C</div>
     <div class="grade-info">
-      <h2>Karakter — sist oppdatert 2026-05-12</h2>
-      <p>48/100 — svak beskyttelse. Kritiske mangler i SPF eller DMARC betyr at e-poster som utgir seg for å komme fra @bi.no ofte havner i innboksen til mottakerne.</p>
+      <h2>Karakter — sist oppdatert 2026-05-13</h2>
+      <p>60/100 — middels beskyttelse. Grunnleggende oppsett finnes, men det er tydelige hull som kan utnyttes av phishing-kampanjer.</p>
     </div>
   </div>
 
@@ -69,10 +69,10 @@
   <section class="check">
     <div class="check-head">
       <h2>DMARC</h2>
-      <span class="pill" style="background:#eab308">p=none</span>
+      <span class="pill" style="background:#eab308">p=quarantine</span>
     </div>
-    <pre class="dns-record">v=DMARC1; p=none; sp=none; pct=100; rua=mailto:30e48f5f@in.mailhardener.com; ruf=mailto:30e48f5f@in.mailhardener.com; fo=1</pre>
-    <p>p=none — kun overvåking, ingen håndheving. bi.no mottar DMARC-rapporter, men angripere kan fortsatt nå mottakerens innboks. Bør strammes til p=reject etter 4-8 uker.</p>
+    <pre class="dns-record">v=DMARC1; p=quarantine; sp=quarantine; pct=30; rua=mailto:30e48f5f@in.mailhardener.com; ruf=mailto:30e48f5f@in.mailhardener.com; fo=1</pre>
+    <p>p=quarantine — ikke-autentisert e-post sendes til spam-mappen. Bedre enn ingenting, men gir ikke samme beskyttelse som p=reject. Bør skjerpes etter en overvåkingsperiode.</p>
   </section>
   <section class="check">
     <div class="check-head">
@@ -110,7 +110,7 @@
     <a href="/?domain=bi.no">Kjør live-analyse →</a>
   </div>
 
-  <p class="updated">Sist oppdatert: 2026-05-12. Data hentes daglig via DNS.</p>
+  <p class="updated">Sist oppdatert: 2026-05-13. Data hentes daglig via DNS.</p>
 </main>
 </body>
 </html>

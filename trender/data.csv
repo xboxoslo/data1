@@ -23,7 +23,7 @@ telenor.no,Telecom,97,A+,reject,1,1,1,1,1,0
 telia.no,Telecom,75,B,reject,1,1,1,0,0,0
 ice.no,Telecom,80,A,reject,1,1,1,0,0,0
 get.no,Telecom,48,D,none,1,1,1,0,0,0
-altibox.no,Telecom,53,D,reject,1,1,0,0,0,0
+altibox.no,Telecom,73,B,reject,1,1,1,0,0,0
 talkmore.no,Telecom,80,A,reject,1,1,1,0,0,0
 nav.no,Offentlig sektor,100,A+,reject,1,1,1,1,1,1
 skatteetaten.no,Offentlig sektor,82,A,quarantine,1,1,1,1,1,0
@@ -119,7 +119,7 @@ inn.no,Universiteter og høyskoler,80,A,reject,1,1,1,0,0,0
 nord.no,Universiteter og høyskoler,60,C,quarantine,1,1,1,0,0,0
 khio.no,Universiteter og høyskoler,53,D,none,1,1,1,0,0,0
 nhh.no,Universiteter og høyskoler,65,C,quarantine,1,1,1,0,0,0
-bi.no,Universiteter og høyskoler,48,D,none,1,1,1,0,0,0
+bi.no,Universiteter og høyskoler,60,C,quarantine,1,1,1,0,0,0
 ks.no,Universiteter og høyskoler,53,D,none,1,1,1,0,0,0
 oslo.kommune.no,Kommuner,53,D,none,1,1,1,0,0,0
 bergen.kommune.no,Kommuner,85,A,reject,1,1,1,0,1,0
