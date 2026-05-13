@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#020617">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="HaloTimer">
+<meta name="robots" content="noindex,nofollow">
+<title>HaloTimer</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.svg">
+<link rel="icon" type="image/svg+xml" href="icon-192.svg">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+html, body {
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+  background: #020617;
+  color: #e2e8f0;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+body {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(168,85,247,.18) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 50% at 80% 70%, rgba(56,189,248,.14) 0%, transparent 60%),
+    linear-gradient(180deg, #020617 0%, #0c1428 100%);
+  background-attachment: fixed;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+#app { height: 100%; display: flex; flex-direction: column; max-width: 540px; margin: 0 auto; }
+header {
+  padding: 18px 20px 12px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-shrink: 0;
+}
+.brand { font-size: 17px; font-weight: 800; letter-spacing: -.01em; }
+.brand .ac { color: #38bdf8; }
+.user-chip {
+  font-size: 12px; color: #94a3b8;
+  background: rgba(15,23,42,.6); padding: 6px 12px; border-radius: 999px;
+  border: 1px solid rgba(56,189,248,.18);
+  max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.user-chip.signout { cursor: pointer; }
+.user-chip.signout:hover { background: rgba(15,23,42,.9); }
+
+main { flex: 1; overflow-y: auto; padding: 8px 16px 24px; -webkit-overflow-scrolling: touch; }
+.view { display: none; }
+.view.active { display: block; }
+
+/* Login view */
+.login-wrap {
+  min-height: 70vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 20px;
+}
+.shield {
+  width: 88px; height: 88px; border-radius: 24px;
+  background: linear-gradient(140deg, #14b8a6 0%, #0f766e 100%);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 12px 32px -8px rgba(20,184,166,.5);
+  margin-bottom: 28px;
+}
+.shield svg { width: 46px; height: 46px; color: #fff; }
+h1.title { font-size: 32px; font-weight: 800; letter-spacing: -.02em; color: #fff; margin-bottom: 10px; }
+h1.title .ac {
+  background: linear-gradient(120deg, #a855f7 0%, #38bdf8 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.subtitle { color: #94a3b8; font-size: 15px; max-width: 320px; line-height: 1.55; margin-bottom: 36px; }
+.btn-primary {
+  background: linear-gradient(135deg, #06b6d4, #3b82f6);
+  color: #fff; border: 0; border-radius: 14px;
+  padding: 16px 28px; font-size: 16px; font-weight: 700;
+  cursor: pointer; box-shadow: 0 4px 20px rgba(56,189,248,.35);
+  font-family: inherit; display: inline-flex; align-items: center; gap: 10px;
+  transition: transform .12s;
+}
+.btn-primary:active { transform: scale(.97); }
+.btn-primary:disabled { opacity: .5; cursor: not-allowed; }
+
+/* Ticket list */
+.list-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 4px 4px 12px;
+}
+.list-title { font-size: 13px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: .06em; }
+.refresh-btn {
+  background: rgba(15,23,42,.6); border: 1px solid rgba(56,189,248,.18);
+  color: #94a3b8; padding: 6px 12px; border-radius: 999px;
+  font-size: 12px; font-weight: 600; cursor: pointer; font-family: inherit;
+}
+.refresh-btn:active { transform: scale(.95); }
+.refresh-btn:disabled { opacity: .5; cursor: not-allowed; }
+
+.ticket {
+  background: rgba(15,23,42,.6);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(56,189,248,.14);
+  border-radius: 14px; padding: 14px 16px; margin-bottom: 10px;
+  cursor: pointer; transition: all .15s; display: block;
+}
+.ticket:active { transform: scale(.98); background: rgba(15,23,42,.85); }
+.ticket .id { font-size: 12px; color: #38bdf8; font-weight: 700; margin-bottom: 4px; font-family: ui-monospace, monospace; }
+.ticket .summary { font-size: 15px; color: #e2e8f0; font-weight: 600; line-height: 1.35; margin-bottom: 6px; }
+.ticket .client { font-size: 12px; color: #64748b; }
+
+.empty {
+  text-align: center; padding: 60px 24px; color: #64748b; font-size: 14px;
+}
+.error {
+  background: rgba(220,38,38,.1); border: 1px solid rgba(220,38,38,.3);
+  color: #fca5a5; padding: 14px 16px; border-radius: 12px;
+  font-size: 13px; margin: 12px 0;
+}
+
+/* Timer view */
+.timer-card {
+  background: rgba(15,23,42,.6);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(56,189,248,.18);
+  border-radius: 18px; padding: 18px 18px 22px; margin-bottom: 16px;
+}
+.timer-ticket-id { font-size: 12px; color: #38bdf8; font-weight: 700; font-family: ui-monospace, monospace; }
+.timer-summary { font-size: 16px; color: #fff; font-weight: 700; margin-top: 4px; line-height: 1.4; }
+.timer-client { font-size: 13px; color: #94a3b8; margin-top: 4px; }
+
+.timer-display {
+  font-size: 64px; font-weight: 800; color: #fff;
+  text-align: center; margin: 32px 0 8px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.04em;
+  text-shadow: 0 0 40px rgba(56,189,248,.35);
+}
+.timer-label { text-align: center; font-size: 13px; color: #64748b; text-transform: uppercase; letter-spacing: .08em; }
+.timer-state-running .timer-display { color: #10b981; text-shadow: 0 0 40px rgba(16,185,129,.4); }
+
+.timer-actions {
+  display: flex; gap: 10px; margin-top: 28px;
+}
+.timer-actions button {
+  flex: 1; padding: 18px 0; border: 0; border-radius: 14px;
+  font-size: 17px; font-weight: 700; cursor: pointer; font-family: inherit;
+  transition: transform .12s;
+}
+.timer-actions button:active { transform: scale(.96); }
+.btn-start { background: linear-gradient(135deg, #10b981, #059669); color: #fff; box-shadow: 0 4px 20px rgba(16,185,129,.35); }
+.btn-stop { background: linear-gradient(135deg, #ef4444, #dc2626); color: #fff; box-shadow: 0 4px 20px rgba(239,68,68,.35); }
+.btn-back {
+  background: rgba(15,23,42,.6); color: #94a3b8;
+  border: 1px solid rgba(148,163,184,.2);
+}
+.btn-back:disabled { opacity: .4; cursor: not-allowed; }
+
+/* Confirm screen */
+.confirm-info {
+  background: rgba(15,23,42,.6);
+  border: 1px solid rgba(56,189,248,.18);
+  border-radius: 14px; padding: 16px;
+  display: flex; align-items: center; justify-content: space-between;
+  margin: 12px 0 16px;
+}
+.confirm-info .left .label { font-size: 11px; color: #64748b; text-transform: uppercase; letter-spacing: .06em; }
+.confirm-info .left .value { font-size: 22px; color: #fff; font-weight: 800; margin-top: 2px; }
+.confirm-info .right { font-size: 13px; color: #94a3b8; text-align: right; }
+
+.note-field { margin: 12px 0 18px; }
+.note-field label { display: block; font-size: 12px; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; }
+.note-field textarea {
+  width: 100%; padding: 12px 14px; border-radius: 12px;
+  background: rgba(2,6,23,.6); border: 1px solid rgba(56,189,248,.18);
+  color: #fff; font-size: 15px; font-family: inherit;
+  resize: vertical; min-height: 80px; outline: 0;
+}
+.note-field textarea:focus { border-color: #38bdf8; box-shadow: 0 0 0 3px rgba(56,189,248,.12); }
+
+.toast {
+  position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom));
+  transform: translateX(-50%) translateY(80px);
+  padding: 12px 20px; border-radius: 12px;
+  background: #059669; color: #fff; font-size: 14px; font-weight: 600;
+  box-shadow: 0 8px 24px rgba(0,0,0,.4);
+  opacity: 0; transition: all .25s; pointer-events: none; z-index: 999;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.toast.error { background: #dc2626; }
+
+.spinner {
+  width: 32px; height: 32px;
+  border: 3px solid rgba(148,163,184,.2);
+  border-top-color: #38bdf8;
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+  margin: 40px auto;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-height: 640px) {
+  .shield { width: 64px; height: 64px; margin-bottom: 18px; }
+  .shield svg { width: 32px; height: 32px; }
+  h1.title { font-size: 26px; }
+  .subtitle { margin-bottom: 24px; }
+  .timer-display { font-size: 52px; margin: 22px 0 6px; }
+}
+</style>
+</head>
+<body>
+<div id="app">
+  <header>
+    <div class="brand">Halo<span class="ac">Timer</span></div>
+    <div id="user-chip" class="user-chip" style="display:none"></div>
+  </header>
+
+  <main>
+    <!-- Login view -->
+    <div id="view-login" class="view active">
+      <div class="login-wrap">
+        <div class="shield">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <h1 class="title">Tidsregistrering<br><span class="ac">på Halo</span></h1>
+        <p class="subtitle">Logg inn med Microsoft for å starte timer på dine åpne tickets.</p>
+        <button id="btn-login" class="btn-primary">
+          <svg width="20" height="20" viewBox="0 0 23 23"><path fill="#f25022" d="M0 0h11v11H0z"/><path fill="#7fba00" d="M12 0h11v11H12z"/><path fill="#00a4ef" d="M0 12h11v11H0z"/><path fill="#ffb900" d="M12 12h11v11H12z"/></svg>
+          Logg inn med Microsoft
+        </button>
+        <div id="login-error" class="error" style="display:none;margin-top:24px"></div>
+      </div>
+    </div>
+
+    <!-- Ticket list view -->
+    <div id="view-list" class="view">
+      <div class="list-head">
+        <div class="list-title">Mine åpne tickets</div>
+        <button id="btn-refresh" class="refresh-btn">Oppdater</button>
+      </div>
+      <div id="list-error" class="error" style="display:none"></div>
+      <div id="ticket-list"></div>
+    </div>
+
+    <!-- Timer view -->
+    <div id="view-timer" class="view">
+      <button id="btn-back-list" class="btn-back" style="border:0;background:transparent;color:#64748b;padding:6px 0 12px;font-size:14px;cursor:pointer;font-family:inherit">← Tilbake til liste</button>
+      <div class="timer-card">
+        <div class="timer-ticket-id" id="timer-ticket-id"></div>
+        <div class="timer-summary" id="timer-summary"></div>
+        <div class="timer-client" id="timer-client"></div>
+
+        <div class="timer-display" id="timer-display">00:00:00</div>
+        <div class="timer-label" id="timer-label">Klar til start</div>
+
+        <div class="timer-actions">
+          <button id="btn-start" class="btn-start">Start</button>
+          <button id="btn-stop" class="btn-stop" style="display:none">Stopp</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confirm/log view -->
+    <div id="view-confirm" class="view">
+      <button id="btn-back-timer" class="btn-back" style="border:0;background:transparent;color:#64748b;padding:6px 0 12px;font-size:14px;cursor:pointer;font-family:inherit">← Tilbake</button>
+      <div class="timer-card">
+        <div class="timer-ticket-id" id="confirm-ticket-id"></div>
+        <div class="timer-summary" id="confirm-summary"></div>
+        <div class="confirm-info">
+          <div class="left">
+            <div class="label">Logget tid</div>
+            <div class="value" id="confirm-minutes">0 min</div>
+          </div>
+          <div class="right" id="confirm-duration"></div>
+        </div>
+        <div class="note-field">
+          <label for="note-input">Notat (vises som public note)</label>
+          <textarea id="note-input" placeholder="Beskriv hva som ble gjort..."></textarea>
+        </div>
+        <div class="timer-actions">
+          <button id="btn-cancel-log" class="btn-back" style="padding:14px 0">Avbryt</button>
+          <button id="btn-confirm-log" class="btn-primary" style="padding:14px 0;flex:1;justify-content:center;box-shadow:none">Logg på ticket</button>
+        </div>
+        <div id="confirm-error" class="error" style="display:none;margin-top:12px"></div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="https://alcdn.msauth.net/browser/3.20.0/js/msal-browser.min.js"
+        crossorigin="anonymous"></script>
+<script src="app.js?v=1"></script>
+</body>
+</html>

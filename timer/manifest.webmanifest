@@ -1,0 +1,27 @@
+{
+  "name": "HaloTimer — tidsregistrering på Halo",
+  "short_name": "HaloTimer",
+  "description": "Start/stopp-timer som logger tid som public note på Halo PSA-tickets.",
+  "start_url": "/timer/",
+  "scope": "/timer/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#020617",
+  "theme_color": "#020617",
+  "lang": "nb-NO",
+  "categories": ["productivity", "business"],
+  "icons": [
+    {
+      "src": "icon-192.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}
