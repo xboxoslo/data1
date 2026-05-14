@@ -1164,4 +1164,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url><loc>https://data1.no/landingssider/dmarc/</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority></url>
+  <url><loc>https://data1.no/landingssider/spf/</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority></url>
+  <url><loc>https://data1.no/landingssider/dkim/</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority></url>
+  <url><loc>https://data1.no/landingssider/mta-sts/</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://data1.no/landingssider/tls-rpt/</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
