@@ -1,6 +1,6 @@
-# DomainSikkerhet — Domeneanalyse-intake
+# data1 — Domeneanalyse-intake
 
-Lokal intake-backend for `domain-analyzer.html`. Mottar POST fra skjemaet,
+Backend for [data1.no](https://data1.no) (`domain-analyzer.html`). Mottar POST fra skjemaet,
 sender pent designet HTML-rapport via Mailgun (med 3D-skjold som inline PNG),
 og oppretter draft quote i HaloPSA.
 
@@ -21,24 +21,49 @@ domain-analyzer.html  ──POST /intake──▶  intake-server.py  ──┬�
 | `intake-secrets.env.example` | Mal for `.env`-fila med API-nøkler (kopier til `intake-secrets.env`). |
 | `scripts/` | Engangs-oppslag for å finne Halo-IDer (item, agent, template). |
 
-## Oppsett
+## Oppsett (lokal dev, anbefalt — Azure Key Vault)
 
-```bash
+```powershell
 # 1. Klon repoet
-git clone https://github.com/<bruker>/domeneanalyse-intake.git
-cd domeneanalyse-intake
+git clone https://github.com/xboxoslo/data1.git C:\dev\data1
+cd C:\dev\data1
 
 # 2. Installer avhengigheter
 pip install -r requirements.txt
 
-# 3. Kopier hemmelighets-malen og fyll inn nøkler
-cp intake-secrets.env.example intake-secrets.env
-# Rediger intake-secrets.env med:
-#   HALO_CLIENT_ID, HALO_CLIENT_SECRET, MAILGUN_API_KEY
+# 3. Logg inn på Azure (én gang per PC)
+az login
 
-# 4. Kjør serveren
+# 4. Kjør serveren — secrets hentes automatisk fra micronet-data1-kv + micronet-shared-kv
 python intake-server.py
 ```
+
+Krever Python 3.8+ og [Azure CLI](https://aka.ms/installazurecliwindows). Ingen `.env`-fil
+trengs — Halo, Mailgun og Turnstile-secrets hentes via `az login`-credentialene dine.
+
+Vault-mapping (definert i `AZURE_SECRETS` i `intake-server.py`):
+
+| Env var | Vault | Secret |
+|---|---|---|
+| `HALO_CLIENT_ID` | `micronet-data1-kv` | `Halo-Client-Id` |
+| `HALO_CLIENT_SECRET` | `micronet-data1-kv` | `Halo-Client-Secret` |
+| `TURNSTILE_SECRET` | `micronet-data1-kv` | `Turnstile-Secret` |
+| `MAILGUN_API_KEY` | `micronet-shared-kv` | `Mailgun-Api-Key` |
+
+### Alternativ: lokal .env-fil
+
+Hvis du ikke vil bruke Azure (eller vil overstyre én verdi midlertidig):
+
+```powershell
+cp intake-secrets.env.example intake-secrets.env
+# rediger og fyll inn — env vars vinner over .env, .env vinner over Azure
+python intake-server.py
+```
+
+### Railway-prod
+
+Secrets settes som env vars i Railway-prosjektets *Variables*-fane. Koden prøver env
+vars FØRST, så prod bruker aldri Azure (ingen `az login` i container).
 
 Server lytter på `http://localhost:3001/intake`.
 
