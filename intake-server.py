@@ -960,6 +960,11 @@ class Handler(BaseHTTPRequestHandler):
             self.send_header('Content-Type', 'text/plain'); self.end_headers()
             self.wfile.write(b'ok')
             return
+        if parsed.path == '/' or parsed.path == '':
+            self.send_response(302); self._cors()
+            self.send_header('Location', 'https://data1.no/')
+            self.end_headers()
+            return
         self.send_response(404); self._cors(); self.end_headers()
 
     def _send_shield_preview(self, to_email):
