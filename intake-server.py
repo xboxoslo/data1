@@ -66,17 +66,72 @@ def log_event(kind, **fields):
     except Exception as e:
         sys.stderr.write(f'  [stats log fail] {e}\n')
 
-# ─────── Load secrets from intake-secrets.env ───────
+# ─────── Load secrets ───────
+# Prioritet:
+#   1. Env vars (Railway-prod) — settes i Railway UI
+#   2. intake-secrets.env (gammel lokal dev-flyt — fortsatt støttet)
+#   3. Azure Key Vault (ny lokal dev-flyt — krever 'az login')
+#
+# Hver PC trenger kun 'az login' én gang. Ingen .env-filer å kopiere mellom maskiner.
+AZURE_SECRETS = {
+    # ENV_VAR_NAME: (vault-name, secret-name)
+    'HALO_CLIENT_ID':     ('micronet-data1-kv',   'Halo-Client-Id'),
+    'HALO_CLIENT_SECRET': ('micronet-data1-kv',   'Halo-Client-Secret'),
+    'TURNSTILE_SECRET':   ('micronet-data1-kv',   'Turnstile-Secret'),
+    'MAILGUN_API_KEY':    ('micronet-shared-kv',  'Mailgun-Api-Key'),
+}
+
+def _find_az_cli():
+    """Returner sti til Azure CLI, eller None hvis ikke funnet."""
+    import shutil
+    for name in ('az', 'az.cmd', 'az.exe'):
+        path = shutil.which(name)
+        if path:
+            return path
+    # Windows fallback hvis az ikke er i PATH
+    windows_default = r'C:\Program Files\Microsoft SDKs\Azure\CLI2\wbin\az.cmd'
+    if os.name == 'nt' and Path(windows_default).exists():
+        return windows_default
+    return None
+
 def load_env():
+    # Steg 2: les lokal .env hvis den finnes
     env_path = Path(__file__).parent / 'intake-secrets.env'
-    if not env_path.exists():
-        return  # Railway: secrets are already in environment variables
-    for line in env_path.read_text(encoding='utf-8').splitlines():
-        line = line.strip()
-        if not line or line.startswith('#') or '=' not in line:
-            continue
-        k, v = line.split('=', 1)
-        os.environ[k.strip()] = v.strip().strip('"').strip("'")
+    if env_path.exists():
+        for line in env_path.read_text(encoding='utf-8').splitlines():
+            line = line.strip()
+            if not line or line.startswith('#') or '=' not in line:
+                continue
+            k, v = line.split('=', 1)
+            k = k.strip()
+            if not os.environ.get(k):  # env vars vinner over .env
+                os.environ[k] = v.strip().strip('"').strip("'")
+
+    # Steg 3: hent manglende fra Azure Key Vault
+    missing = [k for k in AZURE_SECRETS if not os.environ.get(k)]
+    if not missing:
+        return
+    az_cli = _find_az_cli()
+    if not az_cli:
+        return  # ingen az tilgjengelig — Railway-prod treffer denne, og det er greit
+    import subprocess
+    for key in missing:
+        vault, secret = AZURE_SECRETS[key]
+        try:
+            result = subprocess.run(
+                [az_cli, 'keyvault', 'secret', 'show',
+                 '--vault-name', vault, '--name', secret,
+                 '--query', 'value', '-o', 'tsv'],
+                capture_output=True, text=True, timeout=10, check=False,
+            )
+            if result.returncode == 0 and result.stdout.strip():
+                os.environ[key] = result.stdout.strip()
+                print(f'  [azure-kv] {key} hentet fra {vault}/{secret}')
+            else:
+                err = (result.stderr or '').strip().splitlines()[-1:] or ['no-output']
+                print(f'  [azure-kv-fail] {key}: {err[0]}')
+        except Exception as e:
+            print(f'  [azure-kv-fail] {key}: {e}')
 
 load_env()
 HALO_CLIENT_ID     = os.environ.get('HALO_CLIENT_ID', '')
@@ -86,7 +141,7 @@ TURNSTILE_SECRET   = os.environ.get('TURNSTILE_SECRET', '')
 
 for key in ('HALO_CLIENT_ID', 'HALO_CLIENT_SECRET', 'MAILGUN_API_KEY'):
     if not os.environ.get(key):
-        print(f'  [WARN] {key} mangler i intake-secrets.env')
+        print(f'  [WARN] {key} mangler — sett env var, intake-secrets.env, eller "az login" + secret i Azure Key Vault')
 
 if not TURNSTILE_SECRET:
     print('  [WARN] TURNSTILE_SECRET mangler — Turnstile-verifisering er deaktivert')
