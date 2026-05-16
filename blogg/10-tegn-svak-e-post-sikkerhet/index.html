@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="nb-NO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="10 konkrete tegn på at din e-post sikkerhet ikke er god nok — fra DMARC på p=none til manglende DKIM. Sjekk deg selv på 5 minutter.">
+<meta name="keywords" content="e-post sikkerhet sjekk, mail sikkerhet test, dmarc problemer, spf feil, dkim feil, svak mail sikkerhet">
+<meta name="author" content="Micronet">
+<meta name="theme-color" content="#1a202c">
+<meta name="geo.region" content="NO">
+<meta name="geo.placename" content="Norge">
+<meta http-equiv="content-language" content="nb-NO">
+<link rel="canonical" href="https://data1.no/blogg/10-tegn-svak-e-post-sikkerhet/">
+<link rel="alternate" hreflang="nb-NO" href="https://data1.no/blogg/10-tegn-svak-e-post-sikkerhet/">
+<link rel="alternate" hreflang="x-default" href="https://data1.no/blogg/10-tegn-svak-e-post-sikkerhet/">
+<link rel="alternate" type="application/rss+xml" title="data1.no — blogg om e-postsikkerhet" href="https://data1.no/blogg/feed.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="data1.no">
+<meta property="og:locale" content="nb_NO">
+<meta property="og:url" content="https://data1.no/blogg/10-tegn-svak-e-post-sikkerhet/">
+<meta property="article:published_time" content="2026-05-16T10:00:00+00:00">
+<meta property="article:modified_time" content="2026-05-16T10:00:00+00:00">
+<meta property="og:title" content="10 tegn på at din e-post sikkerhet ikke holder">
+<meta property="og:description" content="10 konkrete signaler på at domenet ditt er sårbart for phishing og spoofing — sjekk om noen av dem gjelder deg.">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="10 tegn på at din e-post sikkerhet ikke holder">
+<meta name="twitter:image" content="https://data1.no/og-image.png">
+<title>10 tegn på at din e-post sikkerhet ikke holder | data1.no</title>
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/blogg/_assets/post.css">
+<style>
+.sign{background:#fff;border-left:4px solid #dc2626;border-radius:8px;padding:18px 22px;margin:14px 0;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.sign h3{margin:0 0 6px;color:#0f172a;font-size:19px}
+.sign .num{display:inline-block;background:#dc2626;color:#fff;border-radius:999px;width:28px;height:28px;line-height:28px;text-align:center;font-weight:800;font-size:14px;margin-right:8px}
+.sign p{margin:0 0 8px}
+.sign .fix{background:#f0fdf4;border-radius:6px;padding:10px 12px;margin-top:8px;font-size:14px;color:#166534}
+.sign .fix strong{color:#0f5132}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"10 tegn på at din e-post sikkerhet ikke holder","description":"Konkrete signaler på at domenet ditt er sårbart for phishing og spoofing.","image":"https://data1.no/og-image.png","datePublished":"2026-05-16T10:00:00+00:00","dateModified":"2026-05-16T10:00:00+00:00","inLanguage":"nb-NO","author":{"@type":"Organization","name":"Micronet AS","url":"https://micronet.no/"},"publisher":{"@type":"Organization","@id":"https://data1.no/#organization","name":"data1.no","url":"https://data1.no/"},"mainEntityOfPage":"https://data1.no/blogg/10-tegn-svak-e-post-sikkerhet/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Hjem","item":"https://data1.no/"},{"@type":"ListItem","position":2,"name":"Blogg","item":"https://data1.no/blogg/"},{"@type":"ListItem","position":3,"name":"10 tegn på at din e-post sikkerhet ikke holder","item":"https://data1.no/blogg/10-tegn-svak-e-post-sikkerhet/"}]}</script>
+<script src="/_assets/tracker.js" defer></script>
+</head>
+<body>
+<header class="header">
+  <a href="/" class="logo">data1<span>.no</span></a>
+  <form class="header-search" action="/" method="get" role="search">
+    <input type="text" name="domain" placeholder="Skriv inn domene — f.eks. micronet.no" aria-label="Sjekk domene">
+    <button type="submit">Analyser →</button>
+  </form>
+</header>
+<main>
+  <nav class="crumbs"><a href="/">Hjem</a> › <a href="/blogg/">Blogg</a> › 10 tegn på svak e-post sikkerhet</nav>
+
+  <h1>10 tegn på at din e-post sikkerhet ikke holder</h1>
+  <p class="meta">Publisert 16. mai 2026 · Av Micronet · 5 min lesetid</p>
+
+  <p>De fleste norske bedrifter tror de har god e-post sikkerhet — helt til noen sender en falsk faktura i deres navn. Her er 10 konkrete signaler på at domenet ditt er sårbart. Sjekk listen mot eget oppsett. Tar 5 minutter, eller bruk <a href="/">data1.no</a> for automatisk diagnose.</p>
+
+  <div class="sign">
+    <h3><span class="num">1</span>Du har ingen DMARC-record</h3>
+    <p>Sjekk: <code>dig TXT _dmarc.dittfirma.no</code> (eller test på data1.no). Hvis det ikke finnes en record, kan hvem som helst sende e-post i ditt navn — og du har ingen mulighet til å oppdage det.</p>
+    <div class="fix"><strong>Fix:</strong> Publiser <code>v=DMARC1; p=none; rua=mailto:dmarc@dittfirma.no</code> som TXT-record på <code>_dmarc.dittfirma.no</code>.</div>
+  </div>
+
+  <div class="sign">
+    <h3><span class="num">2</span>DMARC-en din står på <code>p=none</code></h3>
+    <p><code>p=none</code> er kun overvåking — falske mailer leveres fortsatt. Det er greit som startpunkt, men hvis det har stått slik i over 3 måneder uten å bli strammet til <code>p=quarantine</code> eller <code>p=reject</code>, har du i praksis ingen beskyttelse.</p>
+    <div class="fix"><strong>Fix:</strong> Analyser DMARC-rapportene (<code>rua=</code>), fiks legitime avsendere som feiler, og stram til <code>p=reject</code>.</div>
+  </div>
+
+  <div class="sign">
+    <h3><span class="num">3</span>SPF-en din ender med <code>~all</code> eller <code>?all</code></h3>
+    <p>Soft-fail (<code>~all</code>) og neutral (<code>?all</code>) sier til mottakeren "kanskje denne mailen er falsk, men leveres allikevel". Det er ikke beskyttelse.</p>
+    <div class="fix"><strong>Fix:</strong> Endre til <code>-all</code> (hard fail). Gjøres etter at du har bekreftet at SPF-en inkluderer alle dine legitime sendere.</div>
+  </div>
+
+  <div class="sign">
+    <h3><span class="num">4</span>SPF-en din har over 10 DNS-lookups</h3>
+    <p>SPF-spec sier maks 10 DNS-lookups. Overskrider du dette, gir mange mottakere <code>PermError</code> — og hele SPF-sjekken feiler. Vanlig hos bedrifter med mange tredjeparts-tjenester (Mailchimp, HubSpot, Postmark, Salesforce, Zendesk osv.).</p>
+    <div class="fix"><strong>Fix:</strong> Bruk SPF-flattening eller fjern unødvendige <code>include:</code>-statements. Test på data1.no for å se nøyaktig antall lookups.</div>
+  </div>
+
+  <div class="sign">
+    <h3><span class="num">5</span>Du har ingen DKIM-signatur på utgående mail</h3>
+    <p>Send en testmail til deg selv og se på headeren. Hvis <code>DKIM-Signature:</code> mangler eller <code>Authentication-Results</code> sier <code>dkim=none</code>, signerer du ikke. Da feiler DMARC-alignment, og full beskyttelse er umulig.</p>
+    <div class="fix"><strong>Fix:</strong> Aktiver DKIM-signering i Microsoft 365 admin / Google Workspace. Publiser DNS-records (CNAME for M365, TXT for Workspace).</div>
+  </div>
+
+  <div class="sign">
+    <h3><span class="num">6</span>DKIM-nøkkelen din er 1024-bit (eller mindre)</h3>
+    <p>1024-bit DKIM regnes som svakt i 2026. Google og Microsoft genererer fortsatt noen tenants med 1024-bit som default — du må manuelt rotere til 2048-bit.</p>
+    <div class="fix"><strong>Fix:</strong> Generer ny 2048-bit DKIM-nøkkel i admin-panelet. Roter nøkler årlig.</div>
+  </div>
+
+  <div class="sign">
+    <h3><span class="num">7</span>Du har ingen <code>rua=</code> i DMARC-en</h3>
+    <p>Uten rapporteringsadresse vet du ikke om noen prøver å spoofe deg, og du oppdager ikke når legitime tjenester begynner å feile.</p>
+    <div class="fix"><strong>Fix:</strong> Legg til <code>rua=mailto:dmarc@dittfirma.no</code> i DMARC-record. Bruk en innboks som faktisk leses.</div>
+  </div>
+
+  <div class="sign">
+    <h3><span class="num">8</span>Ingen leser DMARC-rapportene</h3>
+    <p>Du har <code>rua=</code> men XML-rapportene blir lest av <em>ingen</em>. Det er som å ha et brannvarsel som ingen sjekker. Du vil ikke oppdage spoofing-forsøk eller at en tredjeparts-tjeneste plutselig ikke signerer.</p>
+    <div class="fix"><strong>Fix:</strong> Sett opp en DMARC-monitor (Postmark DMARC gratis, EasyDMARC, dmarcian) eller la Micronet ta jobben for 295 kr/mnd.</div>
+  </div>
+
+  <div class="sign">
+    <h3><span class="num">9</span>Du har ikke MTA-STS</h3>
+    <p>MTA-STS krever TLS på all innkommende mail og hindrer downgrade-angrep. Under 10 % av norske bedrifter har det. Det er den enkleste måten å beskytte mailen mot avlytting.</p>
+    <div class="fix"><strong>Fix:</strong> Publiser DNS TXT-record på <code>_mta-sts.dittfirma.no</code> og hostet policy-fil på <code>mta-sts.dittfirma.no/.well-known/mta-sts.txt</code>. Start med <code>mode: testing</code>, gå til <code>mode: enforce</code> etter 1–2 måneder.</div>
+  </div>
+
+  <div class="sign">
+    <h3><span class="num">10</span>Du har ulike DMARC-record for hovedomenet og subdomener</h3>
+    <p>DMARC arver til subdomener via <code>sp=</code>. Hvis du har glemt subdomene-policy eller har motstridende DMARC-records på subdomener som <code>nyheter.dittfirma.no</code>, kan angripere bruke svakeste lenken.</p>
+    <div class="fix"><strong>Fix:</strong> Sett <code>sp=reject</code> i hovedomenets DMARC eller publiser eksplisitt DMARC for hvert subdomene.</div>
+  </div>
+
+  <div style="background:linear-gradient(135deg,#0f172a 0%,#1a2540 100%);color:#fff;border-radius:14px;padding:26px 28px;margin:30px 0;text-align:center">
+    <h3 style="color:#fff;margin:0 0 8px">Sjekk alle 10 punkter automatisk</h3>
+    <p style="color:#94a3b8;margin-bottom:14px">data1.no sjekker SPF, DMARC, DKIM, MTA-STS, TLS-RPT og BIMI på 10 sekunder. Karakter A+ til F med konkrete tiltak.</p>
+    <a href="/?utm_source=blogg&amp;utm_medium=10-tegn" style="display:inline-block;padding:11px 22px;background:#14b8a6;color:#fff;border-radius:999px;text-decoration:none;font-weight:700">Kjør gratis sjekk →</a>
+  </div>
+
+  <h2>Hva nå?</h2>
+  <p>Hvis du nikket på 3 eller flere av punktene over, er domenet ditt sannsynligvis sårbart. Du har to alternativer:</p>
+  <ol>
+    <li><strong>Fix det selv</strong> — bruk våre guider for <a href="/blogg/dmarc/">DMARC</a>, <a href="/blogg/spf/">SPF</a> og <a href="/blogg/dkim/">DKIM</a>.</li>
+    <li><strong>La Micronet fikse det</strong> — 1 990 kr etablering + 295 kr/mnd løpende overvåking. Ring 22 80 20 40 eller bruk skjemaet på forsiden.</li>
+  </ol>
+
+  <h2>Les mer om e-post sikkerhet</h2>
+  <ul>
+    <li><a href="/e-post-sikkerhet/">E-post sikkerhet — komplett pillarguide</a></li>
+    <li><a href="/blogg/hva-er-e-post-sikkerhet/">Hva er e-post sikkerhet? Enkelt forklart</a></li>
+    <li><a href="/blogg/e-post-sikkerhet-smb/">E-post sikkerhet for små og mellomstore bedrifter</a></li>
+    <li><a href="/feil/">Vanlige SPF/DMARC-feil og hvordan fikse</a></li>
+  </ul>
+</main>
+</body>
+</html>

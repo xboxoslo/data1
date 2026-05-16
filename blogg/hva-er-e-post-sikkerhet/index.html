@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="nb-NO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hva er e-post sikkerhet? Enkelt forklart — SPF, DKIM, DMARC og hvorfor norske bedrifter må ha det på plass i 2026. Med konkrete eksempler.">
+<meta name="keywords" content="hva er e-post sikkerhet, e-post sikkerhet forklart, mail sikkerhet, spf, dkim, dmarc, e-postsikkerhet">
+<meta name="author" content="Micronet">
+<meta name="theme-color" content="#1a202c">
+<meta name="geo.region" content="NO">
+<meta name="geo.placename" content="Norge">
+<meta http-equiv="content-language" content="nb-NO">
+<link rel="canonical" href="https://data1.no/blogg/hva-er-e-post-sikkerhet/">
+<link rel="alternate" hreflang="nb-NO" href="https://data1.no/blogg/hva-er-e-post-sikkerhet/">
+<link rel="alternate" hreflang="x-default" href="https://data1.no/blogg/hva-er-e-post-sikkerhet/">
+<link rel="alternate" type="application/rss+xml" title="data1.no — blogg om e-postsikkerhet" href="https://data1.no/blogg/feed.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="data1.no">
+<meta property="og:locale" content="nb_NO">
+<meta property="og:url" content="https://data1.no/blogg/hva-er-e-post-sikkerhet/">
+<meta property="article:published_time" content="2026-05-16T09:00:00+00:00">
+<meta property="article:modified_time" content="2026-05-16T09:00:00+00:00">
+<meta property="og:title" content="Hva er e-post sikkerhet? Enkelt forklart for norske bedrifter">
+<meta property="og:description" content="E-post sikkerhet handler om SPF, DKIM og DMARC — tre standarder som hindrer at andre kan sende e-post i ditt navn. Slik fungerer det.">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hva er e-post sikkerhet? Enkelt forklart">
+<meta name="twitter:image" content="https://data1.no/og-image.png">
+<title>Hva er e-post sikkerhet? Enkelt forklart for norske bedrifter | data1.no</title>
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/blogg/_assets/post.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Hva er e-post sikkerhet? Enkelt forklart for norske bedrifter","description":"E-post sikkerhet handler om SPF, DKIM og DMARC — tre standarder som hindrer at andre kan sende e-post i ditt navn.","image":"https://data1.no/og-image.png","datePublished":"2026-05-16T09:00:00+00:00","dateModified":"2026-05-16T09:00:00+00:00","inLanguage":"nb-NO","author":{"@type":"Organization","name":"Micronet AS","url":"https://micronet.no/"},"publisher":{"@type":"Organization","@id":"https://data1.no/#organization","name":"data1.no","url":"https://data1.no/"},"mainEntityOfPage":"https://data1.no/blogg/hva-er-e-post-sikkerhet/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Hva er e-post sikkerhet?","acceptedAnswer":{"@type":"Answer","text":"E-post sikkerhet er settet av teknologier og prosesser som beskytter e-post-kommunikasjon mot phishing, spoofing, malware og uautorisert tilgang. På domenenivå handler det om tre DNS-baserte standarder: SPF, DKIM og DMARC."}},{"@type":"Question","name":"Hva er forskjellen på SPF, DKIM og DMARC?","acceptedAnswer":{"@type":"Answer","text":"SPF lister hvilke servere som har lov til å sende e-post for ditt domene. DKIM signerer hver e-post kryptografisk. DMARC binder SPF og DKIM sammen og forteller mottakeren hva som skal skje hvis verifiseringen feiler."}},{"@type":"Question","name":"Hvorfor trenger en liten bedrift e-post sikkerhet?","acceptedAnswer":{"@type":"Answer","text":"Små bedrifter er ofte mer utsatt fordi de mangler IT-sikkerhetsteam. Uten SPF, DKIM og DMARC kan hvem som helst sende falsk e-post i bedriftens navn — typisk direktørsvindel mot kundene eller leverandørene dine."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Hjem","item":"https://data1.no/"},{"@type":"ListItem","position":2,"name":"Blogg","item":"https://data1.no/blogg/"},{"@type":"ListItem","position":3,"name":"Hva er e-post sikkerhet?","item":"https://data1.no/blogg/hva-er-e-post-sikkerhet/"}]}</script>
+<script src="/_assets/tracker.js" defer></script>
+</head>
+<body>
+<header class="header">
+  <a href="/" class="logo">data1<span>.no</span></a>
+  <form class="header-search" action="/" method="get" role="search">
+    <input type="text" name="domain" placeholder="Skriv inn domene — f.eks. micronet.no" aria-label="Sjekk domene">
+    <button type="submit">Analyser →</button>
+  </form>
+</header>
+<main>
+  <nav class="crumbs"><a href="/">Hjem</a> › <a href="/blogg/">Blogg</a> › Hva er e-post sikkerhet?</nav>
+
+  <h1>Hva er e-post sikkerhet? Enkelt forklart for norske bedrifter</h1>
+  <p class="meta">Publisert 16. mai 2026 · Av Micronet · 4 min lesetid</p>
+
+  <p><strong>E-post sikkerhet</strong> handler om å hindre at andre kan sende e-post i ditt navn — og å verifisere at e-posten du mottar faktisk kommer fra den den utgir seg for. I 2026 er det tre standarder som gjør jobben: <strong>SPF</strong>, <strong>DKIM</strong> og <strong>DMARC</strong>. Alle tre må være riktig konfigurert for at domenet ditt skal være beskyttet.</p>
+
+  <h2>Det grunnleggende problemet</h2>
+  <p>E-post-protokollen (SMTP) ble designet på 1980-tallet uten autentisering. Det betyr at <em>hvem som helst</em> kan sende en e-post som ser ut til å komme fra <code>direktor@dittfirma.no</code> — uten å ha tilgang til e-post-kontoen din.</p>
+  <p>Når en kriminell sender en falsk e-post fra "direktøren" til regnskapsavdelingen og ber om en hastebetaling, kalles det <strong>direktørsvindel</strong> (CEO fraud). NorSIS rapporterer at norske bedrifter tapte over 250 millioner kroner til denne typen svindel i 2024.</p>
+  <p>Løsningen er ikke å fikse SMTP — det er for sent. Løsningen er å publisere DNS-records som forteller mottakerservere hvilke e-poster som er ekte fra deg.</p>
+
+  <h2>De tre standardene — 30-sekunders forklaring</h2>
+
+  <h3>SPF — Hvem får sende?</h3>
+  <p>SPF (Sender Policy Framework) er en liste over hvilke servere som har lov til å sende e-post for ditt domene. Publiseres som en TXT-record i DNS:</p>
+  <pre style="background:#0f172a;color:#5eead4;padding:14px 18px;border-radius:8px;overflow-x:auto;font-family:ui-monospace,monospace;font-size:13px">dittfirma.no.  IN  TXT  "v=spf1 include:spf.protection.outlook.com -all"</pre>
+  <p>Dette sier: "kun Microsoft 365 har lov til å sende e-post fra <code>@dittfirma.no</code>. Alt annet er falskt."</p>
+
+  <h3>DKIM — Er innholdet uendret?</h3>
+  <p>DKIM (DomainKeys Identified Mail) er en digital signatur. Når e-post-serveren din sender en mail, signerer den hver melding med en kryptografisk nøkkel. Mottakeren bruker den offentlige nøkkelen (publisert i DNS) for å verifisere at meldingen ikke er endret underveis.</p>
+  <p>Konkret betyr det: hvis noen prøver å endre lønnsbeløpet i en lønnsutbetalingsmail, vil DKIM-signaturen ikke stemme — og e-posten markeres som upålitelig.</p>
+
+  <h3>DMARC — Hva skal skje når noe feiler?</h3>
+  <p>DMARC (Domain-based Message Authentication, Reporting and Conformance) binder SPF og DKIM sammen og gir en instruksjon til mottakeren:</p>
+  <ul>
+    <li><code>p=none</code> — "registrer feil, men lever mailen som vanlig" (overvåking)</li>
+    <li><code>p=quarantine</code> — "send falske mailer til spam"</li>
+    <li><code>p=reject</code> — "avvis falske mailer helt"</li>
+  </ul>
+  <p>Full beskyttelse krever <code>p=reject</code>. Du starter med <code>p=none</code>, samler rapporter i 2–4 uker, fikser eventuelle problemer, og strammer gradvis inn.</p>
+
+  <h2>Hvordan ser dette ut i praksis?</h2>
+  <p>For en typisk norsk bedrift med Microsoft 365 og en nyhetsbrev-tjeneste (f.eks. Mailchimp):</p>
+  <ol>
+    <li>Publiser SPF-record som inkluderer <code>spf.protection.outlook.com</code> og <code>servers.mcsv.net</code> (Mailchimp).</li>
+    <li>Aktiver DKIM-signering i Microsoft 365 admin (<code>selector1</code> og <code>selector2</code>).</li>
+    <li>Aktiver DKIM-signering i Mailchimp og publiser deres CNAME-records.</li>
+    <li>Publiser DMARC-record med <code>p=none; rua=mailto:dmarc@dittfirma.no</code>.</li>
+    <li>Analyser rapportene i 2–4 uker. Fiks alt som ikke består verifisering.</li>
+    <li>Sett <code>p=quarantine</code> i 2–4 uker.</li>
+    <li>Sett <code>p=reject</code>. Du er nå beskyttet.</li>
+  </ol>
+
+  <h2>Hvor mange norske bedrifter har dette på plass?</h2>
+  <p>Per mai 2026:</p>
+  <ul>
+    <li><strong>33 %</strong> av Norges 100 største nettsteder har DMARC med håndhevelse.</li>
+    <li><strong>67 %</strong> har enten ingen DMARC eller står på <code>p=none</code> (overvåking, ingen håndhevelse).</li>
+    <li><strong>Under 10 %</strong> har MTA-STS implementert (TLS-krav for innkommende mail).</li>
+  </ul>
+  <p>Det betyr at to av tre store norske organisasjoner fortsatt kan spoofes — også banker, kommuner og offentlige etater.</p>
+
+  <h2>Sjekk ditt eget domene gratis</h2>
+  <p>Skriv inn domenet ditt på <a href="/">data1.no</a>. På 10 sekunder får du karakter A+ til F basert på SPF, DMARC, DKIM, MTA-STS, TLS-RPT og BIMI — med konkrete tiltak for å fikse det som mangler. Ingen registrering, ingen sporing.</p>
+
+  <div style="background:linear-gradient(135deg,#0f172a 0%,#1a2540 100%);color:#fff;border-radius:14px;padding:26px 28px;margin:30px 0;text-align:center">
+    <h3 style="color:#fff;margin:0 0 8px">Trenger du hjelp til oppsettet?</h3>
+    <p style="color:#94a3b8;margin-bottom:14px">Micronet AS setter opp SPF, DKIM og DMARC for ditt domene — 1 990 kr etablering, 295 kr/mnd overvåking.</p>
+    <a href="/?utm_source=blogg&amp;utm_medium=hva-er-e-post-sikkerhet" style="display:inline-block;padding:11px 22px;background:#14b8a6;color:#fff;border-radius:999px;text-decoration:none;font-weight:700">Sjekk eget domene først →</a>
+  </div>
+
+  <h2>Les mer om e-post sikkerhet</h2>
+  <ul>
+    <li><a href="/e-post-sikkerhet/">E-post sikkerhet — komplett pillarguide</a></li>
+    <li><a href="/blogg/10-tegn-svak-e-post-sikkerhet/">10 tegn på at din e-post sikkerhet ikke holder</a></li>
+    <li><a href="/blogg/e-post-sikkerhet-smb/">E-post sikkerhet for små og mellomstore bedrifter</a></li>
+    <li><a href="/blogg/dmarc/">DMARC forklart fra grunnen</a></li>
+    <li><a href="/blogg/spf/">SPF — slik beskytter du domenet</a></li>
+    <li><a href="/blogg/dkim/">DKIM forklart</a></li>
+  </ul>
+</main>
+</body>
+</html>

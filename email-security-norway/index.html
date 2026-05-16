@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Email security for Norway — complete guide to SPF, DMARC, DKIM, phishing protection and spoofing prevention. Free Norwegian domain analysis in 10 seconds.">
+<meta name="keywords" content="email security norway, norwegian email security, email security norge, dmarc norway, spf norway, dkim norway, phishing protection norway, mail security norway">
+<meta name="author" content="Micronet AS">
+<meta name="theme-color" content="#1a202c">
+<meta name="geo.region" content="NO">
+<meta name="geo.placename" content="Norway">
+<meta http-equiv="content-language" content="en">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://data1.no/email-security-norway/">
+<link rel="alternate" hreflang="en" href="https://data1.no/email-security-norway/">
+<link rel="alternate" hreflang="nb-NO" href="https://data1.no/e-post-sikkerhet/">
+<link rel="alternate" hreflang="x-default" href="https://data1.no/e-post-sikkerhet/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="data1.no">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="nb_NO">
+<meta property="og:url" content="https://data1.no/email-security-norway/">
+<meta property="og:title" content="Email Security for Norway — Free DMARC/SPF/DKIM Analysis | data1.no">
+<meta property="og:description" content="Free email security analysis for Norwegian domains. SPF, DMARC, DKIM in 10 seconds. No registration. Local Norwegian provider (Micronet AS).">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<meta property="article:published_time" content="2026-05-16T09:00:00+00:00">
+<meta property="article:modified_time" content="2026-05-16T09:00:00+00:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Email Security for Norway — Free DMARC/SPF/DKIM Analysis">
+<meta name="twitter:image" content="https://data1.no/og-image.png">
+<title>Email Security for Norway — Free DMARC/SPF/DKIM Analysis (2026) | data1.no</title>
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/blogg/_assets/post.css">
+<style>
+.hero{background:linear-gradient(135deg,#0f172a 0%,#1a2540 100%);color:#fff;border-radius:16px;padding:32px 34px;margin:0 0 28px}
+.hero h1{color:#fff;font-size:38px;font-weight:900;letter-spacing:-.025em;margin:0 0 12px;line-height:1.1}
+.hero p.lead{color:#cbd5e0;font-size:18px;margin:0;max-width:680px}
+.hero .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.hero .pill{background:rgba(20,184,166,.15);border:1px solid rgba(94,234,212,.4);color:#5eead4;padding:5px 12px;border-radius:999px;font-size:13px;font-weight:600}
+.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:24px 0}
+.stat{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:18px 20px;text-align:center}
+.stat-num{font-size:30px;font-weight:900;color:#0f172a;letter-spacing:-.02em;line-height:1.05}
+.stat-label{font-size:12px;color:#64748b;margin-top:4px;line-height:1.4}
+.callout{background:#fff;border-left:4px solid #14b8a6;border-radius:8px;padding:18px 22px;margin:22px 0;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.cta-box{background:linear-gradient(135deg,#0f172a 0%,#1a2540 100%);color:#fff;border-radius:14px;padding:26px 28px;margin:30px 0;text-align:center}
+.cta-box h3{color:#fff;margin:0 0 8px}.cta-box p{color:#94a3b8;margin-bottom:14px}
+.cta-box a{display:inline-block;padding:11px 22px;background:#14b8a6;color:#fff;border-radius:999px;text-decoration:none;font-weight:700}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:24px 0}
+.related a{display:block;background:#fff;border-radius:10px;padding:14px 16px;text-decoration:none;color:#0f172a;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.related a strong{display:block;color:#0f766e;font-size:13px;margin-bottom:2px;letter-spacing:.04em;text-transform:uppercase}
+.related a span{font-size:14.5px;font-weight:700;display:block}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Email Security for Norway — Complete Guide","description":"Email security guide for organisations operating in Norway. Covers SPF, DMARC, DKIM, MTA-STS and Norwegian regulatory context.","image":"https://data1.no/og-image.png","datePublished":"2026-05-16T09:00:00+00:00","dateModified":"2026-05-16T09:00:00+00:00","inLanguage":"en","author":{"@type":"Organization","name":"Micronet AS","url":"https://micronet.no/"},"publisher":{"@type":"Organization","@id":"https://data1.no/#organization","name":"data1.no","url":"https://data1.no/","logo":{"@type":"ImageObject","url":"https://data1.no/og-image.png"}},"mainEntityOfPage":"https://data1.no/email-security-norway/","about":[{"@type":"Thing","name":"Email Security"},{"@type":"Thing","name":"SPF"},{"@type":"Thing","name":"DMARC"},{"@type":"Thing","name":"DKIM"}],"contentLocation":{"@type":"Country","name":"Norway","sameAs":"https://www.wikidata.org/wiki/Q20"},"audience":{"@type":"BusinessAudience","audienceType":"Organisations operating in Norway"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the email security landscape in Norway?","acceptedAnswer":{"@type":"Answer","text":"As of May 2026, approximately 33 % of Norway's 100 largest websites have DMARC with enforcement (p=reject or p=quarantine). The remaining 67 % run p=none or have no DMARC at all, leaving them vulnerable to spoofing. NSM (Norwegian National Security Authority) recommends DMARC enforcement for all public-sector domains."}},{"@type":"Question","name":"Why use a Norwegian provider for email security?","acceptedAnswer":{"@type":"Answer","text":"A Norwegian provider offers local data processing under Norwegian and EU law (GDPR), Norwegian-language support, knowledge of common Norwegian DNS providers (Domeneshop, PrioNet, etc.) and Microsoft 365 / Google Workspace tenants for Norwegian businesses, and contractual relationships that satisfy procurement requirements for offentlig sektor (public sector)."}},{"@type":"Question","name":"What standards are required for email security in Norway?","acceptedAnswer":{"@type":"Answer","text":"Technical standards are international: SPF (RFC 7208), DKIM (RFC 6376), DMARC (RFC 7489), MTA-STS (RFC 8461), TLS-RPT (RFC 8460). Norwegian guidance: NSM Grunnprinsipper for IKT-sikkerhet recommends all four. Datatilsynet (Norwegian Data Protection Authority) requires demonstrable email protection as part of GDPR Article 32 technical measures."}},{"@type":"Question","name":"How much does email security cost in Norway?","acceptedAnswer":{"@type":"Answer","text":"DNS records (SPF, DMARC, DKIM) are free to configure. Managed services from Norwegian providers like Micronet AS start at NOK 1 990 setup + NOK 295/month per domain. Larger enterprise platforms (Valimail, dmarcian) range from $25 000+/year. data1.no offers free unlimited domain checks without registration."}},{"@type":"Question","name":"How do I test the email security of a .no domain?","acceptedAnswer":{"@type":"Answer","text":"Use data1.no — enter the domain name (e.g. example.no) and receive a free A+ to F grade in 10 seconds. The tool checks SPF, DMARC, DKIM, MTA-STS, TLS-RPT and BIMI, with concrete remediation steps. It is optimised for .no domains and includes Brønnøysund (Norwegian company registry) lookups."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://data1.no/"},{"@type":"ListItem","position":2,"name":"Email Security Norway","item":"https://data1.no/email-security-norway/"}]}</script>
+<script src="/_assets/tracker.js" defer></script>
+</head>
+<body>
+<header class="header">
+  <a href="/" class="logo">data1<span>.no</span></a>
+  <form class="header-search" action="/" method="get" role="search">
+    <input type="text" name="domain" placeholder="Enter a domain — e.g. example.no" aria-label="Check domain">
+    <button type="submit">Analyse →</button>
+  </form>
+</header>
+<main>
+  <nav class="crumbs"><a href="/">Home</a> › Email Security Norway</nav>
+
+  <div class="hero">
+    <h1>Email Security for Norway</h1>
+    <p class="lead">Free domain analysis, Norwegian provider, GDPR-compliant data processing. SPF, DMARC, DKIM and MTA-STS for organisations operating in Norway.</p>
+    <div class="pills">
+      <span class="pill">email security</span>
+      <span class="pill">DMARC Norway</span>
+      <span class="pill">SPF</span>
+      <span class="pill">DKIM</span>
+      <span class="pill">.no domain</span>
+    </div>
+  </div>
+
+  <p class="meta">Updated <time datetime="2026-05-16">16 May 2026</time> · By Micronet · 6 min read · <a href="/e-post-sikkerhet/">Read in Norwegian</a></p>
+
+  <div class="callout">
+    <strong>Summary</strong>
+    <ul style="margin:10px 0 0 18px;padding:0">
+      <li>Email security in Norway follows international standards (SPF, DKIM, DMARC, MTA-STS) but adds Norwegian-language operations, GDPR processing, and local procurement compliance.</li>
+      <li>Only <strong>33 %</strong> of Norway's 100 largest websites enforce DMARC. The remaining 67 % can be impersonated.</li>
+      <li>Norwegian organisations lost over <strong>NOK 250 million</strong> to CEO fraud and phishing in 2024 (NorSIS).</li>
+      <li>Test any .no domain free at <a href="/">data1.no</a> — no registration required.</li>
+    </ul>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat"><div class="stat-num">33%</div><div class="stat-label">of top 100 .no sites enforce DMARC</div></div>
+    <div class="stat"><div class="stat-num">250M+</div><div class="stat-label">NOK lost to CEO fraud (2024, NorSIS)</div></div>
+    <div class="stat"><div class="stat-num">158</div><div class="stat-label">Norwegian organisations scanned weekly</div></div>
+    <div class="stat"><div class="stat-num">0</div><div class="stat-label">NOK to use data1.no</div></div>
+  </div>
+
+  <h2>Why a Norwegian email security provider?</h2>
+  <p>International tools like MXToolbox, EasyDMARC and dmarcian work technically on any domain. They do not, however, offer:</p>
+  <ul>
+    <li><strong>Norwegian language</strong> for end users — important for non-IT stakeholders (executives, compliance, board members) who need to understand DMARC reports.</li>
+    <li><strong>Data processing inside the EU/EØS</strong> with a Norwegian processor agreement (databehandleravtale) — required by Datatilsynet for many use cases.</li>
+    <li><strong>Local DNS provider knowledge</strong> — Domeneshop, PrioNet, IDN.no and other Norwegian registrars have distinct interfaces and quirks that international support desks do not handle well.</li>
+    <li><strong>Norwegian procurement compliance</strong> — public-sector buyers under <em>Lov om offentlige anskaffelser</em> often require Norwegian-registered suppliers with NUF/AS structure and MVA-registration.</li>
+    <li><strong>Hours-overlap support</strong> — incidents at 14:00 CET are handled by people in your timezone, not in California.</li>
+  </ul>
+
+  <h2>The four standards every Norwegian organisation needs</h2>
+
+  <h3>1. SPF (Sender Policy Framework, RFC 7208)</h3>
+  <p>Lists which servers may send email for your domain. Must end with <code>-all</code> (hard fail) for production. Watch the 10-DNS-lookup limit — exceeded by domains using many third-party senders (Mailchimp, HubSpot, Postmark, Salesforce). Most Norwegian Microsoft 365 customers need <code>include:spf.protection.outlook.com</code>.</p>
+
+  <h3>2. DKIM (DomainKeys Identified Mail, RFC 6376)</h3>
+  <p>Cryptographic signature on each outgoing email. Verifies message integrity. Norwegian Google Workspace tenants commonly use the <code>google</code> selector; Microsoft 365 uses <code>selector1</code> and <code>selector2</code>. Use 2048-bit keys; rotate annually.</p>
+
+  <h3>3. DMARC (Domain-based Message Authentication, Reporting and Conformance, RFC 7489)</h3>
+  <p>Tells receiving servers what to do when SPF/DKIM fail. Phases: <code>p=none</code> (monitor) → <code>p=quarantine</code> → <code>p=reject</code>. The full transition typically takes 6–12 weeks for a Norwegian SMB. Configure <code>rua=</code> reporting from day one.</p>
+
+  <h3>4. MTA-STS + TLS-RPT (RFC 8461 / 8460)</h3>
+  <p>Enforces TLS on incoming SMTP and provides failure reports. Required by NSM Grunnprinsipper but adopted by &lt; 10 % of Norwegian businesses as of mid-2026. Implement after DMARC is at <code>p=reject</code>.</p>
+
+  <h2>Threat landscape in Norway 2026</h2>
+  <table style="width:100%;border-collapse:collapse;margin:18px 0;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06);font-size:14px">
+    <thead><tr style="background:#0f172a;color:#fff"><th style="text-align:left;padding:11px 14px">Attack type</th><th style="text-align:left;padding:11px 14px">Mitigation</th><th style="text-align:left;padding:11px 14px">Standard</th></tr></thead>
+    <tbody>
+      <tr><td style="padding:11px 14px;border-bottom:1px solid #f1f5f9">Domain spoofing (sender impersonation)</td><td style="padding:11px 14px;border-bottom:1px solid #f1f5f9">DMARC at p=reject</td><td style="padding:11px 14px;border-bottom:1px solid #f1f5f9">DMARC</td></tr>
+      <tr><td style="padding:11px 14px;border-bottom:1px solid #f1f5f9">CEO fraud / business email compromise</td><td style="padding:11px 14px;border-bottom:1px solid #f1f5f9">DMARC + organisational training</td><td style="padding:11px 14px;border-bottom:1px solid #f1f5f9">DMARC + ISO 27001</td></tr>
+      <tr><td style="padding:11px 14px;border-bottom:1px solid #f1f5f9">Lookalike domains (e.g. <code>data-1.no</code>)</td><td style="padding:11px 14px;border-bottom:1px solid #f1f5f9">Domain monitoring + DMARC reporting</td><td style="padding:11px 14px;border-bottom:1px solid #f1f5f9">DMARC rua</td></tr>
+      <tr><td style="padding:11px 14px;border-bottom:1px solid #f1f5f9">In-transit interception</td><td style="padding:11px 14px;border-bottom:1px solid #f1f5f9">MTA-STS enforce mode</td><td style="padding:11px 14px">MTA-STS</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Norwegian regulatory context</h2>
+  <ul>
+    <li><strong>Datatilsynet</strong> (Norwegian Data Protection Authority) — requires technical measures under GDPR Article 32. Lack of DMARC has been cited in breach-notification cases.</li>
+    <li><strong>NSM</strong> (Nasjonal sikkerhetsmyndighet) — <em>Grunnprinsipper for IKT-sikkerhet</em> 2.0 recommends SPF, DKIM, DMARC and MTA-STS for all public-sector domains.</li>
+    <li><strong>NorSIS</strong> (Norwegian Centre for Information Security) — publishes annual phishing statistics; recommends DMARC for all .no domains.</li>
+    <li><strong>Sektor-tilsyn</strong> — Finanstilsynet (finance), Helsetilsynet (health), Statens vegvesen (transport) all reference NSM guidance in their supervisory frameworks.</li>
+  </ul>
+
+  <h2>Pricing in Norway</h2>
+  <ul>
+    <li><strong>DNS records</strong> — free at all Norwegian registrars (Domeneshop, PrioNet, IDN.no).</li>
+    <li><strong>data1.no scanner</strong> — free, unlimited, no registration.</li>
+    <li><strong>Managed service (Micronet AS)</strong> — NOK 1 990 setup + NOK 295/month per domain. Includes weekly DMARC report analysis and Norwegian-language monthly status reports.</li>
+    <li><strong>Enterprise platforms</strong> (Valimail, dmarcian, EasyDMARC) — USD 25 000+/year for Fortune-500-scale operations. Rarely cost-effective for Norwegian SMBs.</li>
+  </ul>
+
+  <div class="cta-box">
+    <h3>Check a Norwegian domain free</h3>
+    <p>SPF, DMARC, DKIM, MTA-STS, TLS-RPT, BIMI — all in 10 seconds. No registration.</p>
+    <a href="/?utm_source=email-security-norway">Run free analysis →</a>
+  </div>
+
+  <h2>Comparisons with international tools</h2>
+  <div class="related">
+    <a href="/sammenligning/data1-vs-mxtoolbox/"><strong>vs MXToolbox</strong><span>Broad diagnostics vs Norwegian focus</span></a>
+    <a href="/sammenligning/data1-vs-easydmarc/"><strong>vs EasyDMARC</strong><span>Continuous monitoring vs free check</span></a>
+    <a href="/sammenligning/data1-vs-dmarcian/"><strong>vs dmarcian</strong><span>Enterprise vs SMB</span></a>
+    <a href="/sammenligning/data1-vs-valimail/"><strong>vs Valimail</strong><span>Fortune 500 vs Norwegian SMB</span></a>
+  </div>
+
+  <h2>Read more</h2>
+  <ul>
+    <li><a href="/e-post-sikkerhet/">Norwegian-language pillar: E-post sikkerhet</a></li>
+    <li><a href="/rapport-2026/">Norway's top 100 websites — email security report 2026</a></li>
+    <li><a href="/rapport-2026/banker/">Norwegian banks</a></li>
+    <li><a href="/rapport-2026/kommuner/">Norwegian municipalities</a></li>
+  </ul>
+</main>
+</body>
+</html>

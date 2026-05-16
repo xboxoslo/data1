@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="nb-NO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="E-post sikkerhet for små og mellomstore bedrifter i Norge — praktisk guide tilpasset 5–250 ansatte med Microsoft 365 eller Google Workspace.">
+<meta name="keywords" content="e-post sikkerhet smb, mail sikkerhet bedrift, e-post sikkerhet liten bedrift, dmarc smb, dmarc microsoft 365, dmarc google workspace">
+<meta name="author" content="Micronet">
+<meta name="theme-color" content="#1a202c">
+<meta name="geo.region" content="NO">
+<meta name="geo.placename" content="Norge">
+<meta http-equiv="content-language" content="nb-NO">
+<link rel="canonical" href="https://data1.no/blogg/e-post-sikkerhet-smb/">
+<link rel="alternate" hreflang="nb-NO" href="https://data1.no/blogg/e-post-sikkerhet-smb/">
+<link rel="alternate" hreflang="x-default" href="https://data1.no/blogg/e-post-sikkerhet-smb/">
+<link rel="alternate" type="application/rss+xml" title="data1.no — blogg om e-postsikkerhet" href="https://data1.no/blogg/feed.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="data1.no">
+<meta property="og:locale" content="nb_NO">
+<meta property="og:url" content="https://data1.no/blogg/e-post-sikkerhet-smb/">
+<meta property="article:published_time" content="2026-05-16T11:00:00+00:00">
+<meta property="article:modified_time" content="2026-05-16T11:00:00+00:00">
+<meta property="og:title" content="E-post sikkerhet for små og mellomstore bedrifter — praktisk guide">
+<meta property="og:description" content="Slik setter du opp god e-post sikkerhet i en 5–250-personers norsk bedrift. SPF, DKIM, DMARC for M365 og Google Workspace.">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="E-post sikkerhet for små og mellomstore bedrifter">
+<meta name="twitter:image" content="https://data1.no/og-image.png">
+<title>E-post sikkerhet for SMB — praktisk guide for norske bedrifter | data1.no</title>
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/blogg/_assets/post.css">
+<style>
+.platform-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+.platform-card{background:#fff;border-radius:12px;padding:20px 22px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.platform-card.m365{border-top:4px solid #0078d4}
+.platform-card.gws{border-top:4px solid #34a853}
+.platform-card h3{margin:0 0 10px;color:#0f172a}
+.platform-card code{background:#f1f5f9;padding:2px 6px;border-radius:4px;font-size:13px}
+@media(max-width:640px){.platform-grid{grid-template-columns:1fr}}
+.cost-table{width:100%;border-collapse:collapse;margin:18px 0;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06);font-size:14px}
+.cost-table th{background:#0f172a;color:#fff;text-align:left;padding:11px 14px;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+.cost-table td{padding:11px 14px;border-bottom:1px solid #f1f5f9}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"E-post sikkerhet for små og mellomstore bedrifter","description":"Praktisk guide til mail sikkerhet for norske SMB-er med Microsoft 365 eller Google Workspace.","image":"https://data1.no/og-image.png","datePublished":"2026-05-16T11:00:00+00:00","dateModified":"2026-05-16T11:00:00+00:00","inLanguage":"nb-NO","author":{"@type":"Organization","name":"Micronet AS","url":"https://micronet.no/"},"publisher":{"@type":"Organization","@id":"https://data1.no/#organization","name":"data1.no","url":"https://data1.no/"},"mainEntityOfPage":"https://data1.no/blogg/e-post-sikkerhet-smb/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Trenger en bedrift med 10 ansatte e-post sikkerhet?","acceptedAnswer":{"@type":"Answer","text":"Ja — antagelig mer enn en stor bedrift, fordi små bedrifter sjelden har dedikert IT-sikkerhet og er mer utsatt for direktørsvindel. DNS-records for SPF, DKIM og DMARC tar 1–2 timer å sette opp og koster ingenting hos norske registrarer som Domeneshop og PrioNet."}},{"@type":"Question","name":"Hva koster e-post sikkerhet for en SMB?","acceptedAnswer":{"@type":"Answer","text":"DNS-oppsettet er gratis. Hvis du gjør jobben selv: 1–4 timer arbeid. Hvis Micronet AS setter det opp: 1 990 kr etablering. Løpende DMARC-overvåking og rapportanalyse: 295 kr/mnd per domene."}},{"@type":"Question","name":"Hvor lang tid tar det fra start til full beskyttelse?","acceptedAnswer":{"@type":"Answer","text":"For en typisk norsk SMB med Microsoft 365 + 1–3 markedsføringstjenester: 6–10 uker. SPF og DKIM kan settes opp samme dag. DMARC krever 2–4 ukers overvåking på p=none, deretter 2–4 uker på p=quarantine, og til slutt p=reject."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Hjem","item":"https://data1.no/"},{"@type":"ListItem","position":2,"name":"Blogg","item":"https://data1.no/blogg/"},{"@type":"ListItem","position":3,"name":"E-post sikkerhet for SMB","item":"https://data1.no/blogg/e-post-sikkerhet-smb/"}]}</script>
+<script src="/_assets/tracker.js" defer></script>
+</head>
+<body>
+<header class="header">
+  <a href="/" class="logo">data1<span>.no</span></a>
+  <form class="header-search" action="/" method="get" role="search">
+    <input type="text" name="domain" placeholder="Skriv inn domene — f.eks. micronet.no" aria-label="Sjekk domene">
+    <button type="submit">Analyser →</button>
+  </form>
+</header>
+<main>
+  <nav class="crumbs"><a href="/">Hjem</a> › <a href="/blogg/">Blogg</a> › E-post sikkerhet for SMB</nav>
+
+  <h1>E-post sikkerhet for små og mellomstore bedrifter</h1>
+  <p class="meta">Publisert 16. mai 2026 · Av Micronet · 6 min lesetid</p>
+
+  <p>Norske SMB-er (5–250 ansatte) er den mest utsatte gruppen for e-post-svindel. Store organisasjoner har egne IT-sikkerhetsteam. Enkeltpersonforetak bruker som regel personlige Gmail-kontoer. SMB-en sitter i midten — eget domene, ingen sikkerhetsavdeling, og oftest noen som ikke vet at SPF/DMARC eksisterer.</p>
+
+  <p>Denne guiden er for deg som er IT-ansvarlig, daglig leder eller utsatt kontaktperson i en norsk SMB. Den dekker det praktiske oppsettet for Microsoft 365 og Google Workspace — de to plattformene 95 % av norske SMB-er bruker.</p>
+
+  <h2>Hvorfor SMB-er er mer utsatt</h2>
+  <ul>
+    <li><strong>Mindre IT-ressurser</strong> — sjelden noen som leser DMARC-rapporter ukentlig.</li>
+    <li><strong>Mer manuelle prosesser</strong> — fakturabetaling, lønnsutbetaling og bestillinger godkjennes ofte av én eller to personer per e-post.</li>
+    <li><strong>Mer tillit til hverandre</strong> — i en bedrift på 20 personer er det troverdig at "direktøren" ber regnskap om en hastebetaling.</li>
+    <li><strong>Mindre publikasjons-/profileringssfokus</strong> — angripere antar at SPF/DMARC ikke er på plass.</li>
+    <li><strong>Underrapportering</strong> — mange svindelforsøk meldes ikke, fordi bedriften ikke vil ha negativ omtale.</li>
+  </ul>
+  <p>NorSIS rapporterer at 60 % av rapporterte tilfeller av direktørsvindel i Norge i 2024 rammet bedrifter med under 100 ansatte.</p>
+
+  <h2>Hva trenger en norsk SMB?</h2>
+  <p>Det minimumssettet du må ha på plass i 2026:</p>
+  <ol>
+    <li><strong>SPF</strong> med <code>-all</code> som inkluderer alle dine e-post-tjenester.</li>
+    <li><strong>DKIM</strong> aktivert på Microsoft 365 / Google Workspace + alle nyhetsbrev-tjenester.</li>
+    <li><strong>DMARC</strong> med <code>p=reject</code> og <code>rua=</code> til en innboks som faktisk leses.</li>
+    <li><strong>MTA-STS</strong> i <code>mode: enforce</code> (nice-to-have, men anbefalt).</li>
+    <li><strong>TLS-RPT</strong> med rapporteringsadresse (nice-to-have).</li>
+  </ol>
+
+  <h2>Oppsett for Microsoft 365</h2>
+  <div class="platform-grid">
+    <div class="platform-card m365">
+      <h3>Microsoft 365 (Exchange Online)</h3>
+      <p><strong>SPF:</strong> <code>v=spf1 include:spf.protection.outlook.com -all</code></p>
+      <p><strong>DKIM:</strong> Aktiveres i Microsoft 365 Defender → Policies → DKIM. To selectorer (<code>selector1</code> og <code>selector2</code>) publiseres som CNAME.</p>
+      <p><strong>DMARC:</strong> Start med <code>v=DMARC1; p=none; rua=mailto:dmarc@dittfirma.no</code> som TXT-record på <code>_dmarc.dittfirma.no</code>.</p>
+      <p><a href="/blogg/dmarc-microsoft-365/" style="color:#0078d4;font-weight:700">→ Full M365-guide</a></p>
+    </div>
+    <div class="platform-card gws">
+      <h3>Google Workspace</h3>
+      <p><strong>SPF:</strong> <code>v=spf1 include:_spf.google.com -all</code></p>
+      <p><strong>DKIM:</strong> Generer 2048-bit nøkkel i Apps → Gmail → Authenticate email. Publiser som TXT-record under <code>google._domainkey</code>.</p>
+      <p><strong>DMARC:</strong> Samme syntax som M365.</p>
+      <p><a href="/blogg/dmarc-google-workspace/" style="color:#34a853;font-weight:700">→ Full Workspace-guide</a></p>
+    </div>
+  </div>
+
+  <h2>Tredjeparts-tjenester — det vanlige problemet</h2>
+  <p>Norske SMB-er bruker typisk 3–8 e-post-tjenester:</p>
+  <ul>
+    <li><strong>Microsoft 365 / Google Workspace</strong> — primær e-post</li>
+    <li><strong>Mailchimp / HubSpot / ActiveCampaign</strong> — nyhetsbrev</li>
+    <li><strong>SendGrid / Postmark / Mailgun</strong> — transaksjonsmail fra apper</li>
+    <li><strong>Salesforce / HubSpot</strong> — CRM-utsendelser</li>
+    <li><strong>Tripletex / Visma / Conta</strong> — fakturasystem</li>
+    <li><strong>Zendesk / Freshdesk</strong> — kundestøtte</li>
+  </ul>
+  <p>Hver av disse må enten:</p>
+  <ol>
+    <li>Inkluderes i SPF (<code>include:</code>), eller</li>
+    <li>Signere med eget DKIM som aligner med ditt domene.</li>
+  </ol>
+  <p>Glemmer du én, vil legitime mailer feile DMARC og enten havne i spam (ved <code>p=quarantine</code>) eller bli avvist (ved <code>p=reject</code>).</p>
+
+  <h2>Kostnader for en norsk SMB</h2>
+  <table class="cost-table">
+    <thead><tr><th>Tilnærming</th><th>Kostnad</th><th>Tidsbruk</th></tr></thead>
+    <tbody>
+      <tr><td>Gjør-det-selv (DNS-records)</td><td>0 kr</td><td>4–8 timer + 6–10 uker rapportanalyse</td></tr>
+      <tr><td>Etablering via Micronet</td><td>1 990 kr</td><td>1–3 virkedager</td></tr>
+      <tr><td>Løpende DMARC-overvåking</td><td>295 kr/mnd per domene</td><td>0 (Micronet håndterer)</td></tr>
+      <tr><td>Internasjonal SaaS (EasyDMARC, dmarcian)</td><td>$30–$200/mnd</td><td>1–2 timer/mnd selv</td></tr>
+      <tr><td>Enterprise (Valimail)</td><td>$25 000+/år</td><td>Overkill for SMB</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Tidslinje fra start til full beskyttelse</h2>
+  <ol>
+    <li><strong>Uke 0:</strong> Inventar over alle e-post-tjenester. Sjekk gjeldende status på <a href="/">data1.no</a>.</li>
+    <li><strong>Uke 1:</strong> Publiser SPF (riktig <code>include:</code>) og aktiver DKIM på alle tjenester.</li>
+    <li><strong>Uke 2:</strong> Publiser DMARC med <code>p=none; rua=</code>.</li>
+    <li><strong>Uke 3–6:</strong> Analyser rapporter, fiks legitime kilder som feiler.</li>
+    <li><strong>Uke 7:</strong> Sett <code>p=quarantine</code>.</li>
+    <li><strong>Uke 9–10:</strong> Sett <code>p=reject</code>. Full beskyttelse.</li>
+    <li><strong>Uke 11+:</strong> Vurder MTA-STS og TLS-RPT.</li>
+  </ol>
+
+  <div style="background:linear-gradient(135deg,#0f172a 0%,#1a2540 100%);color:#fff;border-radius:14px;padding:26px 28px;margin:30px 0;text-align:center">
+    <h3 style="color:#fff;margin:0 0 8px">Trenger du hjelp?</h3>
+    <p style="color:#94a3b8;margin-bottom:14px">Micronet setter opp e-post sikkerheten for din SMB — 1 990 kr etablering inkl. M365/Workspace, tredjeparts-tjenester og overgang til <code>p=reject</code>.</p>
+    <a href="/?utm_source=blogg&amp;utm_medium=smb" style="display:inline-block;padding:11px 22px;background:#14b8a6;color:#fff;border-radius:999px;text-decoration:none;font-weight:700">Sjekk eget domene først →</a>
+  </div>
+
+  <h2>Vanlige feil norske SMB-er gjør</h2>
+  <ul>
+    <li><strong>Glemmer DKIM-rotering</strong> — bytter aldri nøkkel, samme nøkkel i 5+ år. Skal roteres årlig.</li>
+    <li><strong>Setter <code>p=reject</code> for tidlig</strong> — uten å ha analysert rapporter. Resultat: legitime mailer bouncer.</li>
+    <li><strong>Inkluderer for mye i SPF</strong> — overskrider 10-lookup-grensen og hele SPF feiler.</li>
+    <li><strong>Bruker <code>rua=</code> til en innboks ingen leser</strong> — eller en blackhole-adresse.</li>
+    <li><strong>Glemmer subdomener</strong> — sets opp DMARC kun på hoveddomenet. Subdomener kan fortsatt spoofes.</li>
+  </ul>
+
+  <h2>Les mer om e-post sikkerhet</h2>
+  <ul>
+    <li><a href="/e-post-sikkerhet/">E-post sikkerhet — komplett pillarguide</a></li>
+    <li><a href="/blogg/hva-er-e-post-sikkerhet/">Hva er e-post sikkerhet? Enkelt forklart</a></li>
+    <li><a href="/blogg/10-tegn-svak-e-post-sikkerhet/">10 tegn på at din e-post sikkerhet ikke holder</a></li>
+    <li><a href="/blogg/dmarc-microsoft-365/">DMARC i Microsoft 365 — full guide</a></li>
+    <li><a href="/blogg/dmarc-google-workspace/">DMARC i Google Workspace — full guide</a></li>
+    <li><a href="/sammenligning/">Sammenligning av DMARC-verktøy</a></li>
+  </ul>
+</main>
+</body>
+</html>
