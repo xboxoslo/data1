@@ -1,0 +1,10 @@
+{
+  "lastUpdated": "2026-05-18T18:00:00Z",
+  "sources": {
+    "seo": "Google Search Console API (n8n daily 06:00 UTC) — TODO",
+    "ai": "Claude/GPT-4/Perplexity/Gemini APIs (n8n weekly mon 06:00) — TODO",
+    "email": "Egen DMARC-skanner (n8n daily 03:00 UTC) — TODO",
+    "competitors": "Ahrefs MCP + sitemap-scraping (n8n weekly) — TODO"
+  },
+  "note": "Demo-data inntil n8n-workflows er klare. Se docs/dashboard-n8n-setup.md."
+}

@@ -1,0 +1,64 @@
+{
+  "lastUpdated": "2026-05-18T03:00:00Z",
+  "ownDomains": [
+    {
+      "domain": "data1.no",
+      "score": 95,
+      "grade": "A+",
+      "dmarc": "v=DMARC1; p=reject; sp=reject; adkim=s; aspf=s; pct=100; rua=mailto:dmarc@data1.no",
+      "spf": "v=spf1 -all",
+      "dkim": null,
+      "mtaSts": true,
+      "tlsRpt": true,
+      "bimi": true,
+      "lastChecked": "2026-05-18T03:00:00Z"
+    },
+    {
+      "domain": "micronet.no",
+      "score": 88,
+      "grade": "A",
+      "dmarc": "v=DMARC1; p=reject; sp=reject; pct=100; rua=mailto:dmarc@micronet.no",
+      "spf": "v=spf1 include:spf.protection.outlook.com -all",
+      "dkim": "selector1, selector2",
+      "mtaSts": true,
+      "tlsRpt": false,
+      "bimi": true,
+      "lastChecked": "2026-05-18T03:00:00Z"
+    }
+  ],
+  "trackedDomains": {
+    "total": 158,
+    "withReject": 42,
+    "withQuarantine": 28,
+    "withNone": 64,
+    "missing": 24,
+    "rejectPercent": 26.6
+  },
+  "weeklyChanges": {
+    "improved": [
+      {"domain": "altinn.no", "from": "p=none", "to": "p=quarantine", "scoreDelta": 14},
+      {"domain": "uio.no", "from": "p=none", "to": "p=reject", "scoreDelta": 27},
+      {"domain": "sparebank1.no", "from": "p=quarantine", "to": "p=reject", "scoreDelta": 13},
+      {"domain": "schibsted.com", "from": "p=none", "to": "p=quarantine", "scoreDelta": 14},
+      {"domain": "regjeringen.no", "from": "p=quarantine", "to": "p=reject", "scoreDelta": 13}
+    ],
+    "regressed": [
+      {"domain": "elkjop.no", "from": "p=reject", "to": "p=none", "scoreDelta": -27},
+      {"domain": "boots.no", "from": "p=quarantine", "to": "p=none", "scoreDelta": -14}
+    ]
+  },
+  "timeline": [
+    {"week": "2026-W09", "rejectPercent": 21.5},
+    {"week": "2026-W10", "rejectPercent": 22.1},
+    {"week": "2026-W11", "rejectPercent": 22.8},
+    {"week": "2026-W12", "rejectPercent": 23.4},
+    {"week": "2026-W13", "rejectPercent": 23.4},
+    {"week": "2026-W14", "rejectPercent": 23.9},
+    {"week": "2026-W15", "rejectPercent": 24.1},
+    {"week": "2026-W16", "rejectPercent": 24.7},
+    {"week": "2026-W17", "rejectPercent": 24.7},
+    {"week": "2026-W18", "rejectPercent": 25.3},
+    {"week": "2026-W19", "rejectPercent": 25.9},
+    {"week": "2026-W20", "rejectPercent": 26.6}
+  ]
+}

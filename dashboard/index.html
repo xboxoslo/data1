@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="nb-NO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="description" content="Intern admin-dashboard for data1.no — SEO, AI-synlighet, e-postsikkerhet og konkurrentovervåking.">
+<title>data1.no — Admin Dashboard</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/dashboard/_assets/dashboard.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+<script src="/dashboard/_assets/dashboard.js" defer></script>
+</head>
+<body>
+
+<header class="db-header">
+  <a href="/" class="db-logo">data1<span>.no</span> <span class="db-badge">admin</span></a>
+  <nav class="db-tabs" role="tablist" aria-label="Dashboard-faner">
+    <button class="db-tab is-active" data-tab="seo" role="tab" aria-selected="true">📊 SEO</button>
+    <button class="db-tab" data-tab="ai" role="tab" aria-selected="false">🤖 AI-synlighet</button>
+    <button class="db-tab" data-tab="email" role="tab" aria-selected="false">🛡️ E-postsikkerhet</button>
+    <button class="db-tab" data-tab="competitors" role="tab" aria-selected="false">⚔️ Konkurrenter</button>
+  </nav>
+  <div class="db-meta" id="meta-info">—</div>
+</header>
+
+<main class="db-container">
+
+  <!-- ─── SEO TAB ─── -->
+  <section class="db-panel is-active" id="panel-seo" role="tabpanel">
+    <div class="db-loading" data-loading-for="seo">Laster SEO-data …</div>
+    <div class="db-content" data-content-for="seo" hidden>
+      <div class="db-kpi-grid">
+        <div class="db-kpi">
+          <div class="db-kpi-label">Indekserte sider</div>
+          <div class="db-kpi-value" id="seo-indexed">—</div>
+          <div class="db-kpi-sub" id="seo-indexed-sub">av — totalt</div>
+        </div>
+        <div class="db-kpi">
+          <div class="db-kpi-label">Klikk (28 dager)</div>
+          <div class="db-kpi-value" id="seo-clicks">—</div>
+          <div class="db-kpi-sub">fra Google Søk</div>
+        </div>
+        <div class="db-kpi">
+          <div class="db-kpi-label">Visninger (28 dager)</div>
+          <div class="db-kpi-value" id="seo-impressions">—</div>
+          <div class="db-kpi-sub" id="seo-ctr">CTR —%</div>
+        </div>
+        <div class="db-kpi">
+          <div class="db-kpi-label">Snitt-posisjon</div>
+          <div class="db-kpi-value" id="seo-position">—</div>
+          <div class="db-kpi-sub">lavere = bedre</div>
+        </div>
+      </div>
+
+      <div class="db-card">
+        <h2>Klikk og visninger (90 dager)</h2>
+        <div class="db-chart-wrap"><canvas id="chart-seo-timeline"></canvas></div>
+      </div>
+
+      <div class="db-grid-2">
+        <div class="db-card">
+          <h2>Topp søkeord</h2>
+          <div class="db-chart-wrap"><canvas id="chart-seo-queries"></canvas></div>
+        </div>
+        <div class="db-card">
+          <h2>Sider med flest klikk</h2>
+          <div class="db-chart-wrap"><canvas id="chart-seo-pages"></canvas></div>
+        </div>
+      </div>
+
+      <div class="db-card">
+        <h2>Søkeord — alle</h2>
+        <div class="db-table-wrap">
+          <table class="db-table">
+            <thead><tr><th>Søkeord</th><th class="right">Klikk</th><th class="right">Visninger</th><th class="right">Posisjon</th><th class="right">CTR</th></tr></thead>
+            <tbody id="seo-queries-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="db-card">
+        <h2>Indekseringsstatus</h2>
+        <div class="db-table-wrap">
+          <table class="db-table">
+            <thead><tr><th>URL</th><th>Status</th><th>Sist crawlet</th></tr></thead>
+            <tbody id="seo-indexing-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── AI TAB ─── -->
+  <section class="db-panel" id="panel-ai" role="tabpanel">
+    <div class="db-loading" data-loading-for="ai">Laster AI-synlighet …</div>
+    <div class="db-content" data-content-for="ai" hidden>
+      <div class="db-kpi-grid">
+        <div class="db-kpi">
+          <div class="db-kpi-label">Prompts testet</div>
+          <div class="db-kpi-value" id="ai-prompts">—</div>
+          <div class="db-kpi-sub">denne uken</div>
+        </div>
+        <div class="db-kpi">
+          <div class="db-kpi-label">data1.no nevnt</div>
+          <div class="db-kpi-value" id="ai-data1">—</div>
+          <div class="db-kpi-sub" id="ai-data1-rate">— av svar</div>
+        </div>
+        <div class="db-kpi">
+          <div class="db-kpi-label">Micronet nevnt</div>
+          <div class="db-kpi-value" id="ai-micronet">—</div>
+          <div class="db-kpi-sub">som leverandør</div>
+        </div>
+        <div class="db-kpi">
+          <div class="db-kpi-label">Konkurrenter</div>
+          <div class="db-kpi-value" id="ai-competitors">—</div>
+          <div class="db-kpi-sub">total nevninger</div>
+        </div>
+      </div>
+
+      <div class="db-grid-2">
+        <div class="db-card">
+          <h2>Kildefordeling i AI-svar</h2>
+          <div class="db-chart-wrap"><canvas id="chart-ai-sources"></canvas></div>
+        </div>
+        <div class="db-card">
+          <h2>data1.no nevninger (8 uker)</h2>
+          <div class="db-chart-wrap"><canvas id="chart-ai-timeline"></canvas></div>
+        </div>
+      </div>
+
+      <div class="db-card">
+        <h2>Testet prompts</h2>
+        <div class="db-table-wrap">
+          <table class="db-table">
+            <thead><tr><th>Prompt</th><th class="center">Claude</th><th class="center">GPT-4</th><th class="center">Perplexity</th><th class="center">Gemini</th><th class="center">Treff</th></tr></thead>
+            <tbody id="ai-prompts-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── EMAIL TAB ─── -->
+  <section class="db-panel" id="panel-email" role="tabpanel">
+    <div class="db-loading" data-loading-for="email">Laster e-postsikkerhet …</div>
+    <div class="db-content" data-content-for="email" hidden>
+      <div class="db-kpi-grid">
+        <div class="db-kpi">
+          <div class="db-kpi-label">data1.no</div>
+          <div class="db-kpi-value" id="email-data1-grade">—</div>
+          <div class="db-kpi-sub" id="email-data1-score">—/100</div>
+        </div>
+        <div class="db-kpi">
+          <div class="db-kpi-label">micronet.no</div>
+          <div class="db-kpi-value" id="email-micronet-grade">—</div>
+          <div class="db-kpi-sub" id="email-micronet-score">—/100</div>
+        </div>
+        <div class="db-kpi">
+          <div class="db-kpi-label">Sporede domener</div>
+          <div class="db-kpi-value" id="email-tracked">—</div>
+          <div class="db-kpi-sub">norske selskaper</div>
+        </div>
+        <div class="db-kpi">
+          <div class="db-kpi-label">Med p=reject</div>
+          <div class="db-kpi-value" id="email-reject">—</div>
+          <div class="db-kpi-sub" id="email-reject-pct">—% av total</div>
+        </div>
+      </div>
+
+      <div class="db-card db-own-status" id="email-own-list"></div>
+
+      <div class="db-grid-2">
+        <div class="db-card">
+          <h2>Policy-fordeling (158 domener)</h2>
+          <div class="db-chart-wrap"><canvas id="chart-email-policy"></canvas></div>
+        </div>
+        <div class="db-card">
+          <h2>% p=reject over tid</h2>
+          <div class="db-chart-wrap"><canvas id="chart-email-timeline"></canvas></div>
+        </div>
+      </div>
+
+      <div class="db-grid-2">
+        <div class="db-card">
+          <h2>📈 Mest forbedret siste uke</h2>
+          <div class="db-table-wrap">
+            <table class="db-table">
+              <thead><tr><th>Domene</th><th>Fra</th><th>Til</th><th class="right">Δ Score</th></tr></thead>
+              <tbody id="email-improved-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="db-card">
+          <h2>📉 Mest forverret siste uke</h2>
+          <div class="db-table-wrap">
+            <table class="db-table">
+              <thead><tr><th>Domene</th><th>Fra</th><th>Til</th><th class="right">Δ Score</th></tr></thead>
+              <tbody id="email-regressed-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── COMPETITORS TAB ─── -->
+  <section class="db-panel" id="panel-competitors" role="tabpanel">
+    <div class="db-loading" data-loading-for="competitors">Laster konkurrentdata …</div>
+    <div class="db-content" data-content-for="competitors" hidden>
+      <div class="db-card">
+        <h2>Konkurrent-oversikt</h2>
+        <div class="db-table-wrap">
+          <table class="db-table">
+            <thead><tr><th>Konkurrent</th><th class="right">Indekserte sider</th><th class="right">Domain Rating</th><th class="right">Backlinks</th><th>Siste artikkel</th><th class="right">Klikk/mnd</th></tr></thead>
+            <tbody id="comp-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="db-grid-2">
+        <div class="db-card">
+          <h2>Domain Rating-sammenligning</h2>
+          <div class="db-chart-wrap"><canvas id="chart-comp-dr"></canvas></div>
+        </div>
+        <div class="db-card">
+          <h2>Backlinks-sammenligning</h2>
+          <div class="db-chart-wrap"><canvas id="chart-comp-backlinks"></canvas></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="db-footer">
+  <span id="footer-meta">Dashboard for Micronet AS</span>
+  <a href="/">← Tilbake til data1.no</a>
+</footer>
+
+</body>
+</html>
