@@ -12,6 +12,8 @@ User-agent: *
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 Disallow: /cdn-cgi/
+Disallow: /dashboard/
+Disallow: /dashboard-data/
 
 # === Tradisjonelle søkemotorer (eksplisitt) ===
 User-agent: Googlebot

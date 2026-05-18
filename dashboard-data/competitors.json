@@ -1,0 +1,78 @@
+{
+  "lastUpdated": "2026-05-18T06:00:00Z",
+  "competitors": [
+    {
+      "name": "data1.no",
+      "isOwn": true,
+      "indexedPages": 12,
+      "domainRating": 0,
+      "backlinks": 1,
+      "lastArticle": "18. mai 2026",
+      "clicksPerMonth": 47
+    },
+    {
+      "name": "sjekk.email",
+      "isOwn": false,
+      "indexedPages": 14,
+      "domainRating": 8,
+      "backlinks": 23,
+      "lastArticle": "ukjent",
+      "clicksPerMonth": null
+    },
+    {
+      "name": "dmarcstatus.no",
+      "isOwn": false,
+      "indexedPages": 158,
+      "domainRating": 12,
+      "backlinks": 67,
+      "lastArticle": "statisk (ingen blogg)",
+      "clicksPerMonth": null
+    },
+    {
+      "name": "mxtoolbox.com",
+      "isOwn": false,
+      "indexedPages": 4200,
+      "domainRating": 84,
+      "backlinks": 28400,
+      "lastArticle": "I dag",
+      "clicksPerMonth": null
+    },
+    {
+      "name": "easydmarc.com",
+      "isOwn": false,
+      "indexedPages": 240,
+      "domainRating": 78,
+      "backlinks": 12400,
+      "lastArticle": "I dag",
+      "clicksPerMonth": null
+    },
+    {
+      "name": "powerdmarc.com",
+      "isOwn": false,
+      "indexedPages": 380,
+      "domainRating": 71,
+      "backlinks": 8900,
+      "lastArticle": "3 dager",
+      "clicksPerMonth": null
+    },
+    {
+      "name": "dmarcian.com",
+      "isOwn": false,
+      "indexedPages": 410,
+      "domainRating": 82,
+      "backlinks": 18700,
+      "lastArticle": "1 uke",
+      "clicksPerMonth": null
+    },
+    {
+      "name": "valimail.com",
+      "isOwn": false,
+      "indexedPages": 320,
+      "domainRating": 76,
+      "backlinks": 9400,
+      "lastArticle": "2 dager",
+      "clicksPerMonth": null
+    }
+  ],
+  "note": "Domain Rating fra Ahrefs. data1.no er en nyetablert tjeneste (april 2026) — sammenligningen viser modne internasjonale aktorer vs. ny norsk nisjeaktor. Maalet er aa naa DR 30+ innen 2027."
+}
