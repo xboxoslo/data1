@@ -49,6 +49,38 @@ $prefix = $tok.Substring(0, [Math]::Min(6, $tokLen))
 Write-Host ''
 Write-Host "Mottok token (lengde=$tokLen, prefix='$prefix')..."
 
+# ===== Format-sjekk FØR HTTP-kall =====
+# Cloudflare API-tokens (nytt format, 2024+) skal begynne med 'cfut_' (User) eller 'cfat_' (Account-owned)
+# Gamle tokens er 40-tegn hex uten prefix. IndexNow-nøkler er 32-tegn hex uten prefix
+# (vanlig forveksling — vi advarer eksplisitt).
+$looksLikeNewFormat = $tok.StartsWith('cfut_') -or $tok.StartsWith('cfat_')
+$looksLikeOldFormat = $tokLen -eq 40 -and $tok -match '^[a-zA-Z0-9_-]+$'
+$looksLikeIndexNow = $tokLen -eq 32 -and $tok -match '^[a-f0-9]+$'
+
+if ($looksLikeIndexNow) {
+    Write-Host ''
+    Write-Host '  FEIL: Dette ser ut som en IndexNow-nøkkel (32 tegn ren hex), ikke et' -ForegroundColor Red
+    Write-Host '        Cloudflare API-token.' -ForegroundColor Red
+    Write-Host ''
+    Write-Host '  Cloudflare API-tokens skal:' -ForegroundColor Yellow
+    Write-Host '    - Begynne med "cfut_" (User token) eller "cfat_" (Account-owned)' -ForegroundColor Yellow
+    Write-Host '    - Være ca. 50 tegn lange' -ForegroundColor Yellow
+    Write-Host '    - Genereres på https://dash.cloudflare.com/profile/api-tokens' -ForegroundColor Yellow
+    Write-Host '      via "Create Token" → "Custom token"' -ForegroundColor Yellow
+    Write-Host ''
+    Write-Host '  Avbryter — ingenting er lagret.' -ForegroundColor Red
+    Remove-Variable tok, sec
+    exit 1
+}
+
+if (-not ($looksLikeNewFormat -or $looksLikeOldFormat)) {
+    Write-Host ''
+    Write-Host '  ADVARSEL: Tokenet matcher ikke kjent Cloudflare-format.' -ForegroundColor Yellow
+    Write-Host '            Forventet: "cfut_..." (anbefalt) eller "cfat_..." eller 40-tegn alfanumerisk.' -ForegroundColor Yellow
+    Write-Host "            Mottatt:   prefix='$prefix', lengde=$tokLen" -ForegroundColor Yellow
+    Write-Host '            Prøver verifisering uansett...' -ForegroundColor Yellow
+}
+
 # ===== STEG A: Verifiser at tokenet er gyldig =====
 Write-Host ''
 Write-Host '=== Verifiserer token mot Cloudflare API ===' -ForegroundColor Cyan
