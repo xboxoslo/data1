@@ -9,7 +9,9 @@
 [CmdletBinding()]
 param(
     [string]$VaultName = 'micronet-shared-kv',
-    [string]$SecretName = 'Cloudflare-Api-Token'
+    [string]$SecretName = 'Cloudflare-Api-Token',
+    # Micronet-kontoen — hardkodet sa scriptet ikke trenger 'Account Settings:Read'-scope
+    [string]$AccountId = '3f04201b8ded48862163768ab4faee9c'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -105,48 +107,42 @@ if (-not $verify.success) {
 
 Write-Host "  Token aktiv (id=$($verify.result.id), status=$($verify.result.status))" -ForegroundColor Green
 
-# ===== STEG B: Hent account-ID for å teste Access-scopes =====
+# ===== STEG B: Test Zero Trust Access-scope mot kjent account-ID =====
 Write-Host ''
-Write-Host '=== Henter account-ID ===' -ForegroundColor Cyan
-
-try {
-    $accounts = Invoke-RestMethod -Uri 'https://api.cloudflare.com/client/v4/accounts' -Headers $headers -Method GET -ErrorAction Stop
-} catch {
-    Write-Host "  ADVARSEL: Kunne ikke hente accounts (mangler scope 'Account Settings:Read'? OK å fortsette hvis Access scopes er på plass)" -ForegroundColor Yellow
-    $accounts = $null
-}
-
-$accountId = $null
-if ($accounts -and $accounts.success -and $accounts.result.Count -gt 0) {
-    $accountId = $accounts.result[0].id
-    $accountName = $accounts.result[0].name
-    Write-Host "  Account: $accountName (id=$accountId)" -ForegroundColor Green
-}
-
-# ===== STEG C: Test Zero Trust Access-scope =====
-Write-Host ''
-Write-Host '=== Tester Zero Trust Access-scope ===' -ForegroundColor Cyan
+Write-Host "=== Tester Zero Trust Access-scope (account=$AccountId) ===" -ForegroundColor Cyan
 
 $accessOk = $false
-if ($accountId) {
-    try {
-        $apps = Invoke-RestMethod -Uri "https://api.cloudflare.com/client/v4/accounts/$accountId/access/apps?per_page=1" -Headers $headers -Method GET -ErrorAction Stop
-        if ($apps.success) {
-            $count = $apps.result_info.total_count
-            Write-Host "  OK — kan lese Access apps (eksisterende: $count)" -ForegroundColor Green
-            $accessOk = $true
-        }
-    } catch {
-        $statusCode = $_.Exception.Response.StatusCode.value__
-        Write-Host "  FEIL: Kan ikke lese Access-apps (HTTP $statusCode)" -ForegroundColor Red
-        Write-Host "  $_" -ForegroundColor Red
+$accessError = $null
+try {
+    $apps = Invoke-RestMethod -Uri "https://api.cloudflare.com/client/v4/accounts/$AccountId/access/apps?per_page=1" -Headers $headers -Method GET -ErrorAction Stop
+    if ($apps.success) {
+        $count = $apps.result_info.total_count
+        Write-Host "  OK — kan lese Access apps (eksisterende: $count)" -ForegroundColor Green
+        $accessOk = $true
+    } else {
+        $accessError = ($apps.errors | ConvertTo-Json -Compress)
     }
+} catch {
+    $statusCode = $_.Exception.Response.StatusCode.value__
+    $accessError = "HTTP $statusCode — $($_.Exception.Message)"
+    # Forsøk å lese kropp for bedre feilmelding
+    try {
+        $reader = New-Object System.IO.StreamReader($_.Exception.Response.GetResponseStream())
+        $body = $reader.ReadToEnd()
+        $accessError += "`n  Body: $body"
+    } catch {}
 }
 
 if (-not $accessOk) {
+    Write-Host '  FEIL: Kan ikke lese Access-apps.' -ForegroundColor Red
+    Write-Host "  $accessError" -ForegroundColor Red
     Write-Host ''
-    Write-Host '  Tokenet mangler 'Access: Apps and Policies'-scope. Gå tilbake til' -ForegroundColor Red
-    Write-Host '  https://dash.cloudflare.com/profile/api-tokens og legg til scopene.' -ForegroundColor Red
+    Write-Host '  Mest sannsynlige årsaker:' -ForegroundColor Yellow
+    Write-Host '    1. Tokenet mangler scope "Account → Access: Apps and Policies → Edit"' -ForegroundColor Yellow
+    Write-Host '    2. "Account Resources" på tokenet er ikke satt til Micronet-kontoen' -ForegroundColor Yellow
+    Write-Host '       (under token-oppsettet: Account Resources → Include → Specific accounts → Micronet)' -ForegroundColor Yellow
+    Write-Host '    3. Cloudflare Zero Trust er ikke aktivert på kontoen ennå' -ForegroundColor Yellow
+    Write-Host '       (gå til https://one.dash.cloudflare.com og fullfør førstegangsoppsett)' -ForegroundColor Yellow
     Write-Host ''
     Write-Host '  AVBRYTER — tokenet er IKKE lagret i Key Vault.' -ForegroundColor Red
     Remove-Variable tok, sec
@@ -197,8 +193,5 @@ Write-Host '=== Ferdig ===' -ForegroundColor Green
 Write-Host 'Tokenet er verifisert og lagret. Claude (eller andre scripts) kan nå hente det med:'
 Write-Host '  az keyvault secret show --vault-name micronet-shared-kv --name Cloudflare-Api-Token --query value -o tsv'
 Write-Host ''
-Write-Host 'Account-ID for Access-API-kall:' -ForegroundColor Cyan
-if ($accountId) {
-    Write-Host "  $accountId"
-}
+Write-Host "Account-ID for Access-API-kall: $AccountId" -ForegroundColor Cyan
 Write-Host ''
