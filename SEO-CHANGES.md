@@ -45,7 +45,7 @@ Nytt script: [`scripts/seo_upgrade.py`](scripts/seo_upgrade.py)
 
 | Oppgave | Hvem | Hva |
 |---|---|---|
-| **GSC-token** | Du | Hent token fra Google Search Console, bytt `REPLACE_GSC_TOKEN` i `index.html` linje 27. Verifiser deretter via DNS TXT eller HTML-tag-metoden. |
+| ~~**GSC-token**~~ | — | Utdatert placeholder `REPLACE_GSC_TOKEN` ble fjernet 2026-05-18. GSC verifiseres via DNS TXT (to records aktive). |
 | **Cloudflare cache-purge** | Du | Etter deploy: hard-refresh data1.no, evt. purge cache i Cloudflare for å se llms.txt og endringer raskt. |
 | **Submit sitemap** | Du | Etter GSC-verifisering: submit `https://data1.no/sitemap.xml` i Google Search Console. |
 
