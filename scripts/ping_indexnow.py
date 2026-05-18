@@ -15,6 +15,7 @@ Setup første gang:
 Bruk:
   python scripts/ping_indexnow.py                  # push siste 10 blogg-poster
   python scripts/ping_indexnow.py <url1> <url2>    # push spesifikke URL-er
+  python scripts/ping_indexnow.py --from-sitemap   # push ALLE URL-er fra sitemap.xml
 """
 import json
 import os
@@ -28,6 +29,15 @@ ROOT = Path(__file__).parent.parent
 BLOG = ROOT / 'blogg'
 HOST = 'data1.no'
 ENDPOINT = 'https://api.indexnow.org/indexnow'
+
+
+def sitemap_urls() -> list[str]:
+    """Return alle URL-er fra sitemap.xml i repo-rot."""
+    sm = ROOT / 'sitemap.xml'
+    if not sm.exists():
+        return []
+    txt = sm.read_text(encoding='utf-8')
+    return re.findall(r'<loc>\s*([^<]+?)\s*</loc>', txt)
 
 
 def latest_blog_urls(limit: int = 10) -> list[str]:
@@ -93,8 +103,11 @@ def main():
             'commit den, og kjør på nytt.'
         )
 
-    if len(sys.argv) > 1:
-        urls = sys.argv[1:]
+    args = sys.argv[1:]
+    if args == ['--from-sitemap']:
+        urls = sitemap_urls()
+    elif args:
+        urls = args
     else:
         urls = latest_blog_urls(limit=10)
 
