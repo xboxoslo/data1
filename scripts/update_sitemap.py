@@ -88,6 +88,39 @@ def discover_domain_check_pages() -> dict[str, float]:
     return out
 
 
+# Top-level dirs to scan for index.html (priority per dir).
+# Includes service landing pages (/spf/, /dmarc/ etc) and cornerstone articles.
+TOP_LEVEL_SCAN = {
+    'spf': 0.85,
+    'dkim': 0.85,
+    'dmarc': 0.85,
+    'mta-sts': 0.8,
+    'tls-rpt': 0.8,
+    'e-post-sikkerhet': 0.9,
+}
+
+
+def discover_top_level_pages() -> dict[str, float]:
+    """Top-level service/cornerstone pages with their own index.html."""
+    out = {}
+    for name, prio in TOP_LEVEL_SCAN.items():
+        if (ROOT / name / 'index.html').exists():
+            out[f'/{name}/'] = prio
+    return out
+
+
+def discover_sammenligning_subpages() -> dict[str, float]:
+    """Alle /sammenligning/data1-vs-*/-sider."""
+    out = {}
+    samm_dir = ROOT / 'sammenligning'
+    if not samm_dir.exists():
+        return out
+    for sub in samm_dir.iterdir():
+        if sub.is_dir() and (sub / 'index.html').exists():
+            out[f'/sammenligning/{sub.name}/'] = 0.8
+    return out
+
+
 def main():
     # Slå sammen statiske + auto-oppdagete sider
     all_pages = dict(PAGES)
@@ -98,6 +131,12 @@ def main():
         if path not in all_pages:
             all_pages[path] = prio
     for path, prio in discover_domain_check_pages().items():
+        if path not in all_pages:
+            all_pages[path] = prio
+    for path, prio in discover_top_level_pages().items():
+        if path not in all_pages:
+            all_pages[path] = prio
+    for path, prio in discover_sammenligning_subpages().items():
         if path not in all_pages:
             all_pages[path] = prio
 

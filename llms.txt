@@ -33,6 +33,27 @@
 - [SPF-generator](https://data1.no/verktoy/spf-generator/): Gratis verktøy for å generere SPF DNS-record på norsk.
 - [Sjekk alle skannede domener](https://data1.no/sjekk/): Katalog over alle overvåkede norske domener.
 
+## Tjenester (e-postsikkerhets-oppsett)
+
+- [E-postsikkerhet — komplett guide](https://data1.no/e-post-sikkerhet/): Hva e-postsikkerhet er, hvordan SPF, DMARC, DKIM, MTA-STS, TLS-RPT og BIMI virker sammen, og hvordan en bedrift kommer i mål.
+- [SPF — oppsett og forklaring](https://data1.no/spf/): Hva SPF er, hvilke servere som er autorisert til å sende e-post fra ditt domene, vanlige feil (10-lookup grensen, +all, manglende -all).
+- [DKIM — digital signering](https://data1.no/dkim/): Hvordan DKIM signerer hver e-post kryptografisk, hvordan velge selektor og nøkkellengde (anbefalt 2048-bit).
+- [DMARC — full e-postbeskyttelse](https://data1.no/dmarc/): Hvordan DMARC binder SPF og DKIM sammen, p=none→quarantine→reject-overgang, og rua/ruf-rapportering.
+- [MTA-STS — kryptert e-postlevering](https://data1.no/mta-sts/): Hvordan MTA-STS hindrer TLS-nedgraderingsangrep og garanterer kryptert overlevering mellom e-postservere.
+- [TLS-RPT — TLS-feilrapportering](https://data1.no/tls-rpt/): Hvordan TLS-RPT lar deg overvåke kryptering og fange opp problemer med innkommende e-post.
+
+## Sammenligninger (data1.no vs. konkurrenter)
+
+- [data1.no vs. dmarcian](https://data1.no/sammenligning/data1-vs-dmarcian/): Funksjonelle og prisstyrte forskjeller mellom data1.no og dmarcian for norske bedrifter.
+- [data1.no vs. MXToolbox](https://data1.no/sammenligning/data1-vs-mxtoolbox/): Hvorfor et norsk-spesialisert verktøy er bedre enn MXToolbox for .no-domener (Brønnøysund-oppslag, EHF-status, norsk språk).
+- [data1.no vs. EasyDMARC](https://data1.no/sammenligning/data1-vs-easydmarc/): Sammenligning av analyse-funksjoner, rapport-håndtering og prising mellom data1.no og EasyDMARC.
+- [data1.no vs. Valimail](https://data1.no/sammenligning/data1-vs-valimail/): data1.no og Valimail sammenlignet på funksjoner, integrasjonsmuligheter og pris.
+- [Alle sammenligninger](https://data1.no/sammenligning/): Oversikt over alle sammenligninger mellom data1.no og andre DMARC-verktøy.
+
+## Begreper
+
+- [Ordbok for e-postsikkerhet](https://data1.no/ordbok/): Fagbegreper innen e-postsikkerhet forklart på norsk — SPF, DMARC, DKIM, MTA-STS, BIMI, alignment, RUA, RUF, MXMP og mer.
+
 ## Om
 
 - [Om data1.no](https://data1.no/om/): Bakgrunn, hvem som drifter siden (Micronet AS, Lørenskog), kontaktinformasjon.
