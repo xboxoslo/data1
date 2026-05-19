@@ -56,7 +56,7 @@ def discover_blog_posts() -> dict[str, float]:
     blog_dir = ROOT / 'blogg'
     if not blog_dir.exists():
         return out
-    for sub in blog_dir.iterdir():
+    for sub in sorted(blog_dir.iterdir()):
         if sub.is_dir() and (sub / 'index.html').exists():
             out[f'/blogg/{sub.name}/'] = 0.8
     return out
@@ -68,7 +68,7 @@ def discover_error_pages() -> dict[str, float]:
     feil_dir = ROOT / 'feil'
     if not feil_dir.exists():
         return out
-    for sub in feil_dir.iterdir():
+    for sub in sorted(feil_dir.iterdir()):
         if sub.is_dir() and (sub / 'index.html').exists():
             out[f'/feil/{sub.name}/'] = 0.75
     return out
@@ -82,7 +82,7 @@ def discover_domain_check_pages() -> dict[str, float]:
         return out
     if (sjekk_dir / 'index.html').exists():
         out['/sjekk/'] = 0.85
-    for sub in sjekk_dir.iterdir():
+    for sub in sorted(sjekk_dir.iterdir()):
         if sub.is_dir() and (sub / 'index.html').exists():
             out[f'/sjekk/{sub.name}/'] = 0.7
     return out
@@ -115,7 +115,7 @@ def discover_sammenligning_subpages() -> dict[str, float]:
     samm_dir = ROOT / 'sammenligning'
     if not samm_dir.exists():
         return out
-    for sub in samm_dir.iterdir():
+    for sub in sorted(samm_dir.iterdir()):
         if sub.is_dir() and (sub / 'index.html').exists():
             out[f'/sammenligning/{sub.name}/'] = 0.8
     return out
