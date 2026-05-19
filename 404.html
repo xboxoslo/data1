@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="nb-NO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,follow">
+    <title>Siden finnes ikke (404) | data1.no</title>
+    <meta name="description" content="Siden du leter etter finnes ikke på data1.no. Søk etter et domene for å sjekke e-postsikkerhet, eller bla i guidene våre om SPF, DMARC og DKIM.">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <style>
+        @font-face{font-family:"Inter";font-style:normal;font-weight:400 900;font-display:optional;src:url(/fonts/inter-latin.woff2)format("woff2")}
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{font-family:"Inter",-apple-system,BlinkMacSystemFont,sans-serif;background:#020617;color:#e2e8f0;min-height:100vh;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column}
+        .header{background:#1a202c;padding:14px 28px;display:flex;align-items:center;gap:28px;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+        .logo{color:#fff;font-size:19px;font-weight:800;text-decoration:none}
+        .logo span{color:#4fd1c5}
+        main{flex:1;display:flex;align-items:center;justify-content:center;padding:60px 24px;background:radial-gradient(ellipse 80% 60% at 50% 20%,rgba(168,85,247,.2) 0%,transparent 50%),radial-gradient(ellipse 60% 50% at 80% 70%,rgba(56,189,248,.15) 0%,transparent 60%),linear-gradient(180deg,#020617 0%,#0c1428 100%)}
+        .wrap{max-width:720px;width:100%;text-align:center}
+        .code{font-size:120px;font-weight:900;background:linear-gradient(120deg,#a855f7 0%,#38bdf8 100%);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;letter-spacing:-.04em;text-shadow:0 0 80px rgba(168,85,247,.4)}
+        h1{font-size:32px;font-weight:800;color:#fff;margin:16px 0 12px;letter-spacing:-.02em}
+        .lead{font-size:17px;color:#94a3b8;line-height:1.6;max-width:520px;margin:0 auto 36px}
+        .search-form{display:flex;align-items:center;gap:10px;background:#fff;border-radius:999px;padding:8px 8px 8px 24px;box-shadow:0 12px 40px rgba(0,0,0,.35),0 0 80px rgba(56,189,248,.25);max-width:560px;margin:0 auto 32px}
+        .search-icon{color:#64748b;flex-shrink:0}
+        .search-input{flex:1;border:0;outline:0;background:transparent;padding:14px 4px;font-size:16px;color:#111827;font-family:inherit;min-width:0}
+        .search-input::placeholder{color:#9ca3af}
+        .search-btn{background:linear-gradient(135deg,#06b6d4,#3b82f6);color:#fff;border:0;border-radius:999px;padding:12px 24px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit}
+        .search-btn:hover{transform:translateY(-1px)}
+        .links{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:32px;text-align:left}
+        .link-card{background:rgba(15,23,42,.6);border:1px solid rgba(56,189,248,.2);border-radius:12px;padding:16px 18px;text-decoration:none;color:inherit;transition:all .2s}
+        .link-card:hover{border-color:rgba(56,189,248,.5);transform:translateY(-2px)}
+        .link-tag{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#7dd3fc;background:rgba(56,189,248,.1);padding:3px 8px;border-radius:999px;margin-bottom:6px}
+        .link-title{font-size:14px;font-weight:700;color:#fff;line-height:1.3}
+        .home{display:inline-block;margin-top:32px;color:#7dd3fc;text-decoration:none;font-size:14px;font-weight:600}
+        .home:hover{text-decoration:underline}
+        @media(max-width:640px){.code{font-size:80px}h1{font-size:24px}.links{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="/" class="logo">data1<span>.no</span></a>
+    </header>
+    <main>
+        <div class="wrap">
+            <div class="code">404</div>
+            <h1>Siden finnes ikke</h1>
+            <p class="lead">Lenken er kanskje skrevet feil, eller siden er flyttet. Prøv å søke etter et domene, eller utforsk noen av guidene våre.</p>
+
+            <form class="search-form" onsubmit="event.preventDefault();var v=document.getElementById('q').value.trim();if(v)location.href='/?domain='+encodeURIComponent(v);">
+                <svg class="search-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7"/>
+                    <path d="m20 20-3.5-3.5"/>
+                </svg>
+                <input type="text" id="q" class="search-input" placeholder="Sjekk et domene — f.eks. micronet.no" autocomplete="off" spellcheck="false">
+                <button type="submit" class="search-btn">Analyser</button>
+            </form>
+
+            <div class="links">
+                <a class="link-card" href="/blogg/dmarc/">
+                    <span class="link-tag">Guide</span>
+                    <span class="link-title">DMARC forklart enkelt</span>
+                </a>
+                <a class="link-card" href="/blogg/spf/">
+                    <span class="link-tag">Guide</span>
+                    <span class="link-title">SPF: Slik beskytter du domenet</span>
+                </a>
+                <a class="link-card" href="/blogg/dmarc-microsoft-365/">
+                    <span class="link-tag">Microsoft 365</span>
+                    <span class="link-title">DMARC i Microsoft 365 — full guide</span>
+                </a>
+                <a class="link-card" href="/rapport-2026/">
+                    <span class="link-tag">Rapport 2026</span>
+                    <span class="link-title">Norges 100 største nettsteder</span>
+                </a>
+                <a class="link-card" href="/sammenligning/">
+                    <span class="link-tag">Sammenligning</span>
+                    <span class="link-title">data1.no vs. konkurrentene</span>
+                </a>
+                <a class="link-card" href="/ordbok/">
+                    <span class="link-tag">Ordbok</span>
+                    <span class="link-title">E-postsikkerhets-begreper</span>
+                </a>
+            </div>
+
+            <a href="/" class="home">← Tilbake til forsiden</a>
+        </div>
+    </main>
+    <script src="/_assets/tracker.js?v=20260510" defer></script>
+</body>
+</html>

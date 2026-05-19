@@ -1,4 +1,11 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "mcp__b12e5d30-b676-4905-b671-59e701994cb5__accounts_list",
+      "mcp__b12e5d30-b676-4905-b671-59e701994cb5__set_active_account",
+      "mcp__b12e5d30-b676-4905-b671-59e701994cb5__workers_list"
+    ]
+  },
   "instructions": "Les .claude/CONTEXT.md først for å forstå prosjektets kontekst, formål, stack og pågående oppgaver. Hvis det ligger en .claude/HANDOVER.md, les den også – den inneholder pågående oppdrag som skal fullføres."
 }

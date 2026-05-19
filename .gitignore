@@ -22,3 +22,8 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
+
+# Worker build artifacts
+worker/node_modules/
+worker/.wrangler/
+worker/package-lock.json

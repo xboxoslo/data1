@@ -1,0 +1,27 @@
+name = "data1-dashboard-sync"
+main = "src/index.ts"
+compatibility_date = "2026-05-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Egen subdomene-rute er enklere enn å overstyre /dashboard-data/ fra Pages.
+# Etter første deploy: legg til DNS CNAME "dashboard-sync" -> workers.dev,
+# eller bytt til zone-route hvis du heller vil servere fra data1.no.
+workers_dev = true
+
+[[r2_buckets]]
+binding = "DATA"
+bucket_name = "data1-dashboard"
+
+[triggers]
+# Daglig 06:30 UTC: email + competitors + seo
+# Ukentlig mandag 07:00 UTC: ai-synlighet
+crons = ["30 6 * * *", "0 7 * * 1"]
+
+[observability]
+enabled = true
+
+[vars]
+ENVIRONMENT = "production"
+# Secrets (sett med `wrangler secret put`):
+#   GSC_CLIENT_ID, GSC_CLIENT_SECRET, GSC_REFRESH_TOKEN
+#   ANTHROPIC_API_KEY, OPENAI_API_KEY, PERPLEXITY_API_KEY, GEMINI_API_KEY
