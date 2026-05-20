@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="nb-NO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Generer kryptografisk tilfeldige tokens, passord og secrets for intern pentesting og QA. Kjører lokalt i nettleseren — ingenting sendes til server.">
+<meta name="keywords" content="keygen, token generator, passord generator, api key generator, secret generator, pentesting, hmac secret">
+<meta name="author" content="Terje Otterlei">
+<meta name="theme-color" content="#1a202c">
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://data1.no/verktoy/keygen/">
+<title>Keygen — interne test-tokens | data1.no</title>
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Inter";font-weight:400 900;font-display:optional;src:url(/fonts/inter-latin.woff2)format("woff2");unicode-range:U+0000-00FF}
+@font-face{font-family:"Inter Fallback";src:local("Arial");size-adjust:107.4%;ascent-override:90%;descent-override:22.48%;line-gap-override:0%}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Inter","Inter Fallback",-apple-system,BlinkMacSystemFont,sans-serif;background:#f1f5f9;color:#1e293b;-webkit-font-smoothing:antialiased;line-height:1.55}
+.header{background:#1a202c;padding:14px 28px;display:flex;align-items:center;gap:18px;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.logo{color:#fff;font-size:19px;font-weight:800;text-decoration:none}.logo span{color:#4fd1c5}
+.spacer{flex:1}.nav-link{color:#cbd5e0;text-decoration:none;font-size:14px}.nav-link:hover{color:#fff}
+main{max-width:880px;margin:0 auto;padding:36px 22px 80px}
+.crumbs{font-size:13px;color:#94a3b8;margin-bottom:16px}.crumbs a{color:#0f766e;text-decoration:none}
+h1{font-size:36px;font-weight:900;color:#0f172a;letter-spacing:-.025em;line-height:1.1;margin-bottom:14px}
+.intro{font-size:17px;color:#475569;max-width:680px;margin-bottom:20px;line-height:1.6}
+.banner{background:#fef3c7;border:1px solid #fcd34d;color:#78350f;padding:12px 16px;border-radius:10px;font-size:13.5px;margin-bottom:28px;line-height:1.5}
+.banner strong{color:#7c2d12}
+.layout{display:grid;grid-template-columns:1.05fr .95fr;gap:24px}
+.card{background:#fff;border-radius:14px;padding:26px 28px;box-shadow:0 1px 3px rgba(0,0,0,.07)}
+.card h2{font-size:18px;font-weight:800;color:#0f172a;margin-bottom:18px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:13px;font-weight:700;color:#475569;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em}
+.field-help{font-size:12px;color:#64748b;margin-top:4px;line-height:1.45}
+.field input,.field select{width:100%;padding:10px 14px;border:1px solid #e2e8f0;border-radius:10px;font-size:14.5px;color:#0f172a;font-family:inherit;background:#fff;outline:0;transition:border-color .15s,box-shadow .15s}
+.field input:focus,.field select:focus{border-color:#14b8a6;box-shadow:0 0 0 3px rgba(20,184,166,.12)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.preset-row{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.preset-btn{padding:8px 14px;background:#f1f5f9;border:1px solid #e2e8f0;color:#475569;border-radius:8px;cursor:pointer;font-size:13px;font-family:inherit;font-weight:600;transition:all .15s}
+.preset-btn:hover{border-color:#14b8a6;color:#0f766e}
+.preset-btn.active{background:#0f172a;color:#fff;border-color:#0f172a}
+.checkbox-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:6px}
+.checkbox-row label{display:flex;align-items:center;gap:6px;font-size:13.5px;color:#475569;cursor:pointer;font-weight:500}
+.checkbox-row input{accent-color:#14b8a6;width:16px;height:16px}
+.output-card{position:sticky;top:20px}
+.record-box{background:#0f172a;color:#5eead4;border-radius:12px;padding:20px 22px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13.5px;line-height:1.7;word-break:break-all;margin-bottom:14px;min-height:80px;white-space:pre-wrap}
+.record-box .lbl{color:#64748b;font-size:11px;font-family:"Inter",sans-serif;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:6px;font-weight:600}
+.copy-btn,.regen-btn{display:flex;width:100%;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border:0;border-radius:10px;font-size:14.5px;font-weight:700;cursor:pointer;font-family:inherit;transition:background .15s}
+.copy-btn{background:#14b8a6;color:#fff;margin-bottom:8px}
+.copy-btn:hover{background:#0d9488}
+.copy-btn.copied{background:#16a34a}
+.regen-btn{background:#f1f5f9;color:#0f172a;border:1px solid #e2e8f0}
+.regen-btn:hover{background:#e2e8f0}
+.meta{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin-top:18px;font-size:13px}
+.meta dt{color:#64748b;font-weight:600}
+.meta dd{color:#0f172a;font-family:ui-monospace,monospace}
+.tips{background:#f0fdfa;border:1px solid #99f6e4;border-radius:10px;padding:14px 18px;margin-top:18px;font-size:13.5px;color:#134e4a;line-height:1.55}
+.tips strong{color:#0f766e}
+.related{margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.related a{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 18px;text-decoration:none;color:inherit}
+.related a:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(15,23,42,.07)}
+.related strong{display:block;color:#0f172a;font-size:14px;margin-bottom:4px}
+.related span{color:#64748b;font-size:13px}
+@media(max-width:880px){.layout{grid-template-columns:1fr}.output-card{position:static}}
+@media(max-width:640px){h1{font-size:26px}main{padding:24px 16px 60px}.row{grid-template-columns:1fr}}
+</style>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+<header class="header">
+  <a href="/" class="logo">data1<span>.no</span></a>
+  <span class="spacer"></span>
+  <a href="/verktoy/" class="nav-link">Verktøy</a>
+</header>
+<main>
+  <nav class="crumbs"><a href="/">Hjem</a> › <a href="/verktoy/">Verktøy</a> › Keygen</nav>
+  <h1>Keygen — interne test-tokens</h1>
+  <p class="intro">Generer kryptografisk tilfeldige tokens, passord og secrets for bruk under autoriserte pentester og QA mot egne systemer. Alt skjer lokalt i nettleseren via <code>crypto.getRandomValues()</code> — ingenting sendes til server.</p>
+  <div class="banner"><strong>Bare for autorisert bruk.</strong> Verktøyet er for intern testing av data1-stacken (intake-server, Halo-integrasjon o.l.) og andre systemer du har skriftlig tillatelse til å teste.</div>
+
+  <div class="layout">
+    <div class="card">
+      <h2>Velg type nøkkel</h2>
+
+      <div class="preset-row" role="tablist">
+        <button class="preset-btn active" data-kind="hex">Hex</button>
+        <button class="preset-btn" data-kind="base64">Base64-URL</button>
+        <button class="preset-btn" data-kind="uuid">UUID v4</button>
+        <button class="preset-btn" data-kind="password">Passord</button>
+        <button class="preset-btn" data-kind="bearer">Bearer</button>
+        <button class="preset-btn" data-kind="hmac">HMAC-secret</button>
+      </div>
+
+      <div class="field" id="length-field">
+        <label for="length">Lengde (bytes)</label>
+        <input type="number" id="length" value="32" min="8" max="256" step="1">
+        <div class="field-help" id="length-help">Antall tilfeldige bytes som genereres. 32 bytes = 256 bits.</div>
+      </div>
+
+      <div class="field" id="pw-chars-field" style="display:none">
+        <label>Tegnsett</label>
+        <div class="checkbox-row">
+          <label><input type="checkbox" id="pw-lower" checked> a-z</label>
+          <label><input type="checkbox" id="pw-upper" checked> A-Z</label>
+          <label><input type="checkbox" id="pw-digit" checked> 0-9</label>
+          <label><input type="checkbox" id="pw-symbol" checked> Symboler</label>
+        </div>
+        <div class="field-help">Minst én av hver valgt kategori garanteres i passordet.</div>
+      </div>
+
+      <div class="field" id="hmac-algo-field" style="display:none">
+        <label for="hmac-algo">HMAC-algoritme</label>
+        <select id="hmac-algo">
+          <option value="32">SHA-256 (32 bytes anbefalt)</option>
+          <option value="48">SHA-384 (48 bytes)</option>
+          <option value="64">SHA-512 (64 bytes)</option>
+        </select>
+        <div class="field-help">Velger anbefalt secret-lengde for den valgte HMAC-algoritmen.</div>
+      </div>
+
+      <div class="field">
+        <label for="count">Antall</label>
+        <input type="number" id="count" value="1" min="1" max="500" step="1">
+        <div class="field-help">Generer flere på en gang (én per linje).</div>
+      </div>
+    </div>
+
+    <div class="output-card">
+      <div class="card">
+        <h2>Resultat</h2>
+        <div class="record-box" id="output">—</div>
+        <button class="copy-btn" id="copyBtn" type="button">Kopier</button>
+        <button class="regen-btn" id="regenBtn" type="button">↻ Generer nytt</button>
+        <dl class="meta" id="meta"></dl>
+        <div class="tips">
+          <strong>Husk:</strong> Test-tokens fra nettleseren bør aldri brukes som langsiktige produksjons-secrets. Lagre dem i en hemmelighetshåndterer (Azure Key Vault, 1Password o.l.) — ikke i koden.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="related">
+    <a href="/verktoy/dmarc-generator/"><strong>DMARC-generator</strong><span>Lag DMARC-record for DNS</span></a>
+    <a href="/verktoy/spf-generator/"><strong>SPF-generator</strong><span>Lag SPF-record for DNS</span></a>
+    <a href="/"><strong>Domeneanalyse</strong><span>Sjekk e-postsikkerhet på domenet ditt</span></a>
+  </div>
+</main>
+
+<script>
+(function(){
+  const $ = (id) => document.getElementById(id);
+  const out = $('output');
+  const meta = $('meta');
+  const lengthField = $('length-field');
+  const pwField = $('pw-chars-field');
+  const hmacField = $('hmac-algo-field');
+  const lengthInput = $('length');
+  const lengthHelp = $('length-help');
+  const countInput = $('count');
+  const copyBtn = $('copyBtn');
+  const regenBtn = $('regenBtn');
+
+  let currentKind = 'hex';
+
+  const SYMBOLS = '!@#$%^&*()-_=+[]{};:,.<>?';
+
+  function randomBytes(n){
+    const a = new Uint8Array(n);
+    crypto.getRandomValues(a);
+    return a;
+  }
+
+  function toHex(bytes){
+    return Array.from(bytes).map(b => b.toString(16).padStart(2,'0')).join('');
+  }
+
+  function toBase64Url(bytes){
+    let bin = '';
+    for (const b of bytes) bin += String.fromCharCode(b);
+    return btoa(bin).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+  }
+
+  function uuidv4(){
+    if (crypto.randomUUID) return crypto.randomUUID();
+    const b = randomBytes(16);
+    b[6] = (b[6] & 0x0f) | 0x40;
+    b[8] = (b[8] & 0x3f) | 0x80;
+    const h = toHex(b);
+    return `${h.slice(0,8)}-${h.slice(8,12)}-${h.slice(12,16)}-${h.slice(16,20)}-${h.slice(20)}`;
+  }
+
+  function pickFrom(chars){
+    const idx = randomBytes(1)[0] % chars.length;
+    return chars[idx];
+  }
+
+  function genPassword(length){
+    const lower = 'abcdefghijklmnopqrstuvwxyz';
+    const upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const digit = '0123456789';
+    const pools = [];
+    if ($('pw-lower').checked) pools.push(lower);
+    if ($('pw-upper').checked) pools.push(upper);
+    if ($('pw-digit').checked) pools.push(digit);
+    if ($('pw-symbol').checked) pools.push(SYMBOLS);
+    if (pools.length === 0) return '(velg minst ett tegnsett)';
+    const all = pools.join('');
+    const out = [];
+    for (const p of pools) out.push(pickFrom(p));
+    while (out.length < length) out.push(pickFrom(all));
+    // Fisher-Yates shuffle
+    for (let i = out.length - 1; i > 0; i--){
+      const j = randomBytes(1)[0] % (i + 1);
+      [out[i], out[j]] = [out[j], out[i]];
+    }
+    return out.join('');
+  }
+
+  function entropyBits(kind, length){
+    if (kind === 'hex') return length * 8;
+    if (kind === 'base64') return length * 8;
+    if (kind === 'uuid') return 122;
+    if (kind === 'bearer') return length * 8;
+    if (kind === 'hmac') return length * 8;
+    if (kind === 'password'){
+      let alpha = 0;
+      if ($('pw-lower').checked) alpha += 26;
+      if ($('pw-upper').checked) alpha += 26;
+      if ($('pw-digit').checked) alpha += 10;
+      if ($('pw-symbol').checked) alpha += SYMBOLS.length;
+      if (alpha === 0) return 0;
+      return Math.round(length * Math.log2(alpha));
+    }
+    return 0;
+  }
+
+  function generateOne(kind){
+    if (kind === 'hex') return toHex(randomBytes(Number(lengthInput.value)));
+    if (kind === 'base64') return toBase64Url(randomBytes(Number(lengthInput.value)));
+    if (kind === 'uuid') return uuidv4();
+    if (kind === 'bearer') return 'Bearer ' + toBase64Url(randomBytes(Number(lengthInput.value)));
+    if (kind === 'hmac') return toHex(randomBytes(Number($('hmac-algo').value)));
+    if (kind === 'password') return genPassword(Number(lengthInput.value));
+  }
+
+  function effectiveLength(kind){
+    if (kind === 'uuid') return 16;
+    if (kind === 'hmac') return Number($('hmac-algo').value);
+    return Number(lengthInput.value);
+  }
+
+  function generate(){
+    const n = Math.max(1, Math.min(500, Number(countInput.value) || 1));
+    const lines = [];
+    for (let i = 0; i < n; i++) lines.push(generateOne(currentKind));
+    out.textContent = lines.join('\n');
+
+    const len = effectiveLength(currentKind);
+    const bits = entropyBits(currentKind, currentKind === 'password' ? Number(lengthInput.value) : len);
+    const sample = lines[0] || '';
+    meta.innerHTML =
+      `<dt>Type</dt><dd>${currentKind}</dd>` +
+      `<dt>Antall</dt><dd>${n}</dd>` +
+      (currentKind === 'password'
+        ? `<dt>Tegn</dt><dd>${lengthInput.value}</dd>`
+        : currentKind === 'uuid'
+          ? `<dt>Bytes</dt><dd>16 (fast)</dd>`
+          : `<dt>Bytes</dt><dd>${len}</dd>`) +
+      `<dt>Entropi</dt><dd>~${bits} bits</dd>` +
+      `<dt>Lengde (tegn)</dt><dd>${sample.length}</dd>`;
+  }
+
+  function configureUI(kind){
+    currentKind = kind;
+    document.querySelectorAll('.preset-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.kind === kind);
+    });
+    pwField.style.display = (kind === 'password') ? 'block' : 'none';
+    hmacField.style.display = (kind === 'hmac') ? 'block' : 'none';
+    lengthField.style.display = (kind === 'uuid' || kind === 'hmac') ? 'none' : 'block';
+
+    if (kind === 'password'){
+      lengthInput.value = 24;
+      lengthInput.min = 8; lengthInput.max = 128;
+      lengthHelp.textContent = 'Antall tegn i passordet.';
+      $('length').previousElementSibling.textContent = 'Lengde (tegn)';
+    } else if (kind === 'hex'){
+      lengthInput.value = 32;
+      lengthInput.min = 4; lengthInput.max = 256;
+      lengthHelp.textContent = 'Antall bytes (gir 2× så mange hex-tegn). 32 = 256 bits.';
+    } else if (kind === 'base64' || kind === 'bearer'){
+      lengthInput.value = 32;
+      lengthInput.min = 4; lengthInput.max = 256;
+      lengthHelp.textContent = 'Antall bytes (≈ 4/3 så mange base64-tegn). 32 = 256 bits.';
+    }
+    generate();
+  }
+
+  document.querySelectorAll('.preset-btn').forEach(b => {
+    b.addEventListener('click', () => configureUI(b.dataset.kind));
+  });
+  [lengthInput, countInput].forEach(el => el.addEventListener('input', generate));
+  document.querySelectorAll('#pw-chars-field input, #hmac-algo').forEach(el => {
+    el.addEventListener('change', generate);
+  });
+  regenBtn.addEventListener('click', generate);
+  copyBtn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(out.textContent);
+      copyBtn.textContent = '✓ Kopiert';
+      copyBtn.classList.add('copied');
+      setTimeout(() => {
+        copyBtn.textContent = 'Kopier';
+        copyBtn.classList.remove('copied');
+      }, 1400);
+    } catch(_){
+      const r = document.createRange();
+      r.selectNode(out);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(r);
+    }
+  });
+
+  configureUI('hex');
+})();
+</script>
+</body>
+</html>
