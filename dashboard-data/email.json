@@ -1,29 +1,29 @@
 {
-  "lastUpdated": "2026-05-19T10:13:09Z",
+  "lastUpdated": "2026-05-20T09:59:24Z",
   "ownDomains": [
     {
       "domain": "data1.no",
-      "score": 80,
-      "grade": "A",
-      "dmarc": "v=DMARC1; p=reject; sp=reject; adkim=s; aspf=s; pct=100; rua=mailto:org_6911b81c738c3638795d360a@rua.easydmarc.com; ruf=mailto:org_6911b81c738c3638795d360a@ruf.easydmarc.com; fo=1",
-      "spf": "v=spf1 -all",
+      "score": 75,
+      "grade": "B",
+      "dmarc": "v=DMARC1; p=reject; sp=reject; adkim=s; aspf=s; pct=100; rua=mailto:96db6f3bf2bc4c2e96889efc9e87a9a9@dmarc-reports.cloudflare.net,mailto:org_6911b81c738c3638795d360a@rua.easydmarc.com; ruf=mailto:org_6911b81c738c3638795d360a@ruf.easydmarc.com; fo=1",
+      "spf": "v=spf1 include:_spf.mx.cloudflare.net ~all",
       "dkim": "selector1, selector2, google, k1, k2, mandrill, mxvault, default, dkim, s1, s2, mail, protonmail, mailo",
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": false,
-      "lastChecked": "2026-05-19T10:13:09Z"
+      "lastChecked": "2026-05-20T09:59:25Z"
     },
     {
       "domain": "micronet.no",
       "score": 95,
       "grade": "A+",
-      "dmarc": "v=DMARC1;p=reject;pct=100;rua=mailto:4548c9fd27@rua.easydmarc.eu;ruf=mailto:4548c9fd27@ruf.easydmarc.eu;ri=86400;fo=1;",
-      "spf": "v=spf1 include:_spf.micronet_no._d.easydmarc.pro include:spf.protection.outlook.com include:spf.eu.exclaimer.net ~all",
+      "dmarc": "v=DMARC1; p=reject; rua=mailto:1a64cc8f22c04d24a12b088b20dc5316@dmarc-reports.cloudflare.net; ruf=mailto:terje@micronet.no",
+      "spf": "v=spf1 include:spf.protection.outlook.com include:spf.eu.exclaimer.net ~all",
       "dkim": "selector1, selector2, k2",
       "mtaSts": true,
       "tlsRpt": true,
       "bimi": true,
-      "lastChecked": "2026-05-19T10:13:10Z"
+      "lastChecked": "2026-05-20T09:59:25Z"
     }
   ],
   "trackedDomains": {
@@ -35,20 +35,7 @@
     "rejectPercent": 54.4
   },
   "weeklyChanges": {
-    "improved": [
-      {
-        "domain": "altibox.no",
-        "from": "p=reject",
-        "to": "p=reject",
-        "scoreDelta": 20
-      },
-      {
-        "domain": "bi.no",
-        "from": "p=none",
-        "to": "p=quarantine",
-        "scoreDelta": 12
-      }
-    ],
+    "improved": [],
     "regressed": []
   },
   "timeline": [
