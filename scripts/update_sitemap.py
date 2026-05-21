@@ -97,6 +97,7 @@ TOP_LEVEL_SCAN = {
     'mta-sts': 0.8,
     'tls-rpt': 0.8,
     'e-post-sikkerhet': 0.9,
+    'priser': 0.85,
 }
 
 
