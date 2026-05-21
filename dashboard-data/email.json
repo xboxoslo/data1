@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-20T09:59:24Z",
+  "lastUpdated": "2026-05-21T10:08:58Z",
   "ownDomains": [
     {
       "domain": "data1.no",
@@ -11,32 +11,45 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": false,
-      "lastChecked": "2026-05-20T09:59:25Z"
+      "lastChecked": "2026-05-21T10:08:59Z"
     },
     {
       "domain": "micronet.no",
       "score": 95,
       "grade": "A+",
-      "dmarc": "v=DMARC1; p=reject; rua=mailto:1a64cc8f22c04d24a12b088b20dc5316@dmarc-reports.cloudflare.net; ruf=mailto:terje@micronet.no",
+      "dmarc": "v=DMARC1; p=reject; rua=mailto:1a64cc8f22c04d24a12b088b20dc5316@dmarc-reports.cloudflare.net,mailto:dmarc@data1.no; ruf=mailto:dmarc@data1.no",
       "spf": "v=spf1 include:spf.protection.outlook.com include:spf.eu.exclaimer.net ~all",
       "dkim": "selector1, selector2, k2",
       "mtaSts": true,
       "tlsRpt": true,
       "bimi": true,
-      "lastChecked": "2026-05-20T09:59:25Z"
+      "lastChecked": "2026-05-21T10:09:00Z"
     }
   ],
   "trackedDomains": {
     "total": 158,
     "withReject": 86,
-    "withQuarantine": 26,
-    "withNone": 34,
-    "missing": 12,
+    "withQuarantine": 25,
+    "withNone": 33,
+    "missing": 14,
     "rejectPercent": 54.4
   },
   "weeklyChanges": {
     "improved": [],
-    "regressed": []
+    "regressed": [
+      {
+        "domain": "uib.no",
+        "from": "p=quarantine",
+        "to": "p=missing",
+        "scoreDelta": -65
+      },
+      {
+        "domain": "ntnu.no",
+        "from": "p=none",
+        "to": "p=missing",
+        "scoreDelta": -18
+      }
+    ]
   },
   "timeline": [
     {
