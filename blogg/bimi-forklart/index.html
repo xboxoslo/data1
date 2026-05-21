@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="nb-NO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="BIMI viser firmalogoen ved siden av e-posten i Gmail og Apple Mail. Lær hva som kreves, hvordan VMC-sertifikatet fungerer, og hvordan du setter det opp i 2026.">
+<meta name="keywords" content="bimi, bimi oppsett, bimi norge, vmc sertifikat, brand indicators message identification, bimi gmail, bimi apple mail, e-post logo">
+<meta name="author" content="Terje Otterlei">
+<meta name="theme-color" content="#1a202c">
+<meta name="geo.region" content="NO">
+<meta name="geo.placename" content="Norge">
+<meta http-equiv="content-language" content="nb-NO">
+<link rel="alternate" hreflang="nb-NO" href="https://data1.no/blogg/bimi-forklart/">
+<link rel="alternate" hreflang="nb" href="https://data1.no/blogg/bimi-forklart/">
+<link rel="alternate" hreflang="x-default" href="https://data1.no/blogg/bimi-forklart/">
+<link rel="canonical" href="https://data1.no/blogg/bimi-forklart/">
+<link rel="alternate" type="application/rss+xml" title="data1.no — blogg om e-postsikkerhet" href="https://data1.no/blogg/feed.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="data1.no">
+<meta property="og:locale" content="nb_NO">
+<meta property="og:url" content="https://data1.no/blogg/bimi-forklart/">
+<meta property="article:published_time" content="2026-05-21T09:00:00+00:00">
+<meta property="article:modified_time" content="2026-05-21T09:00:00+00:00">
+<meta property="og:title" content="BIMI forklart: Slik viser du firmalogoen i e-post">
+<meta property="og:description" content="BIMI lar bedriften vise sin verifiserte logo ved siden av e-posten i Gmail og Apple Mail. Slik fungerer det, og slik setter du det opp.">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BIMI forklart: Slik viser du firmalogoen i e-post">
+<meta name="twitter:description" content="BIMI lar bedriften vise sin verifiserte logo ved siden av e-posten i Gmail og Apple Mail. Slik fungerer det, og slik setter du det opp.">
+<meta name="twitter:image" content="https://data1.no/og-image.png">
+<title>BIMI forklart: Slik viser du firmalogoen i e-post | data1.no</title>
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/blogg/_assets/post.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","@id":"https://data1.no/blogg/bimi-forklart/#article","headline":"BIMI forklart: Slik viser du firmalogoen i e-post","description":"BIMI viser firmalogoen ved siden av e-posten i Gmail og Apple Mail. Lær hva som kreves, hvordan VMC-sertifikatet fungerer, og hvordan du setter det opp i 2026.","image":"https://data1.no/og-image.png","datePublished":"2026-05-21","dateModified":"2026-05-21","inLanguage":"nb-NO","articleSection":"E-postsikkerhet","keywords":["BIMI","VMC","DMARC","SVG Tiny PS","Gmail","Apple Mail","e-postsikkerhet"],"author":{"@type":"Person","name":"Terje Otterlei","jobTitle":"Daglig leder Micronet AS","worksFor":{"@type":"Organization","name":"Micronet AS","url":"https://micronet.no"},"sameAs":["https://www.linkedin.com/in/terjeotterlei/"]},"publisher":{"@type":"Organization","name":"data1.no","url":"https://data1.no","logo":{"@type":"ImageObject","url":"https://data1.no/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://data1.no/blogg/bimi-forklart/"},"about":[{"@type":"Thing","name":"BIMI"},{"@type":"Thing","name":"VMC"},{"@type":"Thing","name":"DMARC"},{"@type":"Thing","name":"E-postsikkerhet"}],"contentLocation":{"@type":"Country","name":"Norge"},"audience":{"@type":"BusinessAudience","audienceType":"Norske bedrifter","geographicArea":{"@type":"Country","name":"Norge"}},"citation":"RFC draft-brand-indicators-for-message-identification"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Hjem","item":"https://data1.no/"},{"@type":"ListItem","position":2,"name":"Blogg","item":"https://data1.no/blogg/"},{"@type":"ListItem","position":3,"name":"BIMI forklart","item":"https://data1.no/blogg/bimi-forklart/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"nb-NO","mainEntity":[{"@type":"Question","name":"Hva er BIMI i én setning?","acceptedAnswer":{"@type":"Answer","text":"BIMI (Brand Indicators for Message Identification) er en e-poststandard som lar bedriften vise sin verifiserte firmalogo ved siden av meldinger i innboksen — som et synlig kvalitetsstempel på at e-posten faktisk kommer fra autorisert avsender."}},{"@type":"Question","name":"Trenger jeg DMARC for å bruke BIMI?","acceptedAnswer":{"@type":"Answer","text":"Ja, og det er ikke valgfritt. BIMI krever at domenet har en DMARC-policy på p=quarantine eller p=reject. p=none aksepteres ikke. I tillegg må DMARC-recorden ha pct=100 og sp= satt til samme nivå hvis du bruker subdomener."}},{"@type":"Question","name":"Hva koster et VMC-sertifikat?","acceptedAnswer":{"@type":"Answer","text":"Et Verified Mark Certificate (VMC) fra DigiCert eller Entrust koster typisk 12 000–15 000 NOK per år. CMC (Common Mark Certificate) er rimeligere, men aksepteres ikke av Apple Mail og er derfor begrenset i bruk."}},{"@type":"Question","name":"Hvilke e-postklienter viser BIMI-logoen?","acceptedAnswer":{"@type":"Answer","text":"Per 2026 viser Gmail (web og mobil), Apple Mail (iOS 16+, macOS Ventura+), Yahoo Mail og Fastmail BIMI-logoen. Outlook og Microsoft 365 har ennå ikke full støtte, men Microsoft har varslet at det kommer."}},{"@type":"Question","name":"Hvorfor må logoen være i SVG Tiny PS-format?","acceptedAnswer":{"@type":"Answer","text":"SVG Tiny Portable/Secure er en sikker delmengde av SVG uten skript, eksterne referanser eller animasjoner. Mottakerservere kan dermed rendre logoen uten sikkerhetsrisiko. PNG og JPG aksepteres ikke for BIMI."}},{"@type":"Question","name":"Kan jeg bruke BIMI uten VMC-sertifikat?","acceptedAnswer":{"@type":"Answer","text":"Gmail krever VMC eller CMC for at logoen skal vises. Apple Mail krever VMC spesifikt. Uten et gyldig sertifikat vil logoen ikke dukke opp i de viktigste klientene — selv om DNS-recorden er korrekt."}}]}</script>
+<script src="/_assets/tracker.js" defer></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+<header class="header">
+  <a href="/" class="logo">data1<span>.no</span></a>
+  <form class="header-search" action="/" method="get" role="search">
+    <input type="text" name="domain" placeholder="Skriv inn domene — f.eks. micronet.no" aria-label="Sjekk domene">
+    <button type="submit">Analyser →</button>
+  </form>
+</header>
+<main>
+  <nav class="crumbs"><a href="/">Hjem</a> › <a href="/blogg/">Blogg</a> › BIMI forklart</nav>
+  <h1>BIMI forklart: Slik viser du firmalogoen i e-post</h1>
+  <p class="meta">Publisert <time datetime="2026-05-21">21. mai 2026</time> · Av <a href="https://www.linkedin.com/in/terjeotterlei/">Terje Otterlei</a>, Micronet AS · 8 min lesetid</p>
+
+  <p class="lead">BIMI er den siste brikken i e-postsikkerhetspuslespillet: når DMARC er på plass, kan du vise firmalogoen ved siden av e-posten i Gmail og Apple Mail. Det er både et tillitssignal til mottaker og et synlig bevis på at domenet ditt er korrekt beskyttet.</p>
+
+  <div class="callout">
+    <strong>Kort oppsummert</strong>
+    <ul style="margin:10px 0 0 18px;padding:0">
+      <li><strong>BIMI</strong> står for Brand Indicators for Message Identification og er en DNS-basert standard som kobler en verifisert logo til e-post fra domenet ditt.</li>
+      <li><strong>DMARC med <code>p=quarantine</code> eller <code>p=reject</code> er en absolutt forutsetning.</strong> Står du på <code>p=none</code>, vises ingen logo.</li>
+      <li><strong>VMC-sertifikat</strong> (Verified Mark Certificate) fra DigiCert eller Entrust koster ca. 12 000–15 000 NOK/år og kreves av Gmail og Apple Mail.</li>
+      <li><strong>Logoen må være i SVG Tiny PS-format</strong> og hostes på eget domene, typisk <code>/bimi/logo.svg</code>.</li>
+      <li><strong>Støttes i Gmail, Apple Mail (iOS 16+), Yahoo Mail og Fastmail</strong> per 2026. Outlook henger fortsatt etter.</li>
+    </ul>
+  </div>
+
+  <div class="toc">
+    <h2>Innhold</h2>
+    <ol>
+      <li><a href="#hva">Hva er BIMI?</a></li>
+      <li><a href="#hvorfor">Hvorfor BIMI er viktig</a></li>
+      <li><a href="#krav">Krav for å bruke BIMI</a></li>
+      <li><a href="#vmc">VMC-sertifikat og CMC-fallback</a></li>
+      <li><a href="#oppsett">Slik setter du opp BIMI steg-for-steg</a></li>
+      <li><a href="#klienter">Hvilke e-postklienter støtter BIMI?</a></li>
+      <li><a href="#feil">Vanlige feil ved BIMI-oppsett</a></li>
+      <li><a href="#test">Test og overvåk BIMI</a></li>
+      <li><a href="#faq">Ofte stilte spørsmål</a></li>
+    </ol>
+  </div>
+
+  <h2 id="hva">Hva er BIMI?</h2>
+  <p><strong>BIMI (Brand Indicators for Message Identification) er en e-poststandard som lar et selskap publisere sin verifiserte firmalogo i DNS, slik at e-postklienter som Gmail og Apple Mail kan vise logoen ved siden av meldinger i innboksen.</strong> Standarden er definert i en IETF-utkast og brukes i praksis av de største e-postleverandørene siden 2021.</p>
+  <p>Teknisk består BIMI av tre komponenter:</p>
+  <ul>
+    <li>En <strong>DNS TXT-record</strong> på <code>default._bimi.dittfirma.no</code> som peker til logoen.</li>
+    <li>En <strong>SVG-fil</strong> i formatet SVG Tiny PS, hostet på eget domene.</li>
+    <li>Et <strong>VMC- eller CMC-sertifikat</strong> som beviser at du har rettighetene til logoen.</li>
+  </ul>
+  <p>Når Gmail mottar en e-post fra <code>dittfirma.no</code>, sjekker den at meldingen består DMARC-verifisering, slår opp BIMI-recorden, validerer sertifikatet, og viser deretter logoen til mottaker. Det hele tar millisekunder og er usynlig for sluttbruker — bortsett fra logoen som plutselig dukker opp.</p>
+
+  <h2 id="hvorfor">Hvorfor BIMI er viktig</h2>
+  <p><strong>BIMI er ikke en sikkerhetsstandard i seg selv — det er et tillitssignal som gjør det vanskeligere for phisherne å lure mottakerne. Når kundene venner seg til å se din logo ved siden av legitime e-poster, blir en logoløs falsk faktura mye mer mistenkelig.</strong></p>
+  <p>Tre konkrete fordeler:</p>
+  <ul>
+    <li><strong>Tillit ved første blikk.</strong> En verifisert logo i innboksen forteller mottaker at avsenderen er den de utgir seg for å være — uten at brukeren må sjekke avsenderadresse eller signatur.</li>
+    <li><strong>Synlig avkastning på DMARC-investering.</strong> DMARC er teknisk og usynlig. BIMI gjør det synlig at du har gjort jobben — for markedsavdelingen og ledelsen.</li>
+    <li><strong>Bedre åpningsrater.</strong> Google publiserte i 2022 tall som viste at BIMI-aktiverte avsendere i snitt fikk 10 % høyere åpningsrater på nyhetsbrev. Effekten er størst for B2C-bedrifter med mange kunder.</li>
+  </ul>
+  <p>Det er også verdt å nevne den indirekte gevinsten: BIMI tvinger frem en streng DMARC-policy. Du kan ikke aktivere BIMI før domenet er ordentlig låst med <code>p=quarantine</code> eller <code>p=reject</code> — som i seg selv eliminerer den viktigste phishing-vektoren mot kundene dine.</p>
+
+  <h2 id="krav">Krav for å bruke BIMI</h2>
+  <p><strong>BIMI er strikt med inngangskravene. Hvis ett av disse mangler, vises ingen logo:</strong></p>
+  <ul>
+    <li><strong>DMARC må være på <code>p=quarantine</code> eller <code>p=reject</code>.</strong> <code>p=none</code> aksepteres ikke. Dette er hardkodet i Gmails BIMI-validering.</li>
+    <li><strong>Subdomain-policy må stemme.</strong> Hvis du bruker <code>sp=</code> i DMARC, må den også være på quarantine eller reject.</li>
+    <li><strong>SPF og DKIM må bestå konsekvent.</strong> Sender du via leverandører som ikke signerer DKIM korrekt, vil BIMI feile på de meldingene.</li>
+    <li><strong>Logoen må eksistere som SVG Tiny PS</strong>, hostet på HTTPS med gyldig sertifikat.</li>
+    <li><strong>Et VMC- eller CMC-sertifikat</strong> som tilsvarer logoen og domenet (Gmail og Apple Mail krever dette i praksis).</li>
+    <li><strong>Logoen må være registrert som varemerke</strong> i godkjent jurisdiksjon (USA, EU, UK, Japan, India, Australia, Canada, Sør-Korea, eller via Madridprotokollen). Et norsk varemerke registrert hos Patentstyret kvalifiserer hvis det også er meldt internasjonalt via Madrid.</li>
+  </ul>
+
+  <p>Mangler du DMARC ennå, start med vår <a href="/blogg/dmarc/">DMARC-guide</a>. Bruker du Microsoft 365, har vi en egen <a href="/blogg/dmarc-microsoft-365/">DMARC i Microsoft 365-guide</a> som tar deg helt til <code>p=reject</code>.</p>
+
+  <h2 id="vmc">VMC-sertifikat og CMC-fallback</h2>
+  <p><strong>Verified Mark Certificate (VMC) er digital sertifikat som beviser at organisasjonen din eier den registrerte logoen. Det er det største kostnadselementet i et BIMI-oppsett og utstedes av to sertifikatutstedere globalt: DigiCert og Entrust. Pris i 2026 ligger på 12 000–15 000 NOK per år, avhengig av leverandør og avtaleperiode.</strong></p>
+
+  <h3>Hva utstederen verifiserer</h3>
+  <p>For å få et VMC må du dokumentere:</p>
+  <ul>
+    <li>At organisasjonen din eksisterer (Brønnøysund-uttrekk eller tilsvarende).</li>
+    <li>At du eier varemerket (kopi av registreringsbeviset fra Patentstyret eller WIPO).</li>
+    <li>At logoen i SVG-filen er identisk med det registrerte varemerket.</li>
+    <li>At du har autoritet til å bestille på vegne av selskapet.</li>
+  </ul>
+  <p>Prosessen tar typisk 2–4 uker. Norske bedrifter må gjerne dokumentere ekstra fordi automatiseringen til DigiCert er bygget rundt amerikanske og britiske registre.</p>
+
+  <h3>CMC — Common Mark Certificate</h3>
+  <p>CMC er en rimeligere variant introdusert i 2023 for bedrifter uten registrert varemerke. Logoen må fortsatt ha vært i bruk i minst 12 måneder, og prisen ligger rundt 5 000–8 000 NOK/år. <strong>Men:</strong> CMC aksepteres kun av Gmail. Apple Mail krever VMC, og det vil ikke vise logoen din uten et fullt verifisert varemerke. For de fleste norske bedrifter med Apple-tunge kunder er CMC derfor en halv løsning.</p>
+
+  <div class="callout warn">
+    <p><strong>Praktisk tips:</strong> Hvis du ikke har registrert logoen som varemerke, søk om varemerkebeskyttelse via Patentstyret <em>før</em> du bestiller VMC. Internasjonalt vern via Madridprotokollen tar 6–12 måneder, men prosessen er enklere å starte før du investerer i sertifikatet.</p>
+  </div>
+
+  <h2 id="oppsett">Slik setter du opp BIMI steg-for-steg</h2>
+  <p><strong>BIMI-oppsett krever fire faser: forberede DMARC, lage SVG-logo i riktig format, anskaffe VMC, og publisere DNS-recorden. Realistisk tidslinje er 4–8 uker for nye oppsett, hvorav det meste går med til DMARC-modning og VMC-utstedelse.</strong></p>
+
+  <h3>Steg 1: Verifiser DMARC-policy</h3>
+  <p>Sjekk gjeldende DMARC-record. Du må ha:</p>
+  <pre><code>v=DMARC1; p=quarantine; rua=mailto:dmarc-rapport@dittfirma.no; pct=100;</code></pre>
+  <p>eller bedre:</p>
+  <pre><code>v=DMARC1; p=reject; rua=mailto:dmarc-rapport@dittfirma.no; pct=100;</code></pre>
+  <p>Test status raskt på <a href="/">data1.no</a>. Hvis du står på <code>p=none</code>, må du gjennom monitoring-fasen først. Vår <a href="/verktoy/dmarc-generator/">DMARC-generator</a> hjelper deg å lage en korrekt record.</p>
+
+  <h3>Steg 2: Klargjør SVG-logoen</h3>
+  <p>Logoen må være i <strong>SVG Tiny Portable/Secure (SVG Tiny PS)</strong> — en sikker delmengde av SVG-spesifikasjonen. Krav i hovedsak:</p>
+  <ul>
+    <li>Kvadratisk format (1:1 sideforhold), typisk 800×800 piksler i viewBox.</li>
+    <li>Solid bakgrunnsfarge (ikke gjennomsiktig).</li>
+    <li>Ingen skript, eksterne referanser, fonter, animasjoner eller raster-bilder.</li>
+    <li><code>baseProfile="tiny-ps"</code> og <code>version="1.2"</code> i SVG-tagen.</li>
+    <li><code>&lt;title&gt;</code>-element med organisasjonsnavnet.</li>
+    <li>Filstørrelse under 32 KB.</li>
+  </ul>
+  <p>Eksempel på korrekt header:</p>
+  <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny-ps" viewBox="0 0 800 800"&gt;
+  &lt;title&gt;Micronet AS&lt;/title&gt;
+  &lt;!-- logo paths --&gt;
+&lt;/svg&gt;</code></pre>
+  <p>De fleste designverktøy lager ikke SVG Tiny PS direkte. Bruk verktøy som <em>SVG Tiny Validator</em> fra BIMI Group eller DigiCerts gratis online-validator for å rense filen. Last opp filen til en stabil URL på eget domene: <code>https://dittfirma.no/bimi/logo.svg</code>.</p>
+
+  <h3>Steg 3: Bestill VMC fra DigiCert eller Entrust</h3>
+  <p>Send inn:</p>
+  <ul>
+    <li>SVG-filen som skal sertifiseres.</li>
+    <li>Varemerkeregistrering (Patentstyret + Madrid hvis aktuelt).</li>
+    <li>Foretaksinformasjon (Brønnøysund-uttrekk).</li>
+    <li>Kontaktinformasjon for autorisert bestiller.</li>
+  </ul>
+  <p>Du mottar etter 2–4 uker en <code>.pem</code>-fil som inneholder hele sertifikatkjeden. Last denne opp ved siden av logoen: <code>https://dittfirma.no/bimi/vmc.pem</code>.</p>
+
+  <h3>Steg 4: Publiser BIMI DNS-recorden</h3>
+  <p>Legg til en TXT-record på <code>default._bimi.dittfirma.no</code>:</p>
+  <pre><code>v=BIMI1; l=https://dittfirma.no/bimi/logo.svg; a=https://dittfirma.no/bimi/vmc.pem</code></pre>
+  <p>Forklaring:</p>
+  <ul>
+    <li><code>v=BIMI1</code>: Versjon (alltid denne).</li>
+    <li><code>l=</code>: URL til SVG-logoen.</li>
+    <li><code>a=</code>: URL til VMC- eller CMC-sertifikatet.</li>
+  </ul>
+  <p>Vent 1–24 timer på DNS-propagering. Send deretter en testmail til en Gmail-adresse — logoen skal dukke opp i avatarfeltet i løpet av få minutter eller noen timer (Gmail cacher BIMI-data).</p>
+
+  <h2 id="klienter">Hvilke e-postklienter støtter BIMI?</h2>
+  <p><strong>Per mai 2026 er BIMI-støtten betydelig bedre enn for noen år siden, men ikke universell. Her er en aktuell oversikt:</strong></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Klient</th>
+        <th>Status</th>
+        <th>Krav</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Gmail (web og app)</td><td>Full støtte siden 2021</td><td>VMC eller CMC kreves siden 2023</td></tr>
+      <tr><td>Apple Mail (iOS 16+, macOS Ventura+)</td><td>Full støtte</td><td>VMC kreves (ikke CMC)</td></tr>
+      <tr><td>Yahoo Mail</td><td>Full støtte</td><td>VMC eller CMC</td></tr>
+      <tr><td>Fastmail</td><td>Full støtte</td><td>VMC eller CMC</td></tr>
+      <tr><td>La Poste</td><td>Full støtte</td><td>VMC eller CMC</td></tr>
+      <tr><td>Outlook / Microsoft 365</td><td>Annonsert, ikke utrullet bredt</td><td>—</td></tr>
+      <tr><td>Thunderbird</td><td>Ingen native støtte</td><td>—</td></tr>
+      <tr><td>ProtonMail</td><td>Ingen støtte</td><td>—</td></tr>
+    </tbody>
+  </table>
+
+  <p>For norske bedrifter er det først og fremst Gmail og Apple Mail som teller. Sammen dekker disse 60–70 % av norske privatkunder, og enda mer hvis du sender mye til mobile enheter.</p>
+
+  <h2 id="feil">Vanlige feil ved BIMI-oppsett</h2>
+  <p>Etter å ha hjulpet en del bedrifter gjennom BIMI ser vi de samme feilene gå igjen:</p>
+  <ol>
+    <li><strong>DMARC står fortsatt på <code>p=none</code>.</strong> Den klart vanligste årsaken til at logoen ikke vises. Gmail logger ikke noen feilmelding — den bare lar være å vise logoen.</li>
+    <li><strong>SVG inneholder ikke <code>baseProfile="tiny-ps"</code>.</strong> Designteamet eksporterer en vanlig SVG fra Illustrator eller Figma. Filen ser ut til å være SVG, men passerer ikke BIMI-validering.</li>
+    <li><strong>Logoen er ikke kvadratisk eller har gjennomsiktig bakgrunn.</strong> SVG-en må fylle hele viewBox med en solid farge.</li>
+    <li><strong>VMC-sertifikatet er bestilt på feil juridisk entitet.</strong> Hvis Brønnøysund-navnet er "Micronet AS" men varemerket er registrert på "Micronet" (uten AS), avvises VMC-søknaden.</li>
+    <li><strong>BIMI-recorden ligger på feil sted.</strong> Den skal være på <code>default._bimi.dittfirma.no</code> — ikke <code>_bimi.dittfirma.no</code> eller <code>bimi.dittfirma.no</code>.</li>
+    <li><strong>Filer hostet på CDN uten korrekt CORS/HTTPS.</strong> Hvis SVG eller VMC ikke kan hentes via HTTPS med gyldig sertifikat, feiler BIMI uten feilmelding.</li>
+    <li><strong>Subdomain-policy mangler.</strong> Sender du e-post fra <code>nyhetsbrev.dittfirma.no</code>, må <code>sp=</code> i DMARC også være på quarantine eller reject.</li>
+  </ol>
+
+  <h2 id="test">Test og overvåk BIMI</h2>
+  <p><strong>BIMI er en av de standardene der det ikke holder å sjekke "ved oppsett" — du må overvåke status kontinuerlig. Hvis DMARC-policyen senkes ved en feil, eller VMC-sertifikatet utløper, forsvinner logoen uten varsel.</strong></p>
+
+  <p>Praktiske test-steg:</p>
+  <ol>
+    <li><strong>Kjør en full analyse på data1.no.</strong> Skriv inn domenet på <a href="/">forsiden</a> eller gå direkte til <a href="/sjekk/">/sjekk/dittfirma.no</a>. Vi sjekker BIMI-recorden, validerer SVG-format, ser om VMC-sertifikatet er gyldig, og verifiserer at DMARC-policyen kvalifiserer.</li>
+    <li><strong>Send en testmail til en Gmail-adresse.</strong> Logoen skal dukke opp i listen over meldinger. Hvis den ikke gjør det, åpne meldingen og klikk "Vis original" — Gmail eksponerer da hvilken BIMI-validering som feilet.</li>
+    <li><strong>Test på iOS.</strong> Apple Mail har strengere krav til VMC enn Gmail. En CMC eller en VMC med formelle mangler kan vises i Gmail men ikke i Apple Mail.</li>
+    <li><strong>Sett opp varsling.</strong> data1.no varsler deg automatisk hvis BIMI-status endrer seg på et overvåket domene. Det er kritisk for VMC-fornyelse, som typisk skjer årlig.</li>
+  </ol>
+
+  <p>Vi anbefaler også å lese vår pillar-artikkel om <a href="/e-post-sikkerhet/">e-postsikkerhet</a> for å se hvordan BIMI passer inn i en helhetlig strategi sammen med SPF, DKIM, DMARC og MTA-STS.</p>
+
+  <div class="cta-box">
+    <h3>Sjekk BIMI-status for domenet ditt</h3>
+    <p>Gratis fullanalyse av SPF, DKIM, DMARC og BIMI — uten registrering.</p>
+    <a href="/?utm_source=blog&amp;utm_medium=bimi">Analyser eget domene →</a>
+  </div>
+
+  <h2 id="faq">Ofte stilte spørsmål om BIMI</h2>
+
+  <h3>Hva er BIMI i én setning?</h3>
+  <p>BIMI er en e-poststandard som lar bedriften vise sin verifiserte firmalogo ved siden av meldinger i innboksen — som et synlig kvalitetsstempel på at e-posten faktisk kommer fra autorisert avsender.</p>
+
+  <h3>Trenger jeg DMARC for å bruke BIMI?</h3>
+  <p>Ja, og det er ikke valgfritt. BIMI krever at domenet har en DMARC-policy på <code>p=quarantine</code> eller <code>p=reject</code>. <code>p=none</code> aksepteres ikke. Start gjerne med vår <a href="/blogg/dmarc/">DMARC-guide</a> hvis du ikke har det på plass ennå.</p>
+
+  <h3>Hva koster et VMC-sertifikat?</h3>
+  <p>Et Verified Mark Certificate fra DigiCert eller Entrust koster typisk 12 000–15 000 NOK per år. CMC (Common Mark Certificate) er rimeligere, men aksepteres ikke av Apple Mail.</p>
+
+  <h3>Hvilke e-postklienter viser BIMI-logoen?</h3>
+  <p>Per 2026 viser Gmail (web og mobil), Apple Mail (iOS 16+, macOS Ventura+), Yahoo Mail og Fastmail BIMI-logoen. Outlook og Microsoft 365 har ennå ikke full støtte, men Microsoft har varslet at det kommer.</p>
+
+  <h3>Hvorfor må logoen være i SVG Tiny PS-format?</h3>
+  <p>SVG Tiny Portable/Secure er en sikker delmengde av SVG uten skript, eksterne referanser eller animasjoner. Mottakerservere kan dermed rendre logoen uten sikkerhetsrisiko. PNG og JPG aksepteres ikke.</p>
+
+  <h3>Kan jeg bruke BIMI uten VMC-sertifikat?</h3>
+  <p>Gmail krever VMC eller CMC for at logoen skal vises. Apple Mail krever VMC spesifikt. Uten et gyldig sertifikat vil logoen ikke dukke opp i de viktigste klientene — selv om DNS-recorden er korrekt.</p>
+
+  <h2>Les mer</h2>
+  <ul>
+    <li><a href="/blogg/dmarc/">DMARC forklart fra grunnen</a></li>
+    <li><a href="/blogg/dkim/">DKIM: Digital signatur for e-post</a></li>
+    <li><a href="/blogg/dmarc-microsoft-365/">DMARC i Microsoft 365 — komplett guide</a></li>
+    <li><a href="/e-post-sikkerhet/">E-postsikkerhet — pillar-guide for norske bedrifter</a></li>
+    <li><a href="/verktoy/dmarc-generator/">DMARC-generator (gratis verktøy)</a></li>
+    <li><a href="/sjekk/">Sjekk eget domene</a></li>
+  </ul>
+
+  <div class="author-card">
+    <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(140deg,#14b8a6,#0f766e);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:18px">TO</div>
+    <div>
+      <div class="author-name">Terje Otterlei</div>
+      <div class="author-meta">Daglig leder i Micronet AS — 20+ års erfaring innen Microsoft 365 og e-postinfrastruktur. Forvalter DMARC- og BIMI-overvåking for 50+ M365-tenants i Lørenskog. <a href="https://www.linkedin.com/in/terjeotterlei/" style="color:#0f766e;text-decoration:none">LinkedIn</a> · <a href="https://micronet.no/" style="color:#0f766e;text-decoration:none">micronet.no</a> · <a href="/om/" style="color:#0f766e;text-decoration:none">Om data1.no</a></div>
+    </div>
+  </div>
+</main>
+</body>
+</html>

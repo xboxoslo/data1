@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="nb-NO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Pris for DMARC, SPF, DKIM og MTA-STS-oppsett for norske bedrifter: 1 990 kr etablering og 295 kr/mnd per domene. Inkluderer rapport-analyse og varsling. Eks. mva.">
+<meta name="keywords" content="dmarc pris, dmarc oppsett norge, dmarc kostnad, spf dkim oppsett, e-postsikkerhet pris, dmarc microsoft 365 pris, dmarc google workspace pris">
+<meta name="author" content="Terje Otterlei">
+<meta name="theme-color" content="#1a202c">
+<meta name="geo.region" content="NO">
+<meta name="geo.placename" content="Norge">
+<meta http-equiv="content-language" content="nb-NO">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://data1.no/priser/">
+<link rel="alternate" hreflang="nb-NO" href="https://data1.no/priser/">
+<link rel="alternate" hreflang="nb" href="https://data1.no/priser/">
+<link rel="alternate" hreflang="x-default" href="https://data1.no/priser/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="data1.no">
+<meta property="og:locale" content="nb_NO">
+<meta property="og:url" content="https://data1.no/priser/">
+<meta property="og:title" content="Priser — DMARC og e-postsikkerhet for norske bedrifter | data1.no">
+<meta property="og:description" content="1 990 kr etablering + 295 kr/mnd per domene. Komplett SPF/DMARC/DKIM/MTA-STS-oppsett for Microsoft 365 eller Google Workspace, inkludert månedlig rapportanalyse.">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Priser — DMARC og e-postsikkerhet for norske bedrifter">
+<meta name="twitter:description" content="1 990 kr etablering + 295 kr/mnd per domene. SPF/DMARC/DKIM/MTA-STS-oppsett med løpende overvåking. Eks. mva.">
+<meta name="twitter:image" content="https://data1.no/og-image.png">
+<title>Priser — DMARC og e-postsikkerhet for norske bedrifter | data1.no</title>
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/blogg/_assets/post.css">
+<style>
+/* ── Light pricing page on the dark site shell ── */
+main.pricing-main{max-width:920px}
+.price-hero{background:linear-gradient(135deg,#0f172a 0%,#1a2540 100%);color:#fff;border-radius:16px;padding:34px 36px;margin:0 0 28px;border:1px solid rgba(56,189,248,.25);box-shadow:0 0 60px rgba(56,189,248,.08)}
+.price-hero h1{color:#fff;font-size:40px;font-weight:900;letter-spacing:-.025em;margin:0 0 12px;line-height:1.12;text-shadow:0 0 40px rgba(168,85,247,.2)}
+.price-hero p.lead{color:#cbd5e0;font-size:18px;margin:0 0 18px;max-width:680px}
+.price-hero .pills{display:flex;flex-wrap:wrap;gap:8px}
+.price-hero .pill{background:rgba(20,184,166,.15);border:1px solid rgba(94,234,212,.4);color:#5eead4;padding:5px 12px;border-radius:999px;font-size:13px;font-weight:600}
+
+/* Pricing card */
+.price-card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:28px 32px;margin:0 0 28px;box-shadow:0 4px 24px rgba(15,23,42,.18);color:#0f172a;position:relative}
+.price-card::before{content:"Komplett pakke";position:absolute;top:-11px;left:28px;background:#14b8a6;color:#fff;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:5px 12px;border-radius:999px}
+.price-card h2{color:#0f172a;font-size:24px;margin:6px 0 6px;text-shadow:none}
+.price-card .price-sub{font-size:14.5px;color:#475569;margin:0 0 22px}
+.price-row{display:flex;align-items:stretch;gap:18px;justify-content:center;padding:14px 0 22px;border-bottom:1px solid #f1f5f9;margin-bottom:22px;flex-wrap:wrap}
+.price-tile{flex:1;min-width:200px;text-align:center;padding:14px 16px}
+.price-tile .lab{font-size:11px;font-weight:800;color:#0f766e;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.price-tile .amt{display:flex;align-items:baseline;gap:6px;justify-content:center}
+.price-tile .num{font-size:38px;font-weight:900;color:#0f172a;letter-spacing:-.025em;line-height:1}
+.price-tile .unit{font-size:13px;color:#64748b;font-weight:700}
+.price-tile .note{font-size:12px;color:#94a3b8;margin-top:6px}
+.price-div{align-self:center;font-size:24px;color:#cbd5e1;font-weight:300}
+.price-feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.price-feat-col h3{font-size:11px;font-weight:800;color:#0f766e;text-transform:uppercase;letter-spacing:.08em;margin:0 0 10px}
+.price-feat-list{list-style:none;padding:0;margin:0;color:#334155}
+.price-feat-list li{font-size:13.5px;padding:5px 0 5px 22px;position:relative;line-height:1.5;color:#334155}
+.price-feat-list li strong{color:#0f172a}
+.price-feat-list li::before{content:"";position:absolute;left:0;top:9px;width:14px;height:14px;background:#14b8a6;border-radius:50%;mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='white' d='M6.5 11.5L3 8l1.4-1.4L6.5 8.7l5.1-5.1L13 5z'/></svg>") center/contain no-repeat;-webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='white' d='M6.5 11.5L3 8l1.4-1.4L6.5 8.7l5.1-5.1L13 5z'/></svg>") center/contain no-repeat}
+.price-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.btn-primary{display:inline-flex;align-items:center;padding:13px 26px;background:#0f172a;color:#fff !important;border-radius:999px;text-decoration:none;font-weight:700;font-size:14.5px;transition:all .15s}
+.btn-primary:hover{background:#14b8a6;transform:translateY(-1px)}
+.btn-secondary{display:inline-flex;align-items:center;padding:13px 24px;background:#fff;color:#0f172a !important;border:1px solid #cbd5e1;border-radius:999px;text-decoration:none;font-weight:700;font-size:14.5px}
+.btn-secondary:hover{background:#f8fafc;border-color:#94a3b8}
+.fineprint{font-size:12.5px;color:#64748b;margin:14px 0 0}
+
+/* Comparison table */
+.cmp-wrap{overflow-x:auto;margin:18px 0;border-radius:12px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.cmp-table{width:100%;border-collapse:collapse;font-size:13.5px;color:#0f172a;background:#fff}
+.cmp-table th{background:#0f172a;color:#fff;font-weight:700;text-align:left;padding:13px 12px;font-size:12.5px;letter-spacing:.02em;border-bottom:none}
+.cmp-table th:first-child{background:#1a2540}
+.cmp-table td{padding:11px 12px;border-bottom:1px solid #f1f5f9;vertical-align:middle;color:#334155;background:#fff}
+.cmp-table tr:last-child td{border-bottom:none}
+.cmp-table tr.us td{background:#f0fdfa;font-weight:600;color:#0f172a}
+.cmp-table tr.us td:first-child{background:#ccfbf1;color:#0f766e}
+.cmp-table td:first-child{font-weight:600;color:#0f172a;background:#f8fafc}
+.cmp-table strong{color:#0f172a}
+
+/* Why-us list */
+.why-grid{display:grid;grid-template-columns:1fr;gap:14px;margin:20px 0}
+.why-card{background:#fff;border-radius:12px;padding:18px 22px;box-shadow:0 1px 3px rgba(0,0,0,.08);color:#0f172a}
+.why-card h3{font-size:16.5px;color:#0f172a;margin:0 0 6px;text-shadow:none}
+.why-card p{font-size:14px;color:#475569;margin:0}
+@media(min-width:780px){.why-grid{grid-template-columns:1fr 1fr}}
+
+/* FAQ override for light pricing context */
+main.pricing-main .faq{background:#fff;border:1px solid #e2e8f0;color:#0f172a;backdrop-filter:none;-webkit-backdrop-filter:none}
+main.pricing-main .faq summary{color:#0f172a}
+main.pricing-main .faq p{color:#475569}
+main.pricing-main h2{color:#fff}
+main.pricing-main h3{color:#fff}
+
+/* Final CTA */
+.final-cta{background:linear-gradient(135deg,#0f172a 0%,#1a2540 100%);color:#fff;border-radius:16px;padding:32px 34px;margin:32px 0 24px;text-align:center;border:1px solid rgba(56,189,248,.3);box-shadow:0 0 60px rgba(56,189,248,.08)}
+.final-cta h3{color:#fff;margin:0 0 8px;font-size:22px}
+.final-cta p{color:#cbd5e0;margin-bottom:20px;font-size:15.5px}
+.final-cta a.btn-cta{display:inline-block;padding:14px 30px;background:#14b8a6;color:#fff;border-radius:999px;text-decoration:none;font-weight:800;font-size:15.5px;box-shadow:0 8px 24px rgba(20,184,166,.35)}
+.final-cta a.btn-cta:hover{background:#0d9488}
+.final-cta .alt{display:block;margin-top:14px;color:#94a3b8;font-size:13.5px}
+.final-cta .alt a{color:#5eead4}
+
+/* Site footer */
+.site-footer{margin-top:48px;padding:28px 22px;border-top:1px solid rgba(56,189,248,.2);text-align:center;color:#94a3b8;font-size:13px;line-height:1.7}
+.site-footer a{color:#38bdf8;text-decoration:none}
+.site-footer a:hover{color:#7dd3fc}
+.site-footer .org{color:#cbd5e0}
+
+@media(max-width:640px){
+  .price-hero{padding:24px 22px}
+  .price-hero h1{font-size:28px}
+  .price-card{padding:22px 20px}
+  .price-feat-grid{grid-template-columns:1fr;gap:16px}
+  .price-div{display:none}
+  .price-tile .num{font-size:30px}
+}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","@id":"https://data1.no/priser/#service","name":"DMARC-oppsett og løpende overvåking for norske bedrifter","serviceType":"E-postsikkerhets-konsulent","category":"Email Security / DMARC Setup and Monitoring","url":"https://data1.no/priser/","description":"Komplett pakke for norske bedrifter: oppsett av SPF, DKIM, DMARC og MTA-STS for Microsoft 365 eller Google Workspace, pluss løpende månedlig analyse av DMARC-aggregat-rapporter og varsling ved avvik. Levert av Micronet AS i Lørenskog. 1 990 kr etablering per domene, deretter 295 kr/mnd per domene. Eks. mva.","provider":{"@type":"Organization","@id":"https://data1.no/#organization","name":"data1.no","parentOrganization":{"@type":"Organization","name":"Micronet AS","vatID":"NO990661766MVA","taxID":"990661766","email":"hjelp@micronet.no","telephone":"+47-22-80-20-40","address":{"@type":"PostalAddress","addressLocality":"Lørenskog","addressRegion":"Akershus","addressCountry":"NO"}}},"areaServed":{"@type":"Country","name":"Norge"},"audience":{"@type":"BusinessAudience","audienceType":"Norske bedrifter, kommuner og offentlige etater","geographicArea":{"@type":"Country","name":"Norge"}},"offers":{"@type":"Offer","name":"DMARC-pakke (etablering + overvåking)","priceCurrency":"NOK","availability":"https://schema.org/InStock","eligibleRegion":{"@type":"Country","name":"Norge"},"description":"1 990 kr etablering per domene for oppsett av SPF, DKIM, DMARC og MTA-STS. Deretter 295 kr/mnd per domene for løpende DMARC-rapport-analyse, varsling ved avvik og kvartalsvis statusrapport. Alle priser eks. mva.","priceSpecification":[{"@type":"PriceSpecification","@id":"https://data1.no/priser/#setup","name":"Etablering per domene","price":"1990","priceCurrency":"NOK","valueAddedTaxIncluded":false,"description":"Engangskostnad: SPF-, DKIM-, DMARC- og MTA-STS-oppsett for ett domene på Microsoft 365 eller Google Workspace. Inkluderer trygg overgang fra p=none via p=quarantine til p=reject."},{"@type":"UnitPriceSpecification","@id":"https://data1.no/priser/#monthly","name":"Løpende overvåking per domene","price":"295","priceCurrency":"NOK","unitText":"per måned per domene","billingDuration":"P1M","valueAddedTaxIncluded":false,"description":"Månedlig analyse av DMARC-aggregat-rapporter (rua), varsling ved nye avsendere eller fall i alignment, og kvartalsvis statusrapport på norsk."}]},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Tjenester inkludert","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"SPF-oppsett"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"DKIM-signering (2048-bit)"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"DMARC-policy (p=none → p=quarantine → p=reject)"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"MTA-STS-policy"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"TLS-RPT"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Månedlig DMARC-rapportanalyse"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Varsling ved avvik"}}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Hjem","item":"https://data1.no/"},{"@type":"ListItem","position":2,"name":"Priser","item":"https://data1.no/priser/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Hva koster det å sette opp DMARC for en norsk bedrift?","acceptedAnswer":{"@type":"Answer","text":"Hos data1.no / Micronet AS koster det 1 990 kr i etablering per domene og 295 kr/mnd per domene for løpende overvåking. Etablering dekker oppsett av SPF, DKIM, DMARC og MTA-STS for Microsoft 365 eller Google Workspace, og trygg overgang fra p=none til p=reject. Månedsprisen dekker analyse av DMARC-aggregat-rapporter og varsling ved avvik. Alle priser er eks. mva."}},{"@type":"Question","name":"Hva er inkludert i 295 kr/mnd?","acceptedAnswer":{"@type":"Answer","text":"Månedsprisen på 295 kr per domene inkluderer mottak og analyse av DMARC aggregat-rapporter (rua), månedlig gjennomgang på norsk, varsling på e-post hvis det oppdages nye avsendere eller fall i SPF/DKIM-alignment, kvartalsvis statusrapport, og oppdatering av SPF/DKIM-records ved behov (f.eks. når dere bytter e-postutsender eller legger til nye systemer)."}},{"@type":"Question","name":"Hvorfor er data1.no billigere enn dmarcian og EasyDMARC?","acceptedAnswer":{"@type":"Answer","text":"Internasjonale DMARC-plattformer som dmarcian og EasyDMARC selger selvbetjente dashboards med mange funksjoner og prising fra ca. 30-200 USD/mnd. Vi leverer en menneskedrevet tjeneste på norsk: ett fast pris per domene, en konsulent som faktisk leser rapportene og varsler deg, og oppsett som er gjort av en sertifisert M365-partner. Vi er enklere og billigere fordi vi gjør én ting godt: norsk DMARC for små og mellomstore bedrifter."}},{"@type":"Question","name":"Får jeg rabatt på flere domener?","acceptedAnswer":{"@type":"Answer","text":"Ja. Etableringen på 1 990 kr gjelder per domene, men ved 5 eller flere domener gir vi normalt 20-30 % rabatt på både etablering og månedspris. Be om tilbud på hjelp@micronet.no eller ring +47 22 80 20 40 for et konkret tilbud basert på antall domener."}},{"@type":"Question","name":"Er prisene eks. eller inkl. mva?","acceptedAnswer":{"@type":"Answer","text":"Alle priser på denne siden er oppgitt eks. mva (merverdiavgift). For en norsk bedrift som er mva-registrert er dette den relevante prisen, fordi mva trekkes fra som inngående avgift. Med 25 % norsk mva blir totalprisen 2 487,50 kr i etablering og 368,75 kr/mnd per domene."}},{"@type":"Question","name":"Hvor lang bindingstid har avtalen?","acceptedAnswer":{"@type":"Answer","text":"Ingen bindingstid. Avtalen løper månedlig og kan sies opp med én måneds varsel. Etableringen på 1 990 kr er en engangskostnad — sier dere opp etter to måneder så betaler dere kun for de to månedene pluss etablering. DNS-records eier dere selv og kan beholdes uavhengig av om dere fortsetter overvåking hos oss."}}]}</script>
+<script src="/_assets/tracker.js" defer></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+<header class="header">
+  <a href="/" class="logo">data1<span>.no</span></a>
+  <form class="header-search" action="/" method="get" role="search">
+    <input type="text" name="domain" placeholder="Skriv inn domene — f.eks. micronet.no" aria-label="Sjekk domene">
+    <button type="submit">Analyser →</button>
+  </form>
+</header>
+<main class="pricing-main">
+  <nav class="crumbs"><a href="/">Hjem</a> › Priser</nav>
+
+  <div class="price-hero">
+    <h1>Priser for DMARC og e-postsikkerhet</h1>
+    <p class="lead">Komplett oppsett av SPF, DMARC, DKIM og MTA-STS for norske bedrifter — pluss løpende overvåking på norsk. Fast pris, ingen bindingstid.</p>
+    <div class="pills">
+      <span class="pill">Microsoft 365</span>
+      <span class="pill">Google Workspace</span>
+      <span class="pill">Norsk språk</span>
+      <span class="pill">Ingen bindingstid</span>
+    </div>
+  </div>
+
+  <div class="price-card" id="pakke">
+    <h2>DMARC-pakke — etablering + løpende overvåking</h2>
+    <p class="price-sub">Én pakke. Alt du trenger for å beskytte ditt domene mot e-postspoofing og phishing.</p>
+
+    <div class="price-row">
+      <div class="price-tile">
+        <div class="lab">Etablering</div>
+        <div class="amt">
+          <span class="num">1 990</span>
+          <span class="unit">kr / domene</span>
+        </div>
+        <div class="note">Engangskostnad. Oppsett SPF, DKIM, DMARC, MTA-STS.</div>
+      </div>
+      <div class="price-div" aria-hidden="true">+</div>
+      <div class="price-tile">
+        <div class="lab">Løpende</div>
+        <div class="amt">
+          <span class="num">295</span>
+          <span class="unit">kr / mnd / domene</span>
+        </div>
+        <div class="note">Rapportanalyse og varsling. Ingen bindingstid.</div>
+      </div>
+    </div>
+
+    <div class="price-feat-grid">
+      <div class="price-feat-col">
+        <h3>Etablering (1 990 kr per domene)</h3>
+        <ul class="price-feat-list">
+          <li><strong>SPF-oppsett</strong> tilpasset deres avsendere (M365, Google, fakturasystem, nyhetsbrev)</li>
+          <li><strong>DKIM-signering</strong> aktivert med 2048-bit nøkler</li>
+          <li><strong>DMARC-policy</strong> startet på p=none og trygt skjerpet til p=reject</li>
+          <li><strong>MTA-STS</strong> publisert (policy + DNS-record)</li>
+          <li><strong>TLS-RPT</strong> for rapporter på krypterings-feil</li>
+          <li><strong>Verifisert i data1.no</strong> — dere får karakter A eller A+ ved leveranse</li>
+        </ul>
+      </div>
+      <div class="price-feat-col">
+        <h3>Løpende (295 kr/mnd per domene)</h3>
+        <ul class="price-feat-list">
+          <li><strong>DMARC-aggregat-rapporter</strong> mottatt og analysert månedlig</li>
+          <li><strong>Månedlig gjennomgang</strong> på norsk fra en konsulent — ikke et auto-dashboard</li>
+          <li><strong>Varsling på e-post</strong> ved nye avsendere eller fall i alignment</li>
+          <li><strong>Kvartalsvis statusrapport</strong> dere kan vise revisor eller styre</li>
+          <li><strong>Oppdatering av SPF/DKIM</strong> ved nye systemer (inkludert i prisen)</li>
+          <li><strong>Norsk support</strong> på telefon eller e-post — ingen ticket-kø</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="price-cta">
+      <a class="btn-primary" href="mailto:hjelp@micronet.no?subject=Tilbud%20p%C3%A5%20DMARC-oppsett">Få tilbud →</a>
+      <a class="btn-secondary" href="/">Sjekk eget domene gratis</a>
+    </div>
+
+    <p class="fineprint">Alle priser eks. mva. Levert av Micronet AS (org.nr 990 661 766), Lørenskog. Avtalen kan sies opp med én måneds varsel. Faktura hver måned eller årlig forskudd (5 % rabatt).</p>
+  </div>
+
+  <h2 id="sammenligning">Sammenlignet med andre DMARC-leverandører</h2>
+  <p>Tabellen viser månedspris for typiske small-business-tier hos de mest brukte DMARC-tjenestene. Vi er ærlige: konkurrentene tilbyr ofte mer på toppen — flerbruker-dashboard, AI-analyse, BIMI-VMC-utstedelse — vi tilbyr én ting godt: norsk DMARC, satt opp og fulgt opp av en faktisk konsulent.</p>
+
+  <div class="cmp-wrap">
+  <table class="cmp-table">
+    <thead>
+      <tr>
+        <th>Leverandør</th>
+        <th>Etablering</th>
+        <th>Månedspris (typisk småbedrift)</th>
+        <th>Språk / kontekst</th>
+        <th>Hva inkluderes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="us">
+        <td><strong>data1.no / Micronet AS</strong></td>
+        <td>1 990 kr</td>
+        <td>295 kr/mnd (~28 USD)</td>
+        <td>Norsk, M365/Google Workspace</td>
+        <td>Oppsett + analyse av konsulent + varsling</td>
+      </tr>
+      <tr>
+        <td>dmarcian (Starter)</td>
+        <td>—</td>
+        <td>~110 USD/mnd (~1 200 kr)</td>
+        <td>Engelsk</td>
+        <td>Self-service dashboard, opp til 50k meldinger/mnd</td>
+      </tr>
+      <tr>
+        <td>EasyDMARC (Plus)</td>
+        <td>—</td>
+        <td>~30-40 USD/mnd (~330-440 kr)</td>
+        <td>Engelsk</td>
+        <td>Self-service dashboard, 1 domene, AI-analyse på høyere tier</td>
+      </tr>
+      <tr>
+        <td>MXToolbox MonitorMx</td>
+        <td>—</td>
+        <td>~100 USD/mnd (~1 100 kr)</td>
+        <td>Engelsk</td>
+        <td>Bredt e-post-helseovervåking, ikke kun DMARC</td>
+      </tr>
+      <tr>
+        <td>PowerDMARC</td>
+        <td>—</td>
+        <td>~10-25 USD/mnd (~110-275 kr)</td>
+        <td>Engelsk</td>
+        <td>Self-service, billigste alternativ for kun rapport-aggregering</td>
+      </tr>
+      <tr>
+        <td>Valimail</td>
+        <td>Tilbud</td>
+        <td>Fra ~25 000 USD/år (enterprise)</td>
+        <td>Engelsk</td>
+        <td>Enterprise authomation, ofte for store organisasjoner</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p style="color:#94a3b8;font-size:13.5px">USD-priser er omtrentlige listepriser per mai 2026 — sjekk leverandørenes egne nettsteder for oppdaterte tall. Konvertering brukt: 1 USD ≈ 11 NOK. <a href="/sammenligning/">Detaljert funksjons-sammenligning →</a></p>
+
+  <h2 id="hvorfor">Hvorfor norske bedrifter velger oss</h2>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <h3>En faktisk konsulent leser rapportene</h3>
+      <p>De fleste DMARC-tjenester gir deg et dashboard og overlater tolkningen til deg. Hos oss leser en sertifisert M365-partner rapportene hver måned og forteller deg på norsk hva som har endret seg.</p>
+    </div>
+    <div class="why-card">
+      <h3>Norsk språk, norsk kontekst</h3>
+      <p>Vi kjenner norske avsendersystemer (Visma, Tripletex, Vipps, Posten Bring, Mailchimp Norge) og setter opp SPF som faktisk fungerer for dem. Ingen oversettelse, ingen tidssoneforskjell på support.</p>
+    </div>
+    <div class="why-card">
+      <h3>Fast pris per domene — ingen overraskelser</h3>
+      <p>295 kr/mnd dekker alt. Ikke per bruker, ikke per million meldinger, ikke ekstra for "AI insights". Hvis dere bytter e-postutsender og må oppdatere SPF — det er inkludert.</p>
+    </div>
+    <div class="why-card">
+      <h3>Verifiserbart resultat</h3>
+      <p>Når oppsettet er ferdig får dere karakter A eller A+ på <a href="/" style="color:#0f766e">data1.no</a> — samme gratis verktøy som ligger åpent på nettet og som dere kan dele med revisor, styre eller kunder.</p>
+    </div>
+  </div>
+
+  <h2 id="for-hvem">Hvem passer dette for?</h2>
+  <p>Pakken er priset for små og mellomstore norske bedrifter med 5-500 ansatte som bruker Microsoft 365 eller Google Workspace. Typiske kunder:</p>
+  <ul>
+    <li>Regnskaps- og advokatkontor som sender mye e-post til kunder og må stoppe direktørsvindel (CEO fraud)</li>
+    <li>Konsulentselskap med 10-100 ansatte som vil ha A+ på data1.no for å vise kunder seriøsitet</li>
+    <li>Nettbutikker og SaaS-selskap som sender transaksjons-e-post og trenger DMARC for å unngå spam-folder</li>
+    <li>Kommuner og offentlige etater som må følge NSMs anbefaling om DMARC med håndhevelse</li>
+  </ul>
+
+  <p>Har dere over 500 ansatte eller mange domener? Be om et skreddersydd tilbud — vi har gjort DMARC for kunder med opp mot 50 domener under én avtale.</p>
+
+  <div class="final-cta">
+    <h3>Klar til å beskytte domenet?</h3>
+    <p>Send oss en e-post med domenet ditt, så får dere et konkret tilbud innen én arbeidsdag. Vi tar en kort gjennomgang av nåværende status før vi gir pris.</p>
+    <a class="btn-cta" href="mailto:hjelp@micronet.no?subject=Tilbud%20p%C3%A5%20DMARC-oppsett">Få tilbud — hjelp@micronet.no</a>
+    <span class="alt">Eller ring oss: <a href="tel:+4722802040">+47 22 80 20 40</a> · <a href="/">Sjekk domenet gratis først</a></span>
+  </div>
+
+  <h2 id="faq">Ofte stilte spørsmål om pris</h2>
+
+  <details class="faq"><summary>Hva koster det å sette opp DMARC for en norsk bedrift?</summary><p>1 990 kr i etablering per domene og 295 kr/mnd per domene for løpende overvåking. Etableringen dekker oppsett av SPF, DKIM, DMARC og MTA-STS for Microsoft 365 eller Google Workspace, samt trygg overgang fra <code>p=none</code> til <code>p=reject</code>. Månedsprisen dekker analyse av DMARC-aggregat-rapporter og varsling. Alle priser er eks. mva.</p></details>
+
+  <details class="faq"><summary>Hva er inkludert i 295 kr/mnd?</summary><p>Mottak og analyse av DMARC aggregat-rapporter (rua), månedlig gjennomgang på norsk, varsling på e-post hvis det oppdages nye avsendere eller fall i SPF/DKIM-alignment, kvartalsvis statusrapport, og oppdatering av SPF/DKIM-records ved behov — for eksempel når dere bytter e-postutsender eller legger til Mailchimp, Visma eller Tripletex.</p></details>
+
+  <details class="faq"><summary>Hvorfor er dette billigere enn dmarcian og EasyDMARC?</summary><p>Internasjonale plattformer selger selvbetjente dashboards med mange funksjoner og prising fra ca. 30-200 USD/mnd. Vi leverer en menneskedrevet tjeneste på norsk: ett fast pris per domene, en konsulent som faktisk leser rapportene, og oppsett som er gjort av en sertifisert M365-partner. Vi er enklere og billigere fordi vi gjør én ting godt: norsk DMARC for små og mellomstore bedrifter.</p></details>
+
+  <details class="faq"><summary>Får jeg rabatt på flere domener?</summary><p>Ja. Etableringen på 1 990 kr gjelder per domene, men ved 5 eller flere domener gir vi normalt 20-30 % rabatt på både etablering og månedspris. Be om tilbud på <a href="mailto:hjelp@micronet.no">hjelp@micronet.no</a> for et konkret tilbud.</p></details>
+
+  <details class="faq"><summary>Er prisene eks. eller inkl. mva?</summary><p>Alle priser er <strong>eks. mva</strong>. For en mva-registrert bedrift er dette den relevante prisen, fordi mva trekkes fra som inngående avgift. Med 25 % norsk mva blir totalen 2 487,50 kr i etablering og 368,75 kr/mnd per domene.</p></details>
+
+  <details class="faq"><summary>Hvor lang bindingstid har avtalen?</summary><p>Ingen bindingstid. Avtalen løper månedlig og kan sies opp med én måneds varsel. Etableringen på 1 990 kr er en engangskostnad — sier dere opp etter to måneder så betaler dere kun for de to månedene pluss etablering. DNS-records eier dere selv og kan beholdes uavhengig av om dere fortsetter overvåking hos oss.</p></details>
+
+  <h2>Lese mer</h2>
+  <ul>
+    <li><a href="/sammenligning/">data1.no vs MXToolbox, EasyDMARC, dmarcian — sammenligning</a></li>
+    <li><a href="/e-post-sikkerhet/">E-post sikkerhet — komplett guide for norske bedrifter</a></li>
+    <li><a href="/blogg/dmarc/">DMARC forklart fra grunnen</a></li>
+    <li><a href="/blogg/dmarc-microsoft-365/">DMARC i Microsoft 365</a></li>
+    <li><a href="/blogg/dmarc-google-workspace/">DMARC i Google Workspace</a></li>
+    <li><a href="/rapport-2026/">Topp 100 norske domener — sikkerhetsrapport 2026</a></li>
+  </ul>
+
+  <div class="author-card">
+    <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(140deg,#14b8a6,#0f766e);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:18px;flex-shrink:0">TO</div>
+    <div>
+      <div class="author-name">Terje Otterlei</div>
+      <div class="author-meta">Daglig leder i Micronet AS — 20+ års erfaring innen Microsoft 365 og e-postinfrastruktur. Forvalter DMARC-overvåking for 50+ M365-tenants i Lørenskog. <a href="https://www.linkedin.com/in/terjeotterlei/">LinkedIn</a> · <a href="https://micronet.no/">micronet.no</a> · <a href="/om/">Om data1.no</a></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p class="org"><strong>Micronet AS</strong> · org.nr 990 661 766 · Lørenskog, Norge</p>
+    <p>
+      <a href="mailto:hjelp@micronet.no">hjelp@micronet.no</a> ·
+      <a href="tel:+4722802040">+47 22 80 20 40</a> ·
+      <a href="https://micronet.no/">micronet.no</a>
+    </p>
+    <p>Alle priser oppgitt eks. mva. Daglig leder: Terje Otterlei.</p>
+  </footer>
+</main>
+</body>
+</html>

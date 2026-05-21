@@ -315,6 +315,18 @@ pre code{background:none;color:inherit;padding:0}
     <li><a href="/rapport-2026/kommuner/">Norske kommuner — DMARC-status</a></li>
   </ul>
 
+  <h2>Test ditt eget domene</h2>
+  <p>Sjekk DMARC-status for et hvilket som helst norsk domene gratis — eller bla i <a href="/sjekk/">katalogen vår over 158 overvåkede domener</a>. Eksempler: <a href="/sjekk/nrk.no/">NRK</a>, <a href="/sjekk/dnb.no/">DNB</a>, <a href="/sjekk/altinn.no/">Altinn</a>.</p>
+
+  <h2>Når DMARC ikke fungerer</h2>
+  <p>Mest vanlige problemer:</p>
+  <ul>
+    <li><a href="/feil/dmarc-record-not-found/">DMARC-record not found</a> — ingen TXT-record på <code>_dmarc.&lt;domain&gt;</code></li>
+    <li><a href="/feil/dmarc-reject-fail/">DMARC reject fail</a> — legitim e-post avvist av p=reject</li>
+    <li><a href="/feil/spf-fail-dmarc-pass/">SPF fail men DMARC pass</a> — alignment-spørsmål</li>
+    <li><a href="/feil/spoofing-eget-domene/">Spoofing fra eget domene</a> — phishing fra interne avsendere</li>
+  </ul>
+
   <div class="author-card">
     <div>
       <div class="author-name">Terje Otterlei</div>

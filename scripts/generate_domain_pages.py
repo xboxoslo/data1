@@ -165,8 +165,37 @@ def render_page(result: dict, today: str) -> str:
         },
     }
 
+    # Dataset-schema for SEO + AI-discoverability — hver /sjekk/-side ER et datasett
+    # med DNS-records og score. Markup gir Google rich results + AI clearer signal.
+    dataset_schema = {
+        '@context': 'https://schema.org',
+        '@type': 'Dataset',
+        '@id': f'https://data1.no/sjekk/{domain}/#dataset',
+        'name': f'E-postsikkerhets-data for {domain}',
+        'description': f'Måling av e-postsikkerhets-records (SPF, DMARC, DKIM, MTA-STS, TLS-RPT, BIMI) for {domain}. Karakter {grade}, score {score}/100.',
+        'url': f'https://data1.no/sjekk/{domain}/',
+        'inLanguage': 'nb-NO',
+        'license': 'https://creativecommons.org/publicdomain/zero/1.0/',
+        'creator': {'@type': 'Organization', '@id': 'https://data1.no/#organization', 'name': 'data1.no'},
+        'distribution': {
+            '@type': 'DataDownload',
+            'encodingFormat': 'text/html',
+            'contentUrl': f'https://data1.no/sjekk/{domain}/',
+        },
+        'measurementTechnique': 'DNS over HTTPS (DoH) lookup via Cloudflare resolver',
+        'variableMeasured': [
+            {'@type': 'PropertyValue', 'name': 'Score', 'value': score, 'unitText': 'poeng (0-100)'},
+            {'@type': 'PropertyValue', 'name': 'Karakter', 'value': grade},
+            {'@type': 'PropertyValue', 'name': 'Domene', 'value': domain},
+        ],
+        'dateModified': today,
+        'keywords': ['DMARC', 'SPF', 'DKIM', 'MTA-STS', 'TLS-RPT', 'BIMI', 'e-postsikkerhet', domain],
+        'isAccessibleForFree': True,
+        'spatialCoverage': {'@type': 'Place', 'name': 'Norge'},
+    }
+
     return f'''<!DOCTYPE html>
-<html lang="no">
+<html lang="nb-NO">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -205,6 +234,7 @@ def render_page(result: dict, today: str) -> str:
 .updated{{font-size:13px;color:#64748b;margin-top:24px;text-align:center}}
 </style>
 <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False)}</script>
+<script type="application/ld+json">{json.dumps(dataset_schema, ensure_ascii=False)}</script>
 </head>
 <body>
 <header class="header">
@@ -257,8 +287,51 @@ def render_index(results: list, today: str) -> str:
     title = f'Sjekk e-postsikkerhet for norske domener — {len(results)} bedrifter | data1.no'
     desc = f'Daglig oppdatert oversikt over e-postsikkerhet (DMARC, SPF, DKIM) hos {len(results)} norske domener. Karakterer A+ til F.'
 
+    # ItemList: gir Google/AI clear strukturert oversikt over alle 158 sidene
+    itemlist_schema = {
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        '@id': 'https://data1.no/sjekk/#itemlist',
+        'name': title,
+        'description': desc,
+        'numberOfItems': len(results),
+        'itemListOrder': 'https://schema.org/ItemListOrderDescending',
+        'itemListElement': [
+            {
+                '@type': 'ListItem',
+                'position': i + 1,
+                'url': f'https://data1.no/sjekk/{r["domain"]}/',
+                'name': f'{r["domain"]} — karakter {r["grade"]} ({r["score"]}/100)',
+            }
+            for i, r in enumerate(by_grade)
+        ],
+    }
+
+    # Collection-Dataset: hele sjekk-hubben er et datasett som AI kan referere til
+    collection_schema = {
+        '@context': 'https://schema.org',
+        '@type': 'Dataset',
+        '@id': 'https://data1.no/sjekk/#dataset',
+        'name': f'E-postsikkerhets-måling for {len(results)} norske domener',
+        'description': f'Komplett oversikt over SPF, DMARC, DKIM, MTA-STS, TLS-RPT og BIMI-status hos {len(results)} norske bedrifter, organisasjoner og institusjoner. Karakter A+ til F. Daglig oppdatert via DNS-oppslag.',
+        'url': 'https://data1.no/sjekk/',
+        'inLanguage': 'nb-NO',
+        'license': 'https://creativecommons.org/publicdomain/zero/1.0/',
+        'creator': {'@type': 'Organization', '@id': 'https://data1.no/#organization', 'name': 'data1.no'},
+        'measurementTechnique': 'DNS over HTTPS (DoH) lookup via Cloudflare resolver, daglig kjøring',
+        'temporalCoverage': '2026-01-01/..',
+        'spatialCoverage': {'@type': 'Place', 'name': 'Norge'},
+        'keywords': ['DMARC', 'SPF', 'DKIM', 'MTA-STS', 'TLS-RPT', 'BIMI', 'e-postsikkerhet', 'norske domener', 'sikkerhetsmåling'],
+        'isAccessibleForFree': True,
+        'dateModified': today,
+        'variableMeasured': [
+            {'@type': 'PropertyValue', 'name': 'Score', 'description': '0-100 poeng basert på DMARC/SPF/DKIM/MTA-STS/TLS-RPT/BIMI'},
+            {'@type': 'PropertyValue', 'name': 'Karakter', 'description': 'A+ (90-100), A (80-89), B (70-79), C (55-69), D (35-54), F (0-34)'},
+        ],
+    }
+
     return f'''<!DOCTYPE html>
-<html lang="no">
+<html lang="nb-NO">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -274,6 +347,8 @@ def render_index(results: list, today: str) -> str:
 <title>{html.escape(title)}</title>
 <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/rapport-2026/_assets/report.css">
+<script type="application/ld+json">{json.dumps(itemlist_schema, ensure_ascii=False)}</script>
+<script type="application/ld+json">{json.dumps(collection_schema, ensure_ascii=False)}</script>
 <style>
 .domain-list{{background:#fff;border-radius:12px;padding:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);list-style:none;margin:14px 0 28px}}
 .domain-list li{{margin:0}}

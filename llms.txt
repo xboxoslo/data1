@@ -10,6 +10,7 @@
 - [DMARC i Microsoft 365: Komplett guide](https://data1.no/blogg/dmarc-microsoft-365/): Steg-for-steg guide til å sette opp DMARC i Microsoft 365 / Exchange Online — fra første TXT-record til full p=reject med rapportering. Med Norge-spesifikke tips.
 - [DMARC i Google Workspace: Komplett guide](https://data1.no/blogg/dmarc-google-workspace/): Slik setter du opp DMARC i Google Workspace / Gmail steg for steg. Oppfyll Googles 2024-krav for masseutsendelse og beskytt domenet ditt mot phishing.
 - [SPF-oppsett i Microsoft 365](https://data1.no/blogg/spf-microsoft-365/): Komplett guide til SPF-oppsett for Microsoft 365 / Exchange Online. Inkluderer 10-lookup grensen, hybrid-oppsett og alle vanlige tredjepartstjenester.
+- [BIMI forklart: Slik viser du firmalogoen i e-post](https://data1.no/blogg/bimi-forklart/): Komplett guide til BIMI (Brand Indicators for Message Identification). Krav (DMARC p=quarantine/reject), VMC-sertifikat fra DigiCert/Entrust (~12-15 000 NOK/år), SVG Tiny PS, DNS-oppsett og hvilke e-postklienter som støtter BIMI i 2026.
 
 ## Andre artikler
 
@@ -32,6 +33,10 @@
 - [DMARC-generator](https://data1.no/verktoy/dmarc-generator/): Gratis verktøy for å generere DMARC DNS-record på norsk.
 - [SPF-generator](https://data1.no/verktoy/spf-generator/): Gratis verktøy for å generere SPF DNS-record på norsk.
 - [Sjekk alle skannede domener](https://data1.no/sjekk/): Katalog over alle overvåkede norske domener.
+
+## Priser og tjeneste
+
+- [Priser — DMARC og e-postsikkerhet for norske bedrifter](https://data1.no/priser/): 1 990 NOK etablering + 295 NOK/mnd per domene (eks. mva.). Inkluderer oppsett av SPF, DMARC, DKIM, MTA-STS for Microsoft 365 eller Google Workspace + månedlig DMARC-rapport-analyse. Levert av Micronet AS (Lørenskog). Sammenlignet mot dmarcian, EasyDMARC, MXToolbox og Valimail.
 
 ## Tjenester (e-postsikkerhets-oppsett)
 
