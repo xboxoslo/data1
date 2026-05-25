@@ -1,0 +1,8 @@
+Equinor, Hydro og Yara scorer **F** på e-postsikkerhet 🚨
+
+Uke 22-rapporten analyserte 158 norske domener – snittscore er 64,3/100. Mens nav.no og stortinget.no topper listen med A+, havner noen av Norges største industrikonserner på bunn med 0 poeng.
+
+Uten DMARC-håndhevelse kan hvem som helst sende e-post som ser ut til å komme fra disse selskapene.
+
+Hvordan scorer din bransje? 👇
+https://data1.no/blogg/industrigiganter-med-f-uke-22-rapporten-avsl-rer-overraskend/

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="description" content="Industrigiganter med F — uke 22-rapporten avslører overraskende hull — ukentlig DMARC-analyse fra data1.no.">
+<meta name="author" content="Terje Otterlei">
+<meta name="theme-color" content="#1a202c">
+<link rel="canonical" href="https://data1.no/blogg/industrigiganter-med-f-uke-22-rapporten-avsl-rer-overraskend/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Industrigiganter med F — uke 22-rapporten avslører overraskende hull">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<title>Industrigiganter med F — uke 22-rapporten avslører overraskende hull | data1.no</title>
+<link rel="stylesheet" href="/blogg/_assets/post.css">
+<style>
+.data-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.data-table th{background:#0f172a;color:#fff;text-align:left;padding:10px 12px;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.data-table td{padding:10px 12px;border-bottom:1px solid #f1f5f9}
+.callout{background:#f0fdfa;border-left:4px solid #14b8a6;padding:14px 18px;border-radius:0 10px 10px 0;margin:18px 0}
+.callout.warn{background:#fff7ed;border-left-color:#f97316;color:#7c2d12}
+.meta{font-size:13px;color:#64748b;margin-bottom:22px}
+.lead{font-size:18px;color:#475569;margin-bottom:24px;line-height:1.7}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Industrigiganter med F — uke 22-rapporten avslører overraskende hull","datePublished":"2026-05-25","dateModified":"2026-05-25","author":{"@type":"Organization","name":"Micronet","url":"https://micronet.no/"},"publisher":{"@type":"Organization","name":"data1.no","logo":{"@type":"ImageObject","url":"https://data1.no/og-image.png"}},"description":"Industrigiganter med F — uke 22-rapporten avslører overraskende hull","image":"https://data1.no/og-image.png","mainEntityOfPage":"https://data1.no/blogg/industrigiganter-med-f-uke-22-rapporten-avsl-rer-overraskend/","inLanguage":"nb-NO"}</script>
+</head>
+<body>
+<header class="header">
+<a href="/" class="logo">data1<span>.no</span></a>
+<div class="spacer"></div>
+<a href="/" class="nav-link">Sjekk eget domene →</a>
+</header>
+<main>
+<nav class="crumbs"><a href="/">Hjem</a> › <a href="/blogg/">Blogg</a> › Ukerapport 22</nav>
+<h1>Industrigiganter med F — uke 22-rapporten avslører overraskende hull</h1>
+
+<p class="lead">Norges største industrikonserner scorer bunnen av karakterskalaen denne uken, mens offentlig sektor fortsetter å dominere toppen.</p>
+
+<p class="meta">Publisert 25. mai 2026 · Av Terje Otterlei · 4 min lesetid</p>
+
+<h2 id="oversikt">Ukens oversikt</h2>
+
+<p>158 norske domener er analysert i uke 22, og snittscore ligger på <strong>64,3 av 100 poeng</strong>. 86 domener har nådd <code>p=reject</code> — det vil si full DMARC-håndhevelse der uautoriserte e-poster faktisk blokkeres. 12 domener mangler DMARC-oppføring helt.</p>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Karakter</th>
+      <th>Antall domener</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>A+</td><td>23</td></tr>
+    <tr><td>A</td><td>39</td></tr>
+    <tr><td>B</td><td>17</td></tr>
+    <tr><td>C</td><td>30</td></tr>
+    <tr><td>D</td><td>28</td></tr>
+    <tr><td>F</td><td>21</td></tr>
+  </tbody>
+</table>
+
+<h2 id="toppen">Offentlig sektor leverer</h2>
+
+<p>Topplistens fremste plasser er dominert av statlige etater og institusjoner. <a href="/?d=nav.no">nav.no</a>, <a href="/?d=ssb.no">ssb.no</a>, <a href="/?d=stortinget.no">stortinget.no</a> og <a href="/?d=udi.no">udi.no</a> scorer alle A+ eller 97 poeng og over. Det er bemerkelsesverdig at etater som håndterer sensitive personopplysninger for hundrevis av tusen nordmenn, faktisk har satt e-postsikkerhet i system.</p>
+
+<p><a href="/?d=oslomet.no">oslomet.no</a> er universitetet som stikker seg ut denne uken med 97 poeng og A+-karakter — et godt eksempel på at høyere utdanningsinstitusjoner kan henge med de beste.</p>
+
+<h2 id="industri">De store industrinavnene svikter</h2>
+
+<div class="callout warn">
+  <strong>Flere av Norges mest profilerte industrikonserner scorer 0 poeng denne uken.</strong> Equinor, Hydro, Yara og Aker Solutions — selskaper med milliardomsetning og tusenvis av ansatte — har alle karakteren F.
+</div>
+
+<p>At <a href="/?d=equinor.no">equinor.no</a> (0p), <a href="/?d=hydro.no">hydro.no</a> (0p), <a href="/?d=yara.no">yara.no</a> (0p) og <a href="/?d=aker-solutions.no">aker-solutions.no</a> (0p) havner i bunnsjiktet er ikke en teknisk bagatell. Disse domenene brukes aktivt i kommunikasjon med leverandører, myndigheter og investorer. Uten DMARC-håndhevelse er det ingenting som hindrer at kriminelle sender e-post som ser ut til å komme fra disse adressene — et klassisk utgangspunkt for BEC-svindel (<em>Business Email Compromise</em>).</p>
+
+<p>Også <a href="/?d=sparebanken-ost.no">sparebanken-ost.no</a> står med 0 poeng. For en finansinstitusjon som kommuniserer direkte med privatpersoner om kontoer og lån, er dette et særlig sårbart sted å befinne seg.</p>
+
+<h2 id="forverringer">To domener falt markant</h2>
+
+<p>To domener opplevde de største forverringene denne uken, begge med et fall på 25 poeng:</p>
+
+<ul>
+  <li><a href="/?d=talkmore.no">talkmore.no</a> — falt fra 80 til 55 poeng (karakter C). Mobiloperatøren hadde en solid score forrige uke, men noe har endret seg i konfigurasjonen.</li>
+  <li><a href="/?d=uib.no">uib.no</a> — falt fra 65 til 40 poeng (karakter D). Universitetet i Bergen er en stor institusjon med mye e-postkommunikasjon, og et fall på 25 poeng bør undersøkes raskt.</li>
+</ul>
+
+<p>Slike fall skjer gjerne ved endringer i DNS-konfigurasjon, nye e-postleverandører som ikke er registrert i SPF, eller utilsiktet fjerning av DMARC-poster. Se <a href="/trender/">trendoversikten</a> for å følge utviklingen over tid.</p>
+
+<h2 id="rad">Hva bør du gjøre?</h2>
+
+<p>Enten du driver et lite domene eller er ansvarlig for IT-sikkerhet i en stor virksomhet, er stegene de samme:</p>
+
+<ol>
+  <li><strong>Sjekk status nå.</strong> Bruk <a href="/">data1.no</a> til å analysere ditt domene gratis. Det tar under ett minutt.</li>
+  <li><strong>Start med <code>p=none</code>.</strong> Hvis du ikke har DMARC, sett opp en overvåkningspost først — uten å blokkere noe. Da ser du hvem som sender e-post på dine vegne.</li>
+  <li><strong>Gå til <code>p=quarantine</code>, så <code>p=reject</code>.</strong> Når du har oversikt, skjerp policyen gradvis. Ikke hopp rett til <code>reject</code> uten å ha analysert rapportene.</li>
+  <li><strong>Overvåk jevnlig.</strong> Som talkmore.no og uib.no illustrerer denne uken: konfigurasjoner kan endre seg. Sett opp varsler eller sjekk <a href="/trender/">trender</a> regelmessig.</li>
+</ol>
+
+<p>Vil du sammenligne deg med konkurrenter eller bransjekollegaer? Se <a href="/sammenligning/">sammenligningsverktøyet</a> for å sette score i kontekst.</p>
+
+<div style="margin-top:40px;padding:20px;background:#f0fdfa;border-radius:12px;border:1px solid #99f6e4">
+<h3 style="margin-bottom:8px">Sjekk ditt eget domene</h3>
+<p style="margin-bottom:14px">Få samme analyse for ditt domene på 10 sekunder, helt gratis.</p>
+<a href="/" style="display:inline-block;background:#14b8a6;color:#fff;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:700">Kjør analyse →</a>
+</div>
+</main>
+</body>
+</html>
