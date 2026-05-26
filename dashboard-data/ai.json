@@ -1,17 +1,17 @@
 {
-  "lastUpdated": "2026-05-26T17:36:39Z",
+  "lastUpdated": "2026-05-26T17:41:41Z",
   "summary": {
     "promptsTested": 20,
     "data1noMentions": 0,
     "data1noMentionRate": 0.0,
     "micronetMentions": 0,
     "competitorMentions": {
-      "sjekk.email": 0,
-      "dmarcstatus.no": 0,
-      "mxtoolbox": 0,
-      "easydmarc": 0,
-      "powerdmarc": 0,
-      "dmarcian": 0
+      "sjekk.email": 1,
+      "dmarcstatus.no": 1,
+      "mxtoolbox": 9,
+      "easydmarc": 5,
+      "powerdmarc": 4,
+      "dmarcian": 9
     }
   },
   "timeline": [
