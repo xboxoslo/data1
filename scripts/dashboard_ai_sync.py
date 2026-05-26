@@ -64,8 +64,16 @@ def http_json(url: str, headers: dict, body: dict, timeout: int = 60) -> dict | 
     try:
         with urllib.request.urlopen(req, timeout=timeout) as r:
             return json.loads(r.read().decode('utf-8'))
+    except urllib.error.HTTPError as e:
+        # Les feilrespons-body for diagnostikk
+        try:
+            err_body = e.read().decode('utf-8')[:300]
+        except Exception:
+            err_body = '(kunne ikke lese body)'
+        print(f'  HTTP-feil ({e.code}) {url}: {err_body}', file=sys.stderr)
+        return None
     except Exception as e:
-        print(f'  HTTP-feil: {e}', file=sys.stderr)
+        print(f'  Annen feil {url}: {e}', file=sys.stderr)
         return None
 
 
@@ -76,7 +84,7 @@ def call_claude(prompt: str) -> str | None:
     r = http_json(
         'https://api.anthropic.com/v1/messages',
         {'x-api-key': key, 'anthropic-version': '2023-06-01'},
-        {'model': 'claude-sonnet-4-7', 'max_tokens': 1024, 'messages': [{'role': 'user', 'content': prompt}]},
+        {'model': 'claude-sonnet-4-5', 'max_tokens': 1024, 'messages': [{'role': 'user', 'content': prompt}]},
     )
     if not r:
         return None
