@@ -76,7 +76,7 @@ def call_claude(prompt: str) -> str | None:
     r = http_json(
         'https://api.anthropic.com/v1/messages',
         {'x-api-key': key, 'anthropic-version': '2023-06-01'},
-        {'model': 'claude-sonnet-4-7', 'max_tokens': 1024, 'messages': [{'role': 'user', 'content': prompt}]},
+        {'model': 'claude-sonnet-4-5', 'max_tokens': 1024, 'messages': [{'role': 'user', 'content': prompt}]},
     )
     if not r:
         return None
