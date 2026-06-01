@@ -24,7 +24,7 @@ telia.no,Telecom,75,B,reject,1,1,1,0,0,0
 ice.no,Telecom,80,A,reject,1,1,1,0,0,0
 get.no,Telecom,48,D,none,1,1,1,0,0,0
 altibox.no,Telecom,73,B,reject,1,1,1,0,0,0
-talkmore.no,Telecom,55,C,reject,0,1,1,0,0,0
+talkmore.no,Telecom,80,A,reject,1,1,1,0,0,0
 nav.no,Offentlig sektor,100,A+,reject,1,1,1,1,1,1
 skatteetaten.no,Offentlig sektor,82,A,quarantine,1,1,1,1,1,0
 helsenorge.no,Offentlig sektor,80,A,reject,1,1,1,0,0,0
@@ -110,7 +110,7 @@ funcom.com,Tech / SaaS,53,D,none,1,1,1,0,0,0
 remarkable.com,Tech / SaaS,78,B,reject,1,1,1,0,0,1
 uio.no,Universiteter og høyskoler,33,F,none,1,1,0,0,0,0
 ntnu.no,Universiteter og høyskoler,18,F,none,1,1,0,0,1,0
-uib.no,Universiteter og høyskoler,40,D,quarantine,0,1,1,0,0,0
+uib.no,Universiteter og høyskoler,0,F,,0,0,0,0,0,0
 uit.no,Universiteter og høyskoler,80,A,reject,1,1,1,0,0,0
 nmbu.no,Universiteter og høyskoler,53,D,none,1,1,1,0,0,0
 hvl.no,Universiteter og høyskoler,48,D,none,1,1,1,0,0,0
