@@ -175,6 +175,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://data1.no/blogg/uib-no-raste-40-poeng-p-n-uke-og-store-norske-industriselska/</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://data1.no/feil/dkim-fail-microsoft-365/</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
