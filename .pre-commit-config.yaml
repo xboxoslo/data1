@@ -1,0 +1,23 @@
+# Lokale pre-commit-hooks - blokkerer commit av hemmeligheter FØR de havner i git.
+#
+# Engangs-oppsett:
+#   pip install pre-commit        (eller: pipx install pre-commit)
+#   pre-commit install
+#
+# Deretter kjøres gitleaks automatisk ved hver `git commit`.
+
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.4
+    hooks:
+      - id: gitleaks
+        args: ["--config", ".gitleaks.toml"]
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: detect-private-key
+      - id: check-added-large-files
+        args: ["--maxkb=2048"]
+      - id: end-of-file-fixer
+      - id: trailing-whitespace

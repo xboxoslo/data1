@@ -1,0 +1,26 @@
+name: gitleaks
+
+# Skanner hele historikken for lekkede hemmeligheter ved hver push/PR.
+# Stopper bygget hvis en secret (inkl. Tripletex/Halo/n8n-format) oppdages.
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "0 6 * * 1"   # ukentlig full-skann mandag 06:00 UTC
+
+permissions:
+  contents: read
+
+jobs:
+  gitleaks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # hele historikken, ikke bare siste commit
+      - name: Run gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_CONFIG: .gitleaks.toml

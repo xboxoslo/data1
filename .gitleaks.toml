@@ -1,0 +1,46 @@
+# gitleaks-konfig
+# Utvider standardreglene med egendefinerte mønstre for hemmelighetene
+# som lekket i Backup2-hendelsen (Tripletex, Halo, n8n).
+
+title = "Micronet gitleaks config"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "tripletex-token"
+description = "Tripletex consumer/employee/session-token (base64 JSON med tokenId)"
+regex = '''eyJ0b2tlbklk[A-Za-z0-9+/=_-]{20,}'''
+keywords = ["eyJ0b2tlbklk"]
+
+[[rules]]
+id = "halo-client-secret-assignment"
+description = "Hardkodet Halo client_secret i kode"
+regex = '''(?i)(halo[_-]?client[_-]?secret|client_secret)\s*[:=]\s*['"][A-Za-z0-9_\-]{30,}['"]'''
+keywords = ["client_secret", "halo_client_secret"]
+
+[[rules]]
+id = "n8n-api-key-jwt"
+description = "n8n public-api JWT (aud: public-api)"
+regex = '''eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9\.[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,}'''
+keywords = ["eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"]
+
+[[rules]]
+id = "mailgun-key"
+description = "Mailgun API-nøkkel"
+regex = '''key-[0-9a-f]{32}'''
+keywords = ["key-"]
+
+[allowlist]
+description = "Kjente trygge treff (placeholders, eksempler, dokumentasjon)"
+regexes = [
+  '''lim_inn[a-z_]*_her''',
+  '''sk-ant-\.\.\.''',
+  '''<NY[A-Z_]*>''',
+  '''YOUR_[A-Z_]+''',
+  '''example''',
+]
+paths = [
+  '''.*\.example$''',
+  '''docs/security/.*\.md$''',
+]
