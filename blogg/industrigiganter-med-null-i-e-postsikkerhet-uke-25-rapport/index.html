@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="description" content="Industrigiganter med null i e-postsikkerhet — uke 25-rapport — ukentlig DMARC-analyse fra data1.no.">
+<meta name="author" content="Terje Otterlei">
+<meta name="theme-color" content="#1a202c">
+<link rel="canonical" href="https://data1.no/blogg/industrigiganter-med-null-i-e-postsikkerhet-uke-25-rapport/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Industrigiganter med null i e-postsikkerhet — uke 25-rapport">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<title>Industrigiganter med null i e-postsikkerhet — uke 25-rapport | data1.no</title>
+<link rel="stylesheet" href="/blogg/_assets/post.css">
+<style>
+.data-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.data-table th{background:#0f172a;color:#fff;text-align:left;padding:10px 12px;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.data-table td{padding:10px 12px;border-bottom:1px solid #f1f5f9}
+.callout{background:#f0fdfa;border-left:4px solid #14b8a6;padding:14px 18px;border-radius:0 10px 10px 0;margin:18px 0}
+.callout.warn{background:#fff7ed;border-left-color:#f97316;color:#7c2d12}
+.meta{font-size:13px;color:#64748b;margin-bottom:22px}
+.lead{font-size:18px;color:#475569;margin-bottom:24px;line-height:1.7}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Industrigiganter med null i e-postsikkerhet — uke 25-rapport","datePublished":"2026-06-15","dateModified":"2026-06-15","author":{"@type":"Organization","name":"Micronet","url":"https://micronet.no/"},"publisher":{"@type":"Organization","name":"data1.no","logo":{"@type":"ImageObject","url":"https://data1.no/og-image.png"}},"description":"Industrigiganter med null i e-postsikkerhet — uke 25-rapport","image":"https://data1.no/og-image.png","mainEntityOfPage":"https://data1.no/blogg/industrigiganter-med-null-i-e-postsikkerhet-uke-25-rapport/","inLanguage":"nb-NO"}</script>
+</head>
+<body>
+<header class="header">
+<a href="/" class="logo">data1<span>.no</span></a>
+<div class="spacer"></div>
+<a href="/" class="nav-link">Sjekk eget domene →</a>
+</header>
+<main>
+<nav class="crumbs"><a href="/">Hjem</a> › <a href="/blogg/">Blogg</a> › Ukerapport 25</nav>
+<h1>Industrigiganter med null i e-postsikkerhet — uke 25-rapport</h1>
+
+<p class="lead">Norske storselskaper som Equinor, Hydro og Yara scorer 0 av 100 på e-postsikkerhet — mens NAV og Stortinget leverer perfekte resultater.</p>
+
+<p class="meta">Publisert 15. jun 2026 · Av Terje Otterlei · 4 min lesetid</p>
+
+<h2 id="oversikt">Ukens oversikt</h2>
+
+<p>158 norske domener er analysert denne uken, med en snittscore på <strong>64,6 av 100</strong>. 86 domener har <code>p=reject</code> — det vil si full DMARC-beskyttelse — mens 12 domener mangler DMARC-oppføring helt. Det er en grei andel med toppkarakter, men bunnen av listen er oppsiktsvekkende.</p>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Karakter</th>
+      <th>Antall domener</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>A+</td><td>23</td></tr>
+    <tr><td>A</td><td>40</td></tr>
+    <tr><td>B</td><td>17</td></tr>
+    <tr><td>C</td><td>30</td></tr>
+    <tr><td>D</td><td>27</td></tr>
+    <tr><td>F</td><td>21</td></tr>
+  </tbody>
+</table>
+
+<h2 id="toppscorere">Det offentlige leverer</h2>
+
+<p>Øverst på listen denne uken finner vi en rekke offentlige etater og store aktører med perfekt score:</p>
+
+<ul>
+  <li><a href="/?d=nav.no">nav.no</a> — A+ (100p)</li>
+  <li><a href="/?d=ssb.no">ssb.no</a> — A+ (100p)</li>
+  <li><a href="/?d=stortinget.no">stortinget.no</a> — A+ (97p)</li>
+  <li><a href="/?d=udi.no">udi.no</a> — A+ (97p)</li>
+  <li><a href="/?d=telenor.no">telenor.no</a> — A+ (97p)</li>
+</ul>
+
+<p>Det er oppløftende at sentrale offentlige domener som NAV, SSB og Stortinget ligger helt i toppen. Disse domenene håndterer e-postkommunikasjon med millioner av nordmenn, og det er nettopp her solid e-postsikkerhet betyr mest. <a href="/?d=oslomet.no">oslomet.no</a> er også verdt å fremheve — universitetet henger med de beste med 97 poeng.</p>
+
+<h2 id="industri">Den store overraskelsen: Industrigigantene</h2>
+
+<div class="callout warn">
+  <strong>Fire av Norges største industrikonsern scorer 0 av 100:</strong> Equinor, Hydro, Yara og Aker Solutions har alle karakter F og null poeng denne uken.
+</div>
+
+<p>Dette er kanskje ukens mest slående funn. <a href="/?d=equinor.no">equinor.no</a>, <a href="/?d=hydro.no">hydro.no</a>, <a href="/?d=yara.no">yara.no</a> og <a href="/?d=aker-solutions.no">aker-solutions.no</a> er alle selskaper med tusenvis av ansatte, internasjonale samarbeidspartnere og store mengder forretningskritisk e-post. Likevel mangler de grunnleggende beskyttelse mot e-postforfalskning.</p>
+
+<p>Det betyr i praksis at hvem som helst kan sende e-post som ser ut til å komme fra <code>@equinor.no</code> eller <code>@hydro.no</code> — uten at mottakernes e-postserver har noe grunnlag for å avvise det. Dette er en åpen invitasjon til leverandørsvindel, CEO-fraud og phishing-angrep rettet mot ansatte og samarbeidspartnere.</p>
+
+<p>Også <a href="/?d=sparebanken-ost.no">sparebanken-ost.no</a> ligger på bunn med 0 poeng. At en bank mangler DMARC-beskyttelse er bekymringsfullt — bankdomener er blant de mest attraktive for phishing-aktører.</p>
+
+<h2 id="sammenligning">Bransjer under lupen</h2>
+
+<p>Mønsteret denne uken er tydelig: Offentlig sektor og teknologibransjen scorer høyt, mens tung industri og deler av finanssektoren henger etter. Se <a href="/sammenligning/">sammenligning av bransjer</a> for en bredere analyse på tvers av sektorer.</p>
+
+<p><a href="/?d=faedrelandsvennen.no">faedrelandsvennen.no</a> er også på bunn-listen med 0 poeng — et mediedomene som daglig kommuniserer med kilder, lesere og annonsører uten e-postbeskyttelse på plass.</p>
+
+<h2 id="hva-kan-du-gjore">Hva bør du gjøre?</h2>
+
+<p>Hvis domenet ditt havner i F- eller D-sjiktet, er dette prioriteringslisten:</p>
+
+<ol>
+  <li><strong>Opprett DMARC-oppføring</strong> — start med <code>p=none</code> for å samle data uten å blokkere e-post.</li>
+  <li><strong>Sett opp SPF</strong> — definer hvilke servere som har lov til å sende e-post på vegne av domenet ditt.</li>
+  <li><strong>Legg til DKIM-signering</strong> — sørg for at utgående e-post signeres kryptografisk.</li>
+  <li><strong>Stram inn DMARC</strong> — når du har verifisert at legitim e-post passerer, gå til <code>p=quarantine</code> og til slutt <code>p=reject</code>.</li>
+</ol>
+
+<p>For store organisasjoner som Equinor og Hydro er ikke dette primært et teknisk hinder — det er et prioriteringsspørsmål. Verktøyene finnes, standarden er gratis å implementere, og risikoen ved å la være er godt dokumentert.</p>
+
+<p>Sjekk hvordan ditt domene scorer på <a href="/">data1.no</a>, og følg utviklingen over tid på <a href="/trender/">trendoversikten</a>.</p>
+
+<div style="margin-top:40px;padding:20px;background:#f0fdfa;border-radius:12px;border:1px solid #99f6e4">
+<h3 style="margin-bottom:8px">Sjekk ditt eget domene</h3>
+<p style="margin-bottom:14px">Få samme analyse for ditt domene på 10 sekunder, helt gratis.</p>
+<a href="/" style="display:inline-block;background:#14b8a6;color:#fff;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:700">Kjør analyse →</a>
+</div>
+</main>
+</body>
+</html>
