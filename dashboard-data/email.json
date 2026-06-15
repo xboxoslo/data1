@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-14T10:01:55Z",
+  "lastUpdated": "2026-06-15T12:47:40Z",
   "ownDomains": [
     {
       "domain": "data1.no",
@@ -11,7 +11,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": false,
-      "lastChecked": "2026-06-14T10:01:56Z"
+      "lastChecked": "2026-06-15T12:47:41Z"
     },
     {
       "domain": "micronet.no",
@@ -23,7 +23,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": true,
-      "lastChecked": "2026-06-14T10:01:57Z"
+      "lastChecked": "2026-06-15T12:47:43Z"
     }
   ],
   "trackedDomains": {
@@ -36,20 +36,9 @@
   },
   "weeklyChanges": {
     "improved": [],
-    "regressed": [
-      {
-        "domain": "talkmore.no",
-        "from": "p=reject",
-        "to": "p=reject",
-        "scoreDelta": -25
-      }
-    ]
+    "regressed": []
   },
   "timeline": [
-    {
-      "week": "2026-W19",
-      "rejectPercent": 54.4
-    },
     {
       "week": "2026-W20",
       "rejectPercent": 54.4
@@ -68,6 +57,10 @@
     },
     {
       "week": "2026-W24",
+      "rejectPercent": 54.4
+    },
+    {
+      "week": "2026-W25",
       "rejectPercent": 54.4
     }
   ]
