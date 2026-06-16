@@ -83,7 +83,7 @@ zalando.no,E-handel,51,D,none,1,1,1,0,0,1
 hm.com,E-handel,78,B,reject,1,1,1,0,0,1
 cubus.com,E-handel,45,D,quarantine,1,1,0,0,0,0
 boozt.com,E-handel,68,C,quarantine,1,1,1,0,0,1
-fjordkraft.no,E-handel,85,A,reject,1,1,1,1,1,0
+fjordkraft.no,E-handel,92,A+,reject,1,1,1,1,1,0
 sas.no,Reise / hotell / transport,45,D,quarantine,1,1,0,0,0,0
 norwegian.no,Reise / hotell / transport,53,D,none,1,1,1,0,0,0
 flytoget.no,Reise / hotell / transport,80,A,reject,1,1,1,0,0,0
