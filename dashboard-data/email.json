@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-15T13:11:54Z",
+  "lastUpdated": "2026-06-16T11:40:36Z",
   "ownDomains": [
     {
       "domain": "data1.no",
@@ -11,7 +11,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": false,
-      "lastChecked": "2026-06-15T13:11:55Z"
+      "lastChecked": "2026-06-16T11:40:37Z"
     },
     {
       "domain": "micronet.no",
@@ -23,7 +23,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": true,
-      "lastChecked": "2026-06-15T13:11:56Z"
+      "lastChecked": "2026-06-16T11:40:38Z"
     }
   ],
   "trackedDomains": {
@@ -35,7 +35,20 @@
     "rejectPercent": 54.4
   },
   "weeklyChanges": {
-    "improved": [],
+    "improved": [
+      {
+        "domain": "talkmore.no",
+        "from": "p=reject",
+        "to": "p=reject",
+        "scoreDelta": 25
+      },
+      {
+        "domain": "fjordkraft.no",
+        "from": "p=reject",
+        "to": "p=reject",
+        "scoreDelta": 7
+      }
+    ],
     "regressed": []
   },
   "timeline": [
