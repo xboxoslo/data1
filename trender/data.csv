@@ -16,7 +16,7 @@ fremtind.no,Forsikring,80,A,reject,1,1,1,0,0,0
 if.no,Forsikring,80,A,reject,1,1,1,0,0,0
 tryg.no,Forsikring,48,D,none,1,1,1,0,0,0
 codan.no,Forsikring,45,D,,1,0,1,0,0,0
-knif.no,Forsikring,48,D,none,1,1,1,0,0,0
+knif.no,Forsikring,60,C,quarantine,1,1,1,0,0,0
 frende.no,Forsikring,63,C,quarantine,1,1,1,0,0,1
 eika.no,Forsikring,60,C,reject,1,1,0,0,0,0
 telenor.no,Telecom,97,A+,reject,1,1,1,1,1,0
