@@ -16,3 +16,8 @@ Norsk; MCP framfor gjetting; aldri push til andre brancher enn sesjonens; ingen 
 
 ## Beslutninger
 - 2026-06-20 - onboardet i Agentic OS (baseline).
+
+## Kunnskap & kontekst (i repoet)
+- `.claude/CONTEXT.md` — repoets arbeidskontekst. `SEO-CHANGES.md`, `docs/` (intake-arkitektur), `worker/`.
+- data1.no (Next.js + Cloudflare). Vault: `micronet-data1-kv`, `micronet-n8n-kv`.
+- 61 brancher med iterasjoner — historikk i mirror-backup. Nav-søk: `/recall`.
