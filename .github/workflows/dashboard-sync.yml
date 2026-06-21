@@ -69,7 +69,18 @@ jobs:
           fi
           git add dashboard-data/
           git commit -m "data: dashboard daglig sync ($(date -u +%Y-%m-%d))" -m "Generert av dashboard-sync.yml [skip ci]"
-          git push
+          # Retry-loop: andre jobber/workflows kan ha flyttet main i mellomtiden.
+          for attempt in 1 2 3; do
+            git pull --rebase origin main || git rebase --abort
+            if git push; then
+              echo "Pushet pa forsok $attempt."
+              exit 0
+            fi
+            echo "Push avvist (forsok $attempt) - sover 5s og prover igjen..."
+            sleep 5
+          done
+          echo "::error::Push feilet etter 3 forsok."
+          exit 1
 
   ai-sync:
     # Kjorer kun pa ukentlig cron (mandag) + manual med jobs=ai|all
@@ -105,4 +116,15 @@ jobs:
           fi
           git add dashboard-data/
           git commit -m "data: dashboard AI-sync uke $(date -u +%V) ($(date -u +%Y-%m-%d))" -m "[skip ci]"
-          git push
+          # Retry-loop: daily-sync kan pushe samtidig (begge kjorer mandag).
+          for attempt in 1 2 3; do
+            git pull --rebase origin main || git rebase --abort
+            if git push; then
+              echo "Pushet pa forsok $attempt."
+              exit 0
+            fi
+            echo "Push avvist (forsok $attempt) - sover 5s og prover igjen..."
+            sleep 5
+          done
+          echo "::error::Push feilet etter 3 forsok."
+          exit 1
