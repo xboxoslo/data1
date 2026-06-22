@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="description" content="Sterke offentlige etater — men store norske selskaper svikter: Uke 26-rapport — ukentlig DMARC-analyse fra data1.no.">
+<meta name="author" content="Terje Otterlei">
+<meta name="theme-color" content="#1a202c">
+<link rel="canonical" href="https://data1.no/blogg/sterke-offentlige-etater-men-store-norske-selskaper-svikter-/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sterke offentlige etater — men store norske selskaper svikter: Uke 26-rapport">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<title>Sterke offentlige etater — men store norske selskaper svikter: Uke 26-rapport | data1.no</title>
+<link rel="stylesheet" href="/blogg/_assets/post.css">
+<style>
+.data-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.data-table th{background:#0f172a;color:#fff;text-align:left;padding:10px 12px;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.data-table td{padding:10px 12px;border-bottom:1px solid #f1f5f9}
+.callout{background:#f0fdfa;border-left:4px solid #14b8a6;padding:14px 18px;border-radius:0 10px 10px 0;margin:18px 0}
+.callout.warn{background:#fff7ed;border-left-color:#f97316;color:#7c2d12}
+.meta{font-size:13px;color:#64748b;margin-bottom:22px}
+.lead{font-size:18px;color:#475569;margin-bottom:24px;line-height:1.7}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Sterke offentlige etater — men store norske selskaper svikter: Uke 26-rapport","datePublished":"2026-06-22","dateModified":"2026-06-22","author":{"@type":"Organization","name":"Micronet","url":"https://micronet.no/"},"publisher":{"@type":"Organization","name":"data1.no","logo":{"@type":"ImageObject","url":"https://data1.no/og-image.png"}},"description":"Sterke offentlige etater — men store norske selskaper svikter: Uke 26-rapport","image":"https://data1.no/og-image.png","mainEntityOfPage":"https://data1.no/blogg/sterke-offentlige-etater-men-store-norske-selskaper-svikter-/","inLanguage":"nb-NO"}</script>
+</head>
+<body>
+<header class="header">
+<a href="/" class="logo">data1<span>.no</span></a>
+<div class="spacer"></div>
+<a href="/" class="nav-link">Sjekk eget domene →</a>
+</header>
+<main>
+<nav class="crumbs"><a href="/">Hjem</a> › <a href="/blogg/">Blogg</a> › Ukerapport 26</nav>
+<h1>Sterke offentlige etater — men store norske selskaper svikter: Uke 26-rapport</h1>
+
+<p class="lead">Norske myndigheter leverer toppkarakterer på e-postsikkerhet, mens kjente industrinavn som Equinor, Hydro og Yara scorer null poeng.</p>
+
+<p class="meta">Publisert 22. jun 2026 · Av Terje Otterlei · 5 min lesetid</p>
+
+<p>158 norske domener er analysert denne uken, og bildet som tegner seg er todelt: Offentlig sektor og noen store aktører viser at det er fullt mulig å nå topps — samtidig sitter flere av Norges mest kjente selskaper på bunnlisten uten tegn til bedring. Snittscoren ligger på <strong>64,7 av 100</strong>, og 86 domener har aktivert <code>p=reject</code>, som er det høyeste beskyttelsesnivået i DMARC.</p>
+
+<h2 id="toppsjiktet">Offentlig sektor dominerer toppsjiktet</h2>
+
+<p>Fire av ti domener med toppkarakter A+ er norske offentlige etater eller institusjoner. <a href="/?d=nav.no">nav.no</a>, <a href="/?d=ssb.no">ssb.no</a>, <a href="/?d=stortinget.no">stortinget.no</a> og <a href="/?d=udi.no">udi.no</a> scorer alle 97 eller 100 poeng — og viser at det offentlige Norge har tatt e-postsikkerhet på alvor.</p>
+
+<p><a href="/?d=oslomet.no">oslomet.no</a> er også med i toppsjiktet med 97 poeng, noe som er oppløftende for universitets- og høyskolesektoren, der phishing-angrep rettet mot studenter og ansatte er et reelt problem.</p>
+
+<div class="callout warn">
+  <strong>Interessant kontrast:</strong> <a href="/?d=nbim.no">nbim.no</a> — Norges Bank Investment Management, som forvalter Oljefondet — scorer 100 poeng. Samme uke scorer <a href="/?d=equinor.no">equinor.no</a>, som er statlig eid og blant Norges største selskaper, 0 poeng.
+</div>
+
+<h2 id="bunnsjiktet">Kjente navn på bunnlisten</h2>
+
+<p>Det er verdt å stoppe opp ved bunnlisten denne uken. Flere av Norges mest profilert selskaper innen industri og finans scorer <strong>F med 0 poeng</strong>:</p>
+
+<ul>
+  <li><a href="/?d=equinor.no">equinor.no</a> — 0p</li>
+  <li><a href="/?d=hydro.no">hydro.no</a> — 0p</li>
+  <li><a href="/?d=yara.no">yara.no</a> — 0p</li>
+  <li><a href="/?d=aker-solutions.no">aker-solutions.no</a> — 0p</li>
+  <li><a href="/?d=sparebanken-ost.no">sparebanken-ost.no</a> — 0p</li>
+</ul>
+
+<p>0 poeng betyr ikke nødvendigvis at disse domenene er helt ubeskyttede på alle punkter — men det indikerer at grunnleggende e-postsikkerhetstiltak som DMARC, MTA-STS og BIMI mangler eller er feilkonfigurert. For selskaper av denne størrelsen, med tusenvis av ansatte og daglig e-postkommunikasjon med partnere og kunder, er det en risiko som er vanskelig å ignorere.</p>
+
+<p><a href="/?d=faedrelandsvennen.no">faedrelandsvennen.no</a> er det eneste mediedomenet på bunnlisten denne uken, med 0 poeng. Medieaktører er attraktive mål for e-postsvindel, siden deres navn har høy troverdighet hos leserne.</p>
+
+<p>Se hvordan disse sammenlignes mot bransjegjennomsnitt på <a href="/sammenligning/">sammenligningssiden</a>.</p>
+
+<h2 id="forbedringer">Ukens forbedringer</h2>
+
+<p>Tre domener har gjort merkbare fremskritt siden forrige uke:</p>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Domene</th>
+      <th>Forrige score</th>
+      <th>Ny score</th>
+      <th>Endring</th>
+      <th>Karakter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="/?d=talkmore.no">talkmore.no</a></td>
+      <td>55</td>
+      <td>80</td>
+      <td>+25p</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <td><a href="/?d=knif.no">knif.no</a></td>
+      <td>48</td>
+      <td>60</td>
+      <td>+12p</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <td><a href="/?d=fjordkraft.no">fjordkraft.no</a></td>
+      <td>85</td>
+      <td>92</td>
+      <td>+7p</td>
+      <td>A+</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a href="/?d=talkmore.no">talkmore.no</a> er ukens største hopp med hele 25 poeng. En slik forbedring på én uke tyder på at noen har gått aktivt inn og konfigurert flere sikkerhetstiltak på én gang — det er ikke uvanlig å se dette når et selskap først setter i gang. <a href="/?d=fjordkraft.no">fjordkraft.no</a> har allerede vært høyt oppe, men klatrer ytterligere og nærmer seg perfekt score.</p>
+
+<h2 id="karakterfordeling">Slik fordeler karakterene seg</h2>
+
+<p>Av 158 analyserte domener denne uken:</p>
+
+<ul>
+  <li><strong>A+ og A:</strong> 63 domener (40 %)</li>
+  <li><strong>B og C:</strong> 48 domener (30 %)</li>
+  <li><strong>D og F:</strong> 47 domener (30 %)</li>
+  <li><strong>Mangler DMARC helt:</strong> 12 domener</li>
+</ul>
+
+<p>At nesten én av tre domener scorer D eller F er bekymringsfullt. Disse domenene tilbyr liten eller ingen beskyttelse mot at uvedkommende sender e-post utgitt for å være dem. Følg utviklingen over tid på <a href="/trender/">trendsiden</a>.</p>
+
+<h2 id="hva-kan-du-gjore">Hva kan du gjøre?</h2>
+
+<p>Har du ansvar for et norsk domene? Her er de viktigste stegene, i prioritert rekkefølge:</p>
+
+<ol>
+  <li><strong>Sjekk om domenet har DMARC-oppføring</strong> — 12 domener i denne analysen mangler det helt. Uten DMARC har du ingen rapportering og ingen kontroll.</li>
+  <li><strong>Sett DMARC-policy til <code>p=reject</code></strong> — Start gjerne med <code>p=none</code> for å samle data, men jobb deg mot <code>p=reject</code> som gir faktisk beskyttelse.</li>
+  <li><strong>Legg til MTA-STS og TLS-RPT</strong> — Dette krypterer e-posttransporten og gir deg innsyn i leveringsproblemer.</li>
+  <li><strong>Analyser domenet ditt gratis</strong> på <a href="/">data1.no</a> for å se nøyaktig hva som mangler.</li>
+</ol>
+
+<p>En score på 0 poeng er ikke en permanent tilstand — <a href="/?d=talkmore.no">talkmore.no</a> viser at 25 poeng kan vinnes på én uke med riktig innsats.</p>
+
+<div style="margin-top:40px;padding:20px;background:#f0fdfa;border-radius:12px;border:1px solid #99f6e4">
+<h3 style="margin-bottom:8px">Sjekk ditt eget domene</h3>
+<p style="margin-bottom:14px">Få samme analyse for ditt domene på 10 sekunder, helt gratis.</p>
+<a href="/" style="display:inline-block;background:#14b8a6;color:#fff;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:700">Kjør analyse →</a>
+</div>
+</main>
+</body>
+</html>
