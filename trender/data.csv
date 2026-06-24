@@ -11,7 +11,7 @@ sparebanken-sor.no,Banker,8,F,none,0,1,0,0,0,0
 sparebanken-ost.no,Banker,0,F,,0,0,0,0,0,0
 nordnet.no,Banker,68,C,quarantine,1,1,1,0,0,1
 finanstilsynet.no,Banker,80,A,reject,1,1,1,0,0,0
-gjensidige.no,Forsikring,63,C,quarantine,1,1,1,0,0,1
+gjensidige.no,Forsikring,68,C,quarantine,1,1,1,0,0,1
 fremtind.no,Forsikring,80,A,reject,1,1,1,0,0,0
 if.no,Forsikring,80,A,reject,1,1,1,0,0,0
 tryg.no,Forsikring,48,D,none,1,1,1,0,0,0
