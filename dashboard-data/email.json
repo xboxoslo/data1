@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-24T09:56:07Z",
+  "lastUpdated": "2026-06-25T09:50:34Z",
   "ownDomains": [
     {
       "domain": "data1.no",
@@ -11,7 +11,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": false,
-      "lastChecked": "2026-06-24T09:56:08Z"
+      "lastChecked": "2026-06-25T09:50:35Z"
     },
     {
       "domain": "micronet.no",
@@ -23,7 +23,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": true,
-      "lastChecked": "2026-06-24T09:56:08Z"
+      "lastChecked": "2026-06-25T09:50:35Z"
     }
   ],
   "trackedDomains": {
@@ -36,12 +36,6 @@
   },
   "weeklyChanges": {
     "improved": [
-      {
-        "domain": "knif.no",
-        "from": "p=none",
-        "to": "p=quarantine",
-        "scoreDelta": 12
-      },
       {
         "domain": "gjensidige.no",
         "from": "p=quarantine",
