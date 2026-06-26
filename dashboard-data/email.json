@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-25T09:50:34Z",
+  "lastUpdated": "2026-06-26T09:57:43Z",
   "ownDomains": [
     {
       "domain": "data1.no",
@@ -11,7 +11,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": false,
-      "lastChecked": "2026-06-25T09:50:35Z"
+      "lastChecked": "2026-06-26T09:57:45Z"
     },
     {
       "domain": "micronet.no",
@@ -23,7 +23,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": true,
-      "lastChecked": "2026-06-25T09:50:35Z"
+      "lastChecked": "2026-06-26T09:57:46Z"
     }
   ],
   "trackedDomains": {
@@ -37,9 +37,21 @@
   "weeklyChanges": {
     "improved": [
       {
+        "domain": "talkmore.no",
+        "from": "p=reject",
+        "to": "p=reject",
+        "scoreDelta": 25
+      },
+      {
         "domain": "gjensidige.no",
         "from": "p=quarantine",
         "to": "p=quarantine",
+        "scoreDelta": 5
+      },
+      {
+        "domain": "powerdmarc.com",
+        "from": "p=reject",
+        "to": "p=reject",
         "scoreDelta": 5
       }
     ],
