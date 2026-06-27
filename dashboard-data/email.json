@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-26T09:57:43Z",
+  "lastUpdated": "2026-06-27T09:10:42Z",
   "ownDomains": [
     {
       "domain": "data1.no",
@@ -11,7 +11,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": false,
-      "lastChecked": "2026-06-26T09:57:45Z"
+      "lastChecked": "2026-06-27T09:10:43Z"
     },
     {
       "domain": "micronet.no",
@@ -23,25 +23,19 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": true,
-      "lastChecked": "2026-06-26T09:57:46Z"
+      "lastChecked": "2026-06-27T09:10:44Z"
     }
   ],
   "trackedDomains": {
     "total": 158,
-    "withReject": 86,
+    "withReject": 85,
     "withQuarantine": 27,
     "withNone": 33,
-    "missing": 12,
-    "rejectPercent": 54.4
+    "missing": 13,
+    "rejectPercent": 53.8
   },
   "weeklyChanges": {
     "improved": [
-      {
-        "domain": "talkmore.no",
-        "from": "p=reject",
-        "to": "p=reject",
-        "scoreDelta": 25
-      },
       {
         "domain": "gjensidige.no",
         "from": "p=quarantine",
@@ -55,9 +49,20 @@
         "scoreDelta": 5
       }
     ],
-    "regressed": []
+    "regressed": [
+      {
+        "domain": "inn.no",
+        "from": "p=reject",
+        "to": "p=missing",
+        "scoreDelta": -55
+      }
+    ]
   },
   "timeline": [
+    {
+      "week": "2026-W19",
+      "rejectPercent": 54.4
+    },
     {
       "week": "2026-W20",
       "rejectPercent": 54.4
@@ -84,7 +89,7 @@
     },
     {
       "week": "2026-W26",
-      "rejectPercent": 54.4
+      "rejectPercent": 53.8
     }
   ]
 }
