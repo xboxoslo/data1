@@ -14,7 +14,7 @@
 <meta property="og:locale" content="nb_NO">
 <meta property="og:url" content="https://data1.no/blogg/dmarc-google-workspace/">
 <meta property="article:published_time" content="2026-05-08T09:00:00+00:00">
-<meta property="article:modified_time" content="2026-05-08T09:00:00+00:00">
+<meta property="article:modified_time" content="2026-07-01T09:00:00+00:00">
 <meta property="og:title" content="DMARC i Google Workspace: Komplett guide">
 <meta property="og:description" content="Steg-for-steg DMARC-oppsett for Gmail / Google Workspace. Oppfyll Googles 2024-krav.">
 <meta property="og:image" content="https://data1.no/og-image.png">
@@ -41,6 +41,17 @@
   <h1>DMARC i Google Workspace: Komplett guide</h1>
   <p class="meta">Publisert <time datetime="2026-05-08">8. mai 2026</time> · Av Terje Otterlei · 8 min lesetid</p>
   <p class="lead">Siden februar 2024 krever Google og Yahoo at alle bulk-avsendere (5000+ e-poster/dag) har DMARC. Men selv om du er under denne grensen, er DMARC kritisk for å beskytte domenet mot misbruk. Denne guiden viser deg hele oppsettet i Google Workspace.</p>
+
+  <div class="callout">
+    <strong>TL;DR — oppsett på 30 sekunder:</strong>
+    <ul style="margin:8px 0 0 18px">
+      <li>SPF for Google Workspace: <code>v=spf1 include:_spf.google.com -all</code></li>
+      <li>DKIM: Generer og aktiver i Google Admin → Gmail → Autentisering</li>
+      <li>DMARC: <code>v=DMARC1; p=none; rua=mailto:dmarc@ditdomene.no</code></li>
+      <li>Overvåk rapporter i 4 uker, deretter skjerp til quarantine, så reject</li>
+      <li>Obligatorisk fra 2024 for alle som sender 5000+ e-post/dag til Gmail</li>
+    </ul>
+  </div>
 
   <div class="toc">
     <h2>Innhold</h2>
@@ -127,11 +138,18 @@
     <li><a href="/verktoy/dmarc-generator/">DMARC-generator</a></li>
   </ul>
 
+  <div class="share-bar">
+    <span>Del artikkelen:</span>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://data1.no/blogg/dmarc-google-workspace/" target="_blank" rel="noopener" class="share-btn share-linkedin">LinkedIn</a>
+    <a href="https://twitter.com/intent/tweet?url=https://data1.no/blogg/dmarc-google-workspace/&text=DMARC+i+Google+Workspace%3A+Komplett+guide" target="_blank" rel="noopener" class="share-btn share-twitter">X / Twitter</a>
+    <button class="share-btn share-copy" onclick="navigator.clipboard.writeText(location.href).then(function(){this.textContent='Kopiert!'},function(){}).bind(this)">Kopier lenke</button>
+  </div>
+
   <div class="author-card">
     <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(140deg,#14b8a6,#0f766e);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:18px">TO</div>
     <div>
       <div class="author-name">Terje Otterlei</div>
-      <div class="author-meta">Daglig leder i Micronet AS — 20+ års erfaring innen Microsoft 365 og e-postinfrastruktur. Forvalter DMARC-overvåking for 50+ M365-tenants i Lørenskog. <a href="https://www.linkedin.com/in/terjeotterlei/" style="color:#0f766e;text-decoration:none">LinkedIn</a> · <a href="https://micronet.no/" style="color:#0f766e;text-decoration:none">micronet.no</a> · <a href="/om/" style="color:#0f766e;text-decoration:none">Om data1.no</a></div>
+      <div class="author-meta">Daglig leder i Micronet AS — 20+ års erfaring innen Microsoft 365 og e-postinfrastruktur. Forvalter DMARC-overvåking for 50+ M365-tenants i Lørenskog. <a href="https://www.linkedin.com/in/terjeotterlei/" style="color:#38bdf8;text-decoration:none">LinkedIn</a> · <a href="https://micronet.no/" style="color:#38bdf8;text-decoration:none">micronet.no</a> · <a href="/om/" style="color:#38bdf8;text-decoration:none">Om data1.no</a></div>
     </div>
   </div>
 </main>

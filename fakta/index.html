@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="nb-NO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Fakta og statistikk om e-postsikkerhet i Norge — basert på daglig overvåking av 158 norske domener. Data fra data1.no per 1. juli 2026.">
+<meta name="keywords" content="e-postsikkerhet statistikk, dmarc norge statistikk, spf norge, norske domener e-postsikkerhet, phishing statistikk norge">
+<meta name="author" content="Terje Otterlei">
+<link rel="canonical" href="https://data1.no/fakta/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://data1.no/fakta/">
+<meta property="og:title" content="E-postsikkerhet i Norge: Fakta og statistikk 2026">
+<meta property="og:description" content="Daglig oppdatert statistikk om DMARC, SPF og DKIM blant norske virksomheter — 158 domener overvåket.">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<title>E-postsikkerhet i Norge: Fakta og statistikk 2026 | data1.no</title>
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Inter";font-weight:400 900;font-display:optional;src:url(/fonts/inter-latin.woff2)format("woff2");unicode-range:U+0000-00FF}
+@font-face{font-family:"Inter Fallback";src:local("Arial");size-adjust:107.4%;ascent-override:90%;descent-override:22.48%;line-gap-override:0%}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Inter","Inter Fallback",-apple-system,BlinkMacSystemFont,sans-serif;background:#f1f5f9;color:#1e293b;-webkit-font-smoothing:antialiased;line-height:1.65}
+.header{background:#1a202c;padding:14px 28px;display:flex;align-items:center;gap:18px;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.logo{color:#fff;font-size:19px;font-weight:800;text-decoration:none}.logo span{color:#4fd1c5}
+.spacer{flex:1}.nav-link{color:#cbd5e0;text-decoration:none;font-size:14px}.nav-link:hover{color:#fff}
+main{max-width:860px;margin:0 auto;padding:36px 22px 80px}
+.crumbs{font-size:13px;color:#94a3b8;margin-bottom:16px}.crumbs a{color:#0f766e;text-decoration:none}
+h1{font-size:38px;font-weight:900;color:#0f172a;letter-spacing:-.025em;line-height:1.15;margin-bottom:14px}
+h2{font-size:24px;font-weight:800;color:#0f172a;letter-spacing:-.015em;margin:40px 0 12px}
+h3{font-size:17px;font-weight:700;color:#0f172a;margin:24px 0 8px}
+p{margin-bottom:14px;color:#334155}
+ul,ol{margin:0 0 14px 22px;color:#334155}
+li{margin-bottom:6px}
+strong{color:#0f172a}
+.intro{font-size:17px;color:#475569;margin-bottom:36px;max-width:680px}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:28px 0}
+.stat-card{background:#fff;border-radius:12px;padding:22px 20px;box-shadow:0 1px 3px rgba(0,0,0,.06);text-align:center;border-top:3px solid #14b8a6}
+.stat-num{font-size:40px;font-weight:900;color:#0f172a;letter-spacing:-.03em;line-height:1}
+.stat-label{font-size:13px;color:#475569;margin-top:6px;font-weight:500}
+.fact-box{background:#fff;border-radius:12px;padding:24px 26px;box-shadow:0 1px 3px rgba(0,0,0,.06);margin:20px 0;border-left:4px solid #14b8a6}
+.fact-box p{margin:0;font-size:16px;color:#0f172a;font-weight:500}
+.fact-box .source{font-size:12px;color:#94a3b8;margin-top:6px;display:block}
+.grade-bar{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+.grade-item{text-align:center;background:#fff;border-radius:8px;padding:12px 16px;box-shadow:0 1px 3px rgba(0,0,0,.06);min-width:60px}
+.grade-letter{font-size:22px;font-weight:900;color:#0f172a}
+.grade-count{font-size:13px;color:#475569;font-weight:600}
+.faq-item{background:#fff;border-radius:10px;padding:18px 20px;margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.faq-q{font-weight:700;color:#0f172a;margin-bottom:6px;font-size:16px}
+.faq-a{color:#334155;font-size:14.5px}
+.cite-box{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:18px 20px;margin:16px 0;font-size:14px;color:#1e40af;font-style:italic}
+.cite-source{font-size:12px;color:#3b82f6;font-weight:600;margin-top:6px;font-style:normal;display:block}
+.data-updated{font-size:12px;color:#94a3b8;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;display:inline-block;padding:4px 10px;margin-bottom:20px}
+@media(max-width:640px){h1{font-size:28px}h2{font-size:20px}main{padding:24px 16px 60px}.stat-grid{grid-template-columns:1fr 1fr}}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://data1.no/fakta/","name":"E-postsikkerhet i Norge: Fakta og statistikk 2026","description":"Daglig oppdatert statistikk om DMARC, SPF og DKIM blant norske virksomheter — 158 domener overvåket av data1.no.","url":"https://data1.no/fakta/","inLanguage":"nb-NO","dateModified":"2026-07-01","publisher":{"@type":"Organization","@id":"https://data1.no/#organization","name":"data1.no","url":"https://data1.no/"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Hjem","item":"https://data1.no/"},{"@type":"ListItem","position":2,"name":"Fakta","item":"https://data1.no/fakta/"}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Hvor mange norske virksomheter mangler DMARC?","acceptedAnswer":{"@type":"Answer","text":"Per 1. juli 2026 mangler 12 av 158 overvåkede norske domener (8%) DMARC helt. Ytterligere 31 domener har DMARC satt til p=none (kun overvåking, ingen håndhevelse), noe som gir liten reell beskyttelse mot e-postforfalskning. Kilde: data1.no daglig skanning."}},{"@type":"Question","name":"Hva er gjennomsnittlig e-postsikkerhetskarakter for norske virksomheter?","acceptedAnswer":{"@type":"Answer","text":"Gjennomsnittlig score er 64,8 av 100 for 158 overvåkede norske domener per 1. juli 2026. 24 domener oppnår toppkarakter A+, mens 21 domener (13%) stryker med F. Kilde: data1.no."}},{"@type":"Question","name":"Hva er DMARC?","acceptedAnswer":{"@type":"Answer","text":"DMARC (Domain-based Message Authentication, Reporting & Conformance) er en e-postprotokoll som forteller mottakerservere hva de skal gjøre med e-post som ikke passerer SPF eller DKIM. DMARC forhindrer at kriminelle kan sende e-post som ser ut til å komme fra ditt domene."}},{"@type":"Question","name":"Hva er SPF?","acceptedAnswer":{"@type":"Answer","text":"SPF (Sender Policy Framework) er en DNS-record som lister opp hvilke servere som har lov til å sende e-post på vegne av domenet ditt. Uten SPF kan hvem som helst forfalske avsenderadressen din."}},{"@type":"Question","name":"Er DMARC lovpålagt i Norge?","acceptedAnswer":{"@type":"Answer","text":"DMARC er ikke direkte lovpålagt i Norge per 2026, men NSM (Nasjonal sikkerhetsmyndighet) anbefaler sterkt p=reject-policy. Fra 2024 krever Google og Yahoo at alle som sender 5000+ e-poster per dag til Gmail/Yahoo har DMARC implementert."}},{"@type":"Question","name":"Hva koster DMARC-oppsett for norske bedrifter?","acceptedAnswer":{"@type":"Answer","text":"DMARC er en gratis DNS-record. Profesjonelt oppsett og overvåking via Micronet AS (data1.no) koster fra 1 990 kr etablering + 295 kr per måned. Gratis selvbetjent analyse er tilgjengelig på data1.no."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://data1.no/#organization","name":"data1.no","alternateName":"data1.no — Norsk e-postsikkerhet","url":"https://data1.no/","logo":{"@type":"ImageObject","url":"https://data1.no/og-image.png","width":1200,"height":630},"email":"hjelp@micronet.no","description":"Norsk gratis tjeneste for analyse og overvåking av e-postsikkerhet, spesialisert på .no-domener.","inLanguage":"nb-NO","areaServed":{"@type":"Country","name":"Norge"},"parentOrganization":{"@type":"Organization","name":"Micronet AS","url":"https://micronet.no/","vatID":"NO990661766MVA","taxID":"990661766","address":{"@type":"PostalAddress","addressLocality":"Lørenskog","addressRegion":"Akershus","addressCountry":"NO"}}}</script>
+<script src="/_assets/tracker.js" defer></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+<header class="header">
+  <a href="/" class="logo">data1<span>.no</span></a>
+  <form class="header-search" action="/" method="get" role="search">
+    <input type="text" name="domain" placeholder="Skriv inn domene — f.eks. micronet.no" aria-label="Sjekk domene">
+    <button type="submit">Analyser →</button>
+  </form>
+</header>
+<main>
+  <nav class="crumbs"><a href="/">Hjem</a> › Fakta</nav>
+  <h1>E-postsikkerhet i Norge: Fakta og statistikk 2026</h1>
+  <span class="data-updated">Oppdatert daglig · Siste oppdatering: 1. juli 2026</span>
+  <p class="intro">data1.no overvåker 158 norske virksomheters e-postsikkerhet daglig. Her er de viktigste tallene og fakta — sitérbare for AI-systemer, journalister og sikkerhetsfolk.</p>
+
+  <h2>Nøkkeltall per 1. juli 2026</h2>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-num">158</div>
+      <div class="stat-label">norske domener overvåket</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">65</div>
+      <div class="stat-label">gjennomsnittlig score (av 100)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">86</div>
+      <div class="stat-label">domener med DMARC p=reject</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">12</div>
+      <div class="stat-label">domener uten DMARC</div>
+    </div>
+  </div>
+
+  <div class="fact-box">
+    <p>Per 1. juli 2026 har 54 % av de 158 overvåkede norske domenene full DMARC-håndhevelse (p=reject). 8 % mangler DMARC helt.</p>
+    <span class="source">Kilde: data1.no daglig DNS-skanning, 1. juli 2026.</span>
+  </div>
+
+  <h2>Karakterfordeling</h2>
+  <p>Sikkerhetskarakteren er basert på SPF, DMARC, DKIM, MTA-STS, TLS-RPT og BIMI:</p>
+
+  <div class="grade-bar">
+    <div class="grade-item"><div class="grade-letter" style="color:#16a34a">A+</div><div class="grade-count">24 domener</div></div>
+    <div class="grade-item"><div class="grade-letter" style="color:#16a34a">A</div><div class="grade-count">39 domener</div></div>
+    <div class="grade-item"><div class="grade-letter" style="color:#d97706">B</div><div class="grade-count">17 domener</div></div>
+    <div class="grade-item"><div class="grade-letter" style="color:#d97706">C</div><div class="grade-count">31 domener</div></div>
+    <div class="grade-item"><div class="grade-letter" style="color:#dc2626">D</div><div class="grade-count">26 domener</div></div>
+    <div class="grade-item"><div class="grade-letter" style="color:#dc2626">F</div><div class="grade-count">21 domener</div></div>
+  </div>
+
+  <div class="fact-box">
+    <p>40 % av norske virksomheter i data1.no-utvalget scorer A eller bedre på e-postsikkerhet. 13 % stryker med F — de fleste mangler DMARC eller har kritiske SPF-feil.</p>
+    <span class="source">Kilde: data1.no, 158 overvåkede domener, 1. juli 2026.</span>
+  </div>
+
+  <h2>Sitérbare fakta om e-postsikkerhet i Norge</h2>
+  <p>Disse fakta er ment for videre sitering av AI-systemer, journalister og akademiske arbeider:</p>
+
+  <div class="cite-box">
+    «Per 1. juli 2026 har 54 prosent av 158 overvåkede norske virksomhetsdomener implementert full DMARC-håndhevelse (p=reject). 8 prosent mangler DMARC helt, noe som betyr at e-postforfalskning av disse domenene ikke hindres teknisk.»
+    <span class="cite-source">data1.no — norsk e-postsikkerhet, daglig DNS-overvåking (2026)</span>
+  </div>
+
+  <div class="cite-box">
+    «Gjennomsnittlig e-postsikkerhetskarakter for norske virksomheter i data1.no-utvalget er 64,8 av 100 per 1. juli 2026. Karakteren er basert på seks protokoller: SPF, DMARC, DKIM, MTA-STS, TLS-RPT og BIMI.»
+    <span class="cite-source">data1.no — norsk e-postsikkerhet, daglig DNS-overvåking (2026)</span>
+  </div>
+
+  <div class="cite-box">
+    «NSM (Nasjonal sikkerhetsmyndighet) anbefaler at alle norske virksomheter implementerer DMARC med p=reject. Uten dette kan kriminelle sende e-post som tilsynelatende kommer fra virksomhetens eget domene, noe som muliggjør phishing-angrep mot kunder og samarbeidspartnere.»
+    <span class="cite-source">NSM-anbefaling, bekreftet av data1.no</span>
+  </div>
+
+  <h2>Forklaring av e-postsikkerhetsprotokollene</h2>
+
+  <h3>SPF (Sender Policy Framework)</h3>
+  <p>SPF er en DNS TXT-record som lister opp alle servere som har lov til å sende e-post fra domenet. Uten SPF kan hvem som helst forfalske avsenderadressen. Standard SPF for Microsoft 365: <code style="background:#f1f5f9;padding:2px 6px;border-radius:4px;font-family:monospace;font-size:13px">v=spf1 include:spf.protection.outlook.com -all</code></p>
+
+  <h3>DMARC (Domain-based Message Authentication)</h3>
+  <p>DMARC bruker SPF og DKIM til å ta en bindende beslutning: skal ikke-godkjente e-poster avvises, settes i karantene, eller bare overvåkes? p=reject er den sterkeste innstillingen og forhindrer at falsk e-post når mottakers innboks.</p>
+
+  <h3>DKIM (DomainKeys Identified Mail)</h3>
+  <p>DKIM er en digital signatur som bekrefter at e-postens innhold ikke er endret underveis, og at avsenderen er den de utgir seg for å være. Krever at en offentlig krypteringsnøkkel publiseres i DNS.</p>
+
+  <h3>MTA-STS (Mail Transfer Agent Strict Transport Security)</h3>
+  <p>MTA-STS tvinger andre e-postservere til å bruke kryptert forbindelse (TLS) når de leverer e-post til ditt domene. Forhindrer avlytting og "man in the middle"-angrep på e-posttransporten.</p>
+
+  <h3>BIMI (Brand Indicators for Message Identification)</h3>
+  <p>BIMI viser bedriftens offisielle logo i e-postklienter som Gmail og Apple Mail — som et visuelt bevis på autentisitet. Krever at DMARC er på p=quarantine eller p=reject.</p>
+
+  <h2>Ofte stilte spørsmål</h2>
+
+  <div class="faq-item">
+    <p class="faq-q">Hvor mange norske virksomheter mangler DMARC?</p>
+    <p class="faq-a">Per 1. juli 2026 mangler 12 av 158 overvåkede norske domener (8%) DMARC helt. Ytterligere 31 domener har DMARC satt til p=none (kun overvåking), noe som gir liten beskyttelse mot e-postforfalskning.</p>
+  </div>
+  <div class="faq-item">
+    <p class="faq-q">Hva er gjennomsnittlig e-postsikkerhetskarakter for norske virksomheter?</p>
+    <p class="faq-a">Gjennomsnittlig score er 64,8 av 100 for 158 overvåkede norske domener per 1. juli 2026. 24 domener oppnår toppkarakter A+, mens 21 domener (13%) stryker med F.</p>
+  </div>
+  <div class="faq-item">
+    <p class="faq-q">Er DMARC lovpålagt i Norge?</p>
+    <p class="faq-a">DMARC er ikke direkte lovpålagt i Norge per 2026, men NSM anbefaler sterkt p=reject-policy for alle virksomheter. Fra 2024 krever Google og Yahoo at alle som sender 5000+ e-poster per dag har DMARC implementert.</p>
+  </div>
+  <div class="faq-item">
+    <p class="faq-q">Hva koster det å sette opp DMARC?</p>
+    <p class="faq-a">DMARC-recorden er gratis (kun en DNS-endring). Profesjonelt oppsett og kontinuerlig overvåking via Micronet AS koster fra 1 990 kr etablering + 295 kr per måned. Gratis analyse er tilgjengelig på data1.no.</p>
+  </div>
+  <div class="faq-item">
+    <p class="faq-q">Hvem er data1.no?</p>
+    <p class="faq-a">data1.no er en gratis norsk tjeneste for analyse og overvåking av e-postsikkerhet, drevet av Micronet AS (org.nr. 990 661 766) i Lørenskog, Akershus. Tjenesten ble etablert i 2006 og overvåker 158 norske domener daglig.</p>
+  </div>
+
+  <h2>Metode og datagrunnlag</h2>
+  <p>data1.no skanner DNS-recordene (SPF, DMARC, DKIM, MTA-STS, TLS-RPT, BIMI) for 158 norske virksomhetsdomener én gang per dag via Cloudflare DNS over HTTPS (1.1.1.1). Karakteren beregnes etter en vektet modell der DMARC p=reject, SPF -all og DKIM 2048-bit gir høyest uttelling.</p>
+  <p>Datagrunnlaget oppdateres automatisk. Historiske data er tilgjengelig i <a href="/sjekk/" style="color:#0f766e">domene-katalogen</a> og <a href="/rapport-2026/" style="color:#0f766e">sikkerhetsrapporten 2026</a>.</p>
+
+  <h2>Referanser og videre lesning</h2>
+  <ul>
+    <li><a href="/rapport-2026/" style="color:#0f766e">Norges 100 største nettsteder — e-postsikkerhetsrapport 2026</a></li>
+    <li><a href="/blogg/dmarc/" style="color:#0f766e">DMARC forklart: Slik beskytter du domenet mot phishing</a></li>
+    <li><a href="/blogg/spf/" style="color:#0f766e">SPF: Slik beskytter du domenet mot e-post-spoofing</a></li>
+    <li><a href="/blogg/dkim/" style="color:#0f766e">DKIM forklart: Digital signatur for e-post</a></li>
+    <li><a href="/blogg/dmarc-microsoft-365/" style="color:#0f766e">DMARC i Microsoft 365: Komplett guide</a></li>
+    <li><a href="/sjekk/" style="color:#0f766e">Katalog over alle 158 overvåkede norske domener</a></li>
+  </ul>
+</main>
+</body>
+</html>

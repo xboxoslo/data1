@@ -51,4 +51,10 @@ td{padding:10px 12px;border-bottom:1px solid rgba(56,189,248,.08);color:#cbd5e0}
 .faq[open] summary{margin-bottom:8px;border-bottom:1px solid rgba(56,189,248,.2);padding-bottom:10px}
 .faq summary::-webkit-details-marker{color:#38bdf8}
 .faq p{color:#cbd5e0}
+.share-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:32px 0;padding:18px 20px;background:rgba(15,23,42,.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:10px;border:1px solid rgba(56,189,248,.2)}
+.share-bar span{font-size:13px;color:#94a3b8;font-weight:600}
+.share-btn{display:inline-flex;align-items:center;padding:7px 16px;border-radius:999px;font-size:13px;font-weight:700;text-decoration:none;border:none;cursor:pointer;transition:all .15s}
+.share-linkedin{background:#0077b5;color:#fff}.share-linkedin:hover{background:#005885}
+.share-twitter{background:#1d1f23;color:#fff;border:1px solid rgba(255,255,255,.2)}.share-twitter:hover{background:#333}
+.share-copy{background:rgba(56,189,248,.15);color:#38bdf8;border:1px solid rgba(56,189,248,.3)}.share-copy:hover{background:rgba(56,189,248,.25)}
 @media(max-width:640px){h1{font-size:28px}h2{font-size:20px}main{padding:24px 16px 60px}}

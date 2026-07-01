@@ -14,7 +14,7 @@
 <meta property="og:locale" content="nb_NO">
 <meta property="og:url" content="https://data1.no/blogg/spf-microsoft-365/">
 <meta property="article:published_time" content="2026-05-08T09:00:00+00:00">
-<meta property="article:modified_time" content="2026-05-08T09:00:00+00:00">
+<meta property="article:modified_time" content="2026-07-01T09:00:00+00:00">
 <meta property="og:title" content="SPF-oppsett i Microsoft 365 — komplett guide">
 <meta property="og:description" content="Slik setter du opp riktig SPF for M365 — inkluderer 10-lookup-grensen og tredjeparter.">
 <meta property="og:image" content="https://data1.no/og-image.png">
@@ -22,7 +22,8 @@
 <title>SPF-oppsett i Microsoft 365 | data1.no</title>
 <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/blogg/_assets/post.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"SPF-oppsett i Microsoft 365","datePublished":"2026-05-08","author":{"@type":"Person","@id":"https://data1.no/om/#terje-otterlei","name":"Terje Otterlei"},"publisher":{"@type":"Organization","name":"data1.no","logo":{"@type":"ImageObject","url":"https://data1.no/og-image.png"}},"mainEntityOfPage":"https://data1.no/blogg/spf-microsoft-365/","inLanguage":"nb-NO"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"SPF-oppsett i Microsoft 365","datePublished":"2026-05-08","dateModified":"2026-07-01","author":{"@type":"Person","@id":"https://data1.no/om/#terje-otterlei","name":"Terje Otterlei"},"publisher":{"@type":"Organization","name":"data1.no","logo":{"@type":"ImageObject","url":"https://data1.no/og-image.png"}},"mainEntityOfPage":"https://data1.no/blogg/spf-microsoft-365/","inLanguage":"nb-NO"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Hva er SPF for Microsoft 365?","acceptedAnswer":{"@type":"Answer","text":"Standard SPF for Microsoft 365 er: v=spf1 include:spf.protection.outlook.com -all. Legg til som TXT-record på rotnivå (@) i DNS hos domeneleverandøren din."}},{"@type":"Question","name":"Kan jeg ha to SPF-records i Microsoft 365?","acceptedAnswer":{"@type":"Answer","text":"Nei. To SPF-records på samme domene gjør begge ugyldige. Slå dem sammen i én record. Hvis du bruker M365 og Mailchimp: v=spf1 include:spf.protection.outlook.com include:servers.mcsv.net -all"}},{"@type":"Question","name":"Hva er 10-lookup grensen i SPF?","acceptedAnswer":{"@type":"Answer","text":"SPF tillater maks 10 DNS-oppslag (include:, a, mx, ptr). Hvert include:-direktiv teller. Overstiger du 10, returnerer SPF PermError og hele recorden behandles som ugyldig. Bruk SPF-flattening for å unngå dette."}},{"@type":"Question","name":"Hva er forskjellen på -all og ~all i Microsoft 365?","acceptedAnswer":{"@type":"Answer","text":"-all (hard fail) betyr at uautoriserte avsendere skal avvises. ~all (soft fail) betyr at de markeres som mistenkelige men leveres. Microsoft anbefaler -all for best mulig beskyttelse."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Hjem", "item": "https://data1.no/"}, {"@type": "ListItem", "position": 2, "name": "Blogg", "item": "https://data1.no/blogg/"}, {"@type": "ListItem", "position": 3, "name": "SPF i Microsoft 365", "item": "https://data1.no/blogg/spf-microsoft-365/"}]}</script>
 <script src="/_assets/tracker.js" defer></script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -40,6 +41,17 @@
   <h1>SPF-oppsett i Microsoft 365</h1>
   <p class="meta">Publisert <time datetime="2026-05-08">8. mai 2026</time> · Av Terje Otterlei · 7 min lesetid</p>
   <p class="lead">Microsoft 365 / Exchange Online er Norges mest brukte forretnings-e-post. SPF er den enkleste delen av e-postsikkerhet å sette opp — men også den hvor flest gjør feil. Her er hele oppskriften.</p>
+
+  <div class="callout">
+    <strong>TL;DR — standard SPF for M365:</strong>
+    <ul style="margin:8px 0 0 18px">
+      <li>Bare M365: <code>v=spf1 include:spf.protection.outlook.com -all</code></li>
+      <li>M365 + Mailchimp: <code>v=spf1 include:spf.protection.outlook.com include:servers.mcsv.net -all</code></li>
+      <li>Maks 10 DNS-oppslag — gå over og SPF blir ugyldig (PermError)</li>
+      <li>Kun én SPF-record per domene. To stykker → begge ugyldige</li>
+      <li>Bruk alltid <code>-all</code> (hard fail), ikke <code>~all</code></li>
+    </ul>
+  </div>
 
   <div class="toc">
     <h2>Innhold</h2>
@@ -135,11 +147,18 @@
     <li><a href="/verktoy/spf-generator/">SPF-generator</a></li>
   </ul>
 
+  <div class="share-bar">
+    <span>Del artikkelen:</span>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://data1.no/blogg/spf-microsoft-365/" target="_blank" rel="noopener" class="share-btn share-linkedin">LinkedIn</a>
+    <a href="https://twitter.com/intent/tweet?url=https://data1.no/blogg/spf-microsoft-365/&text=SPF-oppsett+i+Microsoft+365+%E2%80%94+komplett+guide" target="_blank" rel="noopener" class="share-btn share-twitter">X / Twitter</a>
+    <button class="share-btn share-copy" onclick="navigator.clipboard.writeText(location.href).then(function(){this.textContent='Kopiert!'},function(){}).bind(this)">Kopier lenke</button>
+  </div>
+
   <div class="author-card">
     <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(140deg,#14b8a6,#0f766e);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:18px">TO</div>
     <div>
       <div class="author-name">Terje Otterlei</div>
-      <div class="author-meta">Daglig leder i Micronet AS — 20+ års erfaring innen Microsoft 365 og e-postinfrastruktur. Forvalter DMARC-overvåking for 50+ M365-tenants i Lørenskog. <a href="https://www.linkedin.com/in/terjeotterlei/" style="color:#0f766e;text-decoration:none">LinkedIn</a> · <a href="https://micronet.no/" style="color:#0f766e;text-decoration:none">micronet.no</a> · <a href="/om/" style="color:#0f766e;text-decoration:none">Om data1.no</a></div>
+      <div class="author-meta">Daglig leder i Micronet AS — 20+ års erfaring innen Microsoft 365 og e-postinfrastruktur. Forvalter DMARC-overvåking for 50+ M365-tenants i Lørenskog. <a href="https://www.linkedin.com/in/terjeotterlei/" style="color:#38bdf8;text-decoration:none">LinkedIn</a> · <a href="https://micronet.no/" style="color:#38bdf8;text-decoration:none">micronet.no</a> · <a href="/om/" style="color:#38bdf8;text-decoration:none">Om data1.no</a></div>
     </div>
   </div>
 </main>
