@@ -14,7 +14,7 @@
 <meta property="og:locale" content="nb_NO">
 <meta property="og:url" content="https://data1.no/blogg/dkim/">
 <meta property="article:published_time" content="2026-05-07T09:00:00+00:00">
-<meta property="article:modified_time" content="2026-05-07T09:00:00+00:00">
+<meta property="article:modified_time" content="2026-07-01T09:00:00+00:00">
 <meta property="og:title" content="DKIM forklart: Digital signatur for e-post">
 <meta property="og:description" content="DKIM beviser at e-posten din faktisk kommer fra deg. Slik fungerer det og slik tester du om det er satt opp riktig.">
 <meta property="og:image" content="https://data1.no/og-image.png">
@@ -58,9 +58,19 @@ pre code{background:none;color:inherit;padding:0}
 .toc a{color:#0f766e;text-decoration:none}.toc a:hover{text-decoration:underline}
 .author-card{background:#fff;border-radius:12px;padding:22px 24px;margin-top:40px;display:flex;align-items:center;gap:16px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
 .author-name{font-weight:700;color:#0f172a}.author-meta{font-size:13px;color:#64748b}
+.share-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:32px 0;padding:18px 20px;background:#f8fafc;border-radius:10px;border:1px solid #e2e8f0}
+.share-bar span{font-size:13px;color:#64748b;font-weight:600}
+.share-btn{display:inline-flex;align-items:center;padding:7px 16px;border-radius:999px;font-size:13px;font-weight:700;text-decoration:none;border:none;cursor:pointer;transition:all .15s}
+.share-linkedin{background:#0077b5;color:#fff}.share-linkedin:hover{background:#005885}
+.share-twitter{background:#000;color:#fff}.share-twitter:hover{background:#333}
+.share-copy{background:#f1f5f9;color:#0f172a;border:1px solid #e2e8f0}.share-copy:hover{background:#e2e8f0}
+.faq-item{margin-bottom:18px;background:#fff;border-radius:8px;padding:16px 18px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.faq-q{font-weight:700;color:#0f172a;margin-bottom:6px}
+.faq-a{color:#334155;font-size:14.5px}
 @media(max-width:640px){h1{font-size:28px}h2{font-size:20px}main{padding:24px 16px 60px}}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"DKIM forklart: Digital signatur for e-post","datePublished":"2026-05-07","dateModified":"2026-05-07","author":{"@type":"Person","@id":"https://data1.no/om/#terje-otterlei","name":"Terje Otterlei"},"publisher":{"@type":"Organization","name":"data1.no","logo":{"@type":"ImageObject","url":"https://data1.no/og-image.png"}},"description":"DKIM (DomainKeys Identified Mail) er den digitale signaturen som beviser at en e-post faktisk kommer fra deg.","image":"https://data1.no/og-image.png","mainEntityOfPage":"https://data1.no/blogg/dkim/","inLanguage":"nb-NO"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"DKIM forklart: Digital signatur for e-post","datePublished":"2026-05-07","dateModified":"2026-07-01","author":{"@type":"Person","@id":"https://data1.no/om/#terje-otterlei","name":"Terje Otterlei"},"publisher":{"@type":"Organization","name":"data1.no","logo":{"@type":"ImageObject","url":"https://data1.no/og-image.png"}},"description":"DKIM (DomainKeys Identified Mail) er den digitale signaturen som beviser at en e-post faktisk kommer fra deg.","image":"https://data1.no/og-image.png","mainEntityOfPage":"https://data1.no/blogg/dkim/","inLanguage":"nb-NO"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Hva er DKIM?","acceptedAnswer":{"@type":"Answer","text":"DKIM (DomainKeys Identified Mail) er en digital signatur som legges til hver utgående e-post. Mottakerserveren verifiserer signaturen mot en offentlig nøkkel i DNS — og beviser at e-posten faktisk kom fra deg og ikke er endret."}},{"@type":"Question","name":"Hva er forskjellen på DKIM og SPF?","acceptedAnswer":{"@type":"Answer","text":"SPF sjekker om IP-adressen til avsenderserveren er godkjent. DKIM sjekker om e-postens innhold er signert med en kjent privat nøkkel. Begge trengs for å få DMARC til å fungere."}},{"@type":"Question","name":"Hva er en DKIM-selektor?","acceptedAnswer":{"@type":"Answer","text":"En DKIM-selektor er et navn som identifiserer hvilken offentlig nøkkel som skal brukes til å verifisere signaturen. Selektoren vises som s= i DKIM-Signature-headeren og brukes til å slå opp selektor._domainkey.domene.no i DNS."}},{"@type":"Question","name":"Hva bør jeg bruke — 1024-bit eller 2048-bit DKIM-nøkkel?","acceptedAnswer":{"@type":"Answer","text":"2048-bit anbefales. 1024-bit anses som usikkert i dag og kan knekkes med tilstrekkelig regnekraft. Microsoft 365 og Google Workspace bruker 2048-bit som standard."}},{"@type":"Question","name":"Hvordan sjekker jeg om DKIM er satt opp?","acceptedAnswer":{"@type":"Answer","text":"Bruk data1.no som automatisk prøver 30+ selektorer og viser deg om DKIM er konfigurert, hvilken nøkkellengde som brukes, og om det er feil i oppsettet."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Hjem", "item": "https://data1.no/"}, {"@type": "ListItem", "position": 2, "name": "Blogg", "item": "https://data1.no/blogg/"}, {"@type": "ListItem", "position": 3, "name": "DKIM forklart", "item": "https://data1.no/blogg/dkim/"}]}</script>
 <script src="/_assets/tracker.js" defer></script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -79,6 +89,17 @@ pre code{background:none;color:inherit;padding:0}
   <p class="meta">Publisert <time datetime="2026-05-07">7. mai 2026</time> · Av Terje Otterlei · 6 min lesetid</p>
   <p class="lead">DKIM er det tredje benet i e-posttreenigheten — sammen med SPF og DMARC. Mens SPF sjekker hvor e-posten kom fra, beviser DKIM at innholdet ikke er endret og at avsenderen virkelig er den de utgir seg for.</p>
 
+  <div class="callout">
+    <strong>TL;DR — det viktigste på 30 sekunder:</strong>
+    <ul style="margin:8px 0 0 18px">
+      <li>DKIM er en kryptografisk signatur som legges på hver utgående e-post</li>
+      <li>Bevis: e-posten kom fra deg og innholdet er ikke endret</li>
+      <li>Krever at du publiserer en offentlig nøkkel i DNS som TXT-record</li>
+      <li>Bruk 2048-bit nøkkel — aldri 1024-bit (anses som usikkert)</li>
+      <li>Microsoft 365 og Google Workspace setter opp DKIM nesten automatisk</li>
+    </ul>
+  </div>
+
   <div class="toc">
     <h2>Innhold</h2>
     <ol>
@@ -93,6 +114,7 @@ pre code{background:none;color:inherit;padding:0}
   </div>
 
   <h2 id="hva">1. Hva er DKIM?</h2>
+  <p><strong>DKIM er en digital signatur som bevis at e-posten faktisk kom fra domenet ditt og at ingen har endret innholdet underveis. Uten DKIM kan angripere forfalske e-poster i ditt navn og manipulere innholdet i transit.</strong></p>
   <p>DKIM står for <strong>DomainKeys Identified Mail</strong> og er definert i RFC 6376. Det fungerer som en digital signatur som legges til hver e-post du sender. Mottakerserveren kan verifisere signaturen mot en offentlig nøkkel som ligger i DNS-en din — og dermed bevise at:</p>
   <ol>
     <li>E-posten faktisk kom fra deg (autentisering)</li>
@@ -142,6 +164,7 @@ pre code{background:none;color:inherit;padding:0}
   </div>
 
   <h2 id="selectors">4. Hva er en DKIM-selektor?</h2>
+  <p><strong>En DKIM-selektor er et navn som identifiserer hvilken av dine offentlige nøkler som skal brukes. Du kan ha flere selektorer parallelt — én per e-postleverandør — noe som er praktisk hvis du bruker både Microsoft 365 og Mailchimp.</strong></p>
   <p>Siden du kan ha flere DKIM-nøkler samtidig (én per leverandør), bruker DKIM en <strong>selektor</strong> som peker til riktig nøkkel. Selektoren står i <code>DKIM-Signature</code>-headeren som <code>s=</code>.</p>
 
   <p>Eksempel:</p>
@@ -214,6 +237,35 @@ pre code{background:none;color:inherit;padding:0}
     <li><a href="/feil/dkim-fail-microsoft-365/">DKIM-feil i Microsoft 365</a> — vanlig ved hybrid-oppsett</li>
     <li><a href="/feil/google-yahoo-bulk-sender/">Google/Yahoo bulk-sender-krav</a> — DKIM er obligatorisk</li>
   </ul>
+
+  <h2>Ofte stilte spørsmål om DKIM</h2>
+  <div class="faq-item">
+    <p class="faq-q">Hva er DKIM?</p>
+    <p class="faq-a">DKIM (DomainKeys Identified Mail) er en digital signatur som legges til hver utgående e-post. Mottakerserveren verifiserer signaturen mot en offentlig nøkkel i DNS — og beviser at e-posten faktisk kom fra deg og ikke er endret underveis.</p>
+  </div>
+  <div class="faq-item">
+    <p class="faq-q">Hva er forskjellen på DKIM og SPF?</p>
+    <p class="faq-a">SPF sjekker om IP-adressen til avsenderserveren er godkjent. DKIM sjekker om e-postens innhold er signert med en kjent privat nøkkel. DMARC bruker begge til å ta en endelig beslutning om hva som skal skje med e-posten.</p>
+  </div>
+  <div class="faq-item">
+    <p class="faq-q">Hva er en DKIM-selektor?</p>
+    <p class="faq-a">En selektor er et navn (som selector1 eller google) som identifiserer hvilken offentlig nøkkel som brukes. Det gjør det mulig å ha flere DKIM-nøkler parallelt — én per e-postleverandør.</p>
+  </div>
+  <div class="faq-item">
+    <p class="faq-q">Bør jeg bruke 1024-bit eller 2048-bit DKIM-nøkkel?</p>
+    <p class="faq-a">2048-bit anbefales. 1024-bit anses som utdatert og kan i teorien knekkes. Microsoft 365 og Google Workspace bruker 2048-bit som standard.</p>
+  </div>
+  <div class="faq-item">
+    <p class="faq-q">Hvordan sjekker jeg om DKIM er satt opp riktig?</p>
+    <p class="faq-a">Bruk data1.no — vi prøver automatisk 30+ selektorer og forteller deg om DKIM er aktivt, hvilken nøkkellengde som brukes, og om oppsettet er korrekt.</p>
+  </div>
+
+  <div class="share-bar">
+    <span>Del artikkelen:</span>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://data1.no/blogg/dkim/" target="_blank" rel="noopener" class="share-btn share-linkedin">LinkedIn</a>
+    <a href="https://twitter.com/intent/tweet?url=https://data1.no/blogg/dkim/&text=DKIM+forklart%3A+Digital+signatur+for+e-post" target="_blank" rel="noopener" class="share-btn share-twitter">X / Twitter</a>
+    <button class="share-btn share-copy" onclick="navigator.clipboard.writeText(location.href).then(function(){this.textContent='Kopiert!'},function(){}).bind(this)">Kopier lenke</button>
+  </div>
 
   <div class="author-card">
     <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(140deg,#14b8a6,#0f766e);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:18px">TO</div>
