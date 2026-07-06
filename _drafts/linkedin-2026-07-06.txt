@@ -1,0 +1,10 @@
+Equinor, Hydro og Yara scorer 0 av 100 på e-postsikkerhet 🚨
+
+Det betyr at hvem som helst kan sende e-post og utgi seg for å være disse selskapene — uten at mottakeren enkelt kan avsløre det.
+
+Av 158 analyserte norske domener får 21 karakteren F. NAV og Stortinget leverer derimot toppscorer.
+
+Sjekk ukens fullstendige rapport her:
+https://data1.no/blogg/norske-storselskaper-med-f-i-e-postsikkerhet-uke-28-rapport/
+
+Hvordan scorer din virksomhet?
