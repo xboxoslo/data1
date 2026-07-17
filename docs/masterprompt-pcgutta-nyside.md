@@ -32,8 +32,8 @@ Ikke lag en statisk demo som bare ser riktig ut. Løsningen skal være produksjo
 ## Fakta om virksomheten (eneste tillatte faktakilde)
 
 - Merkevare: **PC-Gutta** — del av Micronet AS
-- Juridisk selskap: Micronet AS, org.nr. NO 990 661 766 MVA
-  - ⚠️ **VERIFISER før publisering:** offentlige kilder viser også «PC-Gutta AS, org.nr. 987 862 424». Legg org.nr. i sentral konfig med tydelig `VERIFISER`-markering og noter avviket i `docs/VERIFISER-FOR-LANSERING.md`. Ikke publiser juridisk informasjon før dette er avklart.
+- Juridisk selskap: **Micronet AS, org.nr. NO 990 661 766 MVA** (bekreftet av eier — dette er det riktige og eneste org.nr. som skal brukes).
+  - Offentlige kilder (Proff m.fl.) viser også et eldre «PC-Gutta AS, org.nr. 987 862 424» — dette skal IKKE brukes på nettsiden. Noter i `TODO-MANUELT.md` at eksterne oppføringer med gammelt org.nr. bør ryddes/oppdateres.
 - Telefon: 22 80 20 40 (Lørenskog) / 69 29 40 40 (Moss)
 - E-post: post@pc-gutta.no
 - Adresse: Kjennveien 167, 1473 Lørenskog (verksted man–fre 09–15) + kontor i Moss
@@ -416,7 +416,7 @@ Oppgaven er ikke ferdig før følgende er levert:
 9. Analysehendelser og tester.
 10. Dokumentasjon: `README.md`, `docs/current-site-audit.md`, `docs/architecture.md`, `docs/content-model.md`, `docs/seo.md`, `docs/schema.md`, `docs/analytics-events.md`, `docs/redirect-map.csv`, `docs/launch-checklist.md`, `docs/design-system.md` (tokens, font-pairing med begrunnelse, fargepalett, ikonstil og Higgsfield-stilprompten som ble brukt for all grafikk).
 11. `TODO-MANUELT.md`: alt som krever endring i eksisterende sider/systemer, minimum — legge Microsoft 365-siden i hovedmeny/footer (ankertekst «Microsoft 365»); lenke fra forsiden og /bedrifter/; sitemap + Google Search Console-innsending ved lansering; Google Business Profile («Microsoft 365» som tjeneste, Oslo som serviceområde); Gule Sider-oppføring (Office 365/IT Oslo); domenekanonisering pcgutta.no/pc-gutta.no.
-12. `docs/VERIFISER-FOR-LANSERING.md`: all informasjon virksomheten må verifisere (org.nr.-konflikten, priser, åpningstider, serviceområde, bilder, sertifiseringer, ansatte).
+12. `docs/VERIFISER-FOR-LANSERING.md`: all informasjon virksomheten må verifisere (priser, åpningstider, serviceområde, bilder, sertifiseringer, ansatte).
 13. Innholdsoversikt med manglende innhold markert.
 14. Lanseringssjekkliste.
 
@@ -464,7 +464,7 @@ Når implementeringen er ferdig, lever en konsis rapport med:
 5. Hvilke URL-er som er planlagt endret ved lansering.
 6. Hvilke tester som ble kjørt, og resultatene.
 7. Kjente begrensninger.
-8. Informasjon som fortsatt må verifiseres (inkl. org.nr.-konflikten).
+8. Informasjon som fortsatt må verifiseres.
 9. Søkeord-plassering for hovedmålet: hvor «Office 365», «Microsoft 365» og «Oslo» ble brukt på landingssiden.
 10. Nøyaktige steg for lokal oppstart, staging og produksjonssetting, med rollback-prosedyre.
 11. De ti viktigste SEO-tiltakene som nå er implementert.
