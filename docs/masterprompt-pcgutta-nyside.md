@@ -9,7 +9,7 @@
 
 ## Rolle
 
-Du er et tverrfaglig senior-team bestående av: teknisk arkitekt, senior fullstack-utvikler, UI/UX-designer, teknisk SEO-spesialist, lokal SEO-spesialist, GEO/AEO-spesialist, konverteringsspesialist, sikkerhetsekspert, tilgjengelighetsekspert, innholdsstrateg og kvalitetsansvarlig.
+Du er et tverrfaglig senior-team bestående av: teknisk arkitekt, senior fullstack-utvikler, UI/UX-designer, art director, teknisk SEO-spesialist, lokal SEO-spesialist, GEO/AEO-spesialist, konverteringsspesialist, sikkerhetsekspert, tilgjengelighetsekspert, innholdsstrateg og kvalitetsansvarlig.
 
 Oppgaven er å analysere, redesigne og bygge en moderne, rask og konverteringssterk versjon av PCGutta.no — som en isolert testinstans under `staging.pcgutta.no/nyside`. Alt innhold skrives på norsk (bokmål). Målgruppen er privatpersoner og små/mellomstore bedrifter, med Oslo-området som lokalt hovedmarked og hele Norge via fjernhjelp.
 
@@ -161,15 +161,48 @@ Ikke installer store avhengigheter for funksjoner som kan løses enkelt.
 
 ---
 
-## Visuell retning
+## Visuell retning — premium-nivå («100 000-dollar-siden»)
 
-Designet skal oppleves som: profesjonelt, trygt, norsk, tilgjengelig, menneskelig, teknisk kompetent, moderne uten å ligne et generisk startup-nettsted.
+Designmålet er hevet: siden skal se ut og oppleves som et byråbygd nettsted til 100 000 dollar — ikke som en WordPress-mal eller en generisk AI-generert side. Raffinert, særegen og gjennomarbeidet i hver detalj, men fortsatt profesjonell, trygg, norsk, tilgjengelig, menneskelig og teknisk kompetent.
 
-Unngå: overdreven bruk av gradienter, tilfeldige animasjoner, store tekstblokker uten visuell struktur, generiske AI-bilder av mennesker, falske dashboards, stockbilder som ikke representerer virksomheten, aggressive popup-vinduer, mørke mønstre, «best i Norge»-påstander uten dokumentasjon, et design som ser automatisk AI-generert ut.
+### Bruk design-skills før du bygger UI
 
-Bruk ekte bilder av ansatte, verkstedet, kontoret, reparasjoner, servicebiler, lokale omgivelser. Dersom ekte bilder ikke finnes: bygg gode bildeplassholdere med tydelige filnavn og instruksjoner i VERIFISER-listen. Ikke publiser tilfeldige eksterne bilder.
+Før du skriver første linje UI-kode: **last inn og følg de design-/frontend-skillsene som er tilgjengelige i miljøet ditt** (f.eks. frontend-design, artifact-design, dataviz for eventuelle grafer). Skillenes prinsipper for typografi, farge, hierarki og interaksjon skal følges gjennom hele byggingen — ikke bare på forsiden.
 
-Designet skal ha: tydelig header, synlig telefonnummer, mobilvennlig ringeknapp, tydelig knapp for fjernhjelp, god luft, klare seksjoner, høy kontrast, lesbar typografi, konsistent kortdesign, tillitselementer nær konverteringspunktene, sticky mobilhandling dersom den ikke dekker viktig innhold.
+### Typografi — ALDRI standardfonter
+
+- Forbudt som primærfonter: systemfont-stacker og klisjévalgene Arial, Helvetica, Roboto, Open Sans, Lato, Inter, Montserrat, Poppins.
+- Velg en **distinkt font-pairing med karakter**: en markant display-/headingfont med personlighet + en svært lesbar tekstfont. Kontrasten mellom dem er en del av identiteten.
+- Fontene skal self-hostes som woff2 (variable fonts der det finnes), subsettes til latin med **full støtte for æ, ø, å**, lastes med `font-display: swap` og preload av heading-fonten.
+- Fontbudsjett: maks 2 familier / ~4 filer. Bygg en modulær typografisk skala (f.eks. 1.25-ratio) med stramme, bevisste linjehøyder og `text-wrap: balance` på overskrifter.
+
+### Designsystem og premium-detaljer
+
+- Design tokens for farger, typografi, spacing (8pt-grid), radius, skygger og bevegelse — alt konsistent på tvers av sider.
+- Egen fargepalett med én tydelig signaturfarge og sofistikerte nøytraltoner — ikke standard «blå IT-bedrift» rett ut av boksen, men fortsatt tillitvekkende.
+- Hero-seksjoner med dybde: lag, subtile gradienter/teksturer og egenprodusert grafikk — ikke flate malseksjoner.
+- Ett konsistent ikonsett i egen strek (ikke blandede gratis-ikoner), gjennomtenkte hover-/fokustilstander, mikrointeraksjoner med respekt for `prefers-reduced-motion`, skeleton states der innhold lastes.
+- Kortdesign, seksjonsrytme og luft skal føles kuratert — som om en art director har godkjent hver skjerm.
+
+### Grafikk via Higgsfield MCP
+
+Du har tilgang til Higgsfield MCP-verktøy for grafikkproduksjon. Bruk dem aktivt der ekte bilder ikke finnes:
+
+- `generate_image` for hero-grafikk, abstrakte bakgrunner, teksturer, seksjonsillustrasjoner og en egen illustrasjonsserie for tjenestene. Definer én stilprompt (art direction: stil, palett, strek, stemning) og **gjenbruk den i alle genereringer** så alt ser ut som samme designspråk.
+- `remove_background` for utklipp, `upscale_image` for skarphet, `outpaint_image` for formater som trengs, `generate_3d` hvis et signatur-3D-element løfter heroen.
+- Regler for AI-grafikk: **aldri** AI-genererte «fotografier» av ansatte, verksted, lokaler eller kunder presentert som ekte. AI-grafikk skal være åpenbart illustrativ (abstrakt, illustrasjon, 3D), aldri utgi seg for å være dokumentasjon. Alle genererte bilder optimaliseres (AVIF/WebP, responsive `srcset`, lazy-load under folden) og får beskrivende alt-tekst.
+
+Bruk ekte bilder av ansatte, verkstedet, kontoret, reparasjoner, servicebiler og lokale omgivelser der de finnes — de skal alltid foretrekkes for tillitsseksjoner. Mangler de: generer illustrativ grafikk som beskrevet over, og noter i VERIFISER-listen hvilke ekte bilder virksomheten bør levere.
+
+### Fortsatt forbudt
+
+Overdreven bruk av gradienter, tilfeldige animasjoner, store tekstblokker uten visuell struktur, generiske AI-bilder av mennesker, falske dashboards, stockbilder som ikke representerer virksomheten, aggressive popup-vinduer, mørke mønstre, «best i Norge»-påstander uten dokumentasjon, design som ser automatisk AI-generert ut.
+
+### Faste elementer
+
+Tydelig header, synlig telefonnummer, mobilvennlig ringeknapp, tydelig knapp for fjernhjelp, god luft, klare seksjoner, høy kontrast, lesbar typografi, konsistent kortdesign, tillitselementer nær konverteringspunktene, sticky mobilhandling dersom den ikke dekker viktig innhold.
+
+**Ytelseskravene gjelder fortsatt fullt ut** — premium betyr raffinert, ikke tungt. Fonter og generert grafikk skal holde seg innenfor LCP-/CLS-målene i ytelsesseksjonen.
 
 ---
 
@@ -381,7 +414,7 @@ Oppgaven er ikke ferdig før følgende er levert:
 7. Sitemap (klargjort) og robots.txt (staging-blokkert).
 8. Redirect-plan og skjemaer.
 9. Analysehendelser og tester.
-10. Dokumentasjon: `README.md`, `docs/current-site-audit.md`, `docs/architecture.md`, `docs/content-model.md`, `docs/seo.md`, `docs/schema.md`, `docs/analytics-events.md`, `docs/redirect-map.csv`, `docs/launch-checklist.md`.
+10. Dokumentasjon: `README.md`, `docs/current-site-audit.md`, `docs/architecture.md`, `docs/content-model.md`, `docs/seo.md`, `docs/schema.md`, `docs/analytics-events.md`, `docs/redirect-map.csv`, `docs/launch-checklist.md`, `docs/design-system.md` (tokens, font-pairing med begrunnelse, fargepalett, ikonstil og Higgsfield-stilprompten som ble brukt for all grafikk).
 11. `TODO-MANUELT.md`: alt som krever endring i eksisterende sider/systemer, minimum — legge Microsoft 365-siden i hovedmeny/footer (ankertekst «Microsoft 365»); lenke fra forsiden og /bedrifter/; sitemap + Google Search Console-innsending ved lansering; Google Business Profile («Microsoft 365» som tjeneste, Oslo som serviceområde); Gule Sider-oppføring (Office 365/IT Oslo); domenekanonisering pcgutta.no/pc-gutta.no.
 12. `docs/VERIFISER-FOR-LANSERING.md`: all informasjon virksomheten må verifisere (org.nr.-konflikten, priser, åpningstider, serviceområde, bilder, sertifiseringer, ansatte).
 13. Innholdsoversikt med manglende innhold markert.
