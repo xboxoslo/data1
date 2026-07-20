@@ -1,0 +1,9 @@
+Equinor, Hydro og Yara scorer 0 av 100 på e-postsikkerhet 🔓
+
+Hvem som helst kan sende e-post som ser ut til å komme fra @equinor.no. Ingen ting i DNS-oppsettet stopper dem.
+
+I ukens analyse av 158 norske domener mangler disse børsnoterte gigantene grunnleggende DMARC-beskyttelse – mens NAV og SSB topper listen med 100 poeng.
+
+Sjekk hele rapporten: https://data1.no/blogg/equinor-hydro-og-yara-scorer-0-av-100-uke-30-rapport/
+
+Hvordan scorer ditt domene?
