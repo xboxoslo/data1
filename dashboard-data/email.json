@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-19T08:41:53Z",
+  "lastUpdated": "2026-07-20T09:40:45Z",
   "ownDomains": [
     {
       "domain": "data1.no",
@@ -11,7 +11,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": false,
-      "lastChecked": "2026-07-19T08:41:54Z"
+      "lastChecked": "2026-07-20T09:40:47Z"
     },
     {
       "domain": "micronet.no",
@@ -23,7 +23,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": true,
-      "lastChecked": "2026-07-19T08:41:55Z"
+      "lastChecked": "2026-07-20T09:40:48Z"
     }
   ],
   "trackedDomains": {
@@ -35,21 +35,10 @@
     "rejectPercent": 54.4
   },
   "weeklyChanges": {
-    "improved": [
-      {
-        "domain": "mattilsynet.no",
-        "from": "p=reject",
-        "to": "p=reject",
-        "scoreDelta": 25
-      }
-    ],
+    "improved": [],
     "regressed": []
   },
   "timeline": [
-    {
-      "week": "2026-W19",
-      "rejectPercent": 54.4
-    },
     {
       "week": "2026-W20",
       "rejectPercent": 54.4
@@ -88,6 +77,10 @@
     },
     {
       "week": "2026-W29",
+      "rejectPercent": 54.4
+    },
+    {
+      "week": "2026-W30",
       "rejectPercent": 54.4
     }
   ]
