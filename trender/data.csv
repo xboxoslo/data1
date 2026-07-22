@@ -1,6 +1,6 @@
 domain,sector,score,grade,dmarc_policy,has_spf,has_dmarc,has_dkim,has_mta_sts,has_tls_rpt,has_bimi
 dnb.no,Banker,95,A+,reject,1,1,1,1,1,1
-nordea.no,Banker,80,A,reject,1,1,1,0,0,0
+nordea.no,Banker,83,A,reject,1,1,1,0,0,1
 sparebank1.no,Banker,80,A,reject,1,1,1,0,0,0
 storebrand.no,Banker,78,B,reject,1,1,1,0,0,1
 handelsbanken.no,Banker,63,C,reject,1,1,0,0,0,1
