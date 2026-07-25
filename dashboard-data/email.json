@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-24T09:02:13Z",
+  "lastUpdated": "2026-07-25T08:29:04Z",
   "ownDomains": [
     {
       "domain": "data1.no",
@@ -11,7 +11,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": false,
-      "lastChecked": "2026-07-24T09:02:14Z"
+      "lastChecked": "2026-07-25T08:29:05Z"
     },
     {
       "domain": "micronet.no",
@@ -23,15 +23,15 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": true,
-      "lastChecked": "2026-07-24T09:02:15Z"
+      "lastChecked": "2026-07-25T08:29:05Z"
     }
   ],
   "trackedDomains": {
     "total": 158,
     "withReject": 86,
     "withQuarantine": 27,
-    "withNone": 33,
-    "missing": 12,
+    "withNone": 32,
+    "missing": 13,
     "rejectPercent": 54.4
   },
   "weeklyChanges": {
@@ -43,9 +43,20 @@
         "scoreDelta": 3
       }
     ],
-    "regressed": []
+    "regressed": [
+      {
+        "domain": "clas-ohlson.no",
+        "from": "p=none",
+        "to": "p=missing",
+        "scoreDelta": -33
+      }
+    ]
   },
   "timeline": [
+    {
+      "week": "2026-W19",
+      "rejectPercent": 54.4
+    },
     {
       "week": "2026-W20",
       "rejectPercent": 54.4
@@ -72,7 +83,7 @@
     },
     {
       "week": "2026-W26",
-      "rejectPercent": 54.4
+      "rejectPercent": 53.8
     },
     {
       "week": "2026-W27",
