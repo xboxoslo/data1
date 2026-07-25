@@ -75,7 +75,7 @@ elkjop.no,E-handel,80,A,reject,1,1,1,0,0,0
 komplett.no,E-handel,80,A,reject,1,1,1,0,0,0
 power.no,E-handel,78,B,reject,1,1,1,0,0,1
 xxl.no,E-handel,70,B,quarantine,1,1,1,0,1,0
-clas-ohlson.no,E-handel,33,F,none,1,1,0,0,0,0
+clas-ohlson.no,E-handel,0,F,,0,0,0,0,0,0
 jernia.no,E-handel,75,B,reject,1,1,1,0,0,0
 biltema.no,E-handel,60,C,quarantine,1,1,1,0,0,0
 ikea.com,E-handel,100,A+,reject,1,1,1,1,1,1
