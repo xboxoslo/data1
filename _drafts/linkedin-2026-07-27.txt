@@ -1,0 +1,9 @@
+Equinor, Hydro og Yara scorer **0 av 100** på e-postsikkerhet 📉
+
+Det betyr at hvem som helst kan sende e-post som ser ut til å komme fra disse selskapene. Mens NAV og Stortinget holder toppkarakter, mangler flere børsnoterte giganter grunnleggende DMARC-beskyttelse.
+
+Vi analyserte 158 norske domener — resultatene overrasker.
+
+Les ukesrapporten her: https://data1.no/blogg/norske-storselskaper-med-f-i-e-postsikkerhet-uke-31-rapport/
+
+Vet du hvordan ditt selskap scorer?
