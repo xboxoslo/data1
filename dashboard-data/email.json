@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-28T09:15:49Z",
+  "lastUpdated": "2026-07-29T09:20:10Z",
   "ownDomains": [
     {
       "domain": "data1.no",
@@ -11,7 +11,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": false,
-      "lastChecked": "2026-07-28T09:15:49Z"
+      "lastChecked": "2026-07-29T09:20:10Z"
     },
     {
       "domain": "micronet.no",
@@ -23,38 +23,25 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": true,
-      "lastChecked": "2026-07-28T09:15:50Z"
+      "lastChecked": "2026-07-29T09:20:11Z"
     }
   ],
   "trackedDomains": {
     "total": 158,
     "withReject": 86,
     "withQuarantine": 27,
-    "withNone": 31,
-    "missing": 14,
+    "withNone": 32,
+    "missing": 13,
     "rejectPercent": 54.4
   },
   "weeklyChanges": {
-    "improved": [
-      {
-        "domain": "nordea.no",
-        "from": "p=reject",
-        "to": "p=reject",
-        "scoreDelta": 3
-      }
-    ],
+    "improved": [],
     "regressed": [
       {
         "domain": "clas-ohlson.no",
         "from": "p=none",
         "to": "p=missing",
         "scoreDelta": -33
-      },
-      {
-        "domain": "tromso.kommune.no",
-        "from": "p=none",
-        "to": "p=missing",
-        "scoreDelta": -8
       }
     ]
   },
