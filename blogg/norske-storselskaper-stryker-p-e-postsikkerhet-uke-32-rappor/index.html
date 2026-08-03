@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="description" content="Norske storselskaper stryker på e-postsikkerhet — uke 32-rapport — ukentlig DMARC-analyse fra data1.no.">
+<meta name="author" content="Terje Otterlei">
+<meta name="theme-color" content="#1a202c">
+<link rel="canonical" href="https://data1.no/blogg/norske-storselskaper-stryker-p-e-postsikkerhet-uke-32-rappor/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Norske storselskaper stryker på e-postsikkerhet — uke 32-rapport">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<title>Norske storselskaper stryker på e-postsikkerhet — uke 32-rapport | data1.no</title>
+<link rel="stylesheet" href="/blogg/_assets/post.css">
+<style>
+.data-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.data-table th{background:#0f172a;color:#fff;text-align:left;padding:10px 12px;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.data-table td{padding:10px 12px;border-bottom:1px solid #f1f5f9}
+.callout{background:#f0fdfa;border-left:4px solid #14b8a6;padding:14px 18px;border-radius:0 10px 10px 0;margin:18px 0}
+.callout.warn{background:#fff7ed;border-left-color:#f97316;color:#7c2d12}
+.meta{font-size:13px;color:#64748b;margin-bottom:22px}
+.lead{font-size:18px;color:#475569;margin-bottom:24px;line-height:1.7}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Norske storselskaper stryker på e-postsikkerhet — uke 32-rapport","datePublished":"2026-08-03","dateModified":"2026-08-03","author":{"@type":"Organization","name":"Micronet","url":"https://micronet.no/"},"publisher":{"@type":"Organization","name":"data1.no","logo":{"@type":"ImageObject","url":"https://data1.no/og-image.png"}},"description":"Norske storselskaper stryker på e-postsikkerhet — uke 32-rapport","image":"https://data1.no/og-image.png","mainEntityOfPage":"https://data1.no/blogg/norske-storselskaper-stryker-p-e-postsikkerhet-uke-32-rappor/","inLanguage":"nb-NO"}</script>
+</head>
+<body>
+<header class="header">
+<a href="/" class="logo">data1<span>.no</span></a>
+<div class="spacer"></div>
+<a href="/" class="nav-link">Sjekk eget domene →</a>
+</header>
+<main>
+<nav class="crumbs"><a href="/">Hjem</a> › <a href="/blogg/">Blogg</a> › Ukerapport 32</nav>
+<h1>Norske storselskaper stryker på e-postsikkerhet — uke 32-rapport</h1>
+
+<p class="lead">Mens NAV og Stortinget topper listen med full beskyttelse, scorer flere av Norges mest kjente selskaper bunnkarakter på e-postsikkerhet denne uken.</p>
+
+<p class="meta">Publisert 3. aug. 2026 · Av Terje Otterlei · 4 min lesetid</p>
+
+<h2 id="oversikt">Ukens oversikt</h2>
+
+<p>158 norske domener er analysert denne uken, og snittscore ligger på <strong>64,6 av 100 mulige poeng</strong>. 86 domener har DMARC satt til <code>p=reject</code>, som er det høyeste beskyttelsesnivået, mens 13 domener mangler DMARC helt.</p>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Karakter</th>
+      <th>Antall domener</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>A+</td><td>24</td></tr>
+    <tr><td>A</td><td>39</td></tr>
+    <tr><td>B</td><td>17</td></tr>
+    <tr><td>C</td><td>31</td></tr>
+    <tr><td>D</td><td>26</td></tr>
+    <tr><td>F</td><td>21</td></tr>
+  </tbody>
+</table>
+
+<p>Karakterfordelingen viser et tydelig skille: de fleste domener er enten godt sikret (A eller A+) eller henger langt etter (D eller F). Den brede middelgruppen er relativt tynn, noe som tyder på at halvhjertede tiltak er sjeldne — man enten prioriterer e-postsikkerhet eller lar det ligge.</p>
+
+<h2 id="toppscorere">Det offentlige leder an</h2>
+
+<p>Topp 10-listen er dominert av offentlige norske virksomheter. <a href="/?d=nav.no">nav.no</a>, <a href="/?d=ssb.no">ssb.no</a> og <a href="/?d=stortinget.no">stortinget.no</a> scorer alle A+ og viser at norsk offentlig sektor tar e-postsikkerhet på alvor. <a href="/?d=udi.no">udi.no</a> og <a href="/?d=telenor.no">telenor.no</a> følger tett med 97 poeng.</p>
+
+<p><a href="/?d=nbim.no">nbim.no</a> — Norges Bank Investment Management, som forvalter oljefondet — oppnår også 100 poeng. For en organisasjon som håndterer sensitive finansielle transaksjoner, er dette som det bør være.</p>
+
+<h2 id="bunnscorere">Kjente navn med stryk</h2>
+
+<div class="callout warn">
+  <strong>Seks av ti bunnplasseringer er store norske selskaper:</strong> Equinor, Hydro, Yara, Aker Solutions, Sparebanken Øst og Clas Ohlson scorer alle 0 poeng denne uken.
+</div>
+
+<p>Det er påfallende at selskaper av denne størrelsen ikke har grunnleggende e-postbeskyttelse på plass. <a href="/?d=equinor.no">equinor.no</a>, <a href="/?d=hydro.no">hydro.no</a> og <a href="/?d=yara.no">yara.no</a> er alle børsnoterte selskaper med global virksomhet — og domener som brukes til offisiell kommunikasjon. Uten DMARC er det ingenting som hindrer angripere fra å sende e-post som tilsynelatende kommer fra disse adressene.</p>
+
+<p><a href="/?d=sparebanken-ost.no">sparebanken-ost.no</a> er det eneste finansinstitusjonen på bunn-listen, noe som er spesielt bekymringsfullt. Banker er hyppige mål for phishing-angrep, og et domene uten e-postbeskyttelse gjør det enklere å lure kunder.</p>
+
+<p><a href="/?d=faedrelandsvennen.no">faedrelandsvennen.no</a> og <a href="/?d=schenker.no">schenker.no</a> runder ut en bunn-10-liste som dekker bank, energi, industri, media og logistikk — nesten alle sektorer er representert.</p>
+
+<h2 id="forbedringer">Ukens forbedring: Tromsø kommune</h2>
+
+<p>Det er registrert én betydelig forbedring denne uken. <a href="/?d=tromso.kommune.no">tromso.kommune.no</a> har gått fra 33 til 53 poeng, en økning på 20 poeng, og er nå oppe i karakter D. Det er fortsatt et stykke igjen til godkjent, men retningen er riktig.</p>
+
+<p>For kommuner som håndterer innbyggerdata og offentlig korrespondanse, er e-postsikkerhet ikke valgfritt. Se hvordan <a href="/sammenligning/">norske kommuner sammenligner seg</a> mot hverandre.</p>
+
+<h2 id="rad">Hva bør du gjøre?</h2>
+
+<p>Hvis ditt domene ligner på bunnscorerne over, er dette de viktigste stegene:</p>
+
+<ol>
+  <li><strong>Start med SPF.</strong> Legg til en SPF-record i DNS som lister opp hvilke servere som har lov til å sende e-post på vegne av domenet ditt.</li>
+  <li><strong>Sett opp DMARC.</strong> Begynn med <code>p=none</code> for å samle data, og jobb deg opp til <code>p=quarantine</code> og til slutt <code>p=reject</code>.</li>
+  <li><strong>Konfigurer DKIM.</strong> Digitale signaturer på utgående e-post gjør det vanskeligere å forfalske meldinger.</li>
+  <li><strong>Følg med på rapporter.</strong> DMARC sender deg løpende data om hvem som sender e-post fra ditt domene — bruk dem aktivt.</li>
+</ol>
+
+<p>Sjekk ditt eget domene gratis på <a href="/">data1.no</a>, eller følg med på <a href="/trender/">trendene</a> for å se hvordan norsk e-postsikkerhet utvikler seg over tid.</p>
+
+<div style="margin-top:40px;padding:20px;background:#f0fdfa;border-radius:12px;border:1px solid #99f6e4">
+<h3 style="margin-bottom:8px">Sjekk ditt eget domene</h3>
+<p style="margin-bottom:14px">Få samme analyse for ditt domene på 10 sekunder, helt gratis.</p>
+<a href="/" style="display:inline-block;background:#14b8a6;color:#fff;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:700">Kjør analyse →</a>
+</div>
+</main>
+</body>
+</html>

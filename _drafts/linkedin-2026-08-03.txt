@@ -1,0 +1,6 @@
+13 norske domener mangler DMARC helt — deriblant Equinor, Hydro og Yara. 🔓
+
+Det betyr at hvem som helst kan sende e-post som ser ut til å komme fra disse selskapene. Mens NAV og Stortinget scorer A+, stryker flere av Norges største børsnoterte selskaper på grunnleggende e-postsikkerhet.
+
+Har dere sjekket hvordan deres domene scorer?
+👉 https://data1.no/blogg/norske-storselskaper-stryker-p-e-postsikkerhet-uke-32-rappor/
