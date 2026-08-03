@@ -27,3 +27,4 @@ Thumbs.db
 worker/node_modules/
 worker/.wrangler/
 worker/package-lock.json
+.claude/worktrees/
