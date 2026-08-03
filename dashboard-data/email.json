@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-02T08:42:50Z",
+  "lastUpdated": "2026-08-03T10:11:19Z",
   "ownDomains": [
     {
       "domain": "data1.no",
@@ -11,7 +11,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": false,
-      "lastChecked": "2026-08-02T08:42:51Z"
+      "lastChecked": "2026-08-03T10:11:19Z"
     },
     {
       "domain": "micronet.no",
@@ -23,7 +23,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": true,
-      "lastChecked": "2026-08-02T08:42:51Z"
+      "lastChecked": "2026-08-03T10:11:20Z"
     }
   ],
   "trackedDomains": {
@@ -38,18 +38,14 @@
     "improved": [
       {
         "domain": "tromso.kommune.no",
-        "from": "p=none",
+        "from": "p=missing",
         "to": "p=none",
-        "scoreDelta": 20
+        "scoreDelta": 28
       }
     ],
     "regressed": []
   },
   "timeline": [
-    {
-      "week": "2026-W20",
-      "rejectPercent": 54.4
-    },
     {
       "week": "2026-W21",
       "rejectPercent": 54.4
@@ -92,6 +88,10 @@
     },
     {
       "week": "2026-W31",
+      "rejectPercent": 54.4
+    },
+    {
+      "week": "2026-W32",
       "rejectPercent": 54.4
     }
   ]
