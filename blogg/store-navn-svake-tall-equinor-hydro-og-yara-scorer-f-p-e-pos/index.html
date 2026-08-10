@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="description" content="Store navn, svake tall: Equinor, Hydro og Yara scorer F på e-postsikkerhet — ukentlig DMARC-analyse fra data1.no.">
+<meta name="author" content="Terje Otterlei">
+<meta name="theme-color" content="#1a202c">
+<link rel="canonical" href="https://data1.no/blogg/store-navn-svake-tall-equinor-hydro-og-yara-scorer-f-p-e-pos/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Store navn, svake tall: Equinor, Hydro og Yara scorer F på e-postsikkerhet">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<title>Store navn, svake tall: Equinor, Hydro og Yara scorer F på e-postsikkerhet | data1.no</title>
+<link rel="stylesheet" href="/blogg/_assets/post.css">
+<style>
+.data-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.data-table th{background:#0f172a;color:#fff;text-align:left;padding:10px 12px;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.data-table td{padding:10px 12px;border-bottom:1px solid #f1f5f9}
+.callout{background:#f0fdfa;border-left:4px solid #14b8a6;padding:14px 18px;border-radius:0 10px 10px 0;margin:18px 0}
+.callout.warn{background:#fff7ed;border-left-color:#f97316;color:#7c2d12}
+.meta{font-size:13px;color:#64748b;margin-bottom:22px}
+.lead{font-size:18px;color:#475569;margin-bottom:24px;line-height:1.7}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Store navn, svake tall: Equinor, Hydro og Yara scorer F på e-postsikkerhet","datePublished":"2026-08-10","dateModified":"2026-08-10","author":{"@type":"Organization","name":"Micronet","url":"https://micronet.no/"},"publisher":{"@type":"Organization","name":"data1.no","logo":{"@type":"ImageObject","url":"https://data1.no/og-image.png"}},"description":"Store navn, svake tall: Equinor, Hydro og Yara scorer F på e-postsikkerhet","image":"https://data1.no/og-image.png","mainEntityOfPage":"https://data1.no/blogg/store-navn-svake-tall-equinor-hydro-og-yara-scorer-f-p-e-pos/","inLanguage":"nb-NO"}</script>
+</head>
+<body>
+<header class="header">
+<a href="/" class="logo">data1<span>.no</span></a>
+<div class="spacer"></div>
+<a href="/" class="nav-link">Sjekk eget domene →</a>
+</header>
+<main>
+<nav class="crumbs"><a href="/">Hjem</a> › <a href="/blogg/">Blogg</a> › Ukerapport 33</nav>
+<h1>Store navn, svake tall: Equinor, Hydro og Yara scorer F på e-postsikkerhet</h1>
+
+<p class="lead">Ukens gjennomgang av 158 norske domener avslører at flere av Norges største industrikonserner ikke har grunnleggende e-postbeskyttelse på plass.</p>
+
+<p class="meta">Publisert 10. aug. 2026 · Av Terje Otterlei · 4 min lesetid</p>
+
+<h2 id="oversikt">Ukens tall i korte trekk</h2>
+
+<p>Data1.no har denne uken analysert 158 norske domener. Snittscoren ligger på <strong>64,5 av 100 poeng</strong>, og 85 domener har DMARC satt til <code>p=reject</code> — det vil si full beskyttelse mot e-postforfalskning. 13 domener mangler DMARC helt.</p>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Karakter</th>
+      <th>Antall domener</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>A+</td><td>24</td></tr>
+    <tr><td>A</td><td>38</td></tr>
+    <tr><td>B</td><td>17</td></tr>
+    <tr><td>C</td><td>32</td></tr>
+    <tr><td>D</td><td>26</td></tr>
+    <tr><td>F</td><td>21</td></tr>
+  </tbody>
+</table>
+
+<p>At 21 domener får karakteren F, og ytterligere 26 får D, er urovekkende. Det betyr at nær én av tre analyserte domener har alvorlige mangler i e-postsikkerheten sin.</p>
+
+<h2 id="industrigigantene">Industrigigantene i bunnsjiktet</h2>
+
+<p>Det mest påfallende funnet denne uken er at flere av Norges tyngste industrikonserner havner helt på bunn. <a href="/?d=equinor.no">equinor.no</a>, <a href="/?d=hydro.no">hydro.no</a> og <a href="/?d=yara.no">yara.no</a> scorer alle <strong>0 av 100 poeng</strong> og får karakteren F.</p>
+
+<div class="callout warn">
+  <strong>Viktig:</strong> Et domene med F-karakter og manglende DMARC-policy kan fritt misbrukes av angripere til å sende falske e-poster som ser ut til å komme fra den aktuelle organisasjonen. For selskaper med globalt kjente merkevarer øker risikoen for phishing-angrep mot ansatte, kunder og samarbeidspartnere betydelig.
+</div>
+
+<p>Også <a href="/?d=aker-solutions.no">aker-solutions.no</a> og <a href="/?d=schenker.no">schenker.no</a> er på bunnlisten. Dette er selskaper med komplekse IT-miljøer og mange ansatte, noe som gjerne er en forklaring — men sjelden en god unnskyldning. E-postautentisering er i dag basiskrav, ikke en avansert funksjon.</p>
+
+<p>Det er verdt å merke seg at dette gjelder de spesifikke domenene som er analysert, og ikke nødvendigvis alle domener disse selskapene eier.</p>
+
+<h2 id="toppen">Offentlig sektor og finans i toppen</h2>
+
+<p>I den andre enden finner vi en imponerende rekke offentlige domener. <a href="/?d=nav.no">nav.no</a>, <a href="/?d=ssb.no">ssb.no</a> og <a href="/?d=stortinget.no">stortinget.no</a> scorer alle i toppsjiktet med A+ eller nær det. Det samme gjør <a href="/?d=udi.no">udi.no</a> med 97 poeng.</p>
+
+<p><a href="/?d=telenor.no">telenor.no</a> er det eneste store private telekomselskapet på topp 10-listen, med 97 poeng. Det viser at det er fullt mulig for store, komplekse organisasjoner å få dette på plass.</p>
+
+<h2 id="forverring">Tønsberg kommune faller</h2>
+
+<p>Uken har én registrert forverring: <a href="/?d=tonsberg.kommune.no">tonsberg.kommune.no</a> har falt fra 80 til 65 poeng, en nedgang på 15 poeng, og havner nå på karakteren C. Det er uklart hva som har utløst endringen, men det kan skyldes en konfigurasjonsjustering som ikke ble gjort riktig — for eksempel en endring i SPF- eller DMARC-oppsett som utilsiktet har svekket policyen.</p>
+
+<p>Kommuner håndterer sensitive data om innbyggere, og e-postsikkerhet bør prioriteres høyt. Se <a href="/trender/">trendoversikten</a> for å følge utviklingen over tid.</p>
+
+<h2 id="rad">Hva bør du gjøre?</h2>
+
+<p>Hvis du drifter eller er ansvarlig for et domene, er dette de tre viktigste stegene:</p>
+
+<ol>
+  <li><strong>Sjekk statusen din.</strong> Bruk <a href="/">data1.no</a> til å analysere ditt domene gratis. Det tar under ett minutt.</li>
+  <li><strong>Sett opp DMARC med <code>p=reject</code>.</strong> Start gjerne med <code>p=none</code> for å overvåke trafikken, men sett en plan for å komme til <code>p=reject</code> innen tre til seks måneder.</li>
+  <li><strong>Ikke glem SPF og DKIM.</strong> DMARC alene er ikke nok — begge disse protokollene må være riktig konfigurert for at DMARC skal ha effekt.</li>
+</ol>
+
+<p>Vil du se hvordan ditt domene sammenligner seg med andre i samme bransje? Besøk <a href="/sammenligning/">sammenligningsverktøyet</a> for å få et bredere bilde.</p>
+
+<p>Neste ukesrapport publiseres 17. august. Domenene på bunnlisten har god tid til å rette opp situasjonen før den tid.</p>
+
+<div style="margin-top:40px;padding:20px;background:#f0fdfa;border-radius:12px;border:1px solid #99f6e4">
+<h3 style="margin-bottom:8px">Sjekk ditt eget domene</h3>
+<p style="margin-bottom:14px">Få samme analyse for ditt domene på 10 sekunder, helt gratis.</p>
+<a href="/" style="display:inline-block;background:#14b8a6;color:#fff;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:700">Kjør analyse →</a>
+</div>
+</main>
+</body>
+</html>
