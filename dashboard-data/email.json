@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-13T07:59:41Z",
+  "lastUpdated": "2026-08-14T07:56:21Z",
   "ownDomains": [
     {
       "domain": "data1.no",
@@ -11,7 +11,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": false,
-      "lastChecked": "2026-08-13T07:59:43Z"
+      "lastChecked": "2026-08-14T07:56:21Z"
     },
     {
       "domain": "micronet.no",
@@ -23,7 +23,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": true,
-      "lastChecked": "2026-08-13T07:59:43Z"
+      "lastChecked": "2026-08-14T07:56:22Z"
     }
   ],
   "trackedDomains": {
