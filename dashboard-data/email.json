@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-14T07:56:21Z",
+  "lastUpdated": "2026-08-15T07:06:02Z",
   "ownDomains": [
     {
       "domain": "data1.no",
@@ -11,7 +11,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": false,
-      "lastChecked": "2026-08-14T07:56:21Z"
+      "lastChecked": "2026-08-15T07:06:03Z"
     },
     {
       "domain": "micronet.no",
@@ -23,7 +23,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": true,
-      "lastChecked": "2026-08-14T07:56:22Z"
+      "lastChecked": "2026-08-15T07:06:03Z"
     }
   ],
   "trackedDomains": {
@@ -36,14 +36,7 @@
   },
   "weeklyChanges": {
     "improved": [],
-    "regressed": [
-      {
-        "domain": "tonsberg.kommune.no",
-        "from": "p=reject",
-        "to": "p=quarantine",
-        "scoreDelta": -15
-      }
-    ]
+    "regressed": []
   },
   "timeline": [
     {
@@ -64,7 +57,7 @@
     },
     {
       "week": "2026-W26",
-      "rejectPercent": 54.4
+      "rejectPercent": 53.8
     },
     {
       "week": "2026-W27",
@@ -88,7 +81,7 @@
     },
     {
       "week": "2026-W32",
-      "rejectPercent": 54.4
+      "rejectPercent": 53.8
     },
     {
       "week": "2026-W33",
