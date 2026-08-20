@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-19T07:14:04Z",
+  "lastUpdated": "2026-08-20T07:22:24Z",
   "ownDomains": [
     {
       "domain": "data1.no",
@@ -11,7 +11,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": false,
-      "lastChecked": "2026-08-19T07:14:05Z"
+      "lastChecked": "2026-08-20T07:22:24Z"
     },
     {
       "domain": "micronet.no",
@@ -23,7 +23,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": true,
-      "lastChecked": "2026-08-19T07:14:06Z"
+      "lastChecked": "2026-08-20T07:22:25Z"
     }
   ],
   "trackedDomains": {
@@ -35,7 +35,14 @@
     "rejectPercent": 53.8
   },
   "weeklyChanges": {
-    "improved": [],
+    "improved": [
+      {
+        "domain": "sandefjord.kommune.no",
+        "from": "p=reject",
+        "to": "p=reject",
+        "scoreDelta": 17
+      }
+    ],
     "regressed": [
       {
         "domain": "mattilsynet.no",
