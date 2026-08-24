@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-08-24T07:37:02Z",
+  "lastUpdated": "2026-08-24T07:57:39Z",
   "competitors": [
     {
       "name": "data1.no",
       "isOwn": true,
-      "indexedPages": 221,
+      "indexedPages": 222,
       "domainRating": 0,
       "backlinks": 1,
       "lastArticle": "24. august 2026",
@@ -49,10 +49,10 @@
     {
       "name": "powerdmarc.com",
       "isOwn": false,
-      "indexedPages": 5,
+      "indexedPages": 4,
       "domainRating": 71,
       "backlinks": 8900,
-      "lastArticle": "23. august 2026",
+      "lastArticle": "24. august 2026",
       "clicksPerMonth": null
     },
     {
