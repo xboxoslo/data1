@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-23T07:09:34Z",
+  "lastUpdated": "2026-08-24T07:35:39Z",
   "ownDomains": [
     {
       "domain": "data1.no",
@@ -11,7 +11,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": false,
-      "lastChecked": "2026-08-23T07:09:35Z"
+      "lastChecked": "2026-08-24T07:35:39Z"
     },
     {
       "domain": "micronet.no",
@@ -23,7 +23,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": true,
-      "lastChecked": "2026-08-23T07:09:35Z"
+      "lastChecked": "2026-08-24T07:35:40Z"
     }
   ],
   "trackedDomains": {
@@ -37,26 +37,21 @@
   "weeklyChanges": {
     "improved": [
       {
+        "domain": "mattilsynet.no",
+        "from": "p=reject",
+        "to": "p=reject",
+        "scoreDelta": 25
+      },
+      {
         "domain": "sandefjord.kommune.no",
         "from": "p=reject",
         "to": "p=reject",
         "scoreDelta": 17
       }
     ],
-    "regressed": [
-      {
-        "domain": "vy.no",
-        "from": "p=quarantine",
-        "to": "p=quarantine",
-        "scoreDelta": -5
-      }
-    ]
+    "regressed": []
   },
   "timeline": [
-    {
-      "week": "2026-W23",
-      "rejectPercent": 54.4
-    },
     {
       "week": "2026-W24",
       "rejectPercent": 54.4
@@ -91,7 +86,7 @@
     },
     {
       "week": "2026-W32",
-      "rejectPercent": 53.8
+      "rejectPercent": 54.4
     },
     {
       "week": "2026-W33",
@@ -99,6 +94,10 @@
     },
     {
       "week": "2026-W34",
+      "rejectPercent": 53.8
+    },
+    {
+      "week": "2026-W35",
       "rejectPercent": 53.8
     }
   ]
