@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="description" content="Norsk e-postsikkerhet uke 35: Sterke topper, urovekkende bunn — ukentlig DMARC-analyse fra data1.no.">
+<meta name="author" content="Terje Otterlei">
+<meta name="theme-color" content="#1a202c">
+<link rel="canonical" href="https://data1.no/blogg/norsk-e-postsikkerhet-uke-35-sterke-topper-urovekkende-bunn/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Norsk e-postsikkerhet uke 35: Sterke topper, urovekkende bunn">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<title>Norsk e-postsikkerhet uke 35: Sterke topper, urovekkende bunn | data1.no</title>
+<link rel="stylesheet" href="/blogg/_assets/post.css">
+<style>
+.data-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.data-table th{background:#0f172a;color:#fff;text-align:left;padding:10px 12px;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.data-table td{padding:10px 12px;border-bottom:1px solid #f1f5f9}
+.callout{background:#f0fdfa;border-left:4px solid #14b8a6;padding:14px 18px;border-radius:0 10px 10px 0;margin:18px 0}
+.callout.warn{background:#fff7ed;border-left-color:#f97316;color:#7c2d12}
+.meta{font-size:13px;color:#64748b;margin-bottom:22px}
+.lead{font-size:18px;color:#475569;margin-bottom:24px;line-height:1.7}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Norsk e-postsikkerhet uke 35: Sterke topper, urovekkende bunn","datePublished":"2026-08-24","dateModified":"2026-08-24","author":{"@type":"Organization","name":"Micronet","url":"https://micronet.no/"},"publisher":{"@type":"Organization","name":"data1.no","logo":{"@type":"ImageObject","url":"https://data1.no/og-image.png"}},"description":"Norsk e-postsikkerhet uke 35: Sterke topper, urovekkende bunn","image":"https://data1.no/og-image.png","mainEntityOfPage":"https://data1.no/blogg/norsk-e-postsikkerhet-uke-35-sterke-topper-urovekkende-bunn/","inLanguage":"nb-NO"}</script>
+</head>
+<body>
+<header class="header">
+<a href="/" class="logo">data1<span>.no</span></a>
+<div class="spacer"></div>
+<a href="/" class="nav-link">Sjekk eget domene →</a>
+</header>
+<main>
+<nav class="crumbs"><a href="/">Hjem</a> › <a href="/blogg/">Blogg</a> › Ukerapport 35</nav>
+<h1>Norsk e-postsikkerhet uke 35: Sterke topper, urovekkende bunn</h1>
+
+<p class="lead">Mens offentlige etater som NAV og SSB scorer perfekt, har flere av Norges største industrikonserner til sammen null poeng på e-postsikkerhet.</p>
+
+<p class="meta">Publisert 25. aug 2026 · Av Terje Otterlei · 4 min lesetid</p>
+
+<h2 id="oversikt">Ukes oversikt</h2>
+
+<p>158 norske domener er analysert i uke 35. Snittscoren ligger på <strong>64,6 av 100</strong>, og 85 av domenene har aktivert <code>p=reject</code> — den høyeste DMARC-beskyttelsesnivået. 13 domener mangler DMARC fullstendig.</p>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Karakter</th>
+      <th>Antall domener</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>A+</td><td>25</td></tr>
+    <tr><td>A</td><td>37</td></tr>
+    <tr><td>B</td><td>17</td></tr>
+    <tr><td>C</td><td>32</td></tr>
+    <tr><td>D</td><td>26</td></tr>
+    <tr><td>F</td><td>21</td></tr>
+  </tbody>
+</table>
+
+<p>Fordelingen viser et tydelig gap: en tredjedel av domenene scorer A eller bedre, mens nær like mange havner i D eller F. Det er lite i midtsjiktet som tyder på at mange er i aktiv forbedring. Se historisk utvikling på <a href="/trender/">trendsiden</a>.</p>
+
+<h2 id="toppscorere">Offentlig sektor leverer — igjen</h2>
+
+<p>Topp ti-listen domineres av offentlige etater og kjente teknologiaktører. <a href="/?d=nav.no">nav.no</a>, <a href="/?d=ssb.no">ssb.no</a> og <a href="/?d=stortinget.no">stortinget.no</a> er alle blant de best beskyttede. <a href="/?d=udi.no">udi.no</a> scorer 97 poeng — imponerende for en etat som håndterer sensitiv personinformasjon daglig.</p>
+
+<p><a href="/?d=telenor.no">telenor.no</a> er den eneste store private teleoperatøren på topp ti-listen, med 97 poeng. Det er verdt å merke seg at tre av plassene okkuperes av DMARC-leverandørene dmarcian.com, powerdmarc.com og agari.com — det hadde vært oppsiktsvekkende om de <em>ikke</em> hadde full score.</p>
+
+<h2 id="industritopper-bommer">Norske industrigiganter med nullpoeng</h2>
+
+<div class="callout warn">
+  <strong>Fem av ti verste domener tilhører store norske eller internasjonale industri- og næringslivsaktører:</strong> Equinor, Hydro, Yara, Aker Solutions og Sparebanken Øst scorer alle 0 poeng denne uken.
+</div>
+
+<p>Det er et påfallende mønster. <a href="/?d=equinor.no">equinor.no</a>, <a href="/?d=hydro.no">hydro.no</a>, <a href="/?d=yara.no">yara.no</a> og <a href="/?d=aker-solutions.no">aker-solutions.no</a> er alle selskaper med tusenvis av ansatte, komplekse e-postinfrastrukturer og åpenbare mål for phishing og svindel — særlig Business Email Compromise (BEC). En angriper kan i dag sende e-post som ser ut til å komme fra disse domenene, uten at mottakeren har noen teknisk beskyttelse mot det.</p>
+
+<p><a href="/?d=sparebanken-ost.no">sparebanken-ost.no</a> er det eneste finansinstituttet i bunnen. Banker er hyppige mål for phishing, og fraværet av DMARC-beskyttelse gjør det lettere å lure kunder med falske e-poster som later som de kommer fra banken.</p>
+
+<p>De øvrige bunnplasseringene er <a href="/?d=faedrelandsvennen.no">faedrelandsvennen.no</a>, <a href="/?d=clas-ohlson.no">clas-ohlson.no</a>, <a href="/?d=schenker.no">schenker.no</a>, <a href="/?d=nyfosse.no">nyfosse.no</a> og <a href="/?d=nakk.no">nakk.no</a>. Se og sammenlign alle domenene på <a href="/sammenligning/">sammenligningssiden</a>.</p>
+
+<h2 id="forbedringer">Ukens forbedringer: Mattilsynet og Sandefjord</h2>
+
+<p>Kun to domener registrerte målbare forbedringer denne uken — men begge er tydelige.</p>
+
+<ul>
+  <li><a href="/?d=mattilsynet.no">mattilsynet.no</a> gikk fra 55 til <strong>80 poeng</strong> (+25p), og er nå oppe på karakter A. En solid oppgang som trolig gjenspeiler innføring av strengere DMARC-policy eller aktivering av MTA-STS.</li>
+  <li><a href="/?d=sandefjord.kommune.no">sandefjord.kommune.no</a> gikk fra 80 til <strong>97 poeng</strong> (+17p), og klatret til A+. Sandefjord er nå blant de best sikrede kommunene i datasettet.</li>
+</ul>
+
+<p>At bare to domener forbedret seg på én uke er lavt. Det kan indikere at mange domener enten er ferdige med konfigurasjonen, eller at arbeidet med e-postsikkerhet har stoppet opp.</p>
+
+<h2 id="hva-kan-du-gjore">Hva bør du gjøre nå?</h2>
+
+<p>Enten du administrerer et domene som scorer høyt eller lavt, er det konkrete steg å ta:</p>
+
+<ol>
+  <li><strong>Sjekk ditt eget domene</strong> på <a href="/">data1.no</a> — analysen er gratis og tar sekunder.</li>
+  <li><strong>Har du ikke DMARC?</strong> Start med <code>p=none</code> for å samle inn rapporter uten å blokkere e-post. Det er et ufarlig første steg.</li>
+  <li><strong>Er du på <code>p=none</code> eller <code>p=quarantine</code>?</strong> Planlegg en opptrapping til <code>p=reject</code>. Det er først da du har reell beskyttelse.</li>
+  <li><strong>Scorer du B eller lavere?</strong> MTA-STS og BIMI er to protokoller som løfter scoren og styrker tilliten til e-posten din.</li>
+</ol>
+
+<p>Domenene i bunnen av denne listen — Equinor, Hydro, Yara og de øvrige — har ressurser og kompetanse til å fikse dette raskt. Det er et valg, ikke et kapasitetsproblem.</p>
+
+<div style="margin-top:40px;padding:20px;background:#f0fdfa;border-radius:12px;border:1px solid #99f6e4">
+<h3 style="margin-bottom:8px">Sjekk ditt eget domene</h3>
+<p style="margin-bottom:14px">Få samme analyse for ditt domene på 10 sekunder, helt gratis.</p>
+<a href="/" style="display:inline-block;background:#14b8a6;color:#fff;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:700">Kjør analyse →</a>
+</div>
+</main>
+</body>
+</html>
