@@ -42,7 +42,7 @@ lo.no,Offentlig sektor,92,A+,reject,1,1,1,1,1,0
 forsvaret.no,Offentlig sektor,53,D,none,1,1,1,0,0,0
 nrk.no,Offentlig sektor,53,D,none,1,1,1,0,0,0
 norsk-helsenett.no,Offentlig sektor,60,C,reject,1,1,0,0,0,0
-mattilsynet.no,Offentlig sektor,80,A,reject,1,1,1,0,0,0
+mattilsynet.no,Offentlig sektor,55,C,reject,0,1,1,0,0,0
 oslo-universitetssykehus.no,Helse,60,C,reject,1,1,1,0,0,0
 helse-bergen.no,Helse,80,A,reject,1,1,1,0,0,0
 sthf.no,Helse,60,C,reject,1,1,1,0,0,0
@@ -89,7 +89,7 @@ norwegian.no,Reise / hotell / transport,53,D,none,1,1,1,0,0,0
 flytoget.no,Reise / hotell / transport,80,A,reject,1,1,1,0,0,0
 nsb.no,Reise / hotell / transport,65,C,quarantine,1,1,1,0,0,0
 ruter.no,Reise / hotell / transport,60,C,quarantine,1,1,1,0,0,0
-vy.no,Reise / hotell / transport,68,C,quarantine,1,1,1,0,0,1
+vy.no,Reise / hotell / transport,63,C,quarantine,1,1,1,0,0,1
 strawberry.no,Reise / hotell / transport,95,A+,reject,1,1,1,1,1,1
 choice.no,Reise / hotell / transport,92,A+,reject,1,1,1,1,1,0
 scandichotels.no,Reise / hotell / transport,25,F,,1,0,0,0,0,0
