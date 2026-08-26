@@ -5,7 +5,7 @@
  *              marketing-samtykke) og legger klikk-ID-en inn i Halo-ticketen fra
  *              kontaktskjemaet (mkrit-halo-psa-form). Grunnlag for offline
  *              conversion import til Google Ads når verkstedjobber vinnes.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Micronet AS
  */
 
@@ -23,7 +23,8 @@ if (!defined('ABSPATH')) { exit; }
 add_action('wp_footer', 'pcg_gclid_fangst', 5);
 function pcg_gclid_fangst() {
 	if (is_admin() || is_preview() || is_customize_preview()) { return; }
-	if (is_user_logged_in() && current_user_can('edit_posts')) { return; }
+	// Bevisst INGEN innlogget-guard (ulikt gtag-koden): cookien er inert til et
+	// skjema sendes, og guarden ville bare blokkert admin-testing av flyten.
 	?>
 <script>
 (function () {
