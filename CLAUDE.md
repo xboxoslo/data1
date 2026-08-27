@@ -8,7 +8,7 @@ Satellitt i Agentic OS. Nav: https://github.com/xboxoslo/agentic-os
 - Vault: micronet-data1-kv (felles i micronet-shared-kv)
 
 ## Arbeidsprinsipper (arvet)
-Norsk; MCP framfor gjetting; aldri push til andre brancher enn sesjonens; ingen PR uten at det bes om. Aldri commit hemmeligheter.
+Norsk; all tid i norsk tid (Europe/Oslo, containere/API-er går i UTC, konverter alltid); MCP framfor gjetting; aldri push til andre brancher enn sesjonens; ingen PR uten at det bes om. Aldri commit hemmeligheter.
 
 ## Kunnskap & kontekst (fylles i repo-sesjon)
 - Hvordan det kjøres: <fyll inn>
