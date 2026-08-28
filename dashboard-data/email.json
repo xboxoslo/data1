@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-27T17:49:37Z",
+  "lastUpdated": "2026-08-28T18:53:44Z",
   "ownDomains": [
     {
       "domain": "data1.no",
@@ -11,7 +11,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": false,
-      "lastChecked": "2026-08-27T17:49:37Z"
+      "lastChecked": "2026-08-28T18:53:45Z"
     },
     {
       "domain": "micronet.no",
@@ -23,7 +23,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": true,
-      "lastChecked": "2026-08-27T17:49:38Z"
+      "lastChecked": "2026-08-28T18:53:46Z"
     }
   ],
   "trackedDomains": {
@@ -37,10 +37,10 @@
   "weeklyChanges": {
     "improved": [
       {
-        "domain": "mattilsynet.no",
-        "from": "p=reject",
-        "to": "p=reject",
-        "scoreDelta": 25
+        "domain": "vy.no",
+        "from": "p=quarantine",
+        "to": "p=quarantine",
+        "scoreDelta": 5
       }
     ],
     "regressed": []
