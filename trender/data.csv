@@ -5,7 +5,7 @@ sparebank1.no,Banker,80,A,reject,1,1,1,0,0,0
 storebrand.no,Banker,78,B,reject,1,1,1,0,0,1
 handelsbanken.no,Banker,63,C,reject,1,1,0,0,0,1
 santander.no,Banker,60,C,reject,1,1,0,0,0,0
-sbanken.no,Banker,75,B,reject,1,1,1,0,0,0
+sbanken.no,Banker,55,C,reject,1,1,0,0,0,0
 sparebanken-vest.no,Banker,8,F,none,0,1,0,0,0,0
 sparebanken-sor.no,Banker,8,F,none,0,1,0,0,0,0
 sparebanken-ost.no,Banker,0,F,,0,0,0,0,0,0
