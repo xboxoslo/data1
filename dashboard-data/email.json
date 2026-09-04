@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-03T11:29:56Z",
+  "lastUpdated": "2026-09-04T11:32:54Z",
   "ownDomains": [
     {
       "domain": "data1.no",
@@ -11,7 +11,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": false,
-      "lastChecked": "2026-09-03T11:29:57Z"
+      "lastChecked": "2026-09-04T11:32:55Z"
     },
     {
       "domain": "micronet.no",
@@ -23,7 +23,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": true,
-      "lastChecked": "2026-09-03T11:29:59Z"
+      "lastChecked": "2026-09-04T11:32:56Z"
     }
   ],
   "trackedDomains": {
@@ -43,7 +43,14 @@
         "scoreDelta": 17
       }
     ],
-    "regressed": []
+    "regressed": [
+      {
+        "domain": "sbanken.no",
+        "from": "p=reject",
+        "to": "p=reject",
+        "scoreDelta": -20
+      }
+    ]
   },
   "timeline": [
     {
