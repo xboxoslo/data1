@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-06T11:11:49Z",
+  "lastUpdated": "2026-09-07T12:53:16Z",
   "ownDomains": [
     {
       "domain": "data1.no",
@@ -11,7 +11,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": false,
-      "lastChecked": "2026-09-06T11:11:50Z"
+      "lastChecked": "2026-09-07T12:53:17Z"
     },
     {
       "domain": "micronet.no",
@@ -23,7 +23,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": true,
-      "lastChecked": "2026-09-06T11:11:52Z"
+      "lastChecked": "2026-09-07T12:53:19Z"
     }
   ],
   "trackedDomains": {
@@ -40,7 +40,7 @@
         "domain": "larvik.kommune.no",
         "from": "p=reject",
         "to": "p=reject",
-        "scoreDelta": 17
+        "scoreDelta": 22
       }
     ],
     "regressed": [
@@ -53,10 +53,6 @@
     ]
   },
   "timeline": [
-    {
-      "week": "2026-W25",
-      "rejectPercent": 54.4
-    },
     {
       "week": "2026-W26",
       "rejectPercent": 54.4
@@ -83,7 +79,7 @@
     },
     {
       "week": "2026-W32",
-      "rejectPercent": 53.8
+      "rejectPercent": 54.4
     },
     {
       "week": "2026-W33",
@@ -99,6 +95,10 @@
     },
     {
       "week": "2026-W36",
+      "rejectPercent": 53.8
+    },
+    {
+      "week": "2026-W37",
       "rejectPercent": 53.8
     }
   ]
