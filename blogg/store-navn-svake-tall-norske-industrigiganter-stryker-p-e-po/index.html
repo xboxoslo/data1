@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="description" content="Store navn, svake tall: Norske industrigiganter stryker på e-postsikkerhet — uke 37 — ukentlig DMARC-analyse fra data1.no.">
+<meta name="author" content="Terje Otterlei">
+<meta name="theme-color" content="#1a202c">
+<link rel="canonical" href="https://data1.no/blogg/store-navn-svake-tall-norske-industrigiganter-stryker-p-e-po/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Store navn, svake tall: Norske industrigiganter stryker på e-postsikkerhet — uke 37">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<title>Store navn, svake tall: Norske industrigiganter stryker på e-postsikkerhet — uke 37 | data1.no</title>
+<link rel="stylesheet" href="/blogg/_assets/post.css">
+<style>
+.data-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.data-table th{background:#0f172a;color:#fff;text-align:left;padding:10px 12px;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.data-table td{padding:10px 12px;border-bottom:1px solid #f1f5f9}
+.callout{background:#f0fdfa;border-left:4px solid #14b8a6;padding:14px 18px;border-radius:0 10px 10px 0;margin:18px 0}
+.callout.warn{background:#fff7ed;border-left-color:#f97316;color:#7c2d12}
+.meta{font-size:13px;color:#64748b;margin-bottom:22px}
+.lead{font-size:18px;color:#475569;margin-bottom:24px;line-height:1.7}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Store navn, svake tall: Norske industrigiganter stryker på e-postsikkerhet — uke 37","datePublished":"2026-09-07","dateModified":"2026-09-07","author":{"@type":"Organization","name":"Micronet","url":"https://micronet.no/"},"publisher":{"@type":"Organization","name":"data1.no","logo":{"@type":"ImageObject","url":"https://data1.no/og-image.png"}},"description":"Store navn, svake tall: Norske industrigiganter stryker på e-postsikkerhet — uke 37","image":"https://data1.no/og-image.png","mainEntityOfPage":"https://data1.no/blogg/store-navn-svake-tall-norske-industrigiganter-stryker-p-e-po/","inLanguage":"nb-NO"}</script>
+</head>
+<body>
+<header class="header">
+<a href="/" class="logo">data1<span>.no</span></a>
+<div class="spacer"></div>
+<a href="/" class="nav-link">Sjekk eget domene →</a>
+</header>
+<main>
+<nav class="crumbs"><a href="/">Hjem</a> › <a href="/blogg/">Blogg</a> › Ukerapport 37</nav>
+<h1>Store navn, svake tall: Norske industrigiganter stryker på e-postsikkerhet — uke 37</h1>
+
+<p class="lead">Equinor, Hydro og Yara scorer alle 0 av 100 på e-postsikkerhet — og det er ikke de eneste kjente norske merkene som svikter i ukens analyse av 158 domener.</p>
+
+<p class="meta">Publisert 7. sep. 2026 · Av Terje Otterlei · 5 min lesetid</p>
+
+<h2 id="oversikt">Ukens oversikt</h2>
+
+<p>158 norske domener er analysert denne uken, og snittscore havner på <strong>64,6 av 100</strong>. 85 domener har satt DMARC-policyen til <code>p=reject</code>, noe som gir full beskyttelse mot e-postspoofing. 13 domener mangler DMARC helt.</p>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Karakter</th>
+      <th>Antall domener</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>A+</td><td>26</td></tr>
+    <tr><td>A</td><td>37</td></tr>
+    <tr><td>B</td><td>15</td></tr>
+    <tr><td>C</td><td>33</td></tr>
+    <tr><td>D</td><td>26</td></tr>
+    <tr><td>F</td><td>21</td></tr>
+  </tbody>
+</table>
+
+<p>Fordelingen viser et tydelig mønster: mange domener er enten godt sikret (A/A+) eller nesten uten beskyttelse (D/F). Midtsjiktet er tynt.</p>
+
+<h2 id="industrigiganter">Norsk industri tar ikke e-postsikkerhet på alvor</h2>
+
+<p>Det mest slående funnet denne uken er ikke ett enkeltdomene — det er en hel bransje. Blant de ti svakest scorende domenene finner vi tre av Norges største og mest kjente industriselskaper:</p>
+
+<ul>
+  <li><a href="/?d=equinor.no">equinor.no</a> — F (0 poeng)</li>
+  <li><a href="/?d=hydro.no">hydro.no</a> — F (0 poeng)</li>
+  <li><a href="/?d=yara.no">yara.no</a> — F (0 poeng)</li>
+</ul>
+
+<div class="callout warn">
+  <strong>0 av 100 poeng</strong> betyr at domenene mangler grunnleggende e-postbeskyttelse. Kriminelle kan i prinsippet sende e-post som ser ut til å komme fra disse domenene — uten at mottakere har tekniske midler til å avsløre det.
+</div>
+
+<p>Til disse selskapene kan man legge til <a href="/?d=aker-solutions.no">aker-solutions.no</a>, som også scorer F. Fire store aktører innen norsk olje, gass, energi og gjødsel — alle uten fungerende DMARC-oppsett. Det er bemerkelsesverdig, særlig tatt i betraktning at disse selskapene er attraktive mål for målrettet svindel og BEC-angrep (Business Email Compromise).</p>
+
+<p>Andre kjente navn på F-listen inkluderer <a href="/?d=faedrelandsvennen.no">faedrelandsvennen.no</a>, <a href="/?d=clas-ohlson.no">clas-ohlson.no</a> og <a href="/?d=schenker.no">schenker.no</a>. Se hele <a href="/sammenligning/">sammenligningsoversikten</a> for full kontekst.</p>
+
+<h2 id="toppene">De beste holder stillingen</h2>
+
+<p>I den andre enden av skalaen scorer flere offentlige etater og spesialistaktører innen e-postsikkerhet maksimalt:</p>
+
+<ul>
+  <li><a href="/?d=nav.no">nav.no</a> — A+ (100p)</li>
+  <li><a href="/?d=nbim.no">nbim.no</a> — A+ (100p)</li>
+  <li><a href="/?d=ssb.no">ssb.no</a> — A+ (100p)</li>
+  <li><a href="/?d=telenor.no">telenor.no</a> — A+ (97p)</li>
+  <li><a href="/?d=stortinget.no">stortinget.no</a> — A+ (97p)</li>
+</ul>
+
+<p>At NAV, Statistisk sentralbyrå og Norges Bank Investment Management alle scorer 100 av 100 viser at det absolutt er mulig å gjøre dette riktig — også i store, komplekse organisasjoner.</p>
+
+<h2 id="forbedringer">Ukens største bevegelse: Larvik kommune tar et stort steg</h2>
+
+<p><a href="/?d=larvik.kommune.no">larvik.kommune.no</a> er ukens klare vinner med en forbedring på <strong>+22 poeng</strong>, fra 75 til 97 — og løfter seg opp til karakter A+. Det er et betydelig hopp som typisk skyldes at man har strammet inn DMARC-policyen til <code>p=reject</code> og fått på plass støtteprotokoller som MTA-STS eller BIMI. Kommuner håndterer daglig sensitiv korrespondanse med innbyggere, og et slikt løft er et konkret bidrag til tryggere digital kommunikasjon. Se <a href="/trender/">trendoversikten</a> for hvordan kommuner generelt utvikler seg over tid.</p>
+
+<h2 id="forverringer">Sbanken faller 20 poeng</h2>
+
+<p><a href="/?d=sbanken.no">sbanken.no</a> går motsatt vei og faller fra 75 til 55 poeng — ned til karakter C. Et fall på 20 poeng er sjeldent og kan tyde på at en konfigurasjon har blitt endret eller fjernet, for eksempel en DMARC-policy som er satt tilbake til <code>p=none</code>, eller at SPF/DKIM-oppsettet har fått en feil. For en aktør i finanssektoren, der e-postsvindel er en kjent og konstant trussel, bør dette undersøkes og rettes raskt.</p>
+
+<h2 id="rad">Hva bør du gjøre?</h2>
+
+<p>Ser du igjen ditt eget domene på en svak plassering — eller er du usikker på hvordan det står til? Her er de viktigste stegene:</p>
+
+<ol>
+  <li><strong>Sjekk domenet ditt</strong> på <a href="/">data1.no</a> — analysen er gratis og tar sekunder.</li>
+  <li><strong>Start med DMARC på <code>p=none</code></strong> for å samle inn rapporter uten å blokkere e-post.</li>
+  <li><strong>Rett opp SPF og DKIM</strong> basert på rapportene, slik at legitim e-post autentiseres korrekt.</li>
+  <li><strong>Stram inn til <code>p=quarantine</code>, deretter <code>p=reject</code></strong> når du er trygg på at all gyldig e-post er dekket.</li>
+  <li><strong>Vurder MTA-STS og TLS-RPT</strong> for å sikre at e-post krypteres i transit.</li>
+</ol>
+
+<p>Equinor, Hydro og Yara har ressursene til å fikse dette i løpet av dager. Spørsmålet er om det prioriteres før noen utnytter hull i sikkerheten.</p>
+
+<div style="margin-top:40px;padding:20px;background:#f0fdfa;border-radius:12px;border:1px solid #99f6e4">
+<h3 style="margin-bottom:8px">Sjekk ditt eget domene</h3>
+<p style="margin-bottom:14px">Få samme analyse for ditt domene på 10 sekunder, helt gratis.</p>
+<a href="/" style="display:inline-block;background:#14b8a6;color:#fff;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:700">Kjør analyse →</a>
+</div>
+</main>
+</body>
+</html>

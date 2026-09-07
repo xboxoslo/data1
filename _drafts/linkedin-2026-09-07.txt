@@ -1,0 +1,10 @@
+Equinor, Hydro og Yara scorer alle **0 av 100** på e-postsikkerhet 🔓
+
+Det betyr at hvem som helst teknisk sett kan sende e-post som ser ut til å komme fra disse selskapene – uten at mottakeren kan avsløre det.
+
+Av 158 analyserte norske domener mangler 13 DMARC helt. Kriminelle elsker den slags hull.
+
+Les ukens analyse her 👇
+https://data1.no/blogg/store-navn-svake-tall-norske-industrigiganter-stryker-p-e-po/
+
+Hvordan scorer ditt domene?
