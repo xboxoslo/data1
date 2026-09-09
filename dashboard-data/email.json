@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-08T11:33:20Z",
+  "lastUpdated": "2026-09-09T11:40:24Z",
   "ownDomains": [
     {
       "domain": "data1.no",
@@ -11,7 +11,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": false,
-      "lastChecked": "2026-09-08T11:33:21Z"
+      "lastChecked": "2026-09-09T11:40:25Z"
     },
     {
       "domain": "micronet.no",
@@ -23,7 +23,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": true,
-      "lastChecked": "2026-09-08T11:33:21Z"
+      "lastChecked": "2026-09-09T11:40:27Z"
     }
   ],
   "trackedDomains": {
@@ -37,10 +37,16 @@
   "weeklyChanges": {
     "improved": [
       {
+        "domain": "mattilsynet.no",
+        "from": "p=reject",
+        "to": "p=reject",
+        "scoreDelta": 25
+      },
+      {
         "domain": "larvik.kommune.no",
         "from": "p=reject",
         "to": "p=reject",
-        "scoreDelta": 22
+        "scoreDelta": 5
       }
     ],
     "regressed": [
