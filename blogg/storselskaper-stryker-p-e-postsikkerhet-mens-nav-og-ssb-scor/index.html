@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="description" content="Storselskaper stryker på e-postsikkerhet — mens NAV og SSB scorer perfekt — ukentlig DMARC-analyse fra data1.no.">
+<meta name="author" content="Terje Otterlei">
+<meta name="theme-color" content="#1a202c">
+<link rel="canonical" href="https://data1.no/blogg/storselskaper-stryker-p-e-postsikkerhet-mens-nav-og-ssb-scor/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Storselskaper stryker på e-postsikkerhet — mens NAV og SSB scorer perfekt">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<title>Storselskaper stryker på e-postsikkerhet — mens NAV og SSB scorer perfekt | data1.no</title>
+<link rel="stylesheet" href="/blogg/_assets/post.css">
+<style>
+.data-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.data-table th{background:#0f172a;color:#fff;text-align:left;padding:10px 12px;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.data-table td{padding:10px 12px;border-bottom:1px solid #f1f5f9}
+.callout{background:#f0fdfa;border-left:4px solid #14b8a6;padding:14px 18px;border-radius:0 10px 10px 0;margin:18px 0}
+.callout.warn{background:#fff7ed;border-left-color:#f97316;color:#7c2d12}
+.meta{font-size:13px;color:#64748b;margin-bottom:22px}
+.lead{font-size:18px;color:#475569;margin-bottom:24px;line-height:1.7}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Storselskaper stryker på e-postsikkerhet — mens NAV og SSB scorer perfekt","datePublished":"2026-09-14","dateModified":"2026-09-14","author":{"@type":"Organization","name":"Micronet","url":"https://micronet.no/"},"publisher":{"@type":"Organization","name":"data1.no","logo":{"@type":"ImageObject","url":"https://data1.no/og-image.png"}},"description":"Storselskaper stryker på e-postsikkerhet — mens NAV og SSB scorer perfekt","image":"https://data1.no/og-image.png","mainEntityOfPage":"https://data1.no/blogg/storselskaper-stryker-p-e-postsikkerhet-mens-nav-og-ssb-scor/","inLanguage":"nb-NO"}</script>
+</head>
+<body>
+<header class="header">
+<a href="/" class="logo">data1<span>.no</span></a>
+<div class="spacer"></div>
+<a href="/" class="nav-link">Sjekk eget domene →</a>
+</header>
+<main>
+<nav class="crumbs"><a href="/">Hjem</a> › <a href="/blogg/">Blogg</a> › Ukerapport 38</nav>
+<h1>Storselskaper stryker på e-postsikkerhet — mens NAV og SSB scorer perfekt</h1>
+
+<p class="lead">Uke 38-analysen av 158 norske domener avslører et slående paradoks: noen av Norges mest ressurssterke selskaper har fullstendig fraværende e-postbeskyttelse, mens offentlige etater topper listen.</p>
+
+<p class="meta">Publisert 14. sep. 2026 · Av Terje Otterlei · 5 min lesetid</p>
+
+<h2 id="oversikt">Ukens tall i korte trekk</h2>
+
+<p>158 norske domener ble analysert denne uken. Snittscore endte på 64,6 av 100 poeng — et middelmådig resultat som skjuler store sprik mellom topp og bunn. 85 domener har <code>p=reject</code>, som gir full DMARC-beskyttelse, mens 13 domener mangler DMARC-record helt.</p>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Karakter</th>
+      <th>Antall domener</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>A+</td><td>26</td></tr>
+    <tr><td>A</td><td>37</td></tr>
+    <tr><td>B</td><td>15</td></tr>
+    <tr><td>C</td><td>33</td></tr>
+    <tr><td>D</td><td>26</td></tr>
+    <tr><td>F</td><td>21</td></tr>
+  </tbody>
+</table>
+
+<p>Over halvparten av domenene (63 av 158) scorer B eller bedre. Men med 21 stryk og 26 D-er er det fortsatt mye å ta tak i — særlig når man ser <em>hvem</em> som befinner seg i bunnsjiktet.</p>
+
+<h2 id="toppscorere">Offentlig sektor dominerer toppen</h2>
+
+<p>Fire av de ti best beskyttede domenene er norske offentlige etater eller institusjoner:</p>
+
+<ul>
+  <li><a href="/?d=nav.no">nav.no</a> — 100 poeng, A+</li>
+  <li><a href="/?d=ssb.no">ssb.no</a> — 100 poeng, A+</li>
+  <li><a href="/?d=stortinget.no">stortinget.no</a> — 97 poeng, A+</li>
+  <li><a href="/?d=udi.no">udi.no</a> — 97 poeng, A+</li>
+</ul>
+
+<p>At NAV og SSB begge scorer 100 poeng er ikke tilfeldig. Disse etatene håndterer enorme mengder sensitiv kommunikasjon med innbyggere, og de har åpenbart prioritert e-postsikkerhet deretter. Norges Bank Investment Management (<a href="/?d=nbim.no">nbim.no</a>) er det eneste finansaktøren som når toppkarakter denne uken, med 100 poeng.</p>
+
+<p><a href="/?d=telenor.no">telenor.no</a> er eneste private norske teleoperatør på topp 10, med 97 poeng. Det viser at det er fullt mulig å oppnå høy score selv med kompleks e-postinfrastruktur.</p>
+
+<h2 id="bunnsjiktet">Store navn i bunnsjiktet — uten unnskyldning</h2>
+
+<div class="callout warn">
+  <strong>Åtte av ti stryk-domener er store, kjente virksomheter med betydelige IT-ressurser.</strong> Et resultat på 0 poeng betyr typisk at domenet mangler DMARC-record fullstendig — det gir angripere fritt spillerom til å sende e-post som ser ut til å komme fra disse domenene.
+</div>
+
+<p>Bunnlisten denne uken inneholder navn som overrasker:</p>
+
+<ul>
+  <li><a href="/?d=equinor.no">equinor.no</a> — F (0p)</li>
+  <li><a href="/?d=hydro.no">hydro.no</a> — F (0p)</li>
+  <li><a href="/?d=yara.no">yara.no</a> — F (0p)</li>
+  <li><a href="/?d=aker-solutions.no">aker-solutions.no</a> — F (0p)</li>
+  <li><a href="/?d=sparebanken-ost.no">sparebanken-ost.no</a> — F (0p)</li>
+  <li><a href="/?d=faedrelandsvennen.no">faedrelandsvennen.no</a> — F (0p)</li>
+  <li><a href="/?d=clas-ohlson.no">clas-ohlson.no</a> — F (0p)</li>
+  <li><a href="/?d=schenker.no">schenker.no</a> — F (0p)</li>
+</ul>
+
+<p>At tre av Norges største børsnoterte industrikonserner — Equinor, Hydro og Yara — alle scorer 0 poeng på sine <code>.no</code>-domener er bemerkelsesverdig. Disse selskapene er høyprofilerte mål for phishing og e-postsvindel. Fraværet av DMARC betyr at kriminelle kan sende e-post som utgir seg for å komme fra <code>@equinor.no</code> eller <code>@hydro.no</code> uten teknisk hindring.</p>
+
+<p>For <a href="/?d=sparebanken-ost.no">sparebanken-ost.no</a> er situasjonen ekstra alvorlig — bankens kunder er en naturlig målgruppe for phishing-angrep, og manglende e-postautentisering gir angripere unødvendig fordel.</p>
+
+<h2 id="bransjetrend">En bransje som skiller seg ut: Energi og industri</h2>
+
+<p>Det er slående at energi- og industrisektoren er overrepresentert i bunnsjiktet denne uken. Equinor, Hydro, Yara og Aker Solutions er alle globale selskaper med store IT-avdelinger. Likevel er det tilsynelatende <code>.no</code>-domenene deres som faller igjennom — kanskje fordi fokus settes på primærdomener brukt i internasjonal kommunikasjon, mens de norske domenene får mindre oppmerksomhet.</p>
+
+<p>Se hvordan norske energiselskaper sammenligner seg på <a href="/sammenligning/">sammenligningssiden</a>, eller følg utviklingen over tid på <a href="/trender/">trendoversikten</a>.</p>
+
+<h2 id="rad">Hva bør du gjøre nå?</h2>
+
+<p>Er ditt domene blant de som mangler DMARC, eller scorer lavt? Her er de viktigste stegene:</p>
+
+<ol>
+  <li><strong>Sjekk statusen din.</strong> Søk opp domenet ditt på <a href="/">data1.no</a> for å se nøyaktig hva som mangler.</li>
+  <li><strong>Start med <code>p=none</code>.</strong> Sett opp DMARC i overvåkingsmodus først, slik at du kan samle rapporter uten å blokkere e-post.</li>
+  <li><strong>Sørg for gyldig SPF og DKIM.</strong> DMARC fungerer bare hvis disse er på plass og korrekt konfigurert.</li>
+  <li><strong>Trappe opp til <code>p=reject</code>.</strong> Når rapportene viser at legitim e-post passerer, skrur du opp beskyttelsesnivået gradvis via <code>p=quarantine</code>.</li>
+  <li><strong>Ikke glem sekundærdomener.</strong> Mange selskaper sikrer primærdomenet, men glemmer <code>.no</code>-varianter og andre domener de eier.</li>
+</ol>
+
+<p>Et domene som scorer 0 poeng er ikke et teknisk komplisert problem å løse — det krever prioritering. Offentlige etater som NAV og SSB viser at det lar seg gjøre å nå 100 poeng. Spørsmålet er om norske storselskaper vil ta utfordringen.</p>
+
+<div style="margin-top:40px;padding:20px;background:#f0fdfa;border-radius:12px;border:1px solid #99f6e4">
+<h3 style="margin-bottom:8px">Sjekk ditt eget domene</h3>
+<p style="margin-bottom:14px">Få samme analyse for ditt domene på 10 sekunder, helt gratis.</p>
+<a href="/" style="display:inline-block;background:#14b8a6;color:#fff;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:700">Kjør analyse →</a>
+</div>
+</main>
+</body>
+</html>
