@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-17T11:56:47Z",
+  "lastUpdated": "2026-09-18T11:35:46Z",
   "ownDomains": [
     {
       "domain": "data1.no",
@@ -11,7 +11,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": false,
-      "lastChecked": "2026-09-17T11:56:48Z"
+      "lastChecked": "2026-09-18T11:35:47Z"
     },
     {
       "domain": "micronet.no",
@@ -23,7 +23,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": true,
-      "lastChecked": "2026-09-17T11:56:50Z"
+      "lastChecked": "2026-09-18T11:35:47Z"
     }
   ],
   "trackedDomains": {
@@ -35,7 +35,14 @@
     "rejectPercent": 53.8
   },
   "weeklyChanges": {
-    "improved": [],
+    "improved": [
+      {
+        "domain": "telia.no",
+        "from": "p=reject",
+        "to": "p=reject",
+        "scoreDelta": 3
+      }
+    ],
     "regressed": []
   },
   "timeline": [
