@@ -1,0 +1,11 @@
+Equinor, Hydro og Yara scorer 0 av 100 på e-postsikkerhet 🔓
+
+Det betyr at svindlere fritt kan sende e-post som ser ut til å komme fra disse selskapene – uten at mottakerens server har noen teknisk grunn til å stoppe den.
+
+NAV og Stortinget? Perfekt score.
+
+158 norske domener er analysert. Snittscoren er 64,6.
+
+Er ditt selskap blant de som beskytter merkevaren sin – eller ikke?
+
+👉 https://data1.no/blogg/norske-storselskaper-stryker-p-e-postsikkerhet-uke-39-rappor/
