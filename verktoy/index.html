@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="nb-NO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Gratis verktøy for e-postsikkerhet fra data1.no. Lag SPF- og DMARC-records og sjekk om domenet ditt er beskyttet mot forfalskning og phishing.">
+<meta name="author" content="Terje Otterlei">
+<meta name="theme-color" content="#1a202c">
+<link rel="canonical" href="https://data1.no/verktoy/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="data1.no">
+<meta property="og:locale" content="nb_NO">
+<meta property="og:url" content="https://data1.no/verktoy/">
+<meta property="og:title" content="Gratis verktøy for e-postsikkerhet | data1.no">
+<meta property="og:description" content="Lag SPF- og DMARC-records og sjekk e-postsikkerheten til domenet ditt.">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<title>Gratis verktøy for e-postsikkerhet | data1.no</title>
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Inter";font-weight:400 900;font-display:optional;src:url(/fonts/inter-latin.woff2)format("woff2");unicode-range:U+0000-00FF}
+@font-face{font-family:"Inter Fallback";src:local("Arial");size-adjust:107.4%;ascent-override:90%;descent-override:22.48%;line-gap-override:0%}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Inter","Inter Fallback",-apple-system,BlinkMacSystemFont,sans-serif;background:#f1f5f9;color:#1e293b;-webkit-font-smoothing:antialiased;line-height:1.55}
+.header{background:#1a202c;padding:14px 28px;display:flex;align-items:center;gap:18px;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.logo{color:#fff;font-size:19px;font-weight:800;text-decoration:none}.logo span{color:#4fd1c5}
+.spacer{flex:1}.nav-link{color:#cbd5e0;text-decoration:none;font-size:14px}.nav-link:hover{color:#fff}
+main{max-width:880px;margin:0 auto;padding:36px 22px 80px}
+.crumbs{font-size:13px;color:#94a3b8;margin-bottom:16px}.crumbs a{color:#0f766e;text-decoration:none}
+h1{font-size:36px;font-weight:900;color:#0f172a;letter-spacing:-.025em;line-height:1.1;margin-bottom:14px}
+.intro{font-size:17px;color:#475569;max-width:680px;margin-bottom:28px;line-height:1.6}
+.card{background:#fff;border-radius:14px;padding:26px 28px;box-shadow:0 1px 3px rgba(0,0,0,.07)}
+.card h2{font-size:18px;font-weight:800;color:#0f172a;margin-bottom:18px}
+.tools{display:grid;gap:18px}
+.card a.t{font-size:19px;font-weight:800;color:#0f766e;text-decoration:none}
+.card p{color:#475569;margin-top:6px}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Gratis verktøy for e-postsikkerhet","url":"https://data1.no/verktoy/","inLanguage":"nb-NO","hasPart":[{"@type":"WebApplication","name":"SPF-generator","url":"https://data1.no/verktoy/spf-generator/"},{"@type":"WebApplication","name":"DMARC-generator","url":"https://data1.no/verktoy/dmarc-generator/"},{"@type":"WebApplication","name":"Domeneanalyse","url":"https://data1.no/domain-analyzer.html"}]}</script>
+</head>
+<body>
+<header class="header">
+  <a href="/" class="logo">data1<span>.no</span></a>
+  <form class="header-search" action="/" method="get" role="search">
+    <input type="text" name="domain" placeholder="Skriv inn domene — f.eks. micronet.no" aria-label="Sjekk domene">
+    <button type="submit">Analyser →</button>
+  </form>
+</header>
+<main>
+<nav class="crumbs"><a href="/">data1.no</a> › Verktøy</nav>
+<h1>Gratis verktøy for e-postsikkerhet</h1>
+<p class="intro">Verktøyene under hjelper deg å sette opp SPF og DMARC riktig og å sjekke hvordan domenet ditt står seg mot forfalskning. De er gratis, på norsk og krever ingen innlogging.</p>
+<div class="tools">
+<div class="card"><a class="t" href="/verktoy/spf-generator/">SPF-generator</a><p>Lag en gyldig SPF-record for domenet ditt, med riktige include-oppføringer for Microsoft 365, Google og andre tjenester.</p></div>
+<div class="card"><a class="t" href="/verktoy/dmarc-generator/">DMARC-generator</a><p>Velg policy og rapportadresser og få en DMARC-record du kan lime rett inn i DNS.</p></div>
+<div class="card"><a class="t" href="/domain-analyzer.html">Domeneanalyse</a><p>Sjekk SPF, DKIM, DMARC og andre e-postinnstillinger for et domene i én samlet rapport.</p></div>
+</div>
+</main>
+
+</body>
+</html>

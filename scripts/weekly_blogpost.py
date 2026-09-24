@@ -6,6 +6,7 @@ og kaller Claude API for å skrive en bloggpost basert på funnene.
 
 Krever ANTHROPIC_API_KEY som miljøvariabel.
 """
+import html
 import json
 import os
 import re
@@ -191,7 +192,22 @@ Lenk til konkrete domener med <a href="/?d=DOMENE">DOMENE</a>. Lenk til /trender
     # Lag slug fra første <h1>
     h1_match = re.search(r'<h1[^>]*>(.+?)</h1>', body_html)
     title = h1_match.group(1).strip() if h1_match else f'Ukerapport {week_num}'
-    slug = re.sub(r'[^a-z0-9]+', '-', title.lower()).strip('-')[:60]
+    # Slug: behold æ/ø/å som ae/o/a (ellers blir «på» til «p»), og kutt på ordgrense
+    slug_src = title.lower().translate(str.maketrans({'æ': 'ae', 'ø': 'o', 'å': 'a', '—': '-', '–': '-'}))
+    slug = re.sub(r'[^a-z0-9]+', '-', slug_src).strip('-')
+    if len(slug) > 60:
+        slug = slug[:60].rsplit('-', 1)[0]
+
+    # Meta description fra ingressen (<p class="lead">), 110-158 tegn, uten tankestrek
+    lead_match = re.search(r'<p class="lead"[^>]*>(.+?)</p>', body_html, re.S)
+    lead = re.sub(r'<[^>]+>', '', lead_match.group(1)) if lead_match else ''
+    lead = re.sub(r'\s+', ' ', lead).replace(' — ', ', ').replace('—', ', ').strip()
+    if len(lead) < 110:
+        lead = f'Ukerapport {week_num} fra data1.no: {title.replace(" — ", ", ")}. Se hvilke norske virksomheter som mangler DMARC, SPF og DKIM.'
+    if len(lead) > 158:
+        lead = lead[:158].rsplit(' ', 1)[0].rstrip(',;:') + '.'
+    meta_desc = html.escape(lead, quote=True)
+    page_title = f'{title} | data1.no' if len(title) <= 50 else title
 
     # Pakk inn i full HTML-template
     date_iso = today.strftime('%Y-%m-%d')
@@ -201,14 +217,14 @@ Lenk til konkrete domener med <a href="/?d=DOMENE">DOMENE</a>. Lenk til /trender
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta name="description" content="{title} — ukentlig DMARC-analyse fra data1.no.">
+<meta name="description" content="{meta_desc}">
 <meta name="author" content="Terje Otterlei">
 <meta name="theme-color" content="#1a202c">
 <link rel="canonical" href="https://data1.no/blogg/{slug}/">
 <meta property="og:type" content="article">
 <meta property="og:title" content="{title}">
 <meta property="og:image" content="https://data1.no/og-image.png">
-<title>{title} | data1.no</title>
+<title>{page_title}</title>
 <link rel="stylesheet" href="/blogg/_assets/post.css">
 <style>
 .data-table{{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05)}}
@@ -219,7 +235,7 @@ Lenk til konkrete domener med <a href="/?d=DOMENE">DOMENE</a>. Lenk til /trender
 .meta{{font-size:13px;color:#64748b;margin-bottom:22px}}
 .lead{{font-size:18px;color:#475569;margin-bottom:24px;line-height:1.7}}
 </style>
-<script type="application/ld+json">{{"@context":"https://schema.org","@type":"Article","headline":"{title}","datePublished":"{date_iso}","dateModified":"{date_iso}","author":{{"@type":"Organization","name":"Micronet","url":"https://micronet.no/"}},"publisher":{{"@type":"Organization","name":"data1.no","logo":{{"@type":"ImageObject","url":"https://data1.no/og-image.png"}}}},"description":"{title}","image":"https://data1.no/og-image.png","mainEntityOfPage":"https://data1.no/blogg/{slug}/","inLanguage":"nb-NO"}}</script>
+<script type="application/ld+json">{{"@context":"https://schema.org","@type":"Article","headline":"{title}","datePublished":"{date_iso}","dateModified":"{date_iso}","author":{{"@type":"Organization","name":"Micronet","url":"https://micronet.no/"}},"publisher":{{"@type":"Organization","name":"data1.no","logo":{{"@type":"ImageObject","url":"https://data1.no/og-image.png"}}}},"description":"{meta_desc}","image":"https://data1.no/og-image.png","mainEntityOfPage":"https://data1.no/blogg/{slug}/","inLanguage":"nb-NO"}}</script>
 </head>
 <body>
 <header class="header">

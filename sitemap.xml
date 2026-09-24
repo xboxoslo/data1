@@ -79,6 +79,12 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://data1.no/verktoy/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://data1.no/verktoy/dmarc-generator/</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
