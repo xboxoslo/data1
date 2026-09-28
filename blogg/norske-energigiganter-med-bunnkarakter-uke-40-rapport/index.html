@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="description" content="Norske energigiganter med bunnkarakter — uke 40-rapport — ukentlig DMARC-analyse fra data1.no.">
+<meta name="author" content="Terje Otterlei">
+<meta name="theme-color" content="#1a202c">
+<link rel="canonical" href="https://data1.no/blogg/norske-energigiganter-med-bunnkarakter-uke-40-rapport/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Norske energigiganter med bunnkarakter — uke 40-rapport">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<title>Norske energigiganter med bunnkarakter — uke 40-rapport | data1.no</title>
+<link rel="stylesheet" href="/blogg/_assets/post.css">
+<style>
+.data-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.data-table th{background:#0f172a;color:#fff;text-align:left;padding:10px 12px;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.data-table td{padding:10px 12px;border-bottom:1px solid #f1f5f9}
+.callout{background:#f0fdfa;border-left:4px solid #14b8a6;padding:14px 18px;border-radius:0 10px 10px 0;margin:18px 0}
+.callout.warn{background:#fff7ed;border-left-color:#f97316;color:#7c2d12}
+.meta{font-size:13px;color:#64748b;margin-bottom:22px}
+.lead{font-size:18px;color:#475569;margin-bottom:24px;line-height:1.7}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Norske energigiganter med bunnkarakter — uke 40-rapport","datePublished":"2026-09-28","dateModified":"2026-09-28","author":{"@type":"Organization","name":"Micronet","url":"https://micronet.no/"},"publisher":{"@type":"Organization","name":"data1.no","logo":{"@type":"ImageObject","url":"https://data1.no/og-image.png"}},"description":"Norske energigiganter med bunnkarakter — uke 40-rapport","image":"https://data1.no/og-image.png","mainEntityOfPage":"https://data1.no/blogg/norske-energigiganter-med-bunnkarakter-uke-40-rapport/","inLanguage":"nb-NO"}</script>
+</head>
+<body>
+<header class="header">
+<a href="/" class="logo">data1<span>.no</span></a>
+<div class="spacer"></div>
+<a href="/" class="nav-link">Sjekk eget domene →</a>
+</header>
+<main>
+<nav class="crumbs"><a href="/">Hjem</a> › <a href="/blogg/">Blogg</a> › Ukerapport 40</nav>
+<h1>Norske energigiganter med bunnkarakter — uke 40-rapport</h1>
+
+<p class="lead">Equinor, Hydro og Yara scorer alle F på e-postsikkerhet, mens NAV og Stortinget leverer perfekte 100 poeng.</p>
+
+<p class="meta">Publisert 28. sep 2026 · Av Terje Otterlei · 4 min lesetid</p>
+
+<h2 id="oversikt">Ukens oversikt</h2>
+
+<p>158 norske domener er analysert denne uken, og snittscore ligger på <strong>64,6 av 100 poeng</strong>. 85 domener har satt DMARC-policy til <code>p=reject</code>, som betyr full beskyttelse mot e-postforfalskning. 13 domener mangler DMARC-konfigurasjon helt.</p>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Karakter</th>
+      <th>Antall domener</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>A+</td><td>26</td></tr>
+    <tr><td>A</td><td>37</td></tr>
+    <tr><td>B</td><td>15</td></tr>
+    <tr><td>C</td><td>33</td></tr>
+    <tr><td>D</td><td>26</td></tr>
+    <tr><td>F</td><td>21</td></tr>
+  </tbody>
+</table>
+
+<p>Hele 21 domener scorer F — det er nesten én av syv blant de analyserte. Se <a href="/trender/">trendoversikten</a> for å følge utviklingen over tid.</p>
+
+<h2 id="energi">Ukens mest påfallende funn: Norsk energisektor stryker</h2>
+
+<p>Det mest iøynefallende i ukens data er at tre av Norges tyngste industrinavn alle scorer bunnkarakteren F:</p>
+
+<ul>
+  <li><a href="/?d=equinor.no">equinor.no</a> — 0 poeng</li>
+  <li><a href="/?d=hydro.no">hydro.no</a> — 0 poeng</li>
+  <li><a href="/?d=yara.no">yara.no</a> — 0 poeng</li>
+</ul>
+
+<div class="callout warn">
+  <strong>0 poeng betyr ingen DMARC-beskyttelse.</strong> Det gjør det teknisk enkelt for angripere å sende e-post som tilsynelatende kommer fra disse domenene — noe som kan brukes til phishing mot ansatte, kunder og samarbeidspartnere.
+</div>
+
+<p>Disse selskapene er globale aktører med tusenvis av ansatte og leverandørrelasjoner. E-postdomenet deres er et attraktivt mål for svindlere som ønsker å utgi seg for å være dem. Mangelen på DMARC er ikke bare en teknisk svakhet — det er en forretningsrisiko.</p>
+
+<p>Også <a href="/?d=aker-solutions.no">aker-solutions.no</a> og <a href="/?d=sparebanken-ost.no">sparebanken-ost.no</a> scorer F. For en bank er dette særlig bekymringsfullt, ettersom bankdomener er blant de mest misbrukte i phishing-kampanjer rettet mot privatpersoner.</p>
+
+<h2 id="toppen">Toppen: Offentlig sektor leverer</h2>
+
+<p>I den andre enden av skalaen finner vi en rekke offentlige etater med perfekte 100 poeng:</p>
+
+<ul>
+  <li><a href="/?d=nav.no">nav.no</a> — A+ (100p)</li>
+  <li><a href="/?d=ssb.no">ssb.no</a> — A+ (100p)</li>
+  <li><a href="/?d=stortinget.no">stortinget.no</a> — A+ (97p)</li>
+  <li><a href="/?d=udi.no">udi.no</a> — A+ (97p)</li>
+  <li><a href="/?d=telenor.no">telenor.no</a> — A+ (97p)</li>
+</ul>
+
+<p>NAV håndterer millioner av nordmenn og svært sensitiv kommunikasjon — her er det godt å se at e-postsikkerheten er i orden. Stortinget og UDI er institusjoner der identitetsforfalskning via e-post ville hatt alvorlige konsekvenser, og begge scorer nær perfekt.</p>
+
+<p><a href="/?d=nbim.no">nbim.no</a> (Norges Bank Investment Management, som forvalter oljefondet) scorer også 100 poeng — en institusjon der svindelforsøk via e-post kan ha svært store konsekvenser.</p>
+
+<h2 id="medier">En avis uten DMARC</h2>
+
+<p><a href="/?d=faedrelandsvennen.no">faedrelandsvennen.no</a> scorer F denne uken. Medieorganisasjoner kommuniserer jevnlig med kilder, lesere og annonsører via e-post. Uten DMARC kan hvem som helst sende e-post som ser ut til å komme fra redaksjonen — med potensielt alvorlige konsekvenser for kildevern og omdømme.</p>
+
+<h2 id="hva-betyr-det">Hva betyr karakterene i praksis?</h2>
+
+<p>En F-karakter betyr vanligvis ett eller flere av følgende:</p>
+
+<ol>
+  <li>DMARC mangler helt, eller er satt til <code>p=none</code> (kun overvåkning, ingen blokkering)</li>
+  <li>SPF er ikke konfigurert eller har feil</li>
+  <li>DKIM-signering er ikke på plass</li>
+</ol>
+
+<p>Å gå fra F til en akseptabel karakter er ofte ikke et stort prosjekt. For mange domener handler det om å legge til noen DNS-oppføringer og sette DMARC-policy til <code>p=quarantine</code> eller <code>p=reject</code>.</p>
+
+<h2 id="hva-kan-du-gjore">Hva kan du gjøre?</h2>
+
+<p>Driver du et domene og er usikker på hvor du står? Søk opp domenet ditt på <a href="/">data1.no</a> for en gratis analyse. Du kan også bruke <a href="/sammenligning/">sammenligningsverktøyet</a> for å se hvordan domenet ditt ligger an mot bransjekollegaer.</p>
+
+<p>Er du IT-ansvarlig i et selskap med F-karakter? Prioriter dette:</p>
+
+<ul>
+  <li><strong>Sett opp SPF</strong> — definer hvilke servere som har lov til å sende e-post på vegne av domenet ditt</li>
+  <li><strong>Aktiver DKIM</strong> — sørg for at utgående e-post er kryptografisk signert</li>
+  <li><strong>Publiser en DMARC-post</strong> — start gjerne med <code>p=none</code> for å samle data, og skru opp til <code>p=reject</code> når du er trygg på konfigurasjonen</li>
+</ul>
+
+<p>Det er ingen grunn til at Norges største industrikonsern skal ha dårligere e-postsikkerhet enn en gjennomsnittlig statlig etat. Ukens tall viser at potensialet for forbedring er stort.</p>
+
+<div style="margin-top:40px;padding:20px;background:#f0fdfa;border-radius:12px;border:1px solid #99f6e4">
+<h3 style="margin-bottom:8px">Sjekk ditt eget domene</h3>
+<p style="margin-bottom:14px">Få samme analyse for ditt domene på 10 sekunder, helt gratis.</p>
+<a href="/" style="display:inline-block;background:#14b8a6;color:#fff;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:700">Kjør analyse →</a>
+</div>
+</main>
+</body>
+</html>

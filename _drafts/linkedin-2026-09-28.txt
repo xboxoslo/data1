@@ -1,0 +1,9 @@
+Equinor, Hydro og Yara scorer alle 0 poeng på e-postsikkerhet 🔴
+
+Det betyr at hvem som helst teknisk sett kan sende e-post som ser ut til å komme fra disse selskapene – perfekt for phishing mot ansatte og leverandører.
+
+Av 158 analyserte norske domener havner 21 på bunnkarakteren F.
+
+Hvem scorer best? Det overrasker kanskje.
+
+Les ukens rapport: https://data1.no/blogg/norske-energigiganter-med-bunnkarakter-uke-40-rapport/
