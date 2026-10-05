@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="description" content="Norske storselskaper med null i e-postsikkerhet — uke 41-rapport — ukentlig DMARC-analyse fra data1.no.">
+<meta name="author" content="Terje Otterlei">
+<meta name="theme-color" content="#1a202c">
+<link rel="canonical" href="https://data1.no/blogg/norske-storselskaper-med-null-i-e-postsikkerhet-uke-41-rappo/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Norske storselskaper med null i e-postsikkerhet — uke 41-rapport">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<title>Norske storselskaper med null i e-postsikkerhet — uke 41-rapport | data1.no</title>
+<link rel="stylesheet" href="/blogg/_assets/post.css">
+<style>
+.data-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.data-table th{background:#0f172a;color:#fff;text-align:left;padding:10px 12px;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.data-table td{padding:10px 12px;border-bottom:1px solid #f1f5f9}
+.callout{background:#f0fdfa;border-left:4px solid #14b8a6;padding:14px 18px;border-radius:0 10px 10px 0;margin:18px 0}
+.callout.warn{background:#fff7ed;border-left-color:#f97316;color:#7c2d12}
+.meta{font-size:13px;color:#64748b;margin-bottom:22px}
+.lead{font-size:18px;color:#475569;margin-bottom:24px;line-height:1.7}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Norske storselskaper med null i e-postsikkerhet — uke 41-rapport","datePublished":"2026-10-05","dateModified":"2026-10-05","author":{"@type":"Organization","name":"Micronet","url":"https://micronet.no/"},"publisher":{"@type":"Organization","name":"data1.no","logo":{"@type":"ImageObject","url":"https://data1.no/og-image.png"}},"description":"Norske storselskaper med null i e-postsikkerhet — uke 41-rapport","image":"https://data1.no/og-image.png","mainEntityOfPage":"https://data1.no/blogg/norske-storselskaper-med-null-i-e-postsikkerhet-uke-41-rappo/","inLanguage":"nb-NO"}</script>
+</head>
+<body>
+<header class="header">
+<a href="/" class="logo">data1<span>.no</span></a>
+<div class="spacer"></div>
+<a href="/" class="nav-link">Sjekk eget domene →</a>
+</header>
+<main>
+<nav class="crumbs"><a href="/">Hjem</a> › <a href="/blogg/">Blogg</a> › Ukerapport 41</nav>
+<h1>Norske storselskaper med null i e-postsikkerhet — uke 41-rapport</h1>
+
+<p class="lead">Equinor, Hydro og Yara scorer alle 0 av 100 på e-postsikkerhet — og det er langt fra det eneste bekymringsfulle funnet i ukens analyse av 158 norske domener.</p>
+
+<p class="meta">Publisert 5. okt. 2026 · Av Terje Otterlei · 4 min lesetid</p>
+
+<h2 id="oversikt">Ukens tall i korte trekk</h2>
+
+<p>Denne uken er 158 norske domener analysert via <a href="/">data1.no</a>. Snittscore er 64,3 av 100, og 85 domener har DMARC satt til <code>p=reject</code> — det vil si full beskyttelse mot e-postforfalskning. 13 domener mangler DMARC helt.</p>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Karakter</th>
+      <th>Antall domener</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>A+</td><td>25</td></tr>
+    <tr><td>A</td><td>37</td></tr>
+    <tr><td>B</td><td>16</td></tr>
+    <tr><td>C</td><td>33</td></tr>
+    <tr><td>D</td><td>25</td></tr>
+    <tr><td>F</td><td>22</td></tr>
+  </tbody>
+</table>
+
+<p>Fordelingen er todelt: En sterk gruppe på toppen, og en urovekkende stor gruppe på bunnen. Hele 22 domener får karakteren F — og blant dem finner vi noen av Norges mest profilerte selskaper.</p>
+
+<h2 id="storselskaper-bunn">Norges største selskaper med bunnkarakter</h2>
+
+<p>Det mest påfallende i ukens data er at flere av Norges tyngste næringslivsaktører ligger helt på bunnen av listen — med 0 poeng.</p>
+
+<div class="callout warn">
+  <strong>Disse domenene scorer 0/100 denne uken:</strong><br>
+  <a href="/?d=equinor.no">equinor.no</a> · <a href="/?d=hydro.no">hydro.no</a> · <a href="/?d=yara.no">yara.no</a> · <a href="/?d=aker-solutions.no">aker-solutions.no</a> · <a href="/?d=sparebanken-ost.no">sparebanken-ost.no</a>
+</div>
+
+<p>En score på 0 betyr at domenet enten mangler DMARC-oppføring helt, eller har en konfigurasjon som ikke gir noen reell beskyttelse. I praksis kan hvem som helst sende e-post som tilsynelatende kommer fra disse domenene — uten at mottakernes e-postservere advares eller blokkerer meldingen.</p>
+
+<p>For selskaper som <a href="/?d=equinor.no">equinor.no</a> og <a href="/?d=yara.no">yara.no</a>, som opererer internasjonalt og er mål for målrettet svindel og phishing, er dette en betydelig risiko — ikke bare for selskapet selv, men for alle som mottar e-post som utgir seg for å komme fra dem.</p>
+
+<p>Også <a href="/?d=faedrelandsvennen.no">faedrelandsvennen.no</a>, <a href="/?d=clas-ohlson.no">clas-ohlson.no</a> og <a href="/?d=schenker.no">schenker.no</a> ligger på bunn med F-karakter.</p>
+
+<h2 id="forverringer">NRK og DNB faller markant</h2>
+
+<p>Ukens mest dramatiske endringer er to forverringer som fortjener oppmerksomhet:</p>
+
+<ul>
+  <li><a href="/?d=nrk.no">nrk.no</a> faller fra 53 til 28 poeng — en nedgang på 25 poeng, ned til karakter F</li>
+  <li><a href="/?d=dnb.no">dnb.no</a> faller fra 95 til 75 poeng — en nedgang på 20 poeng, ned til karakter B</li>
+</ul>
+
+<p>At NRK nå havner på F er bekymringsfullt. NRK er en avsender folk stoler på, og et domene som kan forfalskes uten tekniske hindringer er et attraktivt mål for phishing-forsøk. Det er uklart hva som har forårsaket fallet — det kan skyldes en endring i DNS-konfigurasjon, utgåtte oppføringer eller andre tekniske justeringer.</p>
+
+<p>DNB er fremdeles innenfor godkjent territorium med B, men et fall på 20 poeng på én uke er uvanlig stort og bør følges opp. For en bank er e-postsikkerhet særlig kritisk. Se hele analysen for <a href="/?d=dnb.no">dnb.no</a>.</p>
+
+<h2 id="toppen">De beste: Offentlig sektor i front</h2>
+
+<p>På den positive siden er det gledelig å se at norsk offentlig sektor viser vei. <a href="/?d=nav.no">nav.no</a>, <a href="/?d=ssb.no">ssb.no</a> og <a href="/?d=stortinget.no">stortinget.no</a> scorer alle A+ med henholdsvis 100, 100 og 97 poeng. Det samme gjelder <a href="/?d=udi.no">udi.no</a> og <a href="/?d=telenor.no">telenor.no</a>.</p>
+
+<p>Disse domenene har fullstendig DMARC-konfigurasjon med <code>p=reject</code>, og har trolig også MTA-STS og BIMI på plass. Se <a href="/trender/">trendoversikten</a> for å følge utviklingen over tid.</p>
+
+<h2 id="hva-kan-du-gjore">Hva bør du gjøre?</h2>
+
+<p>Enten du driver et lite nettsted eller et stort selskap, er trinnene de samme:</p>
+
+<ol>
+  <li><strong>Sjekk domenet ditt</strong> på <a href="/">data1.no</a> — det tar under ett minutt.</li>
+  <li><strong>Publiser en DMARC-oppføring</strong> — start med <code>p=none</code> for å samle inn data, gå gradvis til <code>p=quarantine</code> og til slutt <code>p=reject</code>.</li>
+  <li><strong>Sørg for gyldig SPF og DKIM</strong> — DMARC er avhengig av at begge er korrekt konfigurert.</li>
+  <li><strong>Overvåk jevnlig</strong> — ukentlige svingninger som NRKs fall på 25 poeng viser at konfigurasjon kan endre seg uten at man merker det.</li>
+</ol>
+
+<div class="callout warn">
+  Driver du et norsk domene med F-karakter? Du kan sammenlikne deg med tilsvarende aktører på <a href="/sammenligning/">sammenligningssiden</a>.
+</div>
+
+<p>Neste uke følges utviklingen opp — spesielt om NRK og DNB tar tak i fallene sine, og om noen av bunnselskaper begynner å klatre.</p>
+
+<div style="margin-top:40px;padding:20px;background:#f0fdfa;border-radius:12px;border:1px solid #99f6e4">
+<h3 style="margin-bottom:8px">Sjekk ditt eget domene</h3>
+<p style="margin-bottom:14px">Få samme analyse for ditt domene på 10 sekunder, helt gratis.</p>
+<a href="/" style="display:inline-block;background:#14b8a6;color:#fff;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:700">Kjør analyse →</a>
+</div>
+</main>
+</body>
+</html>
