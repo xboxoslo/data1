@@ -35,7 +35,7 @@ regjeringen.no,Offentlig sektor,60,C,reject,1,1,0,0,0,0
 stortinget.no,Offentlig sektor,97,A+,reject,1,1,1,1,1,0
 udi.no,Offentlig sektor,97,A+,reject,1,1,1,1,1,0
 nbim.no,Offentlig sektor,100,A+,reject,1,1,1,1,1,1
-brreg.no,Offentlig sektor,65,C,quarantine,1,1,1,0,0,0
+brreg.no,Offentlig sektor,80,A,reject,1,1,1,0,0,0
 ssb.no,Offentlig sektor,100,A+,reject,1,1,1,1,1,1
 nho.no,Offentlig sektor,80,A,reject,1,1,1,0,1,0
 lo.no,Offentlig sektor,92,A+,reject,1,1,1,1,1,0
@@ -80,7 +80,7 @@ jernia.no,E-handel,75,B,reject,1,1,1,0,0,0
 biltema.no,E-handel,60,C,quarantine,1,1,1,0,0,0
 ikea.com,E-handel,100,A+,reject,1,1,1,1,1,1
 zalando.no,E-handel,51,D,none,1,1,1,0,0,1
-hm.com,E-handel,58,C,reject,0,1,1,0,0,1
+hm.com,E-handel,78,B,reject,1,1,1,0,0,1
 cubus.com,E-handel,45,D,quarantine,1,1,0,0,0,0
 boozt.com,E-handel,68,C,quarantine,1,1,1,0,0,1
 fjordkraft.no,E-handel,92,A+,reject,1,1,1,1,1,0
