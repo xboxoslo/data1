@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="description" content="DNB og Brønnøysund tar store steg — uke 42-rapport — ukentlig DMARC-analyse fra data1.no.">
+<meta name="author" content="Terje Otterlei">
+<meta name="theme-color" content="#1a202c">
+<link rel="canonical" href="https://data1.no/blogg/dnb-og-br-nn-ysund-tar-store-steg-uke-42-rapport/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DNB og Brønnøysund tar store steg — uke 42-rapport">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<title>DNB og Brønnøysund tar store steg — uke 42-rapport | data1.no</title>
+<link rel="stylesheet" href="/blogg/_assets/post.css">
+<style>
+.data-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.data-table th{background:#0f172a;color:#fff;text-align:left;padding:10px 12px;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.data-table td{padding:10px 12px;border-bottom:1px solid #f1f5f9}
+.callout{background:#f0fdfa;border-left:4px solid #14b8a6;padding:14px 18px;border-radius:0 10px 10px 0;margin:18px 0}
+.callout.warn{background:#fff7ed;border-left-color:#f97316;color:#7c2d12}
+.meta{font-size:13px;color:#64748b;margin-bottom:22px}
+.lead{font-size:18px;color:#475569;margin-bottom:24px;line-height:1.7}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"DNB og Brønnøysund tar store steg — uke 42-rapport","datePublished":"2026-10-12","dateModified":"2026-10-12","author":{"@type":"Organization","name":"Micronet","url":"https://micronet.no/"},"publisher":{"@type":"Organization","name":"data1.no","logo":{"@type":"ImageObject","url":"https://data1.no/og-image.png"}},"description":"DNB og Brønnøysund tar store steg — uke 42-rapport","image":"https://data1.no/og-image.png","mainEntityOfPage":"https://data1.no/blogg/dnb-og-br-nn-ysund-tar-store-steg-uke-42-rapport/","inLanguage":"nb-NO"}</script>
+</head>
+<body>
+<header class="header">
+<a href="/" class="logo">data1<span>.no</span></a>
+<div class="spacer"></div>
+<a href="/" class="nav-link">Sjekk eget domene →</a>
+</header>
+<main>
+<nav class="crumbs"><a href="/">Hjem</a> › <a href="/blogg/">Blogg</a> › Ukerapport 42</nav>
+<h1>DNB og Brønnøysund tar store steg — uke 42-rapport</h1>
+
+<p class="lead">Norske storbanker og offentlige etater forbedrer e-postsikkerheten merkbart, men industritungtvektere som Equinor og Hydro scorer fortsatt null poeng.</p>
+
+<p class="meta">Publisert 12. okt. 2026 · Av Terje Otterlei · 5 min lesetid</p>
+
+<p>Denne uken er 158 norske domener analysert av <a href="/">data1.no</a>. Snittscore er 64,7 av 100, og 86 domener har satt DMARC-policyen til <code>p=reject</code> — det høyeste beskyttelsesnivået. 13 domener mangler DMARC helt. Det mest interessante denne uken er likevel ikke hvem som allerede er i toppsjiktet, men hvem som beveger seg dit.</p>
+
+<h2 id="forbedringer">Ukens største hopp</h2>
+
+<p>Tre domener utmerker seg med tydelige forbedringer siden forrige uke:</p>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Domene</th>
+      <th>Forrige score</th>
+      <th>Ny score</th>
+      <th>Endring</th>
+      <th>Karakter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="/?d=dnb.no">dnb.no</a></td>
+      <td>75</td>
+      <td>95</td>
+      <td>+20p</td>
+      <td>A+</td>
+    </tr>
+    <tr>
+      <td><a href="/?d=brreg.no">brreg.no</a></td>
+      <td>65</td>
+      <td>80</td>
+      <td>+15p</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <td><a href="/?d=nrk.no">nrk.no</a></td>
+      <td>28</td>
+      <td>53</td>
+      <td>+25p</td>
+      <td>D</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>DNB</strong> er ukas tydeligste suksesshistorie. Fra 75 til 95 poeng er et solid hopp for en av Norges største banker, og plasseringen i A+-sjiktet er godt fortjent. Banker er et yndet mål for e-postsvindel og phishing, og en sterk DMARC-konfigurasjon er kritisk for å hindre at kriminelle sender e-post som later som den kommer fra <a href="/?d=dnb.no">dnb.no</a>.</p>
+
+<p><strong>Brønnøysundregistrene</strong> (<a href="/?d=brreg.no">brreg.no</a>) klatrer til 80 poeng og karakter A. Et offentlig register som håndterer informasjon om norske selskaper bør ha sterk e-postsikkerhet — dette er et steg i riktig retning.</p>
+
+<p><strong>NRK</strong> gjør det prosentvis største hoppet: fra 28 til 53 poeng. Det løfter dem fra F til D, noe som isolert sett høres beskjedent ut — men det viser at arbeid pågår. <a href="/?d=nrk.no">nrk.no</a> er fortsatt under snittet på 64,7, og det er mer å hente.</p>
+
+<h2 id="toppsjikt">Offentlig sektor dominerer toppen</h2>
+
+<p>Topp 10-listen er dominert av offentlige etater og internasjonale e-postsikkerhetsaktører:</p>
+
+<ul>
+  <li><a href="/?d=nav.no">nav.no</a> — 100p (A+)</li>
+  <li><a href="/?d=ssb.no">ssb.no</a> — 100p (A+)</li>
+  <li><a href="/?d=stortinget.no">stortinget.no</a> — 97p (A+)</li>
+  <li><a href="/?d=udi.no">udi.no</a> — 97p (A+)</li>
+  <li><a href="/?d=telenor.no">telenor.no</a> — 97p (A+)</li>
+</ul>
+
+<p>At NAV, SSB og Stortinget scorer maksimalt er betryggende. Disse avsender store mengder e-post til norske innbyggere, og er attraktive merkevarer for svindlere å etterlikne. Full score betyr at de har konfigurert SPF, DKIM, DMARC med <code>p=reject</code>, MTA-STS og øvrige protokoller korrekt.</p>
+
+<h2 id="bunnsjikt">Store navn på bunn — null poeng</h2>
+
+<div class="callout warn">
+  <strong>10 domener scorer 0 poeng denne uken.</strong> Blant dem er noen av Norges mest profilerte selskaper.
+</div>
+
+<p>Det er påfallende at flere av Norges tyngste industri- og energiselskaper havner på bunnen:</p>
+
+<ul>
+  <li><a href="/?d=equinor.no">equinor.no</a> — 0p (F)</li>
+  <li><a href="/?d=hydro.no">hydro.no</a> — 0p (F)</li>
+  <li><a href="/?d=yara.no">yara.no</a> — 0p (F)</li>
+  <li><a href="/?d=aker-solutions.no">aker-solutions.no</a> — 0p (F)</li>
+</ul>
+
+<p>Det er viktig å presisere at disse selskapene gjerne bruker andre domener for faktisk e-postutsending — men <code>.no</code>-domenene deres er likevel sårbare. Uten DMARC-beskyttelse kan hvem som helst sende e-post som tilsynelatende kommer fra disse adressene, uten at mottakernes e-postservere advares eller blokkerer meldingene.</p>
+
+<p><a href="/?d=sparebanken-ost.no">sparebanken-ost.no</a> er også i bunnsjiktet med 0 poeng, noe som er bekymringsfullt for en finansinstitusjon. Banker er særlig utsatt for merkevaresvindel via e-post.</p>
+
+<h2 id="karakterfordeling">Slik fordeler karakterene seg</h2>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Karakter</th>
+      <th>Antall domener</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>A+</td><td>26</td></tr>
+    <tr><td>A</td><td>38</td></tr>
+    <tr><td>B</td><td>15</td></tr>
+    <tr><td>C</td><td>32</td></tr>
+    <tr><td>D</td><td>26</td></tr>
+    <tr><td>F</td><td>21</td></tr>
+  </tbody>
+</table>
+
+<p>64 domener — over 40 prosent — scorer B eller lavere. Det er fortsatt et stort forbedringspotensial blant norske domener. Se <a href="/trender/">trendoversikten</a> for utvikling over tid, eller <a href="/sammenligning/">sammenlign domener</a> i din bransje.</p>
+
+<h2 id="rad">Hva bør du gjøre?</h2>
+
+<ol>
+  <li><strong>Sjekk ditt eget domene</strong> på <a href="/">data1.no</a> — det tar under ett minutt.</li>
+  <li><strong>Har du DMARC?</strong> Sett policyen til minst <code>p=quarantine</code> om du ikke allerede er på <code>p=reject</code>.</li>
+  <li><strong>Mangler du DMARC helt?</strong> Da er det ingenting som hindrer andre i å sende e-post i ditt navn. Start med en <code>p=none</code>-policy og aktiver rapportering for å få oversikt.</li>
+  <li><strong>Scorer du under 70?</strong> Sjekk om MTA-STS og TLS-RPT er satt opp — det er ofte der de siste poengene ligger.</li>
+</ol>
+
+<div style="margin-top:40px;padding:20px;background:#f0fdfa;border-radius:12px;border:1px solid #99f6e4">
+<h3 style="margin-bottom:8px">Sjekk ditt eget domene</h3>
+<p style="margin-bottom:14px">Få samme analyse for ditt domene på 10 sekunder, helt gratis.</p>
+<a href="/" style="display:inline-block;background:#14b8a6;color:#fff;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:700">Kjør analyse →</a>
+</div>
+</main>
+</body>
+</html>
