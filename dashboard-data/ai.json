@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-05T15:38:08Z",
+  "lastUpdated": "2026-10-12T16:34:53Z",
   "summary": {
     "promptsTested": 20,
     "data1noMentions": 0,
@@ -8,18 +8,13 @@
     "competitorMentions": {
       "sjekk.email": 2,
       "dmarcstatus.no": 2,
-      "mxtoolbox": 16,
-      "easydmarc": 5,
-      "powerdmarc": 3,
-      "dmarcian": 8
+      "mxtoolbox": 14,
+      "easydmarc": 7,
+      "powerdmarc": 1,
+      "dmarcian": 10
     }
   },
   "timeline": [
-    {
-      "week": "2026-W34",
-      "data1no": 0,
-      "micronet": 0
-    },
     {
       "week": "2026-W35",
       "data1no": 0,
@@ -52,6 +47,11 @@
     },
     {
       "week": "2026-W41",
+      "data1no": 0,
+      "micronet": 0
+    },
+    {
+      "week": "2026-W42",
       "data1no": 0,
       "micronet": 0
     }
