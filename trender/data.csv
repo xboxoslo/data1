@@ -12,7 +12,7 @@ sparebanken-ost.no,Banker,0,F,,0,0,0,0,0,0
 nordnet.no,Banker,68,C,quarantine,1,1,1,0,0,1
 finanstilsynet.no,Banker,80,A,reject,1,1,1,0,0,0
 gjensidige.no,Forsikring,68,C,quarantine,1,1,1,0,0,1
-fremtind.no,Forsikring,80,A,reject,1,1,1,0,0,0
+fremtind.no,Forsikring,97,A+,reject,1,1,1,1,1,0
 if.no,Forsikring,80,A,reject,1,1,1,0,0,0
 tryg.no,Forsikring,48,D,none,1,1,1,0,0,0
 codan.no,Forsikring,45,D,,1,0,1,0,0,0
@@ -110,7 +110,7 @@ funcom.com,Tech / SaaS,53,D,none,1,1,1,0,0,0
 remarkable.com,Tech / SaaS,78,B,reject,1,1,1,0,0,1
 uio.no,Universiteter og høyskoler,33,F,none,1,1,0,0,0,0
 ntnu.no,Universiteter og høyskoler,18,F,none,1,1,0,0,1,0
-uib.no,Universiteter og høyskoler,65,C,quarantine,1,1,1,0,0,0
+uib.no,Universiteter og høyskoler,70,B,quarantine,1,1,1,0,1,0
 uit.no,Universiteter og høyskoler,80,A,reject,1,1,1,0,0,0
 nmbu.no,Universiteter og høyskoler,53,D,none,1,1,1,0,0,0
 hvl.no,Universiteter og høyskoler,48,D,none,1,1,1,0,0,0
