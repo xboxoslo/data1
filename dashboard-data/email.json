@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-13T14:27:18Z",
+  "lastUpdated": "2026-10-14T12:12:38Z",
   "ownDomains": [
     {
       "domain": "data1.no",
@@ -11,7 +11,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": false,
-      "lastChecked": "2026-10-13T14:27:20Z"
+      "lastChecked": "2026-10-14T12:12:39Z"
     },
     {
       "domain": "micronet.no",
@@ -23,7 +23,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": true,
-      "lastChecked": "2026-10-13T14:27:21Z"
+      "lastChecked": "2026-10-14T12:12:39Z"
     }
   ],
   "trackedDomains": {
@@ -37,16 +37,34 @@
   "weeklyChanges": {
     "improved": [
       {
-        "domain": "dnb.no",
+        "domain": "nrk.no",
+        "from": "p=none",
+        "to": "p=none",
+        "scoreDelta": 25
+      },
+      {
+        "domain": "hm.com",
         "from": "p=reject",
         "to": "p=reject",
         "scoreDelta": 20
+      },
+      {
+        "domain": "fremtind.no",
+        "from": "p=reject",
+        "to": "p=reject",
+        "scoreDelta": 17
       },
       {
         "domain": "brreg.no",
         "from": "p=quarantine",
         "to": "p=reject",
         "scoreDelta": 15
+      },
+      {
+        "domain": "uib.no",
+        "from": "p=quarantine",
+        "to": "p=quarantine",
+        "scoreDelta": 5
       }
     ],
     "regressed": []
