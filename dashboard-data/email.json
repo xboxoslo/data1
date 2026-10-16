@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-15T11:52:44Z",
+  "lastUpdated": "2026-10-16T11:43:50Z",
   "ownDomains": [
     {
       "domain": "data1.no",
@@ -11,7 +11,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": false,
-      "lastChecked": "2026-10-15T11:52:44Z"
+      "lastChecked": "2026-10-16T11:43:51Z"
     },
     {
       "domain": "micronet.no",
@@ -23,42 +23,30 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": true,
-      "lastChecked": "2026-10-15T11:52:45Z"
+      "lastChecked": "2026-10-16T11:43:52Z"
     }
   ],
   "trackedDomains": {
     "total": 158,
-    "withReject": 86,
-    "withQuarantine": 27,
+    "withReject": 87,
+    "withQuarantine": 26,
     "withNone": 32,
     "missing": 13,
-    "rejectPercent": 54.4
+    "rejectPercent": 55.1
   },
   "weeklyChanges": {
     "improved": [
       {
-        "domain": "hm.com",
-        "from": "p=reject",
+        "domain": "uib.no",
+        "from": "p=quarantine",
         "to": "p=reject",
-        "scoreDelta": 20
+        "scoreDelta": 32
       },
       {
         "domain": "fremtind.no",
         "from": "p=reject",
         "to": "p=reject",
         "scoreDelta": 17
-      },
-      {
-        "domain": "brreg.no",
-        "from": "p=quarantine",
-        "to": "p=reject",
-        "scoreDelta": 15
-      },
-      {
-        "domain": "uib.no",
-        "from": "p=quarantine",
-        "to": "p=quarantine",
-        "scoreDelta": 5
       }
     ],
     "regressed": []
@@ -106,11 +94,11 @@
     },
     {
       "week": "2026-W41",
-      "rejectPercent": 53.8
+      "rejectPercent": 54.4
     },
     {
       "week": "2026-W42",
-      "rejectPercent": 54.4
+      "rejectPercent": 55.1
     }
   ]
 }
