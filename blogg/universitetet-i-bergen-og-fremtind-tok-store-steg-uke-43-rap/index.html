@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="description" content="Universitetet i Bergen og Fremtind tok store steg — uke 43-rapport — ukentlig DMARC-analyse fra data1.no.">
+<meta name="author" content="Terje Otterlei">
+<meta name="theme-color" content="#1a202c">
+<link rel="canonical" href="https://data1.no/blogg/universitetet-i-bergen-og-fremtind-tok-store-steg-uke-43-rap/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Universitetet i Bergen og Fremtind tok store steg — uke 43-rapport">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<title>Universitetet i Bergen og Fremtind tok store steg — uke 43-rapport | data1.no</title>
+<link rel="stylesheet" href="/blogg/_assets/post.css">
+<style>
+.data-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.data-table th{background:#0f172a;color:#fff;text-align:left;padding:10px 12px;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.data-table td{padding:10px 12px;border-bottom:1px solid #f1f5f9}
+.callout{background:#f0fdfa;border-left:4px solid #14b8a6;padding:14px 18px;border-radius:0 10px 10px 0;margin:18px 0}
+.callout.warn{background:#fff7ed;border-left-color:#f97316;color:#7c2d12}
+.meta{font-size:13px;color:#64748b;margin-bottom:22px}
+.lead{font-size:18px;color:#475569;margin-bottom:24px;line-height:1.7}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Universitetet i Bergen og Fremtind tok store steg — uke 43-rapport","datePublished":"2026-10-19","dateModified":"2026-10-19","author":{"@type":"Organization","name":"Micronet","url":"https://micronet.no/"},"publisher":{"@type":"Organization","name":"data1.no","logo":{"@type":"ImageObject","url":"https://data1.no/og-image.png"}},"description":"Universitetet i Bergen og Fremtind tok store steg — uke 43-rapport","image":"https://data1.no/og-image.png","mainEntityOfPage":"https://data1.no/blogg/universitetet-i-bergen-og-fremtind-tok-store-steg-uke-43-rap/","inLanguage":"nb-NO"}</script>
+</head>
+<body>
+<header class="header">
+<a href="/" class="logo">data1<span>.no</span></a>
+<div class="spacer"></div>
+<a href="/" class="nav-link">Sjekk eget domene →</a>
+</header>
+<main>
+<nav class="crumbs"><a href="/">Hjem</a> › <a href="/blogg/">Blogg</a> › Ukerapport 43</nav>
+<h1>Universitetet i Bergen og Fremtind tok store steg — uke 43-rapport</h1>
+
+<p class="lead">To norske virksomheter skiller seg positivt ut denne uken med markante forbedringer i e-postsikkerhet, mens flere kjente norske selskaper fortsatt scorer null poeng.</p>
+
+<p class="meta">Publisert 19. okt. 2026 · Av Terje Otterlei · 4 min lesetid</p>
+
+<h2 id="oversikt">Ukens tall i kortform</h2>
+
+<p>158 norske domener er analysert denne uken. Snittscoren ligger på 64,9 av 100 poeng, og 87 domener har satt DMARC-policyen til <code>p=reject</code> — det vil si full beskyttelse mot e-postforfalskning. 13 domener mangler DMARC-oppføring helt.</p>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Karakter</th>
+      <th>Antall domener</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>A+</td><td>28</td></tr>
+    <tr><td>A</td><td>36</td></tr>
+    <tr><td>B</td><td>15</td></tr>
+    <tr><td>C</td><td>32</td></tr>
+    <tr><td>D</td><td>26</td></tr>
+    <tr><td>F</td><td>21</td></tr>
+  </tbody>
+</table>
+
+<p>Det er positivt at over halvparten av domenene har innført <code>p=reject</code>, men med 21 domener på F og 13 uten DMARC i det hele tatt er det fortsatt mye å ta tak i. Se <a href="/trender/">trendoversikten</a> for å følge utviklingen over tid.</p>
+
+<h2 id="forbedringer">Ukens vinnere: uib.no og fremtind.no</h2>
+
+<p>Bare to domener registrerte forbedringer denne uken — men begge var betydelige.</p>
+
+<h3>Universitetet i Bergen hopper 32 poeng</h3>
+
+<p><a href="/?d=uib.no">uib.no</a> gikk fra 65 til 97 poeng og klatret helt opp til karakteren A+. Et hopp på 32 poeng på én uke er uvanlig stort og tyder på at flere protokoller er blitt konfigurert korrekt samtidig — trolig en kombinasjon av DMARC <code>p=reject</code>, DKIM og eventuelt MTA-STS eller BIMI. For en stor utdanningsinstitusjon med mange ansatte og studenter er dette en viktig forbedring. Falske e-poster som utgir seg for å komme fra UiB er et reelt trusselbilde.</p>
+
+<h3>Fremtind sikrer seg A+</h3>
+
+<p><a href="/?d=fremtind.no">fremtind.no</a>, forsikringsselskapet eid av SpareBank 1 og DNB, gikk fra 80 til 97 poeng (+17) og er nå også på A+. Et forsikringsselskap som håndterer sensitive kundeopplysninger har mye å tjene på sterk e-postautentisering — og denne forbedringen viser at noen har tatt det på alvor.</p>
+
+<div class="callout warn">
+  <strong>Denne uken hadde bare 2 av 158 analyserte domener forbedringer.</strong> Det er et lavt tall. E-postsikkerhet krever aktiv vedlikehold — konfigurasjoner som var gode i fjor er ikke nødvendigvis gode i dag.
+</div>
+
+<h2 id="forverring">Talkmore falt 25 poeng</h2>
+
+<p><a href="/?d=talkmore.no">talkmore.no</a> er ukens eneste domene med registrert forverring, og det er en markant en: fra 80 til 55 poeng, ned til karakter C. Uten å kjenne den eksakte årsaken er dette typisk noe som skjer når en DNS-endring, en utløpt SPF-post eller en endret e-postleverandør ikke er fulgt opp med tilsvarende oppdatering av sikkerhetsprotokollene. For en mobiloperatør som sender fakturaer og varsler til sine kunder er dette verdt å rette opp raskt. Se full analyse på <a href="/?d=talkmore.no">data1.no</a>.</p>
+
+<h2 id="bunn">Store navn med nullscoring</h2>
+
+<p>Ukens bunnliste inneholder flere kjente norske og internasjonale selskaper som opererer i Norge:</p>
+
+<ul>
+  <li><a href="/?d=equinor.no">equinor.no</a> — Norges største energiselskap</li>
+  <li><a href="/?d=hydro.no">hydro.no</a> — Stort industrikonsern</li>
+  <li><a href="/?d=yara.no">yara.no</a> — Global gjødselprodusent</li>
+  <li><a href="/?d=aker-solutions.no">aker-solutions.no</a> — Ingeniør- og teknologiselskap</li>
+  <li><a href="/?d=sparebanken-ost.no">sparebanken-ost.no</a> — Regional sparebank</li>
+  <li><a href="/?d=faedrelandsvennen.no">faedrelandsvennen.no</a> — Regionavis</li>
+  <li><a href="/?d=schenker.no">schenker.no</a> — Logistikk og frakt</li>
+</ul>
+
+<p>Alle disse scorer 0 poeng — karakter F. Det betyr ikke nødvendigvis at de mangler alle sikkerhetstiltak på tvers av systemer, men det betyr at de analyserte domenene ikke har grunnleggende e-postautentisering på plass slik data1.no måler det. For selskaper som <a href="/?d=sparebanken-ost.no">sparebanken-ost.no</a> er dette bekymringsfullt — bankforfalskning via e-post er en av de vanligste formene for phishing rettet mot norske forbrukere.</p>
+
+<h2 id="toppliste">Ukens beste: offentlig sektor i front</h2>
+
+<p>På toppen finner vi blant andre <a href="/?d=nav.no">nav.no</a>, <a href="/?d=ssb.no">ssb.no</a> og <a href="/?d=stortinget.no">stortinget.no</a> — alle med 97–100 poeng. Det er oppløftende at sentrale offentlige institusjoner tar e-postsikkerhet på alvor. Sammenlign domener du er nysgjerrig på via <a href="/sammenligning/">sammenligningsverktøyet</a>.</p>
+
+<h2 id="rad">Hva bør du gjøre nå?</h2>
+
+<ol>
+  <li><strong>Sjekk ditt eget domene</strong> på <a href="/">data1.no</a> — analysen er gratis og tar under ett minutt.</li>
+  <li><strong>Sett DMARC til <code>p=reject</code></strong> hvis du allerede har SPF og DKIM på plass. Det er det viktigste enkelttiltaket.</li>
+  <li><strong>Ikke gjør DNS-endringer uten å oppdatere SPF</strong> — det er den vanligste årsaken til plutselige fall, slik vi sannsynligvis ser med talkmore.no denne uken.</li>
+  <li><strong>Sett opp DMARC-rapportering</strong> (<code>rua=</code>) så du får varsler hvis noe endrer seg.</li>
+</ol>
+
+<div style="margin-top:40px;padding:20px;background:#f0fdfa;border-radius:12px;border:1px solid #99f6e4">
+<h3 style="margin-bottom:8px">Sjekk ditt eget domene</h3>
+<p style="margin-bottom:14px">Få samme analyse for ditt domene på 10 sekunder, helt gratis.</p>
+<a href="/" style="display:inline-block;background:#14b8a6;color:#fff;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:700">Kjør analyse →</a>
+</div>
+</main>
+</body>
+</html>
