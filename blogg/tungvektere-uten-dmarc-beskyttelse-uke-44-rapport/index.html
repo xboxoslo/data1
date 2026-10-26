@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="description" content="Tungvektere uten DMARC-beskyttelse — uke 44-rapport — ukentlig DMARC-analyse fra data1.no.">
+<meta name="author" content="Terje Otterlei">
+<meta name="theme-color" content="#1a202c">
+<link rel="canonical" href="https://data1.no/blogg/tungvektere-uten-dmarc-beskyttelse-uke-44-rapport/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tungvektere uten DMARC-beskyttelse — uke 44-rapport">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<title>Tungvektere uten DMARC-beskyttelse — uke 44-rapport | data1.no</title>
+<link rel="stylesheet" href="/blogg/_assets/post.css">
+<style>
+.data-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.data-table th{background:#0f172a;color:#fff;text-align:left;padding:10px 12px;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.data-table td{padding:10px 12px;border-bottom:1px solid #f1f5f9}
+.callout{background:#f0fdfa;border-left:4px solid #14b8a6;padding:14px 18px;border-radius:0 10px 10px 0;margin:18px 0}
+.callout.warn{background:#fff7ed;border-left-color:#f97316;color:#7c2d12}
+.meta{font-size:13px;color:#64748b;margin-bottom:22px}
+.lead{font-size:18px;color:#475569;margin-bottom:24px;line-height:1.7}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Tungvektere uten DMARC-beskyttelse — uke 44-rapport","datePublished":"2026-10-26","dateModified":"2026-10-26","author":{"@type":"Organization","name":"Micronet","url":"https://micronet.no/"},"publisher":{"@type":"Organization","name":"data1.no","logo":{"@type":"ImageObject","url":"https://data1.no/og-image.png"}},"description":"Tungvektere uten DMARC-beskyttelse — uke 44-rapport","image":"https://data1.no/og-image.png","mainEntityOfPage":"https://data1.no/blogg/tungvektere-uten-dmarc-beskyttelse-uke-44-rapport/","inLanguage":"nb-NO"}</script>
+</head>
+<body>
+<header class="header">
+<a href="/" class="logo">data1<span>.no</span></a>
+<div class="spacer"></div>
+<a href="/" class="nav-link">Sjekk eget domene →</a>
+</header>
+<main>
+<nav class="crumbs"><a href="/">Hjem</a> › <a href="/blogg/">Blogg</a> › Ukerapport 44</nav>
+<h1>Tungvektere uten DMARC-beskyttelse — uke 44-rapport</h1>
+
+<p class="lead">Norske industrigiganter som Equinor, Hydro og Yara scorer 0 av 100 på e-postsikkerhet — og det gjør dem til enkle mål for e-postsvindel i norske bedrifters innbokser.</p>
+
+<p class="meta">Publisert 26. okt 2026 · Av Terje Otterlei · 5 min lesetid</p>
+
+<h2 id="oversikt">Ukens tall</h2>
+
+<p>158 norske domener er analysert denne uken. Snittscoren ligger på <strong>64,9 av 100</strong>, og 87 domener har satt DMARC-policyen til <code>p=reject</code> — det vil si full beskyttelse mot e-postforfalskning. 13 domener mangler DMARC helt.</p>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Karakter</th>
+      <th>Antall domener</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>A+</td><td>28</td></tr>
+    <tr><td>A</td><td>36</td></tr>
+    <tr><td>B</td><td>15</td></tr>
+    <tr><td>C</td><td>32</td></tr>
+    <tr><td>D</td><td>26</td></tr>
+    <tr><td>F</td><td>21</td></tr>
+  </tbody>
+</table>
+
+<h2 id="industrigiganter">Norske industrigiganter lyser rødt</h2>
+
+<p>Det mest påfallende i ukens data er at flere av Norges mest kjente selskaper scorer <strong>0 av 100</strong>. <a href="/?d=equinor.no">equinor.no</a>, <a href="/?d=hydro.no">hydro.no</a>, <a href="/?d=yara.no">yara.no</a> og <a href="/?d=aker-solutions.no">aker-solutions.no</a> befinner seg alle på bunnen av listen.</p>
+
+<p>Det betyr i praksis at hvem som helst kan sende e-post som tilsynelatende kommer fra disse domenene — uten at mottakerens e-postserver har noen teknisk grunn til å avvise den. For selskaper som driver med internasjonale kontrakter, leverandørkjeder og store pengeoverføringer, er dette en alvorlig eksponering.</p>
+
+<div class="callout warn">
+  <strong>Hva betyr F-score i praksis?</strong> Et domene uten DMARC gir angripere fritt spillerom til å forfalske avsenderadressen. Ansatte, partnere og kunder kan motta e-post som ser ut til å komme fra <code>@equinor.no</code> eller <code>@hydro.no</code> — uten at det er det.
+</div>
+
+<p>Også <a href="/?d=sparebanken-ost.no">sparebanken-ost.no</a> og <a href="/?d=faedrelandsvennen.no">faedrelandsvennen.no</a> scorer 0. En bank og en regional avis er begge merkevarer folk stoler på — og dermed ekstra attraktive å etterligne i phishing-angrep.</p>
+
+<h2 id="topplisten">De beste: Staten og finansverdenen i tet</h2>
+
+<p>I den andre enden av skalaen finner vi et tydelig mønster: offentlige institusjoner og finansaktører dominerer topplistens A+-kategori.</p>
+
+<ul>
+  <li><a href="/?d=nav.no">nav.no</a> — 100p (A+)</li>
+  <li><a href="/?d=nbim.no">nbim.no</a> — 100p (A+)</li>
+  <li><a href="/?d=ssb.no">ssb.no</a> — 100p (A+)</li>
+  <li><a href="/?d=stortinget.no">stortinget.no</a> — 97p (A+)</li>
+  <li><a href="/?d=telenor.no">telenor.no</a> — 97p (A+)</li>
+  <li><a href="/?d=fremtind.no">fremtind.no</a> — 97p (A+)</li>
+</ul>
+
+<p>At NAV, Norges Bank Investment Management og SSB alle scorer perfekt, er oppløftende. Dette er domener som håndterer sensitiv kommunikasjon med millioner av nordmenn, og de tar tydelig e-postsikkerhet på alvor. Se hele <a href="/trender/">trendoversikten</a> for å følge utviklingen over tid.</p>
+
+<h2 id="forverring">Mattilsynet faller 25 poeng</h2>
+
+<p>Ukens eneste registrerte forverring er <a href="/?d=mattilsynet.no">mattilsynet.no</a>, som har falt fra 80 til 55 poeng — en nedgang på 25 poeng og ned fra karakter B til C. Det er en betydelig forverring på kort tid.</p>
+
+<p>En slik nedgang kan skyldes endringer i DNS-konfigurasjon, ny e-posttjeneste som ikke er riktig satt opp, eller at en tidligere korrekt DMARC-post er blitt fjernet eller feilkonfigurert. Uansett årsak bør det undersøkes raskt — Mattilsynet er en offentlig etat som mange nordmenn har tillit til.</p>
+
+<h2 id="hva-gjor-du">Hva bør du gjøre?</h2>
+
+<p>Er du ansvarlig for et domene som scorer dårlig? Her er de tre viktigste stegene:</p>
+
+<ol>
+  <li><strong>Sjekk om du har DMARC</strong> — bruk <a href="/">data1.no</a> til å analysere ditt eget domene gratis. Mangler du DMARC-post, er det første prioritet.</li>
+  <li><strong>Start med <code>p=none</code></strong> — dette gir deg synlighet i hvem som sender e-post på vegne av domenet ditt, uten å blokkere noe. Bruk rapportene til å kartlegge alle legitime avsendere.</li>
+  <li><strong>Gå gradvis til <code>p=reject</code></strong> — når du har kontroll på e-postflyten, skjerp policyen til <code>quarantine</code> og deretter <code>reject</code> for full beskyttelse.</li>
+</ol>
+
+<p>Vil du sammenligne ditt domene med konkurrenter eller andre i bransjen? Se <a href="/sammenligning/">sammenligningsverktøyet</a> på data1.no.</p>
+
+<div class="callout warn">
+  <strong>Ukens bekymring:</strong> 21 domener scorer F denne uken. Flere av dem er store norske merkevarer med høy gjenkjennelighet — noe som gjør dem til attraktive verktøy for svindlere. En DMARC-post koster ingenting å sette opp, men fraværet kan koste virksomheten dyrt.
+</div>
+
+<div style="margin-top:40px;padding:20px;background:#f0fdfa;border-radius:12px;border:1px solid #99f6e4">
+<h3 style="margin-bottom:8px">Sjekk ditt eget domene</h3>
+<p style="margin-bottom:14px">Få samme analyse for ditt domene på 10 sekunder, helt gratis.</p>
+<a href="/" style="display:inline-block;background:#14b8a6;color:#fff;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:700">Kjør analyse →</a>
+</div>
+</main>
+</body>
+</html>
