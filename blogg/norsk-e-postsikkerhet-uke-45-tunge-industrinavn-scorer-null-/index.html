@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="description" content="Norsk e-postsikkerhet uke 45: Tunge industrinavn scorer null — mens staten leverer — ukentlig DMARC-analyse fra data1.no.">
+<meta name="author" content="Terje Otterlei">
+<meta name="theme-color" content="#1a202c">
+<link rel="canonical" href="https://data1.no/blogg/norsk-e-postsikkerhet-uke-45-tunge-industrinavn-scorer-null-/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Norsk e-postsikkerhet uke 45: Tunge industrinavn scorer null — mens staten leverer">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<title>Norsk e-postsikkerhet uke 45: Tunge industrinavn scorer null — mens staten leverer | data1.no</title>
+<link rel="stylesheet" href="/blogg/_assets/post.css">
+<style>
+.data-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.data-table th{background:#0f172a;color:#fff;text-align:left;padding:10px 12px;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.data-table td{padding:10px 12px;border-bottom:1px solid #f1f5f9}
+.callout{background:#f0fdfa;border-left:4px solid #14b8a6;padding:14px 18px;border-radius:0 10px 10px 0;margin:18px 0}
+.callout.warn{background:#fff7ed;border-left-color:#f97316;color:#7c2d12}
+.meta{font-size:13px;color:#64748b;margin-bottom:22px}
+.lead{font-size:18px;color:#475569;margin-bottom:24px;line-height:1.7}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Norsk e-postsikkerhet uke 45: Tunge industrinavn scorer null — mens staten leverer","datePublished":"2026-11-02","dateModified":"2026-11-02","author":{"@type":"Organization","name":"Micronet","url":"https://micronet.no/"},"publisher":{"@type":"Organization","name":"data1.no","logo":{"@type":"ImageObject","url":"https://data1.no/og-image.png"}},"description":"Norsk e-postsikkerhet uke 45: Tunge industrinavn scorer null — mens staten leverer","image":"https://data1.no/og-image.png","mainEntityOfPage":"https://data1.no/blogg/norsk-e-postsikkerhet-uke-45-tunge-industrinavn-scorer-null-/","inLanguage":"nb-NO"}</script>
+</head>
+<body>
+<header class="header">
+<a href="/" class="logo">data1<span>.no</span></a>
+<div class="spacer"></div>
+<a href="/" class="nav-link">Sjekk eget domene →</a>
+</header>
+<main>
+<nav class="crumbs"><a href="/">Hjem</a> › <a href="/blogg/">Blogg</a> › Ukerapport 45</nav>
+<h1>Norsk e-postsikkerhet uke 45: Tunge industrinavn scorer null — mens staten leverer</h1>
+
+<p class="lead">Blant 158 analyserte norske domener skiller uke 45 seg ut ved en slående kontrast: statlige virksomheter topper listen med perfekte score, mens noen av Norges største industrikonserner ligger på bunn uten noen form for e-postbeskyttelse.</p>
+
+<p class="meta">Publisert 2. nov. 2026 · Av Terje Otterlei · 5 min lesetid</p>
+
+<h2 id="overblikk">Ukas overblikk</h2>
+
+<p>Snittscoren blant de 158 analyserte domenene ligger på <strong>64,9 av 100</strong> — et middels resultat som dekker over store forskjeller. 87 domener har satt DMARC-policyen til <code>p=reject</code>, som betyr full beskyttelse mot e-postforfalskning. Men 13 domener mangler DMARC helt, og hele 21 domener får karakteren F.</p>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Karakter</th>
+      <th>Antall domener</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>A+</td><td>28</td></tr>
+    <tr><td>A</td><td>36</td></tr>
+    <tr><td>B</td><td>15</td></tr>
+    <tr><td>C</td><td>32</td></tr>
+    <tr><td>D</td><td>26</td></tr>
+    <tr><td>F</td><td>21</td></tr>
+  </tbody>
+</table>
+
+<h2 id="toppen">Staten og finanssektoren leder an</h2>
+
+<p>Tre statlige virksomheter troner øverst på listen med perfekte 100 poeng: <a href="/?d=nav.no">nav.no</a>, <a href="/?d=ssb.no">ssb.no</a> og <a href="/?d=stortinget.no">stortinget.no</a>. At Nav og Statistisk sentralbyrå scorer maksimalt er særlig relevant — begge sender e-post som berører millioner av nordmenn, og konsekvensene av vellykket e-postforfalskning mot disse avsenderne ville vært alvorlige.</p>
+
+<p>Like bak finner vi <a href="/?d=nbim.no">nbim.no</a> (Oljefondet) og forsikringsselskapet <a href="/?d=fremtind.no">fremtind.no</a> med henholdsvis 100 og 97 poeng. <a href="/?d=telenor.no">telenor.no</a> holder seg også i toppsjiktet med 97 poeng.</p>
+
+<h2 id="bunnen">Store industrinavn uten grunnleggende beskyttelse</h2>
+
+<div class="callout warn">
+  <strong>Bekymringsfullt:</strong> Flere av Norges mest kjente selskaper innen energi og industri scorer 0 poeng — inkludert <a href="/?d=equinor.no">equinor.no</a>, <a href="/?d=hydro.no">hydro.no</a>, <a href="/?d=yara.no">yara.no</a> og <a href="/?d=aker-solutions.no">aker-solutions.no</a>.
+</div>
+
+<p>En score på 0 betyr ikke nødvendigvis at domenene mangler alle sikkerhetstiltak, men det indikerer at grunnleggende konfigurasjoner som DMARC, SPF og DKIM enten mangler, er feil satt opp, eller ikke håndheves. For domener som brukes i kommunikasjon med myndigheter, investorer og leverandører, er dette en betydelig risiko.</p>
+
+<p>Også <a href="/?d=sparebanken-ost.no">sparebanken-ost.no</a> havner på F-listen. En bank som sender e-post til privatpersoner om økonomi og kontoforhold bør prioritere e-postautentisering høyt — phishing-angrep som utgir seg for å komme fra banker er blant de vanligste svindelmetodene.</p>
+
+<p>Andre F-domener denne uken inkluderer <a href="/?d=faedrelandsvennen.no">faedrelandsvennen.no</a>, <a href="/?d=clas-ohlson.no">clas-ohlson.no</a> og <a href="/?d=schenker.no">schenker.no</a>.</p>
+
+<h2 id="endringer">Ukas bevegelser: Mattilsynet klatrer</h2>
+
+<p>Det er registrert én betydelig forbedring denne uken: <a href="/?d=mattilsynet.no">mattilsynet.no</a> har hoppet fra 55 til 80 poeng — en økning på 25 poeng og ny karakter A. Det er en solid oppgradering, og viser at det er fullt mulig å løfte e-postsikkerheten raskt når noen prioriterer det.</p>
+
+<p>På den andre siden har <a href="/?d=talkmore.no">talkmore.no</a> falt 25 poeng, fra 80 til 55, og havner nå på C. Hva som har endret seg i konfigurasjonen er ikke kjent, men et slikt fall kan skyldes at en DMARC-policy er endret, at en DNS-oppføring er blitt feil, eller at en tjeneste har sluttet å sende med riktig signering. Det er verdt å undersøke nærmere.</p>
+
+<h2 id="rad">Hva bør du gjøre?</h2>
+
+<p>Hvis du forvalter et domene som brukes til e-post, er her de viktigste stegene rangert etter prioritet:</p>
+
+<ol>
+  <li><strong>Sjekk om domenet ditt har DMARC.</strong> 13 domener i denne analysen mangler det helt. Uten DMARC kan hvem som helst sende e-post som ser ut til å komme fra deg. Bruk <a href="/">data1.no</a> for å sjekke statusen din.</li>
+  <li><strong>Sett policyen til <code>p=reject</code></strong> når du er trygg på at all legitim e-post er dekket av SPF og DKIM. <code>p=none</code> gir ingen reell beskyttelse — det er bare overvåking.</li>
+  <li><strong>Aktiver DMARC-rapportering</strong> med <code>rua</code>-feltet slik at du faktisk ser hva som sendes fra domenet ditt.</li>
+  <li><strong>Vurder MTA-STS</strong> for å sikre at e-post til domenet ditt alltid transporteres kryptert.</li>
+</ol>
+
+<p>Se <a href="/trender/">trendoversikten</a> for å følge utviklingen over tid, eller bruk <a href="/sammenligning/">sammenligningsverktøyet</a> for å se hvordan ditt domene ligger an mot andre i samme bransje.</p>
+
+<div style="margin-top:40px;padding:20px;background:#f0fdfa;border-radius:12px;border:1px solid #99f6e4">
+<h3 style="margin-bottom:8px">Sjekk ditt eget domene</h3>
+<p style="margin-bottom:14px">Få samme analyse for ditt domene på 10 sekunder, helt gratis.</p>
+<a href="/" style="display:inline-block;background:#14b8a6;color:#fff;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:700">Kjør analyse →</a>
+</div>
+</main>
+</body>
+</html>
