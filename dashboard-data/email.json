@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-05T14:50:43Z",
+  "lastUpdated": "2026-11-06T14:28:38Z",
   "ownDomains": [
     {
       "domain": "data1.no",
@@ -11,7 +11,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": false,
-      "lastChecked": "2026-11-05T14:50:45Z"
+      "lastChecked": "2026-11-06T14:28:40Z"
     },
     {
       "domain": "micronet.no",
@@ -23,7 +23,7 @@
       "mtaSts": false,
       "tlsRpt": false,
       "bimi": true,
-      "lastChecked": "2026-11-05T14:50:46Z"
+      "lastChecked": "2026-11-06T14:28:43Z"
     }
   ],
   "trackedDomains": {
@@ -36,12 +36,6 @@
   },
   "weeklyChanges": {
     "improved": [
-      {
-        "domain": "talkmore.no",
-        "from": "p=reject",
-        "to": "p=reject",
-        "scoreDelta": 25
-      },
       {
         "domain": "finn.no",
         "from": "p=reject",
@@ -82,11 +76,11 @@
     },
     {
       "week": "2026-W41",
-      "rejectPercent": 53.8
+      "rejectPercent": 54.4
     },
     {
       "week": "2026-W42",
-      "rejectPercent": 54.4
+      "rejectPercent": 55.1
     },
     {
       "week": "2026-W43",
