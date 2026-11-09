@@ -1,29 +1,29 @@
 {
-  "lastUpdated": "2026-11-08T13:43:39Z",
+  "lastUpdated": "2026-11-09T16:43:12Z",
   "ownDomains": [
     {
       "domain": "data1.no",
       "score": 80,
       "grade": "A",
-      "dmarc": "v=DMARC1; p=reject; sp=reject; adkim=s; aspf=s; pct=100; rua=mailto:96db6f3bf2bc4c2e96889efc9e87a9a9@dmarc-reports.cloudflare.net,mailto:org_6911b81c738c3638795d360a@rua.easydmarc.com,mailto:rua@kampanje.micronet.no; ruf=mailto:org_6911b81c738c3638795d360\" \"a@ruf.easydmarc.com; fo=1",
+      "dmarc": "v=DMARC1; p=reject; sp=reject; adkim=s; aspf=s; rua=mailto:rcsbawcew4@kampanje.micronet.no,mailto:96db6f3bf2bc4c2e96889efc9e87a9a9@dmarc-reports.cloudflare.net,mailto:org_6911b81c738c3638795d360a@rua.easydmarc.com; ruf=mailto:org_6911b81c738c3638795d360a@\" \"ruf.easydmarc.com; fo=1",
       "spf": "v=spf1 include:data1-no._s.h.micronet.no ~all",
       "dkim": "selector1, selector2, google, k1, k2, mandrill, mxvault, default, dkim, s1, s2, mail, protonmail, mailo",
       "mtaSts": false,
       "tlsRpt": true,
       "bimi": false,
-      "lastChecked": "2026-11-08T13:43:40Z"
+      "lastChecked": "2026-11-09T16:43:12Z"
     },
     {
       "domain": "micronet.no",
       "score": 95,
       "grade": "A+",
-      "dmarc": "v=DMARC1; p=reject; rua=mailto:1a64cc8f22c04d24a12b088b20dc5316@dmarc-reports.cloudflare.net,mailto:dmarc@data1.no,mailto:rua@kampanje.micronet.no; ruf=mailto:dmarc@data1.no",
+      "dmarc": "v=DMARC1; p=reject; rua=mailto:mhb5t77wxh@kampanje.micronet.no,mailto:1a64cc8f22c04d24a12b088b20dc5316@dmarc-reports.cloudflare.net,mailto:dmarc@data1.no; ruf=mailto:dmarc@data1.no; fo=1",
       "spf": "v=spf1 include:spf.protection.outlook.com include:micronet-no._s.h.micronet.no ~all",
       "dkim": "selector1, selector2, k2",
       "mtaSts": true,
       "tlsRpt": true,
       "bimi": true,
-      "lastChecked": "2026-11-08T13:43:40Z"
+      "lastChecked": "2026-11-09T16:43:13Z"
     }
   ],
   "trackedDomains": {
@@ -46,10 +46,6 @@
     "regressed": []
   },
   "timeline": [
-    {
-      "week": "2026-W34",
-      "rejectPercent": 53.8
-    },
     {
       "week": "2026-W35",
       "rejectPercent": 53.8
@@ -76,11 +72,11 @@
     },
     {
       "week": "2026-W41",
-      "rejectPercent": 54.4
+      "rejectPercent": 53.8
     },
     {
       "week": "2026-W42",
-      "rejectPercent": 55.1
+      "rejectPercent": 54.4
     },
     {
       "week": "2026-W43",
@@ -92,6 +88,10 @@
     },
     {
       "week": "2026-W45",
+      "rejectPercent": 55.1
+    },
+    {
+      "week": "2026-W46",
       "rejectPercent": 55.1
     }
   ]
