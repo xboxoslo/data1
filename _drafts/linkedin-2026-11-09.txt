@@ -1,0 +1,8 @@
+Equinor, Hydro og Yara scorer **0 av 100** på e-postsikkerhet 🚨
+
+Mens NAV og SSB leverer toppkarakter, mangler noen av Norges største industrikonserner grunnleggende beskyttelse mot phishing og CEO-fraud.
+
+Av 158 analyserte domener fikk 21 karakteren F – og det er ikke småaktører.
+
+Les ukesrapporten og sjekk om ditt domene er godt nok beskyttet:
+👉 https://data1.no/blogg/industrigiganters-e-postsikkerhet-equinor-hydro-og-yara-scor/
