@@ -78,7 +78,7 @@ xxl.no,E-handel,70,B,quarantine,1,1,1,0,1,0
 clas-ohlson.no,E-handel,0,F,,0,0,0,0,0,0
 jernia.no,E-handel,75,B,reject,1,1,1,0,0,0
 biltema.no,E-handel,60,C,quarantine,1,1,1,0,0,0
-ikea.com,E-handel,100,A+,reject,1,1,1,1,1,1
+ikea.com,E-handel,83,A,reject,1,1,1,0,0,1
 zalando.no,E-handel,51,D,none,1,1,1,0,0,1
 hm.com,E-handel,78,B,reject,1,1,1,0,0,1
 cubus.com,E-handel,45,D,quarantine,1,1,0,0,0,0
