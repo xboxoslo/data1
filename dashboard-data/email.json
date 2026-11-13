@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-12T15:29:00Z",
+  "lastUpdated": "2026-11-13T14:46:40Z",
   "ownDomains": [
     {
       "domain": "data1.no",
@@ -11,19 +11,19 @@
       "mtaSts": true,
       "tlsRpt": true,
       "bimi": false,
-      "lastChecked": "2026-11-12T15:29:00Z"
+      "lastChecked": "2026-11-13T14:46:41Z"
     },
     {
       "domain": "micronet.no",
       "score": 95,
       "grade": "A+",
-      "dmarc": "v=DMARC1; p=reject; rua=mailto:mhb5t77wxh@rua.micronet.no,mailto:1a64cc8f22c04d24a12b088b20dc5316@dmarc-reports.cloudflare.net,mailto:dmarc@data1.no; ruf=mailto:dmarc@data1.no; fo=1",
+      "dmarc": "v=DMARC1; p=reject; rua=mailto:mhb5t77wxh@rua.micronet.no; ruf=mailto:mhb5t77wxh@ruf.micronet.no; fo=1",
       "spf": "v=spf1 include:spf.protection.outlook.com include:micronet-no._s.h.micronet.no ~all",
       "dkim": "selector1, selector2, k2",
       "mtaSts": true,
       "tlsRpt": true,
       "bimi": true,
-      "lastChecked": "2026-11-12T15:29:04Z"
+      "lastChecked": "2026-11-13T14:46:42Z"
     }
   ],
   "trackedDomains": {
@@ -37,6 +37,12 @@
   "weeklyChanges": {
     "improved": [],
     "regressed": [
+      {
+        "domain": "talkmore.no",
+        "from": "p=reject",
+        "to": "p=reject",
+        "scoreDelta": -25
+      },
       {
         "domain": "ikea.com",
         "from": "p=reject",
@@ -72,11 +78,11 @@
     },
     {
       "week": "2026-W41",
-      "rejectPercent": 53.8
+      "rejectPercent": 54.4
     },
     {
       "week": "2026-W42",
-      "rejectPercent": 54.4
+      "rejectPercent": 55.1
     },
     {
       "week": "2026-W43",
