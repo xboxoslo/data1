@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-15T14:11:06Z",
+  "lastUpdated": "2026-11-16T16:13:54Z",
   "ownDomains": [
     {
       "domain": "data1.no",
@@ -11,7 +11,7 @@
       "mtaSts": true,
       "tlsRpt": true,
       "bimi": false,
-      "lastChecked": "2026-11-15T14:11:07Z"
+      "lastChecked": "2026-11-16T16:13:55Z"
     },
     {
       "domain": "micronet.no",
@@ -23,19 +23,32 @@
       "mtaSts": true,
       "tlsRpt": true,
       "bimi": true,
-      "lastChecked": "2026-11-15T14:11:08Z"
+      "lastChecked": "2026-11-16T16:13:56Z"
     }
   ],
   "trackedDomains": {
     "total": 158,
-    "withReject": 87,
+    "withReject": 88,
     "withQuarantine": 26,
-    "withNone": 32,
+    "withNone": 31,
     "missing": 13,
-    "rejectPercent": 55.1
+    "rejectPercent": 55.7
   },
   "weeklyChanges": {
-    "improved": [],
+    "improved": [
+      {
+        "domain": "nrk.no",
+        "from": "p=none",
+        "to": "p=reject",
+        "scoreDelta": 27
+      },
+      {
+        "domain": "talkmore.no",
+        "from": "p=reject",
+        "to": "p=reject",
+        "scoreDelta": 25
+      }
+    ],
     "regressed": [
       {
         "domain": "ikea.com",
@@ -46,10 +59,6 @@
     ]
   },
   "timeline": [
-    {
-      "week": "2026-W35",
-      "rejectPercent": 53.8
-    },
     {
       "week": "2026-W36",
       "rejectPercent": 53.8
@@ -72,11 +81,11 @@
     },
     {
       "week": "2026-W41",
-      "rejectPercent": 54.4
+      "rejectPercent": 53.8
     },
     {
       "week": "2026-W42",
-      "rejectPercent": 55.1
+      "rejectPercent": 54.4
     },
     {
       "week": "2026-W43",
@@ -93,6 +102,10 @@
     {
       "week": "2026-W46",
       "rejectPercent": 55.1
+    },
+    {
+      "week": "2026-W47",
+      "rejectPercent": 55.7
     }
   ]
 }
