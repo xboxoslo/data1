@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-16T16:44:58Z",
+  "lastUpdated": "2026-11-17T16:20:16Z",
   "ownDomains": [
     {
       "domain": "data1.no",
@@ -11,7 +11,7 @@
       "mtaSts": true,
       "tlsRpt": true,
       "bimi": false,
-      "lastChecked": "2026-11-16T16:44:59Z"
+      "lastChecked": "2026-11-17T16:20:18Z"
     },
     {
       "domain": "micronet.no",
@@ -23,7 +23,7 @@
       "mtaSts": true,
       "tlsRpt": true,
       "bimi": true,
-      "lastChecked": "2026-11-16T16:45:00Z"
+      "lastChecked": "2026-11-17T16:20:20Z"
     }
   ],
   "trackedDomains": {
@@ -41,22 +41,9 @@
         "from": "p=none",
         "to": "p=reject",
         "scoreDelta": 27
-      },
-      {
-        "domain": "talkmore.no",
-        "from": "p=reject",
-        "to": "p=reject",
-        "scoreDelta": 25
       }
     ],
-    "regressed": [
-      {
-        "domain": "ikea.com",
-        "from": "p=reject",
-        "to": "p=reject",
-        "scoreDelta": -17
-      }
-    ]
+    "regressed": []
   },
   "timeline": [
     {
