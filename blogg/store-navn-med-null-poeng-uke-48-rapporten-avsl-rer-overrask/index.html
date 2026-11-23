@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="description" content="Store navn med null poeng — uke 48-rapporten avslører overraskende svikt — ukentlig DMARC-analyse fra data1.no.">
+<meta name="author" content="Terje Otterlei">
+<meta name="theme-color" content="#1a202c">
+<link rel="canonical" href="https://data1.no/blogg/store-navn-med-null-poeng-uke-48-rapporten-avsl-rer-overrask/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Store navn med null poeng — uke 48-rapporten avslører overraskende svikt">
+<meta property="og:image" content="https://data1.no/og-image.png">
+<title>Store navn med null poeng — uke 48-rapporten avslører overraskende svikt | data1.no</title>
+<link rel="stylesheet" href="/blogg/_assets/post.css">
+<style>
+.data-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.data-table th{background:#0f172a;color:#fff;text-align:left;padding:10px 12px;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.data-table td{padding:10px 12px;border-bottom:1px solid #f1f5f9}
+.callout{background:#f0fdfa;border-left:4px solid #14b8a6;padding:14px 18px;border-radius:0 10px 10px 0;margin:18px 0}
+.callout.warn{background:#fff7ed;border-left-color:#f97316;color:#7c2d12}
+.meta{font-size:13px;color:#64748b;margin-bottom:22px}
+.lead{font-size:18px;color:#475569;margin-bottom:24px;line-height:1.7}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Store navn med null poeng — uke 48-rapporten avslører overraskende svikt","datePublished":"2026-11-23","dateModified":"2026-11-23","author":{"@type":"Organization","name":"Micronet","url":"https://micronet.no/"},"publisher":{"@type":"Organization","name":"data1.no","logo":{"@type":"ImageObject","url":"https://data1.no/og-image.png"}},"description":"Store navn med null poeng — uke 48-rapporten avslører overraskende svikt","image":"https://data1.no/og-image.png","mainEntityOfPage":"https://data1.no/blogg/store-navn-med-null-poeng-uke-48-rapporten-avsl-rer-overrask/","inLanguage":"nb-NO"}</script>
+</head>
+<body>
+<header class="header">
+<a href="/" class="logo">data1<span>.no</span></a>
+<div class="spacer"></div>
+<a href="/" class="nav-link">Sjekk eget domene →</a>
+</header>
+<main>
+<nav class="crumbs"><a href="/">Hjem</a> › <a href="/blogg/">Blogg</a> › Ukerapport 48</nav>
+<h1>Store navn med null poeng — uke 48-rapporten avslører overraskende svikt</h1>
+
+<p class="lead">Equinor, Hydro og Yara scorer alle F på e-postsikkerhet denne uken — mens offentlig sektor fortsetter å dominere toppen.</p>
+
+<p class="meta">Publisert 23. nov 2026 · Av Terje Otterlei · 4 min lesetid</p>
+
+<h2 id="oversikt">Ukens tall i korthet</h2>
+
+<p>158 norske domener er analysert i uke 48, og snittscore ligger på 65,0 av 100 poeng. Det er ikke et dårlig gjennomsnitt isolert sett, men fordelingen under overflaten forteller en mer nyansert historie.</p>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Karakter</th>
+      <th>Antall domener</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>A+</td><td>27</td></tr>
+    <tr><td>A</td><td>39</td></tr>
+    <tr><td>B</td><td>14</td></tr>
+    <tr><td>C</td><td>32</td></tr>
+    <tr><td>D</td><td>25</td></tr>
+    <tr><td>F</td><td>21</td></tr>
+  </tbody>
+</table>
+
+<p>88 av 158 domener har satt DMARC-policyen til <code>p=reject</code>, som gir full beskyttelse mot e-postforfalskning. 13 domener mangler DMARC helt. Det er altså nesten én av ti domener som ikke har tatt det første og mest grunnleggende steget.</p>
+
+<h2 id="stoerrenavnbunnen">Når industrigiganters domener scorer null</h2>
+
+<p>Det mest påfallende funnet denne uken er ikke at ukjente domener scorer dårlig — det er at noen av Norges mest kjente selskaper gjør det. <a href="/?d=equinor.no">equinor.no</a>, <a href="/?d=hydro.no">hydro.no</a> og <a href="/?d=yara.no">yara.no</a> scorer alle 0 poeng og får karakteren F.</p>
+
+<p>Det samme gjelder <a href="/?d=aker-solutions.no">aker-solutions.no</a> og <a href="/?d=sparebanken-ost.no">sparebanken-ost.no</a>. For en bank er dette spesielt bekymringsverdig: manglende DMARC-beskyttelse betyr at kriminelle kan sende e-post som tilsynelatende kommer fra bankens eget domene — rettet mot bankens kunder.</p>
+
+<div class="callout warn">
+  <strong>5 av 10 domener på bunnen er store norske selskaper eller merkevarer.</strong> Lav score på e-postsikkerhet hos kjente aktører gjør dem til attraktive mål for phishing og BEC-angrep (Business Email Compromise), fordi avsenderen virker troverdig.
+</div>
+
+<p>Det er viktig å presisere: en F-score betyr ikke nødvendigvis at domenene er blitt angrepet. Det betyr at de ikke har satt opp mekanismer som hindrer at noen utgir seg for å være dem. Det er en åpen dør som ikke trenger å ha blitt brukt ennå — men som bør lukkes.</p>
+
+<h2 id="toppen">Offentlig sektor leverer</h2>
+
+<p>I den andre enden av skalaen finner vi en imponerende rekke offentlige domener. <a href="/?d=nav.no">nav.no</a>, <a href="/?d=ssb.no">ssb.no</a> og <a href="/?d=stortinget.no">stortinget.no</a> scorer alle A+ eller A+ med 97–100 poeng. <a href="/?d=udi.no">udi.no</a> er også med i topp 10.</p>
+
+<p>Dette er domener som potensielt er enda mer attraktive mål for misbruk enn kommersielle aktører — nettopp fordi folk stoler blindt på e-post fra NAV eller UDI. At disse institusjonene har tatt e-postsikkerhet på alvor, er betryggende.</p>
+
+<h2 id="talkmore">Ukens forverring: Talkmore faller 25 poeng</h2>
+
+<p><a href="/?d=talkmore.no">talkmore.no</a> er den eneste registrerte forverringen denne uken, men den er markant: en nedgang fra 80 til 55 poeng gir karakteren C. En slik endring skyldes typisk at en konfigurasjon har blitt fjernet eller endret — for eksempel at en DMARC-policy er blitt svekket fra <code>p=reject</code> til <code>p=none</code>, eller at en MTA-STS- eller BIMI-konfigurasjon har falt bort.</p>
+
+<p>En nedgang på 25 poeng på én uke er noe som bør følges opp internt. Se gjerne <a href="/trender/">trendoversikten</a> for å følge utviklingen fremover.</p>
+
+<h2 id="hvakandugjore">Hva bør du gjøre?</h2>
+
+<p>Funnene denne uken viser at størrelse og merkevare ikke er noen garanti for god e-postsikkerhet. Her er de viktigste stegene for domener som scorer lavt:</p>
+
+<ol>
+  <li><strong>Sett opp SPF</strong> — definer hvilke servere som har lov til å sende e-post på vegne av domenet ditt.</li>
+  <li><strong>Aktiver DKIM</strong> — legg til en kryptografisk signatur på utgående e-post.</li>
+  <li><strong>Publiser en DMARC-post</strong> — start gjerne med <code>p=none</code> for å samle rapporter, og jobb deg mot <code>p=reject</code>.</li>
+  <li><strong>Vurder MTA-STS og TLS-RPT</strong> — disse protokollene sikrer at e-post i transitt er kryptert og at du får varsler ved avvik.</li>
+</ol>
+
+<p>Vil du se hvordan ditt domene scorer? Søk det opp direkte på <a href="/">data1.no</a>, eller sammenlign det med konkurrenter via <a href="/sammenligning/">sammenligningsverktøyet</a>.</p>
+
+<p>Neste ukesrapport publiseres 30. november 2026.</p>
+
+<div style="margin-top:40px;padding:20px;background:#f0fdfa;border-radius:12px;border:1px solid #99f6e4">
+<h3 style="margin-bottom:8px">Sjekk ditt eget domene</h3>
+<p style="margin-bottom:14px">Få samme analyse for ditt domene på 10 sekunder, helt gratis.</p>
+<a href="/" style="display:inline-block;background:#14b8a6;color:#fff;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:700">Kjør analyse →</a>
+</div>
+</main>
+</body>
+</html>
