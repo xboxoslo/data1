@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-22T14:46:28Z",
+  "lastUpdated": "2026-11-23T18:34:53Z",
   "ownDomains": [
     {
       "domain": "data1.no",
@@ -11,7 +11,7 @@
       "mtaSts": true,
       "tlsRpt": true,
       "bimi": false,
-      "lastChecked": "2026-11-22T14:46:29Z"
+      "lastChecked": "2026-11-23T18:34:56Z"
     },
     {
       "domain": "micronet.no",
@@ -23,7 +23,7 @@
       "mtaSts": true,
       "tlsRpt": true,
       "bimi": true,
-      "lastChecked": "2026-11-22T14:46:30Z"
+      "lastChecked": "2026-11-23T18:34:58Z"
     }
   ],
   "trackedDomains": {
@@ -35,21 +35,17 @@
     "rejectPercent": 55.7
   },
   "weeklyChanges": {
-    "improved": [
+    "improved": [],
+    "regressed": [
       {
-        "domain": "nrk.no",
-        "from": "p=none",
+        "domain": "talkmore.no",
+        "from": "p=reject",
         "to": "p=reject",
-        "scoreDelta": 27
+        "scoreDelta": -25
       }
-    ],
-    "regressed": []
+    ]
   },
   "timeline": [
-    {
-      "week": "2026-W36",
-      "rejectPercent": 53.8
-    },
     {
       "week": "2026-W37",
       "rejectPercent": 53.8
@@ -68,11 +64,11 @@
     },
     {
       "week": "2026-W41",
-      "rejectPercent": 54.4
+      "rejectPercent": 53.8
     },
     {
       "week": "2026-W42",
-      "rejectPercent": 55.1
+      "rejectPercent": 54.4
     },
     {
       "week": "2026-W43",
@@ -92,6 +88,10 @@
     },
     {
       "week": "2026-W47",
+      "rejectPercent": 55.7
+    },
+    {
+      "week": "2026-W48",
       "rejectPercent": 55.7
     }
   ]
